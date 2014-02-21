@@ -13,7 +13,7 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.User;
 
-
+// Adding a worthless comment from a browser just to check stuff out
 public class Model {
 	private final static Model instance = new Model();
 	private final static IMatDataHandler dataBase = IMatDataHandler.getInstance();
