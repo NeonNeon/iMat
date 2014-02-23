@@ -1,12 +1,12 @@
 import se.chalmers.ait.dat215.project.*;
 import java.util.*;
-
-public class GroceryBag {
-	/**
+/**
 	 * A class that represents a saved but not bought ShoppingCart. If one does
 	 * not make an order, one can still save one's ShoppingCart and load it
 	 * later
 	 */
+public class GroceryBag {
+
 	private final static Model model = Model
 			.getInstance();
 	/**
