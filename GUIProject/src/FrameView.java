@@ -44,12 +44,5 @@ public class FrameView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(0, 0, 250, 50);
-		contentPane.add(btnNewButton);
-		
-		JButton button = new JButton("New button");
-		button.setBounds(this.getWidth()-250, 0, 250, 50);
-		contentPane.add(button);
 	}
 }
