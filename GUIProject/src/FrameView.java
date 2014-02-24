@@ -13,7 +13,8 @@ import javax.swing.JButton;
  *
  */
 public class FrameView extends JFrame {
-
+	private static final int WIDTH = 1200;
+	private static final int HEIGHT = 720;
 	private JPanel contentPane;
 
 	/**
@@ -37,7 +38,7 @@ public class FrameView extends JFrame {
 	 */
 	public FrameView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(70, 50, 1200, 680);
+		setBounds(70, 50, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
