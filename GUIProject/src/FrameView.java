@@ -6,7 +6,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-
+/**
+ * The FrameView class is the base class of the iMat application.
+ * Every component lies in this frame.
+ * @author Grupp16
+ *
+ */
 public class FrameView extends JFrame {
 
 	private JPanel contentPane;
