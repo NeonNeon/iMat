@@ -45,13 +45,14 @@ private static final int NAME_PANEL_HEIGHT = 100;
 		cartPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(cartPanel, BorderLayout.CENTER);
 		
-		JLabel lblVarukorg = new JLabel("Varukorg");
-		lblVarukorg.setHorizontalAlignment(SwingConstants.CENTER);
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, lblVarukorg, 0, SpringLayout.NORTH, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.WEST, lblVarukorg, 0, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, lblVarukorg, 0, SpringLayout.EAST, cartPanel);
-		lblVarukorg.setFont(new Font("Dialog", Font.BOLD, 22));
-		cartPanel.add(lblVarukorg);
+		JLabel varukorgLabel = new JLabel("Varukorg");
+		varukorgLabel.setSize(WIDTH,NAME_PANEL_HEIGHT);
+		varukorgLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, varukorgLabel, 0, SpringLayout.NORTH, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, varukorgLabel, 0, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, varukorgLabel, 0, SpringLayout.EAST, cartPanel);
+		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
+		cartPanel.add(varukorgLabel);
 	}
 
 }
