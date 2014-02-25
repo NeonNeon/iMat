@@ -30,6 +30,8 @@ private static final int NAME_PANEL_HEIGHT = 100;
 		add(namePanel,BorderLayout.NORTH);
 		
 		JPanel cartPanel = new JPanel();
+		SpringLayout sl_cartPanel = new SpringLayout();
+		cartPanel.setLayout(sl_cartPanel);
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0, SpringLayout.SOUTH, namePanel);
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 600, SpringLayout.SOUTH, namePanel);
 		JLabel nameLabel = new JLabel("Stefan Svantesson");
@@ -42,6 +44,14 @@ private static final int NAME_PANEL_HEIGHT = 100;
 		springLayout.putConstraint(SpringLayout.EAST, cartPanel, 0, SpringLayout.EAST, this);
 		cartPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(cartPanel, BorderLayout.CENTER);
+		
+		JLabel lblVarukorg = new JLabel("Varukorg");
+		lblVarukorg.setHorizontalAlignment(SwingConstants.CENTER);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, lblVarukorg, 0, SpringLayout.NORTH, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, lblVarukorg, 0, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, lblVarukorg, 0, SpringLayout.EAST, cartPanel);
+		lblVarukorg.setFont(new Font("Dialog", Font.BOLD, 22));
+		cartPanel.add(lblVarukorg);
 	}
 
 }
