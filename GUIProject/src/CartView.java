@@ -27,6 +27,8 @@ private static final int NAME_PANEL_HEIGHT = 100;
 private JLabel nameLabel;
 private Choice oldCartChoice;
 private JButton buyButton;
+private JButton saveCartButton;
+private JButton emptyCartButton;
 	/**
 	 * Create the panel.
 	 */	
@@ -91,6 +93,18 @@ private JButton buyButton;
 		sl_cartPanel.putConstraint(SpringLayout.WEST, buyButton, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, cartPanel);
 		cartPanel.add(buyButton);
+		
+		saveCartButton = new JButton("Spara");
+		sl_cartPanel.putConstraint(SpringLayout.WEST, saveCartButton, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, buyButton);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, saveCartButton, -127, SpringLayout.EAST, cartPanel);
+		cartPanel.add(saveCartButton);
+		
+		emptyCartButton = new JButton("Tom");
+		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.EAST, saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, buyButton);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
+		cartPanel.add(emptyCartButton);
 	}
 	public void addCartToChoice() {
 		; // Should add an item in the list and attach some sort of action performed thing //TODO
