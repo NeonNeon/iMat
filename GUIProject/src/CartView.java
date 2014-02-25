@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JList;
+import java.awt.Choice;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -16,10 +18,12 @@ import javax.swing.SwingConstants;
  *
  */
 public class CartView extends JPanel {
+private static final int CHOICE_DISTANCE_FROM_CARTVIEW = 10;
 private static final int WIDTH = 250;
 private static final int HEIGHT = 681;
 private static final int NAME_PANEL_HEIGHT = 100;
 private JLabel nameLabel;
+private Choice oldCartChoice;
 	/**
 	 * Create the panel.
 	 */	
@@ -69,6 +73,16 @@ private JLabel nameLabel;
 		sl_cartPanel.putConstraint(SpringLayout.EAST, varukorgLabel, 0, SpringLayout.EAST, cartPanel);
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
+		
+		Choice oldCartChoice = new Choice();
+		oldCartChoice.setFont(new Font("Dialog", Font.PLAIN, 20));
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, oldCartChoice, 0, SpringLayout.SOUTH, varukorgLabel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, oldCartChoice, CHOICE_DISTANCE_FROM_CARTVIEW, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, oldCartChoice, -CHOICE_DISTANCE_FROM_CARTVIEW, SpringLayout.EAST, cartPanel);
+		cartPanel.add(oldCartChoice);
+	}
+	public void addCartToChoice() {
+		; // Should add an item in the list and attach some sort of action performed thing //TODO
 	}
 	public void setProfileName(String name) {
 		nameLabel.setText(name);
