@@ -63,10 +63,10 @@ private JLabel nameLabel;
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
 	}
-	public void setName(String name) {
+	public void setProfileName(String name) {
 		nameLabel.setText(name);
 	}
-	public String getName() {
+	public String getProfileName() {
 		return nameLabel.getText();
 	}
 }
