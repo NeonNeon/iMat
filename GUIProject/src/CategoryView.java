@@ -8,7 +8,11 @@ import se.chalmers.ait.dat215.project.util.*;
 
 import java.awt.event.*;
 
-
+/**
+ * This is the small view of a category when browsing the sortiment.
+ * @author Grupp16
+ *
+ */
 public class CategoryView extends JPanel {
 	private final static Model model = Model
 			.getInstance();
