@@ -9,6 +9,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 import java.awt.Choice;
+import java.awt.Button;
+import javax.swing.JButton;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -18,12 +20,13 @@ import java.awt.Choice;
  *
  */
 public class CartView extends JPanel {
-private static final int CHOICE_DISTANCE_FROM_CARTVIEW = 10;
+private static final int COMPONENT_DISTANCE_FROM_PANELS = 10;
 private static final int WIDTH = 250;
 private static final int HEIGHT = 681;
 private static final int NAME_PANEL_HEIGHT = 100;
 private JLabel nameLabel;
 private Choice oldCartChoice;
+private JButton buyButton;
 	/**
 	 * Create the panel.
 	 */	
@@ -42,11 +45,11 @@ private Choice oldCartChoice;
 		add(namePanel);
 		
 		JPanel cartPanel = new JPanel();
+		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581, SpringLayout.SOUTH, namePanel);
 		SpringLayout sl_cartPanel = new SpringLayout();
 		cartPanel.setLayout(sl_cartPanel);
 		
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0, SpringLayout.SOUTH, namePanel);
-		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 600, SpringLayout.SOUTH, namePanel);
 		nameLabel = new JLabel("Stefan Svantesson");
 		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, namePanel);
 		sl_namePanel.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, namePanel);
@@ -77,9 +80,17 @@ private Choice oldCartChoice;
 		Choice oldCartChoice = new Choice();
 		oldCartChoice.setFont(new Font("Dialog", Font.PLAIN, 20));
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, oldCartChoice, 0, SpringLayout.SOUTH, varukorgLabel);
-		sl_cartPanel.putConstraint(SpringLayout.WEST, oldCartChoice, CHOICE_DISTANCE_FROM_CARTVIEW, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, oldCartChoice, -CHOICE_DISTANCE_FROM_CARTVIEW, SpringLayout.EAST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, oldCartChoice, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, oldCartChoice, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
 		cartPanel.add(oldCartChoice);
+		
+		buyButton = new JButton("Betala");
+		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, -50, SpringLayout.SOUTH, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, buyButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, buyButton, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, cartPanel);
+		cartPanel.add(buyButton);
 	}
 	public void addCartToChoice() {
 		; // Should add an item in the list and attach some sort of action performed thing //TODO
