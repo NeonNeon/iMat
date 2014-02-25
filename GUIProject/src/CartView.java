@@ -25,6 +25,7 @@ private static final int WIDTH = 250;
 private static final int HEIGHT = 681;
 private static final int NAME_PANEL_HEIGHT = 100;
 private JLabel nameLabel;
+private JLabel totalSumLabel;
 private Choice oldCartChoice;
 private JButton buyButton;
 private JButton saveCartButton;
@@ -105,12 +106,23 @@ private JButton emptyCartButton;
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, buyButton);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
 		cartPanel.add(emptyCartButton);
+		
+		totalSumLabel = new JLabel("Summa: XXX kr");
+		sl_cartPanel.putConstraint(SpringLayout.WEST, totalSumLabel, 4*COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, varukorgLabel);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, totalSumLabel, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, totalSumLabel, -4*COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
+		totalSumLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+		cartPanel.add(totalSumLabel);
 	}
 	public void addCartToChoice() {
 		; // Should add an item in the list and attach some sort of action performed thing //TODO
 	}
 	public void setProfileName(String name) {
 		nameLabel.setText(name);
+	}
+	public void setTotalSum(int sum) {
+		totalSumLabel.setText("Summa: " + sum + "kr");
 	}
 	public String getProfileName() {
 		return nameLabel.getText();
