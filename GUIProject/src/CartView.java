@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.BorderLayout;
 
 
 public class CartView extends JPanel {
@@ -12,10 +13,11 @@ private static final int HEIGHT = 681;
 	 */
 	public CartView() {
 		setSize(WIDTH, HEIGHT);
+		setLayout(new BorderLayout(0, 0));
 		
 		JLabel nameLabel = new JLabel("Stefan Svantesson");
 		nameLabel.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
-		add(nameLabel);
+		add(nameLabel,BorderLayout.NORTH);
 	}
 
 }
