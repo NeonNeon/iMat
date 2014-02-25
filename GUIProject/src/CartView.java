@@ -33,14 +33,21 @@ private JLabel nameLabel;
 		springLayout.putConstraint(SpringLayout.SOUTH, namePanel, 100, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, namePanel, 0, SpringLayout.EAST, this);
 		namePanel.setSize(WIDTH, NAME_PANEL_HEIGHT);
+		SpringLayout sl_namePanel = new SpringLayout();
+		namePanel.setLayout(sl_namePanel);
 		add(namePanel);
 		
 		JPanel cartPanel = new JPanel();
 		SpringLayout sl_cartPanel = new SpringLayout();
 		cartPanel.setLayout(sl_cartPanel);
+		
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0, SpringLayout.SOUTH, namePanel);
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 600, SpringLayout.SOUTH, namePanel);
 		nameLabel = new JLabel("Stefan Svantesson");
+		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, namePanel);
+		sl_namePanel.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, namePanel);
+		sl_namePanel.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, namePanel);
+		sl_namePanel.putConstraint(SpringLayout.EAST, nameLabel, 0, SpringLayout.EAST, namePanel);
 		nameLabel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		namePanel.add(nameLabel);
 		
