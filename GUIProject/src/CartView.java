@@ -8,7 +8,13 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 
-
+/**
+ * CartView is the class that shows the current ShoppingCart in the application.
+ * It also has label with the name of the current Customer that links to its
+ * personal page.
+ * @author Grupp16
+ *
+ */
 public class CartView extends JPanel {
 private static final int WIDTH = 250;
 private static final int HEIGHT = 681;
