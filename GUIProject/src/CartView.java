@@ -27,7 +27,7 @@ private static final int NAME_PANEL_HEIGHT = 100;
 		springLayout.putConstraint(SpringLayout.SOUTH, namePanel, 100, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, namePanel, 0, SpringLayout.EAST, this);
 		namePanel.setSize(WIDTH, NAME_PANEL_HEIGHT);
-		add(namePanel,BorderLayout.NORTH);
+		add(namePanel,BorderLayout.CENTER);
 		
 		JPanel cartPanel = new JPanel();
 		SpringLayout sl_cartPanel = new SpringLayout();
@@ -35,6 +35,7 @@ private static final int NAME_PANEL_HEIGHT = 100;
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0, SpringLayout.SOUTH, namePanel);
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 600, SpringLayout.SOUTH, namePanel);
 		JLabel nameLabel = new JLabel("Stefan Svantesson");
+		nameLabel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		namePanel.add(nameLabel);
 		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.NORTH, cartPanel);
