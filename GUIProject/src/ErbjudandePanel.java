@@ -24,7 +24,6 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 	private JLabel nameLabel;
 	private JLabel priceLabel;
 	private JButton productButton;
-	private JLabel krLabel;
 
 	/**
 	 * Create the panel.
@@ -68,7 +67,6 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 			
 			List<Product> result = model.findProducts(e.getActionCommand());
 			new SearchResultsView(result.get(0));
-			
 			
 		}else{
 			throw new IllegalArgumentException();
