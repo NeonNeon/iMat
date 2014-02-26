@@ -80,13 +80,6 @@ private JButton emptyCartButton;
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
 		
-		Choice oldCartChoice = new Choice();
-		oldCartChoice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, oldCartChoice, 0, SpringLayout.SOUTH, varukorgLabel);
-		sl_cartPanel.putConstraint(SpringLayout.WEST, oldCartChoice, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, oldCartChoice, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
-		cartPanel.add(oldCartChoice);
-		
 		buyButton = new JButton("Betala");
 		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, -50, SpringLayout.SOUTH, cartPanel);
@@ -115,9 +108,7 @@ private JButton emptyCartButton;
 		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		cartPanel.add(totalSumLabel);
 	}
-	public void addCartToChoice() {
-		; // Should add an item in the list and attach some sort of action performed thing //TODO
-	}
+
 	public void setProfileName(String name) {
 		nameLabel.setText(name);
 	}
