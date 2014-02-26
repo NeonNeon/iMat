@@ -15,9 +15,12 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
+import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -38,6 +41,8 @@ private JButton buyButton;
 private JButton saveCartButton;
 private JButton emptyCartButton;
 private JScrollPane scrollCartPane;
+private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
+private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 	/**
 	 * Create the panel.
 	 */	
@@ -124,8 +129,16 @@ private JScrollPane scrollCartPane;
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
 		cartPanel.add(scrollCartPane);
 		scrollCartPane.setLayout(new FlowLayout());
+		addShoppingItem(Model.getInstance().findProducts("citron").get(1));
+		validate();
+	}
+	public void addShoppingItem(Product p) {
+		addShoppingItem(new ShoppingItem(p));
 	}
 	public void addShoppingItem(ShoppingItem item) {
+		items.add(item);
+		CartItemPanel newItemPanel = new CartItemPanel(item);
+		scrollCartPane.add(newItemPanel);
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
 	}
