@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import javax.swing.border.SoftBevelBorder;
@@ -11,6 +12,12 @@ import javax.swing.JList;
 import java.awt.Choice;
 import java.awt.Button;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.LineBorder;
+
+import se.chalmers.ait.dat215.project.ShoppingItem;
+
+import java.awt.Color;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -30,6 +37,7 @@ private Choice oldCartChoice;
 private JButton buyButton;
 private JButton saveCartButton;
 private JButton emptyCartButton;
+private JScrollPane scrollCartPane;
 	/**
 	 * Create the panel.
 	 */	
@@ -80,13 +88,6 @@ private JButton emptyCartButton;
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
 		
-		Choice oldCartChoice = new Choice();
-		oldCartChoice.setFont(new Font("Dialog", Font.PLAIN, 20));
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, oldCartChoice, 0, SpringLayout.SOUTH, varukorgLabel);
-		sl_cartPanel.putConstraint(SpringLayout.WEST, oldCartChoice, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, oldCartChoice, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
-		cartPanel.add(oldCartChoice);
-		
 		buyButton = new JButton("Betala");
 		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, -50, SpringLayout.SOUTH, cartPanel);
@@ -114,9 +115,19 @@ private JButton emptyCartButton;
 		totalSumLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		cartPanel.add(totalSumLabel);
+		
+		scrollCartPane = new JScrollPane();
+		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, totalSumLabel);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.SOUTH, nameLabel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
+		cartPanel.add(scrollCartPane);
+		scrollCartPane.setLayout(new FlowLayout());
 	}
-	public void addCartToChoice() {
-		; // Should add an item in the list and attach some sort of action performed thing //TODO
+	public void addShoppingItem(ShoppingItem item) {
+		// adds the shoppingItem to the list of shoppingitems
+		// creates a shoppingitemview instance
 	}
 	public void setProfileName(String name) {
 		nameLabel.setText(name);
