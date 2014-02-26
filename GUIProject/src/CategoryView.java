@@ -18,11 +18,11 @@ public class CategoryView extends JPanel {
 			.getInstance();
 	private Product p;
 	
-	
+	//TODO - Constructor should take a productcategory as argument, not product
 	public CategoryView(Product p) {
 		this.p=p;
-		setLayout(null);
-		
+		setLayout(new GridLayout(2,1));
+	
 		
 		JLabel imageLabel = new JLabel(model.getImageIcon(p), JLabel.CENTER);
 		imageLabel.setBounds(22, 66, 189, 137);
