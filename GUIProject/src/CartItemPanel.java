@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -34,14 +35,17 @@ public class CartItemPanel extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @wbp.parser.constructor
 	 */
 	public CartItemPanel(ShoppingItem item) {
 		this.item = item;
 		setSize(WIDTH, HEIGHT);
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
-		nameLabel = new JLabel("GranatÄpple");
-		amountLable = new JLabel("10st");
+		nameLabel = new JLabel();
+		amountLable = new JLabel();
+		setAmount(item.getAmount(), item.getProduct().getUnitSuffix());
+		setName(item.getProduct().getName());
 		buttonPanel = new JPanel();
 		
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, this);
@@ -103,6 +107,9 @@ public class CartItemPanel extends JPanel {
 		
 		
 		
+	}
+	public CartItemPanel(Product p) {
+		this(new ShoppingItem(p));
 	}
 	public void update() {
 		setAmount(item.getAmount(),item.getProduct().getUnitSuffix());
