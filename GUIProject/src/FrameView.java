@@ -38,11 +38,13 @@ public class FrameView extends JFrame {
 	 */
 	public FrameView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(70, 50, WIDTH, HEIGHT);
+		setBounds(70, 10, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		add(new StartView());
 		
 	}
 }
