@@ -16,6 +16,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JToolBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Component;
+import javax.swing.Box;
 
 
 public class SearchView extends JPanel {
@@ -56,7 +58,7 @@ public class SearchView extends JPanel {
 		add(logoButton);
 
 		textField = new JTextField();
-		textField.setBounds(10, 112, 222, 42);
+		textField.setBounds(20, 130, 210, 40);
 		add(textField);
 		textField.setColumns(10);
 		textField.setText("Sšk..");
@@ -83,9 +85,9 @@ public class SearchView extends JPanel {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(20, 175, 212, 330);
+		panel.setBounds(20, 214, 212, 355);
 		add(panel);
-		panel.setLayout(new GridLayout(14, 1, 9, 0));
+		panel.setLayout(new GridLayout(15, 1, 9, 0));
 
 
 		JLabel favoritesLabel = new JLabel("Favoriter");
@@ -94,11 +96,14 @@ public class SearchView extends JPanel {
 		favoritesLabel.setBackground(hoverColor);
 		favoritesLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(favoritesLabel);
-		favoritesLabel.setFont(categoryFont);
+		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));
 		favoritesLabel.setSize(681,30);
 
 		JLabel greensLabel = new JLabel("Gršnsaker");
 		greensLabel.addMouseListener(myMouseListener);
+		
+		Component horizontalStrut = Box.createHorizontalStrut(20);
+		panel.add(horizontalStrut);
 		greensLabel.setForeground(originalColor);
 		greensLabel.setBackground(hoverColor);
 		greensLabel.setHorizontalAlignment(SwingConstants.CENTER);
