@@ -5,6 +5,8 @@ import javax.swing.SpringLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
@@ -40,6 +42,7 @@ private Choice oldCartChoice;
 private JButton buyButton;
 private JButton saveCartButton;
 private JButton emptyCartButton;
+private JPanel cartItemPane;
 private JScrollPane scrollCartPane;
 private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
@@ -121,13 +124,18 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		cartPanel.add(totalSumLabel);
 		
-		scrollCartPane = new JScrollPane();
+		
+		cartItemPane = new JPanel(new GridLayout(0,1));
+		cartItemPane.setSize(700,300);
+		
+		scrollCartPane = new JScrollPane(cartItemPane);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, totalSumLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.SOUTH, nameLabel);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
 		cartPanel.add(scrollCartPane);
+		
 		addShoppingItem(Model.getInstance().findProducts("citron").get(1));
 //		validate();
 	}
@@ -137,7 +145,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 	public void addShoppingItem(ShoppingItem item) {
 		items.add(item);
 		CartItemPanel newItemPanel = new CartItemPanel(item);
-		scrollCartPane.add(newItemPanel);
+		cartItemPane.add(newItemPanel);
 		newItemPanel.revalidate();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
