@@ -1,7 +1,9 @@
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
 import javax.swing.SpringLayout;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.BorderLayout;
@@ -126,14 +128,18 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		
 		
 		cartItemPane = new JPanel(new GridLayout(0,1));
-		cartItemPane.setSize(700,300);
+//		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,700));
+		cartItemPane.setAlignmentY(TOP_ALIGNMENT);
 		
 		scrollCartPane = new JScrollPane(cartItemPane);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, totalSumLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.SOUTH, nameLabel);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
+		System.out.println("height" + scrollCartPane.getSize().height + "width " + scrollCartPane.getSize().width);
+//		scrollCartPane.getViewport().setViewSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS, 500));
 		cartPanel.add(scrollCartPane);
 		
 		addShoppingItem(Model.getInstance().findProducts("citron").get(1));
@@ -145,8 +151,14 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 	public void addShoppingItem(ShoppingItem item) {
 		items.add(item);
 		CartItemPanel newItemPanel = new CartItemPanel(item);
+		itemPanels.add(newItemPanel);
+		itemPanels.add(newItemPanel);
 		cartItemPane.add(newItemPanel);
-		newItemPanel.revalidate();
+//		newItemPanel.revalidate();
+		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,itemPanels.size()*CartItemPanel.HEIGHT));
+		System.out.println("pane: " + cartItemPane.getSize().height);
+		System.out.println("itemPanel:" + newItemPanel.getSize().height);
+//		cartItemPane.repaint();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
 	}

@@ -4,6 +4,8 @@ import javax.swing.SpringLayout;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import javax.swing.JLabel;
+
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,9 +24,12 @@ import java.awt.Insets;
  * 
  */
 public class CartItemPanel extends JPanel {
-	private static final int WIDTH = 230;
-	private static final int HEIGHT = 50;
-	private static final int COMPONENT_DISTANCE_FROM_PANELS = 10;
+	public static final int WIDTH = 230;
+	/**
+	 * Height of the panel, set to 50.
+	 */
+	public static final int HEIGHT = 50;
+	public static final int COMPONENT_DISTANCE_FROM_PANELS = 10;
 	private ShoppingItem item;
 	private JLabel amountLable;
 	private JLabel nameLabel;
@@ -39,7 +44,7 @@ public class CartItemPanel extends JPanel {
 	 */
 	public CartItemPanel(ShoppingItem item) {
 		this.item = item;
-		setSize(WIDTH, HEIGHT);
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		nameLabel = new JLabel();
