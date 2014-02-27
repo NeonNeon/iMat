@@ -128,9 +128,8 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.SOUTH, nameLabel);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
 		cartPanel.add(scrollCartPane);
-		scrollCartPane.setLayout(new FlowLayout());
 		addShoppingItem(Model.getInstance().findProducts("citron").get(1));
-		validate();
+//		validate();
 	}
 	public void addShoppingItem(Product p) {
 		addShoppingItem(new ShoppingItem(p));
@@ -139,6 +138,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		items.add(item);
 		CartItemPanel newItemPanel = new CartItemPanel(item);
 		scrollCartPane.add(newItemPanel);
+		newItemPanel.revalidate();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
 	}
