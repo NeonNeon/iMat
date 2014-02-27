@@ -26,7 +26,7 @@ public class CategoryDetailedView extends JPanel {
 	private String name;
 	private double height;
 	private NewCategorys nc;
-	private JPanel panel;
+	private JPanel productPanel;
 	/**
 	 * Create the panel.
 	 */
@@ -40,9 +40,10 @@ public class CategoryDetailedView extends JPanel {
 		setSize(684, 681);
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel(name, JLabel.CENTER);
-		lblNewLabel.setBounds(262, 13, 127, 39);
-		add(lblNewLabel);
+		JLabel nameLabel = new JLabel(name, JLabel.CENTER);
+		nameLabel.setBounds(262, 13, 151, 39);
+		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		add(nameLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 65, 684, 616);
@@ -50,12 +51,13 @@ public class CategoryDetailedView extends JPanel {
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
 		
-		height = (pl.size()/3)*300;
+		height = (pl.size()/3)*227;
 		
-		panel = new JPanel();
-		panel.setLayout(new GridLayout(0,3));
-		panel.setPreferredSize(new Dimension(684,(int)height));
-		scrollPane.setViewportView(panel);
+		productPanel = new JPanel();
+		productPanel.setBackground(new Color(255, 255, 240));
+		productPanel.setLayout(new GridLayout(0,3));
+		productPanel.setPreferredSize(new Dimension(684,(int)height));
+		scrollPane.setViewportView(productPanel);
 		
 		addProducts();
 		
@@ -63,7 +65,7 @@ public class CategoryDetailedView extends JPanel {
 	
 	public void addProducts(){
 		for(int i = 0; i<pl.size(); i++){
-			panel.add(new ProductView(pl.get(i)));
+			productPanel.add(new ProductView(pl.get(i)));
 			
 		}
 	}
