@@ -1,10 +1,13 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
+import se.chalmers.ait.dat215.project.Product;
 
 /**
  * The FrameView class is the base class of the iMat application.
@@ -13,6 +16,7 @@ import javax.swing.JButton;
  *
  */
 public class FrameView extends JFrame {
+	private static final Model model = Model.getInstance();
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 720;
 	private JPanel contentPane;
@@ -38,12 +42,15 @@ public class FrameView extends JFrame {
 	 */
 	public FrameView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(70, 50, WIDTH, HEIGHT);
+		setBounds(70, 10, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(new StartView());
+		
+		
+		add(new StartView());
 		
 	}
 }
