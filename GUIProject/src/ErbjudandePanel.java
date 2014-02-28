@@ -18,6 +18,11 @@ import javax.swing.JButton;
 
 import java.util.*;
 
+/**
+ * The little panel at the bottom of the start view that holds this weeks special offers
+ * @author Matilda
+ *
+ */
 
 public class ErbjudandePanel extends JPanel implements ActionListener {
 	private static final Model model = Model.getInstance();

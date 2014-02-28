@@ -14,6 +14,11 @@ import java.awt.Font;
 import se.chalmers.ait.dat215.project.util.*;
 import javax.swing.JScrollPane;
 
+/**
+ * Shows the result from a search
+ * @author grupp 16
+ *
+ */
 
 public class SearchResultsView extends JPanel {
 	

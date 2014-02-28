@@ -1,10 +1,18 @@
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
+
 import java.util.*;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.File;
+
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 /*
  * A class to represent the SortimentTab
@@ -16,30 +24,69 @@ import javax.swing.JLabel;
 public class SortimentView extends JPanel {
 	private final static Model model = Model
 			.getInstance();
-	private final static List<Product> pl = model.getProducts();	
-	private ProductCategory[] pca = ProductCategory.values();
-	/**
-	 * Create the panel.
-	 */
+	private final static List<Product> pl = model.getProducts();
+	private File bildmapp = new File("lib/Bildmapp");
+	private File []bildfiler = bildmapp.listFiles();
+	private static ImageIcon[]bilder;
+	private ImageIcon gronsaker = new ImageIcon("lib/Bildmapp/product_66.jpg");
+	private ImageIcon frukt = new ImageIcon("lib/Bildmapp/product_89.jpg");
+	private ImageIcon baljvaxter = new ImageIcon("lib/Bildmapp/product_1.jpg");
+	private ImageIcon potatis = new ImageIcon("lib/Bildmapp/product_116.jpg");
+	private ImageIcon pasta = new ImageIcon("lib/Bildmapp/product_110.jpg");
+	private ImageIcon skafferi = new ImageIcon("lib/Bildmapp/product_96.jpg");
+	private ImageIcon brod = new ImageIcon("lib/Bildmapp/product_9.jpg");
+	private ImageIcon mejeri = new ImageIcon("lib/Bildmapp/product_80.jpg");
+	private ImageIcon kott = new ImageIcon("lib/Bildmapp/product_72.jpg");
+	private ImageIcon fisk = new ImageIcon("lib/Bildmapp/product_49.jpg");
+	private ImageIcon dryck = new ImageIcon("lib/Bildmapp/product_33.jpg");
+	private ImageIcon orter = new ImageIcon("lib/Bildmapp/product_142.jpg");
+	private ImageIcon snacks = new ImageIcon("lib/Bildmapp/product_97.jpg");
+	private double height = (13/3)*273;
+	
 	
 	public SortimentView() {
+
+		
+		
 		setSize(684,681);
 		setLayout(null);
 		
-		JLabel rubrikLabel = new JLabel("Namn");
-		rubrikLabel.setBounds(296, 13, 56, 16);
+		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
+		rubrikLabel.setBounds(268, 13, 133, 29);
+		rubrikLabel.setFont(new Font("Tahoma", Font.PLAIN,24));
 		add(rubrikLabel);
 		
+		;
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 83, 684, 533);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		add(scrollPane);
+		
+		
+		
 		JPanel categoryPanel = new JPanel();
-		categoryPanel.setBounds(0, 81, 672, 587);
-		add(categoryPanel);
+		scrollPane.setViewportView(categoryPanel);
+		categoryPanel.setPreferredSize(new Dimension(684,(int)height));
+		categoryPanel.setLayout(new GridLayout(0,3));
+	
 		
+		categoryPanel.add(new CategoryView("Grönsaker",gronsaker));
+		categoryPanel.add(new CategoryView("Frukt och Bär", frukt));
+		categoryPanel.add(new CategoryView("BaljVäxter", baljvaxter));
+		categoryPanel.add(new CategoryView("Potatis och Rotfrukter", potatis));
+		categoryPanel.add(new CategoryView("Ris och Pasta", pasta));
+		categoryPanel.add(new CategoryView("Skafferi", skafferi));
+		categoryPanel.add(new CategoryView("Bröd", brod));
+		categoryPanel.add(new CategoryView("MejeriProdukter", mejeri));
+		categoryPanel.add(new CategoryView("Kött", kott));
+		categoryPanel.add(new CategoryView("Fisk och Skaldjur", fisk));
+		categoryPanel.add(new CategoryView("Dryck", dryck));
+		categoryPanel.add(new CategoryView("Örter", orter));
+		categoryPanel.add(new CategoryView("Snacks och Sötsaker", snacks));
 		
-		
-//		//TODO-this should add all categorys, not products, to this panel.
-//		for(int i = 0; i<15;i++){
-//			categoryPanel.add(new CategoryView(pl.get(i)));
-//		}
+
+
 			
 	}
 }

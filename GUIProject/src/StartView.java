@@ -9,6 +9,11 @@ import javax.swing.border.EtchedBorder;
 import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
 
+/**
+ * The view that shows when you first start the application
+ * @author Grupp16
+ *
+ */
 
 public class StartView extends JPanel {
 
