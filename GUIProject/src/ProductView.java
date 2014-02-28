@@ -47,29 +47,29 @@ public class ProductView extends JPanel {
 		};
 		
 		setBorder(new LineBorder(new Color(204, 255, 153), 1, true));
-		setBackground(new Color(255, 255, 240));
+		setBackground(new Color(255, 243, 240));
 		
-		setPreferredSize(new Dimension(200, 224));
+		setPreferredSize(new Dimension(200, 273));
 		setLayout(null);
 		
-		JLabel pictureLabel = new JLabel(model.getImageIcon(p,130,100));
-		pictureLabel.setBounds(35, 23, 130, 66);
+		JLabel pictureLabel = new JLabel(model.getImageIcon(p,165,123));
+		pictureLabel.setBounds(23, 13, 165, 123);
 		add(pictureLabel);
 		
 		JLabel nameLabel = new JLabel(p.getName());
 		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		nameLabel.setForeground((Color.BLACK));
-		nameLabel.setBounds(10, 102, 130, 20);
+		nameLabel.setBounds(10, 149, 130, 20);
 		add(nameLabel);
 		
 		JLabel priceLabel = new JLabel(p.getPrice()+" kr/"+p.getUnitSuffix());
 		priceLabel.setForeground(Color.BLACK);
 		priceLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		priceLabel.setBounds(10, 135, 130, 25);
+		priceLabel.setBounds(10, 182, 130, 25);
 		add(priceLabel);
 		
 		JSpinner spinner = new JSpinner();
-		spinner.setBounds(10, 173, 38, 20);
+		spinner.setBounds(10, 220, 38, 20);
 		add(spinner);
 		
 		favouriteButton = new JButton("New button");
@@ -77,20 +77,20 @@ public class ProductView extends JPanel {
 			
 		
 		favouriteButton.setToolTipText("L\u00E4gg till som favorit");
-		favouriteButton.setBounds(152, 102, 36, 23);
+		favouriteButton.setBounds(152, 149, 36, 23);
 		//favouriteButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(favouriteButton);
 		
 		addToListButton = new JButton("New button");
 		addToListButton.setToolTipText("L\u00E4gg till i lista");
-		addToListButton.setBounds(152, 137, 36, 23);
+		addToListButton.setBounds(152, 184, 36, 23);
 		//addToListButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		addToListButton.addMouseListener(myMouseListener);
 		add(addToListButton);
 		
 		addToCartButton = new JButton("New button");
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
-		addToCartButton.setBounds(152, 172, 36, 23);
+		addToCartButton.setBounds(152, 219, 36, 23);
 		//addToCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		addToCartButton.addMouseListener(myMouseListener);
 		add(addToCartButton);

@@ -29,8 +29,8 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 	 * Create the panel.
 	 */
 	public ErbjudandePanel(Product p) {
-		setBackground(new Color(255, 255, 240));
-		setBorder(new LineBorder(new Color(204, 255, 153), 2, true));
+		setBackground(new Color(255, 243, 240));
+		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		
 		setSize(221, 238);
 		setLayout(null);

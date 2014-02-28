@@ -38,7 +38,7 @@ public class CategoryDetailedView extends JPanel {
 		
 		
 		//setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
-		setBackground(new Color(255, 255, 240));
+		setBackground(new Color(255, 233, 219));
 		setBounds(260,0,684, 681);
 		setLayout(null);
 		
@@ -54,10 +54,10 @@ public class CategoryDetailedView extends JPanel {
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
 		
-		height = (pl.size()/3)*227;
+		height = (pl.size()/3)*273;
 		
 		productPanel = new JPanel();
-		productPanel.setBackground(new Color(255, 255, 240));
+		productPanel.setBackground(new Color(255,243,240));
 		productPanel.setLayout(new GridLayout(0,3));
 		productPanel.setPreferredSize(new Dimension(684,(int)height));
 		scrollPane.setViewportView(productPanel);
