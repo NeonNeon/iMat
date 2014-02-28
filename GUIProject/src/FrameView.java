@@ -67,6 +67,16 @@ public class FrameView extends JFrame {
 		
 	}
 	public void addCenter(Container con) {
-		
+		centerPanel.removeAll();
+		centerPanel.add(con);
 	}
+	public void addLeft(Container con) {
+		leftPanel.removeAll();
+		leftPanel.add(con);
+	}
+	public void addRight(Container con) {
+		rightPanel.removeAll();
+		rightPanel.add(con);
+	}
+
 }
