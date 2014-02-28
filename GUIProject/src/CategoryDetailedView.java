@@ -27,6 +27,7 @@ public class CategoryDetailedView extends JPanel {
 	private double height;
 	private NewCategorys nc;
 	private JPanel productPanel;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -35,14 +36,16 @@ public class CategoryDetailedView extends JPanel {
 		this.nc=nc;
 		pl = model.getProducts(nc);
 		
-		setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
+		
+		//setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
 		setBackground(new Color(255, 255, 240));
-		setSize(684, 681);
+		setBounds(260,0,684, 681);
 		setLayout(null);
 		
 		JLabel nameLabel = new JLabel(name, JLabel.CENTER);
 		nameLabel.setBounds(262, 13, 151, 39);
 		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nameLabel.setForeground(Color.BLACK);
 		add(nameLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
