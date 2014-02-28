@@ -18,8 +18,8 @@ public class StartView extends JPanel {
 	 * Create the panel.
 	 */
 	public StartView() {
-		setBackground(new Color(255, 255, 240));
-		setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
+		setBackground(new Color(235, 255, 227));
+		setBorder(new LineBorder(new Color(181, 222, 164), 2, true));
 		
 		setSize(684, 681);
 		setLayout(null);

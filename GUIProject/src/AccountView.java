@@ -44,6 +44,7 @@ public class AccountView extends JPanel {
 	private JTextField deliveryTownTextField;
 	private static JTextField lastName;
 	private static Customer customer = model.getCustomer();
+	private static CreditCard creditCard = model.getCreditCard();
 
 	/**
 	 * Create the panel.
@@ -276,13 +277,17 @@ public class AccountView extends JPanel {
 	
 	public static void save(){
 		
+		//saving customer information
 		customer.setFirstName(firstName.getText());
 		customer.setLastName(lastName.getText());
 		customer.setAddress(addressTextField.getText());
 		customer.setPostCode(postNbrTextField.getText());
 		customer.setPostAddress(townTextField.getText());
 		customer.setPhoneNumber(telephoneTextField.getText());
-		customer.setEmail(emailTextField.getText());	
+		customer.setEmail(emailTextField.getText());
+		
+		//saving payment
+		
 		
 	}
 }
