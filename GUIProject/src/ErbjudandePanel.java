@@ -41,7 +41,7 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
-		priceLabel.setForeground(new Color(220, 20, 60));
+		priceLabel.setForeground(new Color(204, 0, 0));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		priceLabel.setBounds(26, 183, 173, 44);
 		add(priceLabel);
@@ -49,7 +49,7 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 		productButton = new JButton("New button");
 		productButton.setBounds(10, 11, 201, 135);
 		add(productButton);
-		productButton.setBorder(new LineBorder(new Color(204, 255, 153), 2, true));
+		productButton.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		productButton.setActionCommand(p.getName());
 		productButton.addActionListener(this);
 		

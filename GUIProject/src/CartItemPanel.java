@@ -14,6 +14,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.Insets;
 import java.awt.Color;
+import javax.swing.border.EtchedBorder;
 
 /**
  * The small panel that lies within the CartView. Each CartItemPanel has a
@@ -44,7 +45,8 @@ public class CartItemPanel extends JPanel {
 	 * @wbp.parser.constructor
 	 */
 	public CartItemPanel(ShoppingItem item) {
-		setBackground(Color.RED);
+		setBorder(null);
+		setBackground(new Color(255, 243, 240));
 		this.item = item;
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		SpringLayout springLayout = new SpringLayout();
@@ -54,7 +56,7 @@ public class CartItemPanel extends JPanel {
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix());
 		setName(item.getProduct().getName());
 		buttonPanel = new JPanel();
-		buttonPanel.setBackground(Color.RED);
+		buttonPanel.setBackground(new Color(255, 243, 240));
 		
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, this);
 		amountLable.setFont(new Font("Dialog", Font.BOLD, 14));
