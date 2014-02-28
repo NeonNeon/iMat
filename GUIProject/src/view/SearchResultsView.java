@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -46,14 +47,14 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(Product p){
 		this();
-		resultLabel.setText("Veckans erbjudnade för " + p.getName());
+		resultLabel.setText("Veckans erbjudnade fï¿½r " + p.getName());
 		resultScrollPane.add(new ProductView(p));
 		
 	}
 	
 	public SearchResultsView(List<Product> productList, String searchWord){
 		this();
-		resultLabel.setText("Sökresultat för " + searchWord);
+		resultLabel.setText("Sï¿½kresultat fï¿½r " + searchWord);
 		
 		for(int i = 0; i < productList.size(); i++){
 			resultScrollPane.add(new ProductView(productList.get(i)));

@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;

@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -20,12 +21,15 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.border.LineBorder;
 
+import controller.BrowseController;
+
 
 public class SearchView extends JPanel {
-	private JTextField textField;
+	private JTextField searchField;
 	private Color originalColor = new Color(204, 0, 0);
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
+	private BrowseController browseController = new BrowseController();
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
 			@Override
@@ -60,30 +64,35 @@ public class SearchView extends JPanel {
 		logoButton.setBorder(new LineBorder(new Color(255, 105, 64), 1));
 		add(logoButton);
 
-		textField = new JTextField();
-		textField.setBounds(20, 130, 210, 40);
-		add(textField);
-		textField.setColumns(10);
-		textField.setText("Sšk..");
-		textField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
+		searchField = new JTextField();
+		searchField.setBounds(20, 130, 210, 40);
+		add(searchField);
+		searchField.setColumns(10);
+		searchField.setText("Sï¿½k..");
+		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
+		searchField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				search();
+			}
+		});
 	
 
 		/*
 		 * Kategorier:
 - favoriter
-- gršnsaker
-- frukt och bŠr
-- baljvŠxter
+- grï¿½nsaker
+- frukt och bï¿½r
+- baljvï¿½xter
 - potatis och rotfrukter
 - ris och pasta
 - skafferi
-- bršd
+- brï¿½d
 - mejeriprodukter
-- kštt
+- kï¿½tt
 - fisk och skaldjur
 - dryck
-- šrter
--snacks och sštsaker
+- ï¿½rter
+-snacks och sï¿½tsaker
 
 		 */
 
@@ -107,7 +116,7 @@ public class SearchView extends JPanel {
 		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));
 		favoritesLabel.setSize(681,30);
 
-		JLabel greensLabel = new JLabel("Gršnsaker");
+		JLabel greensLabel = new JLabel("Grï¿½nsaker");
 		greensLabel.addMouseListener(myMouseListener);
 		
 		Component horizontalStrut = Box.createHorizontalStrut(20);
@@ -119,7 +128,7 @@ public class SearchView extends JPanel {
 		panel.add(greensLabel);
 
 
-		JLabel fruitLabel = new JLabel("Frukt och bŠr");
+		JLabel fruitLabel = new JLabel("Frukt och bï¿½r");
 		fruitLabel.addMouseListener(myMouseListener);
 		fruitLabel.setForeground(new Color(255, 255, 255));
 		fruitLabel.setBackground(hoverColor);
@@ -128,7 +137,7 @@ public class SearchView extends JPanel {
 		panel.add(fruitLabel);
 
 
-		JLabel herbLabel = new JLabel("…rter");
+		JLabel herbLabel = new JLabel("ï¿½rter");
 		herbLabel.addMouseListener(myMouseListener);
 		herbLabel.setForeground(new Color(255, 255, 255));
 		herbLabel.setBackground(hoverColor);
@@ -136,7 +145,7 @@ public class SearchView extends JPanel {
 		herbLabel.setFont(categoryFont);
 		panel.add(herbLabel);
 
-		JLabel leguminousLabel = new JLabel("BaljvŠxter");
+		JLabel leguminousLabel = new JLabel("Baljvï¿½xter");
 		leguminousLabel.addMouseListener(myMouseListener);
 		leguminousLabel.setForeground(new Color(255, 255, 255));
 		leguminousLabel.setBackground(hoverColor);
@@ -161,7 +170,7 @@ public class SearchView extends JPanel {
 		fishLabel.setFont(categoryFont);
 		panel.add(fishLabel);
 
-		JLabel meatLabel = new JLabel("Kštt");
+		JLabel meatLabel = new JLabel("Kï¿½tt");
 		meatLabel.addMouseListener(myMouseListener);
 		meatLabel.setForeground(new Color(255, 255, 255));
 		meatLabel.setBackground(hoverColor);
@@ -169,7 +178,7 @@ public class SearchView extends JPanel {
 		meatLabel.setFont(categoryFont);
 		panel.add(meatLabel);
 
-		JLabel breadLabel = new JLabel("Bršd");
+		JLabel breadLabel = new JLabel("Brï¿½d");
 		breadLabel.addMouseListener(myMouseListener);
 		breadLabel.setForeground(new Color(255, 255, 255));
 		breadLabel.setBackground(hoverColor);
@@ -211,7 +220,7 @@ public class SearchView extends JPanel {
 
 
 
-		JLabel snackLabel = new JLabel("Snacks och sštsaker");
+		JLabel snackLabel = new JLabel("Snacks och sï¿½tsaker");
 		snackLabel.addMouseListener(myMouseListener);
 		snackLabel.setForeground(new Color(255, 255, 255));
 		snackLabel.setBackground(hoverColor);
@@ -220,5 +229,8 @@ public class SearchView extends JPanel {
 		panel.add(snackLabel);
 
 
+	}
+	private void search() {
+		browseController.search(searchField.getText());
 	}
 }

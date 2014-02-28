@@ -1,3 +1,4 @@
+package view;
 import se.chalmers.ait.dat215.project.*;
 import java.util.*;
 	/**
