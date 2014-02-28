@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -20,22 +22,10 @@ public class FrameView extends JFrame {
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 720;
 	private JPanel contentPane;
+	private JPanel leftPanel;
+	private JPanel rightPanel;
+	private JPanel centerPanel;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameView frame = new FrameView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -47,10 +37,37 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(new StartView());
 		
+		leftPanel = new JPanel();
+		leftPanel.setBounds(0, 0, 250, 679);
+		contentPane.add(leftPanel);
+		leftPanel.setLayout(new GridLayout(1,1));
 		
-		add(new StartView());
+		rightPanel = new JPanel();
+		rightPanel.setBounds(936, 0, 250, 679);
+		contentPane.add(rightPanel);
+		rightPanel.setLayout(new GridLayout(1,1));
+		
+		centerPanel = new JPanel();
+		centerPanel.setBounds(250, 0, 684, 681);
+		contentPane.add(centerPanel);
+		centerPanel.setLayout(new GridLayout(1,1));
 		
 	}
+	public void addCenter(Container con) {
+		centerPanel.removeAll();
+		centerPanel.add(con);
+		revalidate();
+	}
+	public void addLeft(Container con) {
+		leftPanel.removeAll();
+		leftPanel.add(con);
+		revalidate();
+	}
+	public void addRight(Container con) {
+		rightPanel.removeAll();
+		rightPanel.add(con);
+		revalidate();
+	}
+
 }
