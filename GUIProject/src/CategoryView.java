@@ -16,47 +16,44 @@ import java.awt.event.*;
 public class CategoryView extends JPanel {
 	private final static Model model = Model
 			.getInstance();
-	private Product p;
+	private String name;
+	private ImageIcon icon;
+	private Color hoverColor = new Color(255,0,0);
+	private Color originalColor = new Color(0,0,0);
+	private JLabel categoryLabel;
 	
-	//TODO - Constructor should take a productcategory as argument, not product
-	public CategoryView(Product p) {
-		this.p=p;
-		setLayout(new GridLayout(2,1));
-	
+	public CategoryView(String name, ImageIcon icon) {
+		MouseAdapter myMouseListener = new MouseAdapter(){
+			public void mouseEntered(MouseEvent e) {
+				categoryLabel.setForeground(hoverColor);
+					
+				
+			}
+			
+			public void mouseExited(MouseEvent ev){
+				((JLabel)ev.getSource()).setForeground(originalColor);
+			}
+		};
 		
-		JLabel imageLabel = new JLabel(model.getImageIcon(p), JLabel.CENTER);
-		imageLabel.setBounds(22, 66, 189, 137);
-		imageLabel.setBorder(new LineBorder(Color.BLACK));
-		imageLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		add(imageLabel);
-
+		this.name = name;
+		this.icon = icon;
+		setLayout(null);
+		setPreferredSize(new Dimension(200, 273));
 		
-		JLabel categoryLabel = new JLabel("New label");
-		categoryLabel.setBounds(87, 13, 69, 40);
-		categoryLabel.setText(p.getCategory().toString().toLowerCase());
+		categoryLabel = new JLabel(name, JLabel.CENTER);
+		categoryLabel.setBounds(12, 13, 176, 40);
 		categoryLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		categoryLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		categoryLabel.addMouseListener(myMouseListener);
 		add(categoryLabel);
 		
-
-		imageLabel.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				//new CategoryDetailedView()
-				System.out.println("Tjenare");
-			}
-		});
-		categoryLabel.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("Tjenare");
-			}
-		});
+		JButton imageButton = new JButton(icon);
+		imageButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		imageButton.setBounds(12, 49, 176, 192);
+		add(imageButton);
 		
-		setVisible(true);
+
+	
 
 	}
-	
-	
-	
-	
-
 }
