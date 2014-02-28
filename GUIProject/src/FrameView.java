@@ -49,7 +49,7 @@ public class FrameView extends JFrame {
 		rightPanel.setLayout(new GridLayout(1,1));
 		
 		centerPanel = new JPanel();
-		centerPanel.setBounds(250, 0, 684, 681);
+		centerPanel.setBounds(250, 50, 684, 631);
 		contentPane.add(centerPanel);
 		centerPanel.setLayout(new GridLayout(1,1));
 		
