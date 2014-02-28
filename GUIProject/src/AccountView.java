@@ -1,31 +1,47 @@
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import se.chalmers.ait.dat215.project.*;
+
+/**
+ * The view that holds the customer and delivery information.
+ * @author Grupp 16
+ *
+ */
 
 public class AccountView extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
+	
+	private static final Model model = Model.getInstance();
+	private JTextField nameTextField;
+	private JTextField addressTextField;
+	private JTextField townTextField;
+	private JTextField telephoneTextField;
+	private JTextField emailTextField;
+	private JTextField postNbrTextField;
+	private JTextField cardNbr4;
+	private JTextField cardNbr3;
+	private JTextField cardNbr2;
+	private JTextField cardNbr1;
+	private JTextField cvvCode;
+	private JTextField deliveryAddressTextField;
+	private JTextField deliveryPostnbrTextField;
+	private JTextField deliveryTownTextField;
 
 	/**
 	 * Create the panel.
@@ -72,35 +88,35 @@ public class AccountView extends JPanel {
 		lblKunduppgifter.setBounds(10, 11, 176, 26);
 		panel.add(lblKunduppgifter);
 		
-		textField = new JTextField();
-		textField.setBounds(105, 46, 212, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		nameTextField = new JTextField();
+		nameTextField.setBounds(105, 46, 212, 20);
+		panel.add(nameTextField);
+		nameTextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(105, 71, 212, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		addressTextField = new JTextField();
+		addressTextField.setBounds(105, 71, 212, 20);
+		panel.add(addressTextField);
+		addressTextField.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(190, 96, 127, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		townTextField = new JTextField();
+		townTextField.setBounds(190, 96, 127, 20);
+		panel.add(townTextField);
+		townTextField.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(105, 121, 212, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		telephoneTextField = new JTextField();
+		telephoneTextField.setBounds(105, 121, 212, 20);
+		panel.add(telephoneTextField);
+		telephoneTextField.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(105, 146, 212, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		emailTextField = new JTextField();
+		emailTextField.setBounds(105, 146, 212, 20);
+		panel.add(emailTextField);
+		emailTextField.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(105, 96, 81, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
+		postNbrTextField = new JTextField();
+		postNbrTextField.setBounds(105, 96, 81, 20);
+		panel.add(postNbrTextField);
+		postNbrTextField.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -118,9 +134,9 @@ public class AccountView extends JPanel {
 		lblBetalningsstt.setBounds(10, 48, 88, 18);
 		panel_1.add(lblBetalningsstt);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(116, 48, 201, 20);
-		panel_1.add(comboBox);
+		JComboBox paymentComboBox = new JComboBox();
+		paymentComboBox.setBounds(116, 48, 201, 20);
+		panel_1.add(paymentComboBox);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(10, 77, 307, 89);
@@ -137,43 +153,51 @@ public class AccountView extends JPanel {
 		lblNewLabel.setBounds(10, 36, 62, 14);
 		panel_3.add(lblNewLabel);
 		
-		JLabel lblSistaDatum = new JLabel("Sista datum:");
+		JLabel lblSistaDatum = new JLabel("Giltigt till:");
 		lblSistaDatum.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblSistaDatum.setBounds(10, 61, 76, 14);
 		panel_3.add(lblSistaDatum);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(257, 9, 40, 20);
-		panel_3.add(textField_6);
-		textField_6.setColumns(10);
+		cardNbr4 = new JTextField();
+		cardNbr4.setBounds(257, 9, 40, 20);
+		panel_3.add(cardNbr4);
+		cardNbr4.setColumns(10);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(207, 9, 40, 20);
-		panel_3.add(textField_7);
+		cardNbr3 = new JTextField();
+		cardNbr3.setColumns(10);
+		cardNbr3.setBounds(207, 9, 40, 20);
+		panel_3.add(cardNbr3);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(157, 9, 40, 20);
-		panel_3.add(textField_8);
+		cardNbr2 = new JTextField();
+		cardNbr2.setColumns(10);
+		cardNbr2.setBounds(157, 9, 40, 20);
+		panel_3.add(cardNbr2);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(107, 9, 40, 20);
-		panel_3.add(textField_9);
+		cardNbr1 = new JTextField();
+		cardNbr1.setColumns(10);
+		cardNbr1.setBounds(107, 9, 40, 20);
+		panel_3.add(cardNbr1);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(107, 34, 40, 20);
-		panel_3.add(textField_10);
+		cvvCode = new JTextField();
+		cvvCode.setColumns(10);
+		cvvCode.setBounds(107, 34, 40, 20);
+		panel_3.add(cvvCode);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(107, 59, 40, 20);
-		panel_3.add(spinner);
+		JSpinner monthSpinner = new JSpinner();
+		monthSpinner.setBounds(130, 59, 40, 20);
+		panel_3.add(monthSpinner);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(157, 59, 40, 20);
-		panel_3.add(spinner_1);
+		JSpinner yearSpinner = new JSpinner();
+		yearSpinner.setBounds(180, 59, 40, 20);
+		panel_3.add(yearSpinner);
+		
+		JLabel lblMn = new JLabel("m\u00E5n");
+		lblMn.setBounds(107, 62, 46, 14);
+		panel_3.add(lblMn);
+		
+		JLabel lblr = new JLabel("\u00E5r");
+		lblr.setBounds(180, 62, 46, 14);
+		panel_3.add(lblr);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -191,47 +215,61 @@ public class AccountView extends JPanel {
 		lblLeveransadress.setBounds(10, 48, 101, 20);
 		panel_2.add(lblLeveransadress);
 		
-		textField_11 = new JTextField();
-		textField_11.setBounds(25, 79, 279, 20);
-		panel_2.add(textField_11);
-		textField_11.setColumns(10);
+		deliveryAddressTextField = new JTextField();
+		deliveryAddressTextField.setBounds(25, 79, 279, 20);
+		panel_2.add(deliveryAddressTextField);
+		deliveryAddressTextField.setColumns(10);
 		
-		textField_12 = new JTextField();
-		textField_12.setBounds(25, 110, 86, 20);
-		panel_2.add(textField_12);
-		textField_12.setColumns(10);
+		deliveryPostnbrTextField = new JTextField();
+		deliveryPostnbrTextField.setBounds(25, 110, 86, 20);
+		panel_2.add(deliveryPostnbrTextField);
+		deliveryPostnbrTextField.setColumns(10);
 		
-		textField_13 = new JTextField();
-		textField_13.setBounds(115, 110, 189, 20);
-		panel_2.add(textField_13);
-		textField_13.setColumns(10);
+		deliveryTownTextField = new JTextField();
+		deliveryTownTextField.setBounds(115, 110, 189, 20);
+		panel_2.add(deliveryTownTextField);
+		deliveryTownTextField.setColumns(10);
 		
-		JCheckBox chckbxSammaSomAnvndare = new JCheckBox("Samma som anv\u00E4ndare");
-		chckbxSammaSomAnvndare.setBounds(35, 137, 209, 23);
-		panel_2.add(chckbxSammaSomAnvndare);
+		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
+		checkBox.setBounds(35, 137, 209, 23);
+		panel_2.add(checkBox);
 		
 		JLabel lblLeveransdag = new JLabel("Leveransdag:");
 		lblLeveransdag.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblLeveransdag.setBounds(351, 48, 127, 18);
 		panel_2.add(lblLeveransdag);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(361, 79, 182, 20);
-		panel_2.add(comboBox_1);
+		JComboBox deliveryDay = new JComboBox();
+		deliveryDay.setBounds(361, 79, 182, 20);
+		panel_2.add(deliveryDay);
 		
 		JLabel lblLeveranstid = new JLabel("Leveranstid:");
 		lblLeveranstid.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblLeveranstid.setBounds(351, 113, 127, 18);
 		panel_2.add(lblLeveranstid);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(361, 138, 182, 20);
-		panel_2.add(comboBox_2);
+		JComboBox deliveryTime = new JComboBox();
+		deliveryTime.setBounds(361, 138, 182, 20);
+		panel_2.add(deliveryTime);
 		
-		JButton btnNewButton = new JButton("Spara");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(567, 426, 107, 65);
-		add(btnNewButton);
+		JButton saveButton = new JButton("Spara");
+		
+		saveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				save();
+			}
+		});
+		
+		saveButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		saveButton.setBounds(567, 426, 107, 65);
+		add(saveButton);
 
+	}
+	
+	
+	public void save(){
+		
+		
+		
 	}
 }
