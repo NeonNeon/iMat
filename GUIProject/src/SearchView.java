@@ -23,7 +23,7 @@ import javax.swing.border.LineBorder;
 
 public class SearchView extends JPanel {
 	private JTextField textField;
-	private Color originalColor = new Color(255, 102, 51);
+	private Color originalColor = new Color(204, 0, 0);
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 
@@ -66,6 +66,7 @@ public class SearchView extends JPanel {
 		textField.setColumns(10);
 		textField.setText("Sšk..");
 		textField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
+	
 
 		/*
 		 * Kategorier:
@@ -100,7 +101,7 @@ public class SearchView extends JPanel {
 		
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut_1);
-		favoritesLabel.setForeground(new Color(255, 255, 255));
+		favoritesLabel.setForeground(new Color(235, 60, 21));
 		favoritesLabel.setBackground(hoverColor);
 		panel.add(favoritesLabel);
 		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));
