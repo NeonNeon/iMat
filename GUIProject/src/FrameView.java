@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.util.List;
 
@@ -20,6 +21,9 @@ public class FrameView extends JFrame {
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 720;
 	private JPanel contentPane;
+	private JPanel leftPanel;
+	private JPanel rightPanel;
+	private JPanel centerPanel;
 
 	/**
 	 * Launch the application.
@@ -47,10 +51,22 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(new StartView());
 		
+		leftPanel = new JPanel();
+		leftPanel.setBounds(0, 0, 250, 679);
+		contentPane.add(leftPanel);
 		
-		add(new StartView());
+		rightPanel = new JPanel();
+		rightPanel.setBounds(936, 0, 250, 679);
+		contentPane.add(rightPanel);
+		rightPanel.setLayout(null);
+		
+		centerPanel = new JPanel();
+		centerPanel.setBounds(250, 0, 684, 681);
+		contentPane.add(centerPanel);
+		
+	}
+	public void addCenter(Container con) {
 		
 	}
 }
