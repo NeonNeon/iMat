@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
@@ -37,6 +38,7 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(255, 243, 240));
 		
 		leftPanel = new JPanel();
 		leftPanel.setBounds(0, 0, 250, 679);
