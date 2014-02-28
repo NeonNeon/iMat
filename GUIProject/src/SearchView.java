@@ -18,11 +18,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
+import javax.swing.border.LineBorder;
 
 
 public class SearchView extends JPanel {
 	private JTextField textField;
-	private Color originalColor = new Color(255, 102, 51);
+	private Color originalColor = new Color(204, 0, 0);
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 
@@ -41,7 +42,8 @@ public class SearchView extends JPanel {
 	 * Create the panel.
 	 */
 	public SearchView() {
-		setBackground(new Color(0, 51, 102));
+		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		setBackground(new Color(255, 243, 240));
 		setSize(250,681);
 		setLayout(null);
 
@@ -52,9 +54,10 @@ public class SearchView extends JPanel {
 			}
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
-		logoButton.setForeground(new Color(0, 51, 102));
-		logoButton.setBackground(new Color(102, 204, 255));
+		logoButton.setForeground(new Color(0, 0, 0));
+		logoButton.setBackground(new Color(255, 255, 255));
 		logoButton.setBounds(0, 0, 250, 100);
+		logoButton.setBorder(new LineBorder(new Color(255, 105, 64), 1));
 		add(logoButton);
 
 		textField = new JTextField();
@@ -63,6 +66,7 @@ public class SearchView extends JPanel {
 		textField.setColumns(10);
 		textField.setText("Sšk..");
 		textField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
+	
 
 		/*
 		 * Kategorier:
@@ -84,7 +88,7 @@ public class SearchView extends JPanel {
 		 */
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 51, 102));
+		panel.setBackground(new Color(255, 243, 240));
 		panel.setBounds(20, 197, 212, 382);
 		add(panel);
 		panel.setLayout(new GridLayout(16, 1, 9, 0));
@@ -97,7 +101,7 @@ public class SearchView extends JPanel {
 		
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut_1);
-		favoritesLabel.setForeground(new Color(255, 255, 255));
+		favoritesLabel.setForeground(new Color(235, 60, 21));
 		favoritesLabel.setBackground(hoverColor);
 		panel.add(favoritesLabel);
 		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));

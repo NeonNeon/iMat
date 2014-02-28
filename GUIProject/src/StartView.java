@@ -9,6 +9,11 @@ import javax.swing.border.EtchedBorder;
 import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
 
+/**
+ * The view that shows when you first start the application
+ * @author Grupp16
+ *
+ */
 
 public class StartView extends JPanel {
 
@@ -60,7 +65,7 @@ public class StartView extends JPanel {
 		
 		JPanel offerPanel = new JPanel();
 		offerPanel.setBorder(null);
-		offerPanel.setBackground(new Color(255, 255, 240));
+		offerPanel.setBackground(new Color(255, 243, 240));
 		offerPanel.setBounds(10, 331, 664, 238);
 		add(offerPanel);
 		offerPanel.setLayout(new GridLayout(1, 0, 0, 0));
