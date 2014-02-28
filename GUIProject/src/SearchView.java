@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
+import javax.swing.border.LineBorder;
 
 
 public class SearchView extends JPanel {
@@ -41,7 +42,8 @@ public class SearchView extends JPanel {
 	 * Create the panel.
 	 */
 	public SearchView() {
-		setBackground(new Color(0, 51, 102));
+		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		setBackground(new Color(255, 243, 240));
 		setSize(250,681);
 		setLayout(null);
 
@@ -52,9 +54,10 @@ public class SearchView extends JPanel {
 			}
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
-		logoButton.setForeground(new Color(0, 51, 102));
-		logoButton.setBackground(new Color(102, 204, 255));
+		logoButton.setForeground(new Color(0, 0, 0));
+		logoButton.setBackground(new Color(255, 255, 255));
 		logoButton.setBounds(0, 0, 250, 100);
+		logoButton.setBorder(new LineBorder(new Color(255, 105, 64), 1));
 		add(logoButton);
 
 		textField = new JTextField();
@@ -84,7 +87,7 @@ public class SearchView extends JPanel {
 		 */
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 51, 102));
+		panel.setBackground(new Color(255, 243, 240));
 		panel.setBounds(20, 197, 212, 382);
 		add(panel);
 		panel.setLayout(new GridLayout(16, 1, 9, 0));
