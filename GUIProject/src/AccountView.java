@@ -28,12 +28,12 @@ import se.chalmers.ait.dat215.project.*;
 public class AccountView extends JPanel {
 	
 	private static final Model model = Model.getInstance();
-	private JTextField nameTextField;
-	private JTextField addressTextField;
-	private JTextField townTextField;
-	private JTextField telephoneTextField;
-	private JTextField emailTextField;
-	private JTextField postNbrTextField;
+	private static JTextField firstName;
+	private static JTextField addressTextField;
+	private static JTextField townTextField;
+	private static JTextField telephoneTextField;
+	private static JTextField emailTextField;
+	private static JTextField postNbrTextField;
 	private JTextField cardNbr4;
 	private JTextField cardNbr3;
 	private JTextField cardNbr2;
@@ -42,6 +42,9 @@ public class AccountView extends JPanel {
 	private JTextField deliveryAddressTextField;
 	private JTextField deliveryPostnbrTextField;
 	private JTextField deliveryTownTextField;
+	private static JTextField lastName;
+	private static Customer customer = model.getCustomer();
+	private static CreditCard creditCard = model.getCreditCard();
 
 	/**
 	 * Create the panel.
@@ -88,10 +91,10 @@ public class AccountView extends JPanel {
 		lblKunduppgifter.setBounds(10, 11, 176, 26);
 		panel.add(lblKunduppgifter);
 		
-		nameTextField = new JTextField();
-		nameTextField.setBounds(105, 46, 212, 20);
-		panel.add(nameTextField);
-		nameTextField.setColumns(10);
+		firstName = new JTextField();
+		firstName.setBounds(105, 46, 104, 20);
+		panel.add(firstName);
+		firstName.setColumns(10);
 		
 		addressTextField = new JTextField();
 		addressTextField.setBounds(105, 71, 212, 20);
@@ -117,6 +120,11 @@ public class AccountView extends JPanel {
 		postNbrTextField.setBounds(105, 96, 81, 20);
 		panel.add(postNbrTextField);
 		postNbrTextField.setColumns(10);
+		
+		lastName = new JTextField();
+		lastName.setBounds(214, 46, 103, 20);
+		panel.add(lastName);
+		lastName.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -267,8 +275,18 @@ public class AccountView extends JPanel {
 	}
 	
 	
-	public void save(){
+	public static void save(){
 		
+		//saving customer information
+		customer.setFirstName(firstName.getText());
+		customer.setLastName(lastName.getText());
+		customer.setAddress(addressTextField.getText());
+		customer.setPostCode(postNbrTextField.getText());
+		customer.setPostAddress(townTextField.getText());
+		customer.setPhoneNumber(telephoneTextField.getText());
+		customer.setEmail(emailTextField.getText());
+		
+		//saving payment
 		
 		
 	}
