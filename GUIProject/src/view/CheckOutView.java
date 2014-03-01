@@ -1,3 +1,4 @@
+package view;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -36,7 +37,7 @@ public class CheckOutView extends JFrame {
 	private JTextField cvcTextField;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
+			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -141,7 +142,7 @@ public class CheckOutView extends JFrame {
 		postAddressLabel.setBounds(25, 149, 61, 16);
 		card1.add(postAddressLabel);
 		
-		JButton modifyButton = new JButton("€ndra");
+		JButton modifyButton = new JButton("ï¿½ndra");
 		modifyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.next(contentPane);
@@ -244,7 +245,7 @@ public class CheckOutView extends JFrame {
 		card2.add(cardNumberTextField);
 		cardNumberTextField.setColumns(10);
 		
-		JLabel expireDateLabel = new JLabel("Utlšper:");
+		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
 		expireDateLabel.setBounds(25, 393, 56, 16);
 		card2.add(expireDateLabel);
 		

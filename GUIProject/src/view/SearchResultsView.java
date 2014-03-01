@@ -1,7 +1,9 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 
@@ -22,8 +24,9 @@ import javax.swing.JScrollPane;
 
 public class SearchResultsView extends JPanel {
 	
-	JScrollPane resultScrollPane = new JScrollPane();
+	JScrollPane resultScrollPane;
 	JLabel resultLabel = new JLabel();
+	JPanel resultPanel;
 	
 	/**
 	 * Create the panel.
@@ -32,13 +35,16 @@ public class SearchResultsView extends JPanel {
 		setBackground(new Color(255, 255, 240));
 		setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
 		
-		setSize(684, 681);
+		setSize(684, 631);
 		setLayout(null);
 		
 		resultLabel.setBounds(10, 11, 664, 55);
 		resultLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		add(resultLabel);
 		
+		resultPanel = new JPanel();
+		resultPanel.setLayout(new GridLayout(0,3));
+		resultScrollPane = new JScrollPane(resultPanel);
 		resultScrollPane.setBounds(10, 77, 664, 593);
 		add(resultScrollPane);
 
@@ -46,17 +52,18 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(Product p){
 		this();
-		resultLabel.setText("Veckans erbjudnade för " + p.getName());
-		resultScrollPane.add(new ProductView(p));
+		resultLabel.setText("Veckans erbjudnade fï¿½r " + p.getName());
+		resultPanel.add(new ProductView(p));
 		
 	}
 	
 	public SearchResultsView(List<Product> productList, String searchWord){
 		this();
-		resultLabel.setText("Sökresultat för " + searchWord);
+		System.out.println(productList.size() + "produkter");
+		resultLabel.setText("Sï¿½kresultat fï¿½r " + searchWord);
 		
 		for(int i = 0; i < productList.size(); i++){
-			resultScrollPane.add(new ProductView(productList.get(i)));
+			resultPanel.add(new ProductView(productList.get(i)));
 		}
 		
 	}

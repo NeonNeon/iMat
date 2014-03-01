@@ -1,3 +1,4 @@
+package view;
 /**
  * This is an enum that we should use instead of the ProductCategory enum.
  * Should try to seperate POTATIS and RIS, might do that later.

@@ -1,3 +1,4 @@
+package view;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -73,19 +74,19 @@ public class SortimentView extends JPanel {
 		categoryPanel.setLayout(new GridLayout(0,3));
 	
 		
-		categoryPanel.add(new CategoryView("Grönsaker",gronsaker));
-		categoryPanel.add(new CategoryView("Frukt och Bär", frukt));
-		categoryPanel.add(new CategoryView("BaljVäxter", baljvaxter));
+		categoryPanel.add(new CategoryView("Grï¿½nsaker",gronsaker));
+		categoryPanel.add(new CategoryView("Frukt och Bï¿½r", frukt));
+		categoryPanel.add(new CategoryView("BaljVï¿½xter", baljvaxter));
 		categoryPanel.add(new CategoryView("Potatis och Rotfrukter", potatis));
 		categoryPanel.add(new CategoryView("Ris och Pasta", pasta));
 		categoryPanel.add(new CategoryView("Skafferi", skafferi));
-		categoryPanel.add(new CategoryView("Bröd", brod));
+		categoryPanel.add(new CategoryView("Brï¿½d", brod));
 		categoryPanel.add(new CategoryView("MejeriProdukter", mejeri));
-		categoryPanel.add(new CategoryView("Kött", kott));
+		categoryPanel.add(new CategoryView("Kï¿½tt", kott));
 		categoryPanel.add(new CategoryView("Fisk och Skaldjur", fisk));
 		categoryPanel.add(new CategoryView("Dryck", dryck));
-		categoryPanel.add(new CategoryView("Örter", orter));
-		categoryPanel.add(new CategoryView("Snacks och Sötsaker", snacks));
+		categoryPanel.add(new CategoryView("ï¿½rter", orter));
+		categoryPanel.add(new CategoryView("Snacks och Sï¿½tsaker", snacks));
 		
 
 

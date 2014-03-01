@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -75,7 +76,7 @@ public class StartView extends JPanel {
 		lblVeckansErbjudanden.setBounds(222, 284, 246, 36);
 		add(lblVeckansErbjudanden);
 		
-		//Lägger till erbjudanden längst ner
+		//Lï¿½gger till erbjudanden lï¿½ngst ner
 		for(int i = 1; i <= 3; i++){
 			offerPanel.add(new ErbjudandePanel(model.getProduct(i)));
 		}
