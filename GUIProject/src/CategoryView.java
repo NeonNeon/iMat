@@ -23,6 +23,7 @@ public class CategoryView extends JPanel {
 	private JLabel categoryLabel;
 	
 	public CategoryView(String name, ImageIcon icon) {
+		setBackground(new Color(255, 243, 240));
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {
 				categoryLabel.setForeground(hoverColor);

@@ -5,6 +5,7 @@ import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
 
 import java.util.*;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -50,6 +51,7 @@ public class SortimentView extends JPanel {
 		
 		setSize(684,681);
 		setLayout(null);
+		setBackground(new Color(255, 243, 240));
 		
 		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
 		rubrikLabel.setBounds(268, 13, 133, 29);
