@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
@@ -23,10 +24,12 @@ public class FrameView extends JFrame {
 	private static final Model model = Model.getInstance();
 	private static final int WIDTH = 1200;
 	private static final int HEIGHT = 720;
+	private static int counter = 0;
 	private JPanel contentPane;
 	private JPanel leftPanel;
 	private JPanel rightPanel;
 	private JPanel centerPanel;
+	private JTabbedPane tabPane;
 
 
 	/**
@@ -56,6 +59,9 @@ public class FrameView extends JFrame {
 		contentPane.add(centerPanel);
 		centerPanel.setLayout(new GridLayout(1,1));
 		
+		tabPane = new JTabbedPane();
+		addCenter(tabPane);
+		
 	}
 	public void addCenter(Container con) {
 		centerPanel.removeAll();
@@ -71,6 +77,14 @@ public class FrameView extends JFrame {
 		rightPanel.removeAll();
 		rightPanel.add(con);
 		revalidate();
+	}
+	public void addTab(String name,Container con) {
+		tabPane.addTab(name,con);
+		tabPane.setTabComponentAt(counter, new Tab());
+		counter++;
+	}
+	public void addSortView(Container con) {
+		tabPane.setComponentAt(0, con);
 	}
 
 }

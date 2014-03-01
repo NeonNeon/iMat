@@ -29,7 +29,7 @@ public class SearchView extends JPanel {
 	private Color originalColor = new Color(204, 0, 0);
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
-	private BrowseController browseController = new BrowseController();
+	private BrowseController browseController;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
 			@Override
@@ -45,7 +45,8 @@ public class SearchView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SearchView() {
+	public SearchView(BrowseController controller) {
+		browseController = controller;
 		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		setBackground(new Color(255, 243, 240));
 		setSize(250,681);

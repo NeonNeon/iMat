@@ -54,6 +54,7 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(List<Product> productList, String searchWord){
 		this();
+		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
 		
 		for(int i = 0; i < productList.size(); i++){
