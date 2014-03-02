@@ -3,6 +3,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import view.Model;
+import view.NewCategorys;
 /**
  * A class that is used as communication between the SearchView and the categoryview aswell 
  * <p>as searchresultview
@@ -27,5 +28,9 @@ public class BrowseController implements IObservable{
 	@Override
 	public void removeObserver(PropertyChangeListener observer) {
 		support.removePropertyChangeListener(observer);
+	}
+	public void showCategory(NewCategorys category) {
+		support.firePropertyChange("category",null,category);
+		
 	}
 }

@@ -2,8 +2,10 @@ package controller;
 
 import view.AccountView;
 import view.CartView;
+import view.CategoryDetailedView;
 import view.FrameView;
 import view.Model;
+import view.NewCategorys;
 import view.SearchResultsView;
 import view.SearchView;
 import view.StartView;
@@ -28,6 +30,11 @@ public class Director implements PropertyChangeListener{
 		if(evt.getPropertyName().equals("search")) {
 			String searchWord = (String)evt.getNewValue();
 			frame.addSortView(new SearchResultsView(model.findProducts(searchWord), searchWord)); // added to tab pane
+		} else {
+			if(evt.getPropertyName().equals("category")) {
+				NewCategorys category = (NewCategorys)evt.getNewValue();
+				frame.addSortView(new CategoryDetailedView(category.toString(), category));
+			}
 		}
 	}
 	public Director() {
