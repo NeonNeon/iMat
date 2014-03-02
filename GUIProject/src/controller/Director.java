@@ -30,6 +30,7 @@ public class Director implements PropertyChangeListener {
 	private FrameView frame = new FrameView();
 	private SearchView searchView;
 	private FrameController frameController = new FrameController();
+	private CartController cartController;
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
@@ -54,6 +55,7 @@ public class Director implements PropertyChangeListener {
 	}
 
 	public Director() {
+		cartController = new CartController();
 		// TODO Auto-generated method stub
 		searchView = new SearchView(browseController);
 		browseController.addObeserver(this);

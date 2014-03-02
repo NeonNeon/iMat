@@ -1,4 +1,5 @@
 package view;
+
 import javax.swing.JPanel;
 
 import se.chalmers.ait.dat215.project.*;
@@ -18,9 +19,10 @@ import java.awt.Font;
 
 import javax.swing.border.LineBorder;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 
 /*
  * A class to represent an iMat  product
@@ -29,26 +31,21 @@ public class ProductView extends JPanel {
 	private static final int WIDTH = 170;
 	private static final int HEIGHT = 216;
 	private static final Model model = Model.getInstance();
+	private final Product product;
 	private JButton favouriteButton, addToListButton, addToCartButton;
-//	private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/Cart.png");
-//	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/List.jpg");
 
-	
-	
+	// private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/Cart.png");
+	// private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/List.jpg");
+
 	/**
 	 * Create the panel.
 	 */
-	public ProductView(Product p) {
+	public ProductView(final Product p) {
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
-					
-				
-			}
-
-		
-		};
-		
+			}};
+		product = p;
 		setBorder(new LineBorder(new Color(204, 255, 153), 1, true));
 		setBackground(new Color(255, 243, 240));
 		
@@ -71,7 +68,7 @@ public class ProductView extends JPanel {
 		priceLabel.setBounds(10, 182, 130, 25);
 		add(priceLabel);
 		
-		JSpinner spinner = new JSpinner();
+		final JSpinner spinner = new JSpinner();
 		spinner.setBounds(10, 220, 38, 20);
 		add(spinner);
 		
@@ -93,6 +90,11 @@ public class ProductView extends JPanel {
 		addToCartButton = new JButton("");
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
 		addToCartButton.setBounds(152, 219, 36, 23);
+		addToCartButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				model.getShoppingCart().addItem(new ShoppingItem(p,(double)spinner.getValue()));
+			}
+		});
 		
 		addToCartButton.addMouseListener(myMouseListener);
 		add(addToCartButton);
