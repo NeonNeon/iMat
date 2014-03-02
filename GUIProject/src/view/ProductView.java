@@ -30,6 +30,8 @@ public class ProductView extends JPanel {
 	private static final int HEIGHT = 216;
 	private static final Model model = Model.getInstance();
 	private JButton favouriteButton, addToListButton, addToCartButton;
+//	private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/Cart.png");
+//	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/List.jpg");
 
 	
 	
@@ -82,17 +84,16 @@ public class ProductView extends JPanel {
 		//favouriteButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(favouriteButton);
 		
-		addToListButton = new JButton("New button");
+		addToListButton = new JButton("");
 		addToListButton.setToolTipText("L\u00E4gg till i lista");
 		addToListButton.setBounds(152, 184, 36, 23);
-		//addToListButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		addToListButton.addMouseListener(myMouseListener);
 		add(addToListButton);
 		
-		addToCartButton = new JButton("New button");
+		addToCartButton = new JButton("");
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
 		addToCartButton.setBounds(152, 219, 36, 23);
-		//addToCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
 		addToCartButton.addMouseListener(myMouseListener);
 		add(addToCartButton);
 
