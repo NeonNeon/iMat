@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+
+import controller.FrameController;
 import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
 
@@ -19,11 +21,12 @@ import se.chalmers.ait.dat215.project.util.*;
 public class StartView extends JPanel {
 
 	private static final Model model = Model.getInstance();
-	
+	FrameController frameController;
 	/**
 	 * Create the panel.
 	 */
-	public StartView() {
+	public StartView(FrameController controller) {
+		frameController=controller;
 		setBackground(new Color(255, 243, 240));
 		setBorder(new LineBorder(new Color(255, 105, 64), 2, true));
 		
@@ -78,7 +81,7 @@ public class StartView extends JPanel {
 		
 		//L�gger till erbjudanden l�ngst ner
 		for(int i = 1; i <= 3; i++){
-			offerPanel.add(new ErbjudandePanel(model.getProduct(i)));
+			offerPanel.add(new ErbjudandePanel(model.getProduct(i),frameController));
 		}
 
 	}

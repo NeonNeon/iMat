@@ -17,6 +17,8 @@ import se.chalmers.ait.dat215.project.util.*;
 
 import javax.swing.JButton;
 
+import controller.FrameController;
+
 import java.util.*;
 
 /**
@@ -25,16 +27,20 @@ import java.util.*;
  *
  */
 
-public class ErbjudandePanel extends JPanel implements ActionListener {
+public class ErbjudandePanel extends JPanel {
 	private static final Model model = Model.getInstance();
 	private JLabel nameLabel;
 	private JLabel priceLabel;
 	private JButton productButton;
+	private FrameController frameController;
+	private Product product;
 
 	/**
 	 * Create the panel.
 	 */
-	public ErbjudandePanel(Product p) {
+	public ErbjudandePanel(Product p, FrameController controller) {
+		product = p;
+		frameController = controller;
 		setBackground(new Color(255, 243, 240));
 		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		
@@ -52,32 +58,20 @@ public class ErbjudandePanel extends JPanel implements ActionListener {
 		priceLabel.setBounds(26, 183, 173, 44);
 		add(priceLabel);
 		
-		productButton = new JButton("New button");
+		productButton = new JButton();
 		productButton.setBounds(10, 11, 201, 135);
 		add(productButton);
 		productButton.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
-		productButton.setActionCommand(p.getName());
-		productButton.addActionListener(this);
+		productButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frameController.weeksOffer(product);
+			}
+		});
 		
 		productButton.setIcon(model.getImageIcon(p));
 		nameLabel.setText(p.getName());
 		priceLabel.setText("" + p.getPrice() + " " + "kr/" + p.getUnitSuffix());
 		
 
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getSource() == productButton){
-			
-			List<Product> result = model.findProducts(e.getActionCommand());
-			new SearchResultsView(result.get(0));
-			
-		}else{
-			throw new IllegalArgumentException();
-		}
-		
-		
 	}
 }

@@ -32,6 +32,7 @@ public class SearchView extends JPanel {
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 	private BrowseController browseController;
+	JButton logoButton;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
 			@Override
@@ -54,10 +55,10 @@ public class SearchView extends JPanel {
 		setSize(250,681);
 		setLayout(null);
 
-		JButton logoButton = new JButton("iMat");
+		logoButton = new JButton("iMat");
 		logoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				browseController.startView();
 			}
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));

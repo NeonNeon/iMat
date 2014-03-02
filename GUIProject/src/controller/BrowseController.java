@@ -33,4 +33,7 @@ public class BrowseController implements IObservable{
 		support.firePropertyChange("category",null,category);
 		
 	}
+	public void startView() {
+		support.firePropertyChange("start",false,true);
+	}
 }
