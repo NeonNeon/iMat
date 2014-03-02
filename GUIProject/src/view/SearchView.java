@@ -14,6 +14,8 @@ import javax.swing.JSeparator;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JToolBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,6 +32,7 @@ public class SearchView extends JPanel {
 	private Color hoverColor = new Color(255,182,193);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 	private BrowseController browseController;
+	JButton logoButton;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
 			@Override
@@ -52,10 +55,10 @@ public class SearchView extends JPanel {
 		setSize(250,681);
 		setLayout(null);
 
-		JButton logoButton = new JButton("iMat");
+		logoButton = new JButton("iMat");
 		logoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				browseController.startView();
 			}
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
@@ -108,6 +111,7 @@ public class SearchView extends JPanel {
 		favoritesLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		favoritesLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		favoritesLabel.addMouseListener(myMouseListener);
+		favoritesLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FAVORITER));
 		
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut_1);
@@ -126,6 +130,7 @@ public class SearchView extends JPanel {
 		greensLabel.setBackground(hoverColor);
 		greensLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		greensLabel.setFont(categoryFont);
+		greensLabel.addMouseListener(new CategoryMouseListener(NewCategorys.GRONSAKER));
 		panel.add(greensLabel);
 
 
@@ -135,7 +140,7 @@ public class SearchView extends JPanel {
 		fruitLabel.setBackground(hoverColor);
 		fruitLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fruitLabel.setFont(categoryFont);
-		panel.add(fruitLabel);
+		fruitLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FRUKT_OCH_BAR));
 
 
 		JLabel herbLabel = new JLabel("�rter");
@@ -144,6 +149,7 @@ public class SearchView extends JPanel {
 		herbLabel.setBackground(hoverColor);
 		herbLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		herbLabel.setFont(categoryFont);
+		herbLabel.addMouseListener(new CategoryMouseListener(NewCategorys.ORTER));
 		panel.add(herbLabel);
 
 		JLabel leguminousLabel = new JLabel("Baljv�xter");
@@ -152,6 +158,7 @@ public class SearchView extends JPanel {
 		leguminousLabel.setBackground(hoverColor);
 		leguminousLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		leguminousLabel.setFont(categoryFont);
+		leguminousLabel.addMouseListener(new CategoryMouseListener(NewCategorys.BALJVAXTER));
 		panel.add(leguminousLabel);
 
 
@@ -161,6 +168,8 @@ public class SearchView extends JPanel {
 		rootvegLabel.setBackground(hoverColor);
 		rootvegLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		rootvegLabel.setFont(categoryFont);
+		rootvegLabel.addMouseListener(new CategoryMouseListener(NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
+		//TODO change category
 		panel.add(rootvegLabel);
 
 		JLabel fishLabel = new JLabel("Fisk och skaldjur");
@@ -169,6 +178,7 @@ public class SearchView extends JPanel {
 		fishLabel.setBackground(hoverColor);
 		fishLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fishLabel.setFont(categoryFont);
+		fishLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FISK_OCH_SKALDJUR));
 		panel.add(fishLabel);
 
 		JLabel meatLabel = new JLabel("K�tt");
@@ -177,6 +187,7 @@ public class SearchView extends JPanel {
 		meatLabel.setBackground(hoverColor);
 		meatLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		meatLabel.setFont(categoryFont);
+		meatLabel.addMouseListener(new CategoryMouseListener(NewCategorys.KOTT));
 		panel.add(meatLabel);
 
 		JLabel breadLabel = new JLabel("Br�d");
@@ -185,6 +196,7 @@ public class SearchView extends JPanel {
 		breadLabel.setBackground(hoverColor);
 		breadLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		breadLabel.setFont(categoryFont);
+		breadLabel.addMouseListener(new CategoryMouseListener(NewCategorys.BROD));
 		panel.add(breadLabel);
 
 		JLabel dairyLabel = new JLabel("Mejeri");
@@ -193,6 +205,7 @@ public class SearchView extends JPanel {
 		dairyLabel.setBackground(hoverColor);
 		dairyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dairyLabel.setFont(categoryFont);
+		dairyLabel.addMouseListener(new CategoryMouseListener(NewCategorys.MEJERI));
 		panel.add(dairyLabel);
 
 		JLabel riceLabel = new JLabel("Ris och Pasta");
@@ -201,6 +214,7 @@ public class SearchView extends JPanel {
 		riceLabel.setBackground(hoverColor);
 		riceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		riceLabel.setFont(categoryFont);
+		// TODO fix
 		panel.add(riceLabel);
 
 		JLabel pantryLabel = new JLabel("Skafferi");
@@ -209,6 +223,7 @@ public class SearchView extends JPanel {
 		pantryLabel.setBackground(hoverColor);
 		pantryLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pantryLabel.setFont(categoryFont);
+		pantryLabel.addMouseListener(new CategoryMouseListener(NewCategorys.SKAFFERI));
 		panel.add(pantryLabel);
 
 		JLabel drinksLabel = new JLabel("Dryck");
@@ -217,6 +232,7 @@ public class SearchView extends JPanel {
 		drinksLabel.setBackground(hoverColor);
 		drinksLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		drinksLabel.setFont(categoryFont);
+		drinksLabel.addMouseListener(new CategoryMouseListener(NewCategorys.DRYCK));
 		panel.add(drinksLabel);
 
 
@@ -227,6 +243,7 @@ public class SearchView extends JPanel {
 		snackLabel.setBackground(hoverColor);
 		snackLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		snackLabel.setFont(categoryFont);
+		snackLabel.addMouseListener(new CategoryMouseListener(NewCategorys.SNACKS_OCH_SOTSAKER));
 		panel.add(snackLabel);
 
 
@@ -234,4 +251,44 @@ public class SearchView extends JPanel {
 	private void search() {
 		browseController.search(searchField.getText());
 	}
+
+	private class CategoryMouseListener implements MouseListener {
+		NewCategorys category;
+
+		private CategoryMouseListener(NewCategorys category) {
+			this.category = category;
+
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			browseController.showCategory(category);
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+	}
+
 }
