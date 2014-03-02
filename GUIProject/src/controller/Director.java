@@ -33,7 +33,7 @@ public class Director implements PropertyChangeListener{
 		} else {
 			if(evt.getPropertyName().equals("category")) {
 				NewCategorys category = (NewCategorys)evt.getNewValue();
-				frame.addSortView(new CategoryDetailedView(category.toString(), category));
+				frame.addSortView(new CategoryDetailedView(category.getName(), category));
 			}
 		}
 	}

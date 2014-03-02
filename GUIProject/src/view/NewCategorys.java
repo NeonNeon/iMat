@@ -12,6 +12,16 @@ package view;
  * fisk och skaldjur - dryck - �rter -snacks och s�tsaker
  */
 public enum NewCategorys {
-	FAVORITER,GRONSAKER,FRUKT_OCH_BAR,BALJVAXTER,POTATIS_RIS_OCH_ROTFRUKTER,PASTA,SKAFFERI,
-	BROD,MEJERI,KOTT,FISK_OCH_SKALDJUR,DRYCK,ORTER,SNACKS_OCH_SOTSAKER
+	FAVORITER("Favoriter"),GRONSAKER("Grönsaker"),FRUKT_OCH_BAR("Frukt och bär"),
+	BALJVAXTER("Baljväxter"),POTATIS_RIS_OCH_ROTFRUKTER("Potatis, ris och rotfrukter"),
+	PASTA("Pasta"),SKAFFERI("Skafferi"),BROD("Bröd"),MEJERI("Mejeri"),KOTT("Kött"),
+	FISK_OCH_SKALDJUR("Fisk och skaldjur"),DRYCK("Dryck"),ORTER("Örter"),
+	SNACKS_OCH_SOTSAKER("Snacks och sötsaker");
+	private final String name;
+	private NewCategorys(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return this.name;
+	}
 }
