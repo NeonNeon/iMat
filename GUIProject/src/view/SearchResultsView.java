@@ -61,7 +61,8 @@ public class SearchResultsView extends JPanel {
 		this();
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
-		
+		// Jag ändrade lite här, komponenterna måste ligga i en panel
+		// och den panelen ges i konstrukorn till JScrollPanen
 		for(int i = 0; i < productList.size(); i++){
 			resultPanel.add(new ProductView(productList.get(i)));
 		}

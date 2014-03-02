@@ -13,7 +13,11 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.JTabbedPane;
-
+/**
+ * The class that should keep everything in order, it sort of runs the application.
+ * @author neon
+ *
+ */
 public class Director implements PropertyChangeListener{
 	private Model model = Model.getInstance();
 	private BrowseController browseController = new BrowseController();
