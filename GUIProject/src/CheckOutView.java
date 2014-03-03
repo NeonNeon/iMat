@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 
 public class CheckOutView extends JFrame {
 
-	private Model model = Model.getInstance();
+	private static final Model model = Model.getInstance();
 	
 	private JPanel contentPane;
 	private static final int WIDTH = 700;
