@@ -246,7 +246,6 @@ public class SearchView extends JPanel {
 		snackLabel.addMouseListener(new CategoryMouseListener(NewCategorys.SNACKS_OCH_SOTSAKER));
 		panel.add(snackLabel);
 
-
 	}
 	private void search() {
 		browseController.search(searchField.getText());
