@@ -30,12 +30,13 @@ public class SearchResultsView extends JPanel {
 	JLabel resultLabel = new JLabel();
 	JPanel resultPanel;
 	private double height;
+	private Color backGround = new Color(245,245,245);
 	
 	/**
 	 * Create the panel.
 	 */
 	public SearchResultsView() {
-		setBackground(new Color(255, 243, 240));
+		setBackground(backGround);
 		setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
 		
 		setSize(684, 631);
@@ -68,7 +69,7 @@ public class SearchResultsView extends JPanel {
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("Sökresultat för " + searchWord);
 		resultPanel = new JPanel();
-		resultPanel.setBackground(new Color(255, 233, 219));
+		resultPanel.setBackground(backGround);
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
 		resultScrollPane = new JScrollPane(resultPanel);

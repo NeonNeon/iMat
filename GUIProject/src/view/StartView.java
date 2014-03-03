@@ -27,7 +27,7 @@ public class StartView extends JPanel {
 	 */
 	public StartView(FrameController controller) {
 		frameController=controller;
-		setBackground(new Color(255, 243, 240));
+		setBackground(new Color(245,245,245));
 		setBorder(new LineBorder(new Color(255, 105, 64), 2, true));
 		
 		setSize(684, 581);

@@ -30,6 +30,7 @@ public class FrameView extends JFrame {
 	private JPanel rightPanel;
 	private JPanel centerPanel;
 	private JTabbedPane tabPane;
+	private Color backGround = new Color(245,245,245);
 
 
 	/**
@@ -42,7 +43,7 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(255, 243, 240));
+		contentPane.setBackground(backGround);
 		
 		leftPanel = new JPanel();
 		leftPanel.setBounds(0, 0, 250, 679);
@@ -61,6 +62,7 @@ public class FrameView extends JFrame {
 		
 		tabPane = new JTabbedPane();
 		addCenter(tabPane);
+		setResizable(false);
 		
 	}
 	public void addCenter(Container con) {

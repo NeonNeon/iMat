@@ -50,16 +50,17 @@ private JPanel cartPanel;
 private JScrollPane scrollCartPane;
 private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
+private Color backGround = new Color(245,245,245);
 	/**
 	 * Create the panel.
 	 */	
 	public CartView() {
-		setBackground(new Color(255, 243, 240));
+		setBackground(backGround);
 		setSize(WIDTH, HEIGHT);
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		JPanel namePanel = new JPanel();
-		namePanel.setBackground(new Color(255, 243, 240));
+		namePanel.setBackground(backGround);
 		springLayout.putConstraint(SpringLayout.NORTH, namePanel, 0, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, namePanel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, namePanel, 100, SpringLayout.NORTH, this);
@@ -70,7 +71,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		add(namePanel);
 		
 		cartPanel = new JPanel();
-		cartPanel.setBackground(new Color(255, 243, 240));
+		cartPanel.setBackground(backGround);
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581, SpringLayout.SOUTH, namePanel);
 		SpringLayout sl_cartPanel = new SpringLayout();
 		cartPanel.setLayout(sl_cartPanel);
@@ -135,7 +136,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		cartItemPane = new JPanel(new GridLayout(0,1));
 //		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,700));
 		cartItemPane.setAlignmentY(TOP_ALIGNMENT);
-		cartItemPane.setBackground(new Color(255, 243, 240));
+		cartItemPane.setBackground(backGround);
 		
 		scrollCartPane = new JScrollPane(cartItemPane);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));

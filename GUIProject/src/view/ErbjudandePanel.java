@@ -41,7 +41,7 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBackground(new Color(255, 243, 240));
+		setBackground(new Color(245,245,245));
 		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		
 		setSize(221, 238);
