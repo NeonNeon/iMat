@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -28,12 +29,12 @@ import se.chalmers.ait.dat215.project.*;
 public class AccountView extends JPanel {
 	
 	private static final Model model = Model.getInstance();
-	private JTextField nameTextField;
-	private JTextField addressTextField;
-	private JTextField townTextField;
-	private JTextField telephoneTextField;
-	private JTextField emailTextField;
-	private JTextField postNbrTextField;
+	private static JTextField firstName;
+	private static JTextField addressTextField;
+	private static JTextField townTextField;
+	private static JTextField telephoneTextField;
+	private static JTextField emailTextField;
+	private static JTextField postNbrTextField;
 	private JTextField cardNbr4;
 	private JTextField cardNbr3;
 	private JTextField cardNbr2;
@@ -42,6 +43,9 @@ public class AccountView extends JPanel {
 	private JTextField deliveryAddressTextField;
 	private JTextField deliveryPostnbrTextField;
 	private JTextField deliveryTownTextField;
+	private static JTextField lastName;
+	private static Customer customer = model.getCustomer();
+	private static CreditCard creditCard = model.getCreditCard();
 
 	/**
 	 * Create the panel.
@@ -51,12 +55,14 @@ public class AccountView extends JPanel {
 		
 		setSize(684, 681);
 		setLayout(null);
+		setBackground(new Color(255, 233, 219));
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBounds(10, 11, 327, 187);
 		add(panel);
 		panel.setLayout(null);
+		panel.setBackground(new Color(255, 233, 219));
 		
 		JLabel lblNamn = new JLabel("Namn:");
 		lblNamn.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -88,10 +94,10 @@ public class AccountView extends JPanel {
 		lblKunduppgifter.setBounds(10, 11, 176, 26);
 		panel.add(lblKunduppgifter);
 		
-		nameTextField = new JTextField();
-		nameTextField.setBounds(105, 46, 212, 20);
-		panel.add(nameTextField);
-		nameTextField.setColumns(10);
+		firstName = new JTextField();
+		firstName.setBounds(105, 46, 104, 20);
+		panel.add(firstName);
+		firstName.setColumns(10);
 		
 		addressTextField = new JTextField();
 		addressTextField.setBounds(105, 71, 212, 20);
@@ -118,10 +124,16 @@ public class AccountView extends JPanel {
 		panel.add(postNbrTextField);
 		postNbrTextField.setColumns(10);
 		
+		lastName = new JTextField();
+		lastName.setBounds(214, 46, 103, 20);
+		panel.add(lastName);
+		lastName.setColumns(10);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_1.setBounds(347, 11, 327, 187);
 		add(panel_1);
+		panel_1.setBackground(new Color(255, 233, 219));
 		panel_1.setLayout(null);
 		
 		JLabel lblBetalning = new JLabel("Betalning");
@@ -139,6 +151,7 @@ public class AccountView extends JPanel {
 		panel_1.add(paymentComboBox);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 233, 219));
 		panel_3.setBounds(10, 77, 307, 89);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
@@ -202,6 +215,7 @@ public class AccountView extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_2.setBounds(10, 209, 664, 206);
+		panel_2.setBackground(new Color(255, 233, 219));
 		add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -232,6 +246,7 @@ public class AccountView extends JPanel {
 		
 		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
 		checkBox.setBounds(35, 137, 209, 23);
+		checkBox.setBackground(new Color(255, 233, 219));
 		panel_2.add(checkBox);
 		
 		JLabel lblLeveransdag = new JLabel("Leveransdag:");
@@ -267,8 +282,18 @@ public class AccountView extends JPanel {
 	}
 	
 	
-	public void save(){
+	public static void save(){
 		
+		//saving customer information
+		customer.setFirstName(firstName.getText());
+		customer.setLastName(lastName.getText());
+		customer.setAddress(addressTextField.getText());
+		customer.setPostCode(postNbrTextField.getText());
+		customer.setPostAddress(townTextField.getText());
+		customer.setPhoneNumber(telephoneTextField.getText());
+		customer.setEmail(emailTextField.getText());
+		
+		//saving payment
 		
 		
 	}

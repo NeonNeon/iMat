@@ -1,3 +1,4 @@
+package view;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -244,7 +245,7 @@ public class CheckOutView extends JFrame {
 		card2.add(cardNumberTextField);
 		cardNumberTextField.setColumns(10);
 		
-		JLabel expireDateLabel = new JLabel("Utlšper:");
+		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
 		expireDateLabel.setBounds(25, 393, 56, 16);
 		card2.add(expireDateLabel);
 		

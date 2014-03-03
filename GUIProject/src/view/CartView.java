@@ -1,3 +1,4 @@
+package view;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
@@ -45,6 +46,7 @@ private JButton buyButton;
 private JButton saveCartButton;
 private JButton emptyCartButton;
 private JPanel cartItemPane;
+private JPanel cartPanel;
 private JScrollPane scrollCartPane;
 private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
@@ -52,10 +54,12 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 	 * Create the panel.
 	 */	
 	public CartView() {
+		setBackground(new Color(255, 243, 240));
 		setSize(WIDTH, HEIGHT);
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		JPanel namePanel = new JPanel();
+		namePanel.setBackground(new Color(255, 243, 240));
 		springLayout.putConstraint(SpringLayout.NORTH, namePanel, 0, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, namePanel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, namePanel, 100, SpringLayout.NORTH, this);
@@ -65,7 +69,8 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		namePanel.setLayout(sl_namePanel);
 		add(namePanel);
 		
-		JPanel cartPanel = new JPanel();
+		cartPanel = new JPanel();
+		cartPanel.setBackground(new Color(255, 243, 240));
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581, SpringLayout.SOUTH, namePanel);
 		SpringLayout sl_cartPanel = new SpringLayout();
 		cartPanel.setLayout(sl_cartPanel);
@@ -86,7 +91,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		nameLabel.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
 		springLayout.putConstraint(SpringLayout.WEST, cartPanel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.EAST, cartPanel, 0, SpringLayout.EAST, this);
-		cartPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		cartPanel.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
 		add(cartPanel);
 		
 		JLabel varukorgLabel = new JLabel("Varukorg");
@@ -130,6 +135,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		cartItemPane = new JPanel(new GridLayout(0,1));
 //		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,700));
 		cartItemPane.setAlignmentY(TOP_ALIGNMENT);
+		cartItemPane.setBackground(new Color(255, 243, 240));
 		
 		scrollCartPane = new JScrollPane(cartItemPane);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
