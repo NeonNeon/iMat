@@ -32,9 +32,9 @@ public class CategoryDetailedView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CategoryDetailedView(String name, NewCategorys nc) {
-		this.name = name;
+	public CategoryDetailedView(String name,NewCategorys nc) {
 		this.nc=nc;
+		this.name = name;
 		pl = model.getProducts(nc);
 		
 		
@@ -44,7 +44,7 @@ public class CategoryDetailedView extends JPanel {
 		setLayout(null);
 		
 		JLabel nameLabel = new JLabel(name, JLabel.CENTER);
-		nameLabel.setBounds(262, 13, 151, 39);
+		nameLabel.setBounds(208, 13, 224, 39);
 		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		nameLabel.setForeground(Color.BLACK);
 		add(nameLabel);
