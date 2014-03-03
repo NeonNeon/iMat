@@ -59,20 +59,20 @@ public class SortimentView extends JPanel {
 		rubrikLabel.setFont(new Font("Tahoma", Font.PLAIN,24));
 		add(rubrikLabel);
 		
-		;
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 83, 684, 533);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		add(scrollPane);
+		
+		
 		
 		
 		
 		JPanel categoryPanel = new JPanel();
-		scrollPane.setViewportView(categoryPanel);
 		categoryPanel.setPreferredSize(new Dimension(684,(int)height));
 		categoryPanel.setLayout(new GridLayout(0,3));
 	
+		JScrollPane scrollPane = new JScrollPane(categoryPanel);
+		scrollPane.setBounds(0, 83, 684, 533);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		add(scrollPane);
 		
 		categoryPanel.add(new CategoryView("Gr�nsaker",gronsaker));
 		categoryPanel.add(new CategoryView("Frukt och B�r", frukt));
