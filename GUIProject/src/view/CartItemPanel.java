@@ -1,11 +1,14 @@
 package view;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
+
 import javax.swing.JLabel;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -13,8 +16,12 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+
 import java.awt.Insets;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.border.EtchedBorder;
 
 /**
@@ -40,12 +47,19 @@ public class CartItemPanel extends JPanel {
 	private JButton plusButton;
 	private JButton garbageButton;
 	private JButton minusButton;
+	private ImageIcon garbageIcon = new ImageIcon("lib/Bildmapp/TrashIcon.png");
+	private ImageIcon minusIcon = new ImageIcon("lib/Bildmapp/minusIcon.png");
+	private ImageIcon plusIcon = new ImageIcon("lib/Bildmapp/plusIcon.png");
 
 	/**
 	 * Create the panel.
 	 * @wbp.parser.constructor
 	 */
 	public CartItemPanel(ShoppingItem item) {
+		MouseAdapter myMouseListener = new MouseAdapter(){
+			public void mouseEntered(MouseEvent e) {
+				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}};
 		setBorder(null);
 		setBackground(new Color(255, 243, 240));
 		this.item = item;
@@ -85,10 +99,17 @@ public class CartItemPanel extends JPanel {
 		gbl_buttonPanel.rowHeights = new int[] {0, 1};
 		gbl_buttonPanel.columnWidths = new int[] {2};
 		buttonPanel.setLayout(gbl_buttonPanel);
-		garbageButton = new JButton("P");
+		garbageButton = new JButton(garbageIcon);
+		garbageButton.setBackground(null);
+		garbageButton.setBorder(null);
+		garbageButton.setToolTipText("Ta bort vara");
+		garbageButton.addMouseListener(myMouseListener);
 		
 		GridBagConstraints c = new GridBagConstraints();
-		plusButton = new JButton("+");
+		plusButton = new JButton(plusIcon);
+		plusButton.setBackground(null);
+		plusButton.setBorder(null);
+		plusButton.addMouseListener(myMouseListener);
 		
 		GridBagConstraints gbc_plusButton = new GridBagConstraints();
 		gbc_plusButton.fill = GridBagConstraints.BOTH;
@@ -97,7 +118,10 @@ public class CartItemPanel extends JPanel {
 		gbc_plusButton.gridy = 0;
 		buttonPanel.add(plusButton, gbc_plusButton);
 		
-		minusButton = new JButton("-");
+		minusButton = new JButton(minusIcon);
+		minusButton.setBackground(null);
+		minusButton.setBorder(null);
+		minusButton.addMouseListener(myMouseListener);
 		
 		
 		GridBagConstraints gbc_minusButton = new GridBagConstraints();

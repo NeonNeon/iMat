@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import se.chalmers.ait.dat215.project.*;
 import java.awt.Font;
 
 import se.chalmers.ait.dat215.project.util.*;
+
 import javax.swing.JScrollPane;
 
 /**
@@ -27,12 +29,13 @@ public class SearchResultsView extends JPanel {
 	JScrollPane resultScrollPane;
 	JLabel resultLabel = new JLabel();
 	JPanel resultPanel;
+	private double height;
 	
 	/**
 	 * Create the panel.
 	 */
 	public SearchResultsView() {
-		setBackground(new Color(255, 255, 240));
+		setBackground(new Color(255, 243, 240));
 		setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
 		
 		setSize(684, 631);
@@ -42,11 +45,12 @@ public class SearchResultsView extends JPanel {
 		resultLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		add(resultLabel);
 		
-		resultPanel = new JPanel();
-		resultPanel.setLayout(new GridLayout(0,3));
-		resultScrollPane = new JScrollPane(resultPanel);
-		resultScrollPane.setBounds(10, 77, 664, 593);
-		add(resultScrollPane);
+//		resultPanel = new JPanel();
+//		resultPanel.setBackground(new Color(255, 233, 219));
+//		resultPanel.setLayout(new GridLayout(0,3));
+//		resultScrollPane = new JScrollPane(resultPanel);
+//		resultScrollPane.setBounds(10, 77, 664, 593);
+//		add(resultScrollPane);
 
 	}
 	
@@ -59,8 +63,17 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(List<Product> productList, String searchWord){
 		this();
+		height = (productList.size()/3)*400;
+		
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
+		resultPanel = new JPanel();
+		resultPanel.setBackground(new Color(255, 233, 219));
+		resultPanel.setLayout(new GridLayout(0,3));
+		resultPanel.setPreferredSize(new Dimension(664,(int)height));
+		resultScrollPane = new JScrollPane(resultPanel);
+		resultScrollPane.setBounds(10, 77, 654,591 );
+		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen
 		for(int i = 0; i < productList.size(); i++){

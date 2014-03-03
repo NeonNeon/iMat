@@ -48,7 +48,7 @@ public class ProductView extends JPanel {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}};
 		product = p;
-		setBorder(new LineBorder(new Color(204, 255, 153), 1, true));
+		setBorder(new LineBorder(new Color(255, 233, 219), 1, true));
 		setBackground(new Color(255, 243, 240));
 		
 		setPreferredSize(new Dimension(200, 273));
@@ -79,18 +79,35 @@ public class ProductView extends JPanel {
 			
 		
 		favouriteButton.setToolTipText("L\u00E4gg till som favorit");
-		favouriteButton.setBounds(152, 149, 36, 23);
+		favouriteButton.setBounds(152, 138, 36, 34);
+		favouriteButton.setBackground(null);
+		favouriteButton.setBorder(null);
+		favouriteButton.setOpaque(true);
+		favouriteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(favouriteButton.getBackground() == Color.YELLOW)
+					favouriteButton.setBackground(new Color(255, 243, 240));
+				else
+					favouriteButton.setBackground(Color.YELLOW);
+			}
+		});
 		add(favouriteButton);
 		
 		addToListButton = new JButton(listIcon);
 		addToListButton.setToolTipText("L\u00E4gg till i lista");
-		addToListButton.setBounds(152, 184, 36, 23);
+		addToListButton.setBounds(152, 178, 36, 34);
 		addToListButton.addMouseListener(myMouseListener);
+		addToListButton.setBackground(null);
+		addToListButton.setBorder(null);
+		addToListButton.setOpaque(true);
 		add(addToListButton);
 		
 		addToCartButton = new JButton(cartIcon);
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
-		addToCartButton.setBounds(152, 219, 36, 23);
+		addToCartButton.setBounds(152, 220, 36, 40);
+		addToCartButton.setBackground(null);
+		addToCartButton.setBorder(null);
+		addToCartButton.setOpaque(true);
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				model.getShoppingCart().addItem(new ShoppingItem(p,(Double) spinner.getValue()));
