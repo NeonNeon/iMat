@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 public class CheckOutView extends JFrame {
 
 	private static final Model model = Model.getInstance();
-	
 	private JPanel contentPane;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 600;
@@ -71,7 +70,7 @@ public class CheckOutView extends JFrame {
 		contentPane.setLayout(cardLayout);
 		
 		JPanel card1 = new JPanel();
-		card1.setBackground(new Color(153, 204, 204));
+		card1.setBackground(new Color(190, 51, 40));
 		contentPane.add(card1, "Card1");
 		card1.setLayout(null);
 		
@@ -79,10 +78,8 @@ public class CheckOutView extends JFrame {
 		separator_1.setBounds(350, 5, 10, 555);
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		card1.add(separator_1);
-		
 		JScrollPane cartPane = new JScrollPane();
 		cartPane.setBounds(375, 20, 300, 455);
-		//cartPane.set
 		card1.add(cartPane);
 		
 		
@@ -158,7 +155,7 @@ public class CheckOutView extends JFrame {
 		
 		
 		JPanel card2 = new JPanel();
-		card2.setBackground(new Color(153, 204, 204));
+		card2.setBackground(new Color(190, 51, 40));
 		contentPane.add(card2, "Card2");
 		card2.setLayout(null);
 		
