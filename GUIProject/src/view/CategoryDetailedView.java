@@ -51,8 +51,11 @@ public class CategoryDetailedView extends JPanel {
 		
 
 
+		if(pl.size()%3==0)
+			height = (pl.size()/3)*273;
+		else
+			height = (pl.size()/2.3)*273;
 		
-		height = (pl.size()/3)*400;
 		
 		productPanel = new JPanel();
 		productPanel.setBackground(new Color(255, 243, 240));
@@ -60,7 +63,7 @@ public class CategoryDetailedView extends JPanel {
 		productPanel.setPreferredSize(new Dimension(684,(int)height));
 		
 		JScrollPane scrollPane = new JScrollPane(productPanel);
-		scrollPane.setBounds(0, 65, 684, 616);
+		scrollPane.setBounds(0, 65, 684, 501);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
