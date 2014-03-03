@@ -246,6 +246,7 @@ public class AccountView extends JPanel {
 		
 		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
 		checkBox.setBounds(35, 137, 209, 23);
+		checkBox.setBackground(new Color(255, 233, 219));
 		panel_2.add(checkBox);
 		
 		JLabel lblLeveransdag = new JLabel("Leveransdag:");
