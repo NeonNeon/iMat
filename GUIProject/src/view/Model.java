@@ -13,6 +13,7 @@ import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCart;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 import se.chalmers.ait.dat215.project.User;
 
 /**
@@ -56,7 +57,19 @@ public class Model {
 	public static Model getInstance() {
 		return instance;
 	}
-
+	public void addToCart(ShoppingItem item) {
+		
+		ShoppingCart cart = getShoppingCart();
+		ShoppingItem newItem = item;
+//		double amount;
+		List<ShoppingItem> listOfItems = cart.getItems();
+//		List<Product> listOfProducts = new ArrayList<Product>();
+		for(ShoppingItem i : listOfItems) {
+			if(i.getProduct().getName().equals(newItem.getProduct().getName())) {
+				i.setAmount(i.getAmount() + newItem.getAmount());
+			}
+		}
+	}
 	/**
 	 * Set a product as a favorite.
 	 * 

@@ -31,59 +31,68 @@ import javax.swing.Box;
 import javax.swing.border.LineBorder;
 
 import controller.BrowseController;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
 
 
 public class SearchView extends JPanel {
+
+	private static Model model = Model.getInstance();
+
+	private JTextField textField;
+	private Color originalColor = new Color(91, 96, 106);
 	private JTextField searchField;
-	private Color originalColor = new Color(0, 0, 0);
-	private Color hoverColor = new Color(255,182,193);
+	private Color hoverColor = new Color(153,204,204);
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 	private BrowseController browseController;
 	JButton logoButton;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
-			@Override
-			public void mouseEntered(MouseEvent evt) {
-				((JLabel)evt.getSource()).setForeground(hoverColor);
-				((JLabel)evt.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
-				
-			}
-			@Override
-			public void mouseExited(MouseEvent evt) {
-				((JLabel)evt.getSource()).setForeground(originalColor);
-			}
-			
-			
+		@Override
+		public void mouseEntered(MouseEvent evt) {
+			((JLabel)evt.getSource()).setForeground(hoverColor);
+			((JLabel)evt.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
+		}
+		@Override
+		public void mouseExited(MouseEvent evt) {
+			((JLabel)evt.getSource()).setForeground(originalColor);
+		}
 	};
-	
+
 	/**
 	 * Create the panel.
 	 */
+	/*public SearchView() {
+		setBackground(new Color(153, 204, 204));
+	 */
 	public SearchView(BrowseController controller) {
 		browseController = controller;
-		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
-		setBackground(new Color(255, 243, 240));
+		setBorder(new LineBorder(new Color(255, 105, 64), 0, true));
+		setBackground(new Color(245, 245, 245));
 		setSize(250,681);
 		setLayout(null);
 
 		logoButton = new JButton("iMat");
+		logoButton.setOpaque(true);
 		logoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				browseController.startView();
 			}
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
-		logoButton.setForeground(new Color(0,0,0));
-		logoButton.setBackground(new Color(255, 243, 240));
+		logoButton.setForeground(new Color(255, 255, 255));
+		logoButton.setBackground(new Color(153, 204, 204));
 		logoButton.setBounds(0, 0, 250, 100);
-		logoButton.setBorder(new LineBorder(new Color(255, 105, 64), 1));
+		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(logoButton);
 
 		searchField = new JTextField();
 		searchField.setBounds(20, 130, 210, 40);
 		add(searchField);
 		searchField.setColumns(10);
-		searchField.setText("S�k..");
+		searchField.setText("S\u00F6k..");
 		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
 		searchField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -95,7 +104,7 @@ public class SearchView extends JPanel {
 				searchField.setText("");
 			}
 		});
-	
+
 
 		/*
 		 * Kategorier:
@@ -117,7 +126,7 @@ public class SearchView extends JPanel {
 		 */
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 243, 240));
+		panel.setBackground(new Color(245, 245, 245));
 		panel.setBounds(20, 197, 212, 382);
 		add(panel);
 		panel.setLayout(new GridLayout(16, 1, 9, 0));
@@ -128,21 +137,22 @@ public class SearchView extends JPanel {
 		favoritesLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		favoritesLabel.addMouseListener(myMouseListener);
 		favoritesLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FAVORITER));
-		
+
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut_1);
-		favoritesLabel.setForeground(new Color(235, 60, 21));
-		favoritesLabel.setBackground(hoverColor);
+		favoritesLabel.setForeground(originalColor);
+		favoritesLabel.setBackground(new Color(153, 204, 204));
 		panel.add(favoritesLabel);
 		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));
 		favoritesLabel.setSize(681,30);
 
-		JLabel greensLabel = new JLabel("Gr�nsaker");
+		JLabel greensLabel = new JLabel("Gr\u00F6nsaker");
 		greensLabel.addMouseListener(myMouseListener);
-		
+
 		Component horizontalStrut = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut);
-		greensLabel.setForeground(new Color(0 , 0, 0));
+		greensLabel.setForeground(originalColor);
+		greensLabel.setBackground(new Color(153, 204, 204));
 		greensLabel.setBackground(hoverColor);
 		greensLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		greensLabel.setFont(categoryFont);
@@ -152,26 +162,26 @@ public class SearchView extends JPanel {
 
 		JLabel fruitLabel = new JLabel("Frukt och b�r");
 		fruitLabel.addMouseListener(myMouseListener);
-		fruitLabel.setForeground(new Color(0 , 0, 0));
-		fruitLabel.setBackground(hoverColor);
+		fruitLabel.setForeground(originalColor);
+		fruitLabel.setBackground(new Color(153, 204, 204));
 		fruitLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fruitLabel.setFont(categoryFont);
 		fruitLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FRUKT_OCH_BAR));
 
 
-		JLabel herbLabel = new JLabel("�rter");
+		JLabel herbLabel = new JLabel("\u00D6rter");
 		herbLabel.addMouseListener(myMouseListener);
-		herbLabel.setForeground(new Color(0 , 0, 0));
-		herbLabel.setBackground(hoverColor);
+		herbLabel.setForeground(originalColor);
+		herbLabel.setBackground(new Color(153, 204, 204));
 		herbLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		herbLabel.setFont(categoryFont);
 		herbLabel.addMouseListener(new CategoryMouseListener(NewCategorys.ORTER));
 		panel.add(herbLabel);
 
-		JLabel leguminousLabel = new JLabel("Baljv�xter");
+		JLabel leguminousLabel = new JLabel("Baljv\u00E4xter");
 		leguminousLabel.addMouseListener(myMouseListener);
-		leguminousLabel.setForeground(new Color(0 , 0, 0));
-		leguminousLabel.setBackground(hoverColor);
+		leguminousLabel.setForeground(originalColor);
+		leguminousLabel.setBackground(new Color(153, 204, 204));
 		leguminousLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		leguminousLabel.setFont(categoryFont);
 		leguminousLabel.addMouseListener(new CategoryMouseListener(NewCategorys.BALJVAXTER));
@@ -180,8 +190,8 @@ public class SearchView extends JPanel {
 
 		JLabel rootvegLabel = new JLabel("Potatis och rotfrukter");
 		rootvegLabel.addMouseListener(myMouseListener);
-		rootvegLabel.setForeground(new Color(0 , 0, 0));
-		rootvegLabel.setBackground(hoverColor);
+		rootvegLabel.setForeground(originalColor);
+		rootvegLabel.setBackground(new Color(153, 204, 204));
 		rootvegLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		rootvegLabel.setFont(categoryFont);
 		rootvegLabel.addMouseListener(new CategoryMouseListener(NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
@@ -190,26 +200,26 @@ public class SearchView extends JPanel {
 
 		JLabel fishLabel = new JLabel("Fisk och skaldjur");
 		fishLabel.addMouseListener(myMouseListener);
-		fishLabel.setForeground(new Color(0 , 0, 0));
-		fishLabel.setBackground(hoverColor);
+		fishLabel.setForeground(originalColor);
+		fishLabel.setBackground(new Color(153, 204, 204));
 		fishLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fishLabel.setFont(categoryFont);
 		fishLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FISK_OCH_SKALDJUR));
 		panel.add(fishLabel);
 
-		JLabel meatLabel = new JLabel("K�tt");
+		JLabel meatLabel = new JLabel("K\u00F6tt");
 		meatLabel.addMouseListener(myMouseListener);
-		meatLabel.setForeground(new Color(0 , 0, 0));
-		meatLabel.setBackground(hoverColor);
+		meatLabel.setForeground(originalColor);
+		meatLabel.setBackground(new Color(153, 204, 204));
 		meatLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		meatLabel.setFont(categoryFont);
 		meatLabel.addMouseListener(new CategoryMouseListener(NewCategorys.KOTT));
 		panel.add(meatLabel);
 
-		JLabel breadLabel = new JLabel("Br�d");
+		JLabel breadLabel = new JLabel("Br\u00F6d");
 		breadLabel.addMouseListener(myMouseListener);
-		breadLabel.setForeground(new Color(0 , 0, 0));
-		breadLabel.setBackground(hoverColor);
+		breadLabel.setForeground(originalColor);
+		breadLabel.setBackground(new Color(153, 204, 204));
 		breadLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		breadLabel.setFont(categoryFont);
 		breadLabel.addMouseListener(new CategoryMouseListener(NewCategorys.BROD));
@@ -217,8 +227,8 @@ public class SearchView extends JPanel {
 
 		JLabel dairyLabel = new JLabel("Mejeri");
 		dairyLabel.addMouseListener(myMouseListener);
-		dairyLabel.setForeground(new Color(0 , 0, 0));
-		dairyLabel.setBackground(hoverColor);
+		dairyLabel.setForeground(originalColor);
+		dairyLabel.setBackground(new Color(153, 204, 204));
 		dairyLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dairyLabel.setFont(categoryFont);
 		dairyLabel.addMouseListener(new CategoryMouseListener(NewCategorys.MEJERI));
@@ -226,8 +236,8 @@ public class SearchView extends JPanel {
 
 		JLabel riceLabel = new JLabel("Ris och Pasta");
 		riceLabel.addMouseListener(myMouseListener);
-		riceLabel.setForeground(new Color(0 , 0, 0));
-		riceLabel.setBackground(hoverColor);
+		riceLabel.setForeground(originalColor);
+		riceLabel.setBackground(new Color(153, 204, 204));
 		riceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		riceLabel.setFont(categoryFont);
 		// TODO fix
@@ -235,8 +245,8 @@ public class SearchView extends JPanel {
 
 		JLabel pantryLabel = new JLabel("Skafferi");
 		pantryLabel.addMouseListener(myMouseListener);
-		pantryLabel.setForeground(new Color(0 , 0, 0));
-		pantryLabel.setBackground(hoverColor);
+		pantryLabel.setForeground(originalColor);
+		pantryLabel.setBackground(new Color(153, 204, 204));
 		pantryLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pantryLabel.setFont(categoryFont);
 		pantryLabel.addMouseListener(new CategoryMouseListener(NewCategorys.SKAFFERI));
@@ -244,8 +254,8 @@ public class SearchView extends JPanel {
 
 		JLabel drinksLabel = new JLabel("Dryck");
 		drinksLabel.addMouseListener(myMouseListener);
-		drinksLabel.setForeground(new Color(0 , 0, 0));
-		drinksLabel.setBackground(hoverColor);
+		drinksLabel.setForeground(originalColor);
+		drinksLabel.setBackground(new Color(153, 204, 204));
 		drinksLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		drinksLabel.setFont(categoryFont);
 		drinksLabel.addMouseListener(new CategoryMouseListener(NewCategorys.DRYCK));
@@ -253,15 +263,14 @@ public class SearchView extends JPanel {
 
 
 
-		JLabel snackLabel = new JLabel("Snacks och s�tsaker");
+		JLabel snackLabel = new JLabel("Snacks och s\u00F6tsaker");
 		snackLabel.addMouseListener(myMouseListener);
-		snackLabel.setForeground(new Color(0 , 0, 0));
-		snackLabel.setBackground(hoverColor);
+		snackLabel.setForeground(originalColor);
+		snackLabel.setBackground(new Color(153, 204, 204));
 		snackLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		snackLabel.setFont(categoryFont);
 		snackLabel.addMouseListener(new CategoryMouseListener(NewCategorys.SNACKS_OCH_SOTSAKER));
 		panel.add(snackLabel);
-
 
 	}
 	private void search() {

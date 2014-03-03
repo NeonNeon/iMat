@@ -14,10 +14,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import javax.swing.SpinnerNumberModel;
 
 import java.awt.Font;
 
 import javax.swing.border.LineBorder;
+
+import controller.DoubleSpinner;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +39,7 @@ public class ProductView extends JPanel {
 	private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
 	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/ListIcon.png");
 	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
+	private JSpinner spinner;
 
 
 
@@ -70,7 +74,8 @@ public class ProductView extends JPanel {
 		priceLabel.setBounds(10, 182, 130, 25);
 		add(priceLabel);
 		
-		final JSpinner spinner = new JSpinner();
+		spinner = (product.getUnitSuffix().equals("kg")) 
+				? new DoubleSpinner() : new JSpinner(new SpinnerNumberModel(1, 0, 99, 1));
 		spinner.setBounds(10, 220, 38, 20);
 		add(spinner);
 		
