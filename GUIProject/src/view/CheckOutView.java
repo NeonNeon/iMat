@@ -24,7 +24,7 @@ import java.awt.event.ActionEvent;
 
 public class CheckOutView extends JFrame {
 
-	private Model model = Model.getInstance();
+	private static final Model model = Model.getInstance();
 	
 	private JPanel contentPane;
 	private static final int WIDTH = 700;
@@ -37,7 +37,7 @@ public class CheckOutView extends JFrame {
 	private JTextField cvcTextField;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
+			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -142,7 +142,7 @@ public class CheckOutView extends JFrame {
 		postAddressLabel.setBounds(25, 149, 61, 16);
 		card1.add(postAddressLabel);
 		
-		JButton modifyButton = new JButton("ï¿½ndra");
+		JButton modifyButton = new JButton("€ndra");
 		modifyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.next(contentPane);
