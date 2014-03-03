@@ -55,12 +55,14 @@ public class AccountView extends JPanel {
 		
 		setSize(684, 681);
 		setLayout(null);
+		setBackground(new Color(255, 233, 219));
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBounds(10, 11, 327, 187);
 		add(panel);
 		panel.setLayout(null);
+		panel.setBackground(new Color(255, 233, 219));
 		
 		JLabel lblNamn = new JLabel("Namn:");
 		lblNamn.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -131,6 +133,7 @@ public class AccountView extends JPanel {
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_1.setBounds(347, 11, 327, 187);
 		add(panel_1);
+		panel_1.setBackground(new Color(255, 233, 219));
 		panel_1.setLayout(null);
 		
 		JLabel lblBetalning = new JLabel("Betalning");
@@ -148,6 +151,7 @@ public class AccountView extends JPanel {
 		panel_1.add(paymentComboBox);
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 233, 219));
 		panel_3.setBounds(10, 77, 307, 89);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
@@ -211,6 +215,7 @@ public class AccountView extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_2.setBounds(10, 209, 664, 206);
+		panel_2.setBackground(new Color(255, 233, 219));
 		add(panel_2);
 		panel_2.setLayout(null);
 		

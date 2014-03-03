@@ -33,9 +33,11 @@ public class ProductView extends JPanel {
 	private static final Model model = Model.getInstance();
 	private final Product product;
 	private JButton favouriteButton, addToListButton, addToCartButton;
+	private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
+	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/ListIcon.png");
+	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
 
-	// private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/Cart.png");
-	// private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/List.jpg");
+
 
 	/**
 	 * Create the panel.
@@ -72,22 +74,21 @@ public class ProductView extends JPanel {
 		spinner.setBounds(10, 220, 38, 20);
 		add(spinner);
 		
-		favouriteButton = new JButton("New button");
+		favouriteButton = new JButton(favoriteIcon);
 		favouriteButton.addMouseListener(myMouseListener);
 			
 		
 		favouriteButton.setToolTipText("L\u00E4gg till som favorit");
 		favouriteButton.setBounds(152, 149, 36, 23);
-		//favouriteButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(favouriteButton);
 		
-		addToListButton = new JButton("");
+		addToListButton = new JButton(listIcon);
 		addToListButton.setToolTipText("L\u00E4gg till i lista");
 		addToListButton.setBounds(152, 184, 36, 23);
 		addToListButton.addMouseListener(myMouseListener);
 		add(addToListButton);
 		
-		addToCartButton = new JButton("");
+		addToCartButton = new JButton(cartIcon);
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
 		addToCartButton.setBounds(152, 219, 36, 23);
 		addToCartButton.addActionListener(new ActionListener() {
