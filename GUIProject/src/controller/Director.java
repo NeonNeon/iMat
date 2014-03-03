@@ -56,6 +56,7 @@ public class Director implements PropertyChangeListener {
 
 	public Director() {
 		cartController = new CartController();
+		
 		// TODO Auto-generated method stub
 		searchView = new SearchView(browseController);
 		browseController.addObeserver(this);

@@ -92,7 +92,8 @@ public class ProductView extends JPanel {
 		addToCartButton.setBounds(152, 219, 36, 23);
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				model.getShoppingCart().addItem(new ShoppingItem(p,(double)spinner.getValue()));
+				model.getShoppingCart().addItem(new ShoppingItem(p,(Double) spinner.getValue()));
+				System.out.println("lagt till " + product.getName() + "i varukorgen");
 			}
 		});
 		
