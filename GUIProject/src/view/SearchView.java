@@ -38,9 +38,9 @@ import javax.swing.border.CompoundBorder;
 
 
 public class SearchView extends JPanel {
-	
+
 	private static Model model = Model.getInstance();
-	
+
 	private JTextField textField;
 	private Color originalColor = new Color(91, 96, 106);
 	private JTextField searchField;
@@ -50,23 +50,23 @@ public class SearchView extends JPanel {
 	JButton logoButton;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
-			@Override
-			public void mouseEntered(MouseEvent evt) {
-				((JLabel)evt.getSource()).setForeground(hoverColor);
-				((JLabel)evt.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
-	}
-			@Override
-			public void mouseExited(MouseEvent evt) {
-				((JLabel)evt.getSource()).setForeground(originalColor);
-			}
+		@Override
+		public void mouseEntered(MouseEvent evt) {
+			((JLabel)evt.getSource()).setForeground(hoverColor);
+			((JLabel)evt.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
+		}
+		@Override
+		public void mouseExited(MouseEvent evt) {
+			((JLabel)evt.getSource()).setForeground(originalColor);
+		}
 	};
-	
+
 	/**
 	 * Create the panel.
 	 */
 	/*public SearchView() {
 		setBackground(new Color(153, 204, 204));
-		*/
+	 */
 	public SearchView(BrowseController controller) {
 		browseController = controller;
 		setBorder(new LineBorder(new Color(255, 105, 64), 0, true));
@@ -104,7 +104,7 @@ public class SearchView extends JPanel {
 				searchField.setText("");
 			}
 		});
-	
+
 
 		/*
 		 * Kategorier:
@@ -137,7 +137,7 @@ public class SearchView extends JPanel {
 		favoritesLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		favoritesLabel.addMouseListener(myMouseListener);
 		favoritesLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FAVORITER));
-		
+
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut_1);
 		favoritesLabel.setForeground(originalColor);
@@ -148,7 +148,7 @@ public class SearchView extends JPanel {
 
 		JLabel greensLabel = new JLabel("Gr\u00F6nsaker");
 		greensLabel.addMouseListener(myMouseListener);
-		
+
 		Component horizontalStrut = Box.createHorizontalStrut(20);
 		panel.add(horizontalStrut);
 		greensLabel.setForeground(originalColor);

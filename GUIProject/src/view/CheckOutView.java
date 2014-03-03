@@ -65,6 +65,7 @@ public class CheckOutView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, WIDTH, HEIGHT);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(245, 245, 245));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(cardLayout);
@@ -79,9 +80,11 @@ public class CheckOutView extends JFrame {
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		card1.add(separator_1);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(375, 20, 300, 455);
-		card1.add(scrollPane_1);
+		JScrollPane cartPane = new JScrollPane();
+		cartPane.setBounds(375, 20, 300, 455);
+		//cartPane.set
+		card1.add(cartPane);
+		
 		
 		JLabel deliveryDay1 = new JLabel("Leveransdag");
 		deliveryDay1.setBounds(25, 210, 80, 15);
