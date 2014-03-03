@@ -50,7 +50,7 @@ public class CategoryDetailedView extends JPanel {
 		add(nameLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 65, 684, 616);
+		scrollPane.setBounds(0, 65, 684, 500);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
