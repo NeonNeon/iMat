@@ -22,13 +22,17 @@ public class StartView extends JPanel {
 
 	private static final Model model = Model.getInstance();
 	FrameController frameController;
+	private Color background = new Color(255, 243, 240);
+	private Color borderColor = new Color(255, 105, 64);
+	private Font textFont = new Font("Tahoma", Font.PLAIN, 13);
+	private Font headerFont = new Font("Tahoma", Font.BOLD, 18);
 	/**
 	 * Create the panel.
 	 */
 	public StartView(FrameController controller) {
 		frameController=controller;
-		setBackground(new Color(255, 243, 240));
-		setBorder(new LineBorder(new Color(255, 105, 64), 2, true));
+		setBackground(background);
+		setBorder(new LineBorder(borderColor, 2, true));
 		
 		setSize(684, 581);
 		setLayout(null);
@@ -53,29 +57,29 @@ public class StartView extends JPanel {
 		add(nbrLabel3);
 		
 		JLabel instructionLabel1 = new JLabel("V\u00E4lj dina varor");
-		instructionLabel1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		instructionLabel1.setFont(textFont);
 		instructionLabel1.setBounds(291, 167, 127, 14);
 		add(instructionLabel1);
 		
 		JLabel instructionLabel2 = new JLabel("Betala");
-		instructionLabel2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		instructionLabel2.setFont(textFont);
 		instructionLabel2.setBounds(290, 201, 46, 14);
 		add(instructionLabel2);
 		
 		JLabel instructionLabel3 = new JLabel("F\u00E5 maten hemk\u00F6rd!");
-		instructionLabel3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		instructionLabel3.setFont(textFont);
 		instructionLabel3.setBounds(291, 241, 127, 14);
 		add(instructionLabel3);
 		
 		JPanel offerPanel = new JPanel();
 		offerPanel.setBorder(null);
-		offerPanel.setBackground(new Color(255, 243, 240));
+		offerPanel.setBackground(background);
 		offerPanel.setBounds(10, 331, 664, 238);
 		add(offerPanel);
 		offerPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JLabel lblVeckansErbjudanden = new JLabel("Veckans erbjudanden!");
-		lblVeckansErbjudanden.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblVeckansErbjudanden.setFont(headerFont);
 		lblVeckansErbjudanden.setBounds(222, 284, 246, 36);
 		add(lblVeckansErbjudanden);
 		

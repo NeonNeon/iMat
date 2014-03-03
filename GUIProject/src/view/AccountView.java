@@ -46,6 +46,8 @@ public class AccountView extends JPanel {
 	private static JTextField lastName;
 	private static Customer customer = model.getCustomer();
 	private static CreditCard creditCard = model.getCreditCard();
+	private Color background = new Color(255, 243, 240);
+	private Color borderColor = new Color(255, 105, 64);
 
 	/**
 	 * Create the panel.
@@ -55,14 +57,14 @@ public class AccountView extends JPanel {
 		
 		setSize(684, 681);
 		setLayout(null);
-		setBackground(new Color(255, 233, 219));
+		setBackground(background);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBounds(10, 11, 327, 187);
 		add(panel);
 		panel.setLayout(null);
-		panel.setBackground(new Color(255, 233, 219));
+		panel.setBackground(background);
 		
 		JLabel lblNamn = new JLabel("Namn:");
 		lblNamn.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -133,7 +135,7 @@ public class AccountView extends JPanel {
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_1.setBounds(347, 11, 327, 187);
 		add(panel_1);
-		panel_1.setBackground(new Color(255, 233, 219));
+		panel_1.setBackground(background);
 		panel_1.setLayout(null);
 		
 		JLabel lblBetalning = new JLabel("Betalning");
@@ -215,7 +217,7 @@ public class AccountView extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel_2.setBounds(10, 209, 664, 206);
-		panel_2.setBackground(new Color(255, 233, 219));
+		panel_2.setBackground(background);
 		add(panel_2);
 		panel_2.setLayout(null);
 		

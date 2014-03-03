@@ -34,6 +34,11 @@ public class ErbjudandePanel extends JPanel {
 	private JButton productButton;
 	private FrameController frameController;
 	private Product product;
+	private Color background = new Color(255, 243, 240);
+	private Color borderColor = new Color(255, 105, 64);
+	private Color priceColor = new Color(204, 0, 0);
+	private Font nameFont = new Font("Tahoma", Font.PLAIN, 14);
+	private Font priceFont = new Font("Tahoma", Font.BOLD, 25);
 
 	/**
 	 * Create the panel.
@@ -41,27 +46,27 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBackground(new Color(255, 243, 240));
-		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		setBackground(background);
+		setBorder(new LineBorder(borderColor, 1, true));
 		
 		setSize(221, 238);
 		setLayout(null);
 		
 		nameLabel = new JLabel();
-		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		nameLabel.setFont(nameFont);
 		nameLabel.setBounds(58, 157, 110, 14);
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
-		priceLabel.setForeground(new Color(204, 0, 0));
-		priceLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		priceLabel.setForeground(priceColor);//textfärg
+		priceLabel.setFont(priceFont);
 		priceLabel.setBounds(26, 183, 173, 44);
 		add(priceLabel);
 		
 		productButton = new JButton();
 		productButton.setBounds(10, 11, 201, 135);
 		add(productButton);
-		productButton.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		productButton.setBorder(new LineBorder(borderColor, 1, true));
 		productButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frameController.weeksOffer(product);
