@@ -19,6 +19,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import se.chalmers.ait.dat215.project.ShoppingItem;
+import java.awt.Dimension;
+import java.awt.Component;
+import javax.swing.JSplitPane;
+import javax.swing.JInternalFrame;
+import javax.swing.border.TitledBorder;
 
 
 public class CheckOutView extends JFrame {
@@ -80,6 +85,10 @@ public class CheckOutView extends JFrame {
 		card2.setBackground(Constants.CONTRASTCOLOR.getColor());
 		contentPane.add(card2, "Card2");
 		card2.setLayout(null);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(16, 173, 1, 12);
+		card2.add(separator_1);
 
 		JSeparator separator = new JSeparator();
 		separator.setBounds(350, 5, 10, 555);
@@ -87,7 +96,7 @@ public class CheckOutView extends JFrame {
 		card2.add(separator);
 
 		nameTextField = new JTextField();
-		nameTextField.setBounds(25, 86, 155, 28);
+		nameTextField.setBounds(25, 85, 155, 28);
 		nameTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getFirstName() + " " + model.getCustomer().getLastName());
@@ -97,7 +106,7 @@ public class CheckOutView extends JFrame {
 		card2.add(nameTextField);
 
 		addressTextField = new JTextField();
-		addressTextField.setBounds(25, 124, 248, 28);
+		addressTextField.setBounds(25, 120, 248, 28);
 		addressTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getAddress());
@@ -107,7 +116,7 @@ public class CheckOutView extends JFrame {
 		card2.add(addressTextField);
 
 		postCodeTextField = new JTextField();
-		postCodeTextField.setBounds(25, 157, 89, 28);
+		postCodeTextField.setBounds(25, 155, 89, 28);
 		postCodeTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getPostCode());
@@ -117,7 +126,7 @@ public class CheckOutView extends JFrame {
 		card2.add(postCodeTextField);
 
 		cityTextField = new JTextField();
-		cityTextField.setBounds(118, 157, 155, 28);
+		cityTextField.setBounds(118, 155, 155, 28);
 		cityTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getPostAddress());
@@ -131,7 +140,7 @@ public class CheckOutView extends JFrame {
 		card2.add(scrollPane);
 
 		JLabel deliveryDay = new JLabel("Leveransdag");
-		deliveryDay.setBounds(25, 210, 80, 15);
+		deliveryDay.setBounds(25, 205, 120, 15);
 		card2.add(deliveryDay);
 
 		JLabel deliveryAddress = new JLabel("Leveransadress");
@@ -160,13 +169,13 @@ public class CheckOutView extends JFrame {
 		card2.add(payButton1);
 
 		JComboBox chooseDay = new JComboBox();;
-		chooseDay.setBounds(25, 235, 120, 25);
+		chooseDay.setBounds(25, 230, 120, 25);
 		chooseDay.setModel(dayModel);
 		card2.add(chooseDay);
 
 		JComboBox chooseTime = new JComboBox();
 		chooseTime.setModel(timeModel);
-		chooseTime.setBounds(150, 235, 90, 25);
+		chooseTime.setBounds(150, 230, 90, 25);
 		card2.add(chooseTime);
 
 		JComboBox cardType = new JComboBox();
@@ -209,6 +218,19 @@ public class CheckOutView extends JFrame {
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");
 		card2.add(abortButton1);
+		separator.setBounds(350, 5, 10, 555);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(16, 52, 322, 141);
+		card2.add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(16, 194, 322, 74);
+		card2.add(panel_1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(16, 269, 322, 159);
+		card2.add(panel_2);
 		
 		this.setLocation(300, 100);
 
