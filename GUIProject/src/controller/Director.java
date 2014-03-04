@@ -9,12 +9,15 @@ import view.Model;
 import view.NewCategorys;
 import view.SearchResultsView;
 import view.SearchView;
+import view.SortimentView;
 import view.StartView;
 import view.Tab;
 
+import java.awt.CardLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 /**
@@ -27,37 +30,63 @@ import javax.swing.JTabbedPane;
 public class Director implements PropertyChangeListener {
 	private Model model = Model.getInstance();
 	private BrowseController browseController = new BrowseController();
-	private FrameView frame = new FrameView();
+	private FrameView frame;
 	private SearchView searchView;
 	private FrameController frameController = new FrameController();
 	private CartController cartController;
+	private SortimentView sortView;
+	JPanel cardPanel;
+	public static final String SORTIMENT = "Sortiment";
+	public static final String START = "Start";
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (evt.getPropertyName().equals("search")) {
 			String searchWord = (String) evt.getNewValue();
-			frame.addSortView(new SearchResultsView(model
-					.findProducts(searchWord), searchWord)); // added to tab
-																// pane
+			// frame.addSearch(new SearchResultsView(model
+			// .findProducts(searchWord), searchWord)); // added to tab
+			// // pane
+			cardPanel.add(new SearchResultsView(model.findProducts(searchWord),
+					searchWord), SORTIMENT);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
+			cardPanel.validate();
 		} else if (evt.getPropertyName().equals("category")) {
 			NewCategorys category = (NewCategorys) evt.getNewValue();
-			frame.addSortView(new CategoryDetailedView(category.getName(),
-					category));
+			cardPanel.add(
+					new CategoryDetailedView(category.getName(), category),
+					SORTIMENT);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
+			cardPanel.validate();
+
+			// frame.addSortView(new CategoryDetailedView(category.getName(),
+			// category));
 		} else if (evt.getPropertyName().equals("weeksOffer")) {
-			Product product = (Product)evt.getNewValue();
+			Product product = (Product) evt.getNewValue();
 			System.out.println("weeksOffer: " + product.getName());
-			frame.addSortView(new SearchResultsView(product));
+			cardPanel.add(new SearchResultsView(product), SORTIMENT);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
+			cardPanel.validate();
+			// frame.addSortView(new SearchResultsView(product));
 		} else if (evt.getPropertyName().equals("start")) {
-			frame.addSortView(new StartView(frameController));
+			cardPanel.add(new StartView(frameController), START);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, START);
+			// frame.addSortView(new StartView(frameController));
+
 			// I dislike the fact that I create a new StartView each time
-			// but it doesnt seem to work with a singleview, it doesnt update properly
+			// but it doesnt seem to work with a singleview, it doesnt update
+			// properly
+		} else if (evt.getPropertyName().equals("Sortiment")) {
+			cardPanel.add(new SortimentView(), SORTIMENT);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
+			cardPanel.validate();
 		}
 
 	}
 
 	public Director() {
+		frame = new FrameView(frameController);
 		cartController = new CartController();
-		
+		sortView = new SortimentView();
 		// TODO Auto-generated method stub
 		searchView = new SearchView(browseController);
 		browseController.addObeserver(this);
@@ -66,7 +95,12 @@ public class Director implements PropertyChangeListener {
 		StartView startView = new StartView(frameController);
 		JTabbedPane tabPane = new JTabbedPane();
 		AccountView accountView = new AccountView();
-		frame.addTab("Sortiment", startView);
+		cardPanel = new JPanel();
+		cardPanel.setLayout(new CardLayout());
+		cardPanel.add(sortView, SORTIMENT);
+		cardPanel.add(startView, START);
+		((CardLayout) (cardPanel.getLayout())).show(cardPanel, START);
+		frame.addTab("Sortiment", cardPanel);
 		frame.addTab("Uppgifter", accountView);
 
 		frame.addLeft(searchView);
