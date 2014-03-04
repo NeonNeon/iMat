@@ -42,9 +42,9 @@ public class SearchView extends JPanel {
 	private static Model model = Model.getInstance();
 
 	private JTextField textField;
-	private Color originalColor = new Color(91, 96, 106);
+	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JTextField searchField;
-	private Color hoverColor = new Color(144, 16, 9);
+	private Color hoverColor = Constants.HOVERCOLOR.getColor();
 	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
 	private BrowseController browseController;
 	JButton logoButton;
@@ -83,7 +83,7 @@ public class SearchView extends JPanel {
 		});
 		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
 		logoButton.setForeground(new Color(255, 255, 255));
-		logoButton.setBackground(new Color(190, 51, 40));
+		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		logoButton.setBounds(0, 0, 250, 100);
 		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(logoButton);

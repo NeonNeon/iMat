@@ -2,13 +2,22 @@ package view;
 
 import java.awt.Color;
 
-public class Constants {
+public enum Constants {
 
-	/*public static final Color TEXTCOLOR = new Color();
-	public static final Color HOVERCOLOR = new Color();
-	public static final Color MENUBACKGROUNDCOLOR = new Color();
-	public static final Color CENTERBACKGROUNDCOLOR = new Color();
-	public static final Color BORDERCOLOR = new Color();
-	*/
+	BACKGROUNDCOLOR (new Color(245,245,245)),
+	TEXTCOLOR (new Color(91, 96, 106)),
+	TEXTCOLORLIGHT (new Color(155,160,170)),
+	HOVERCOLOR (new Color(148,40,31)),
+	CONTRASTCOLOR (new Color(190,51,40));
+	
+	private Color color;
+	
+	Constants(Color color){
+		this.color = color;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
 
 }

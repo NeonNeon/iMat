@@ -1,18 +1,12 @@
 package view;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
-import se.chalmers.ait.dat215.project.Product;
 
 /**
  * The FrameView class is the base class of the iMat application.
@@ -66,17 +60,17 @@ public class FrameView extends JFrame {
 	public void addCenter(Container con) {
 		centerPanel.removeAll();
 		centerPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addLeft(Container con) {
 		leftPanel.removeAll();
 		leftPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addRight(Container con) {
 		rightPanel.removeAll();
 		rightPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addTab(String name,Container con) {
 		tabPane.addTab(name,con);

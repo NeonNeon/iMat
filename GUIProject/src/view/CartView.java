@@ -24,6 +24,8 @@ import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,16 +52,32 @@ private JPanel cartPanel;
 private JScrollPane scrollCartPane;
 private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
+
+private ActionListener myActionListener = new ActionListener(){
+
+	@Override
+	public void actionPerformed(ActionEvent evt) {
+		if(evt.getActionCommand().equals("pay")) {
+			new CheckOutView(items);
+		} else if(evt.getActionCommand().equals("save")) {
+			
+		} else if(evt.getActionCommand().equals("empty")){
+			
+		}
+	}
+	
+};
+
 	/**
 	 * Create the panel.
 	 */	
 	public CartView() {
-		setBackground(new Color(255, 243, 240));
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		setSize(WIDTH, HEIGHT);
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		JPanel namePanel = new JPanel();
-		namePanel.setBackground(new Color(255, 243, 240));
+		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.NORTH, namePanel, 0, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, namePanel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, namePanel, 100, SpringLayout.NORTH, this);
@@ -70,20 +88,20 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		add(namePanel);
 		
 		cartPanel = new JPanel();
-		cartPanel.setBackground(new Color(255, 243, 240));
+		cartPanel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581, SpringLayout.SOUTH, namePanel);
 		SpringLayout sl_cartPanel = new SpringLayout();
 		cartPanel.setLayout(sl_cartPanel);
 		
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0, SpringLayout.SOUTH, namePanel);
 		nameLabel = new JLabel("Stefan Svantesson");
+		nameLabel.setForeground(Color.WHITE);
 		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, namePanel);
 		sl_namePanel.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, namePanel);
 		sl_namePanel.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, namePanel);
 		sl_namePanel.putConstraint(SpringLayout.EAST, nameLabel, 0, SpringLayout.EAST, namePanel);
 		nameLabel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		namePanel.add(nameLabel);
-		
 		
 		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.NORTH, cartPanel);
@@ -109,18 +127,24 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		sl_cartPanel.putConstraint(SpringLayout.EAST, buyButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, varukorgLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, buyButton, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, cartPanel);
+		buyButton.setActionCommand("pay");
+		buyButton.addActionListener(myActionListener);
 		cartPanel.add(buyButton);
 		
 		saveCartButton = new JButton("Spara");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, saveCartButton, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, buyButton);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, saveCartButton, -127, SpringLayout.EAST, cartPanel);
+		saveCartButton.setActionCommand("save");
+		saveCartButton.addActionListener(myActionListener);
 		cartPanel.add(saveCartButton);
 		
 		emptyCartButton = new JButton("Tom");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton, COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.EAST, saveCartButton);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, buyButton);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
+		emptyCartButton.setActionCommand("empty");
+		emptyCartButton.addActionListener(myActionListener);
 		cartPanel.add(emptyCartButton);
 		
 		totalSumLabel = new JLabel("Summa: XXX kr");
@@ -135,9 +159,10 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 		cartItemPane = new JPanel(new GridLayout(0,1));
 //		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,700));
 		cartItemPane.setAlignmentY(TOP_ALIGNMENT);
-		cartItemPane.setBackground(new Color(255, 243, 240));
+		cartItemPane.setBackground(Color.WHITE);
 		
 		scrollCartPane = new JScrollPane(cartItemPane);
+		scrollCartPane.setBackground(Color.WHITE);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane, -COMPONENT_DISTANCE_FROM_PANELS/2, SpringLayout.NORTH, totalSumLabel);
@@ -157,6 +182,7 @@ private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
 	public void addShoppingItem(ShoppingItem item) {
 		items.add(item);
 		CartItemPanel newItemPanel = new CartItemPanel(item);
+		newItemPanel.setBackground(Color.WHITE);
 		itemPanels.add(newItemPanel);
 		itemPanels.add(newItemPanel);
 		cartItemPane.add(newItemPanel);
