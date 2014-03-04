@@ -67,8 +67,11 @@ public class Model {
 //		List<Product> listOfProducts = new ArrayList<Product>();
 		for(ShoppingItem i : listOfItems) {
 			if(i.getProduct().getName().equals(newItem.getProduct().getName())) {
-				i.setAmount(i.getAmount() + newItem.getAmount());
+				double newAmount = i.getAmount() + newItem.getAmount();
+				System.out.println("new amount:" + newAmount);
+				i.setAmount(newAmount);
 				notInCart = false;
+				cart.fireShoppingCartChanged(null, false);
 			}
 		}
 		if(notInCart) {

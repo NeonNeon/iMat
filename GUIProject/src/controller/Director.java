@@ -45,6 +45,7 @@ public class Director implements PropertyChangeListener {
 					category));
 		} else if (evt.getPropertyName().equals("weeksOffer")) {
 			Product product = (Product)evt.getNewValue();
+			System.out.println("weeksOffer: " + product.getName());
 			frame.addSortView(new SearchResultsView(product));
 		} else if (evt.getPropertyName().equals("start")) {
 			frame.addSortView(new StartView(frameController));

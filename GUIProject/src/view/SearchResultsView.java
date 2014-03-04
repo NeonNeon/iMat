@@ -28,7 +28,7 @@ public class SearchResultsView extends JPanel {
 	
 	JScrollPane resultScrollPane;
 	JLabel resultLabel = new JLabel();
-	JPanel resultPanel;
+	JPanel resultPanel = new JPanel();
 	private double height;
 	private Color backGround = new Color(245,245,245);
 	
@@ -57,8 +57,14 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(Product p){
 		this();
-		resultLabel.setText("Veckans erbjudnade är " + p.getName());
+		resultLabel.setText("Veckans erbjudnade Ã¤r " + p.getName());
 		resultPanel.add(new ProductView(p));
+		resultScrollPane = new JScrollPane(resultPanel);
+		resultScrollPane.setBounds(10, 77, 654,541 );
+		resultPanel.setBackground(backGround);
+		resultPanel.setLayout(new GridLayout(1,3));
+		add(resultScrollPane,1,1);
+		
 		
 	}
 	
@@ -67,8 +73,7 @@ public class SearchResultsView extends JPanel {
 		height = (productList.size()/3)*400;
 		
 		System.out.println(productList.size() + "produkter");
-		resultLabel.setText("Sökresultat för " + searchWord);
-		resultPanel = new JPanel();
+		resultLabel.setText("Sï¿½kresultat fï¿½r " + searchWord);
 		resultPanel.setBackground(backGround);
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
