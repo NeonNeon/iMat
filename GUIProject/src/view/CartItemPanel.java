@@ -148,12 +148,17 @@ public class CartItemPanel extends JPanel {
 		this(new ShoppingItem(p));
 	}
 	public void update() {
+		System.out.println("CartItemPanel.update() :");
 		setAmount(item.getAmount(),item.getProduct().getUnitSuffix());
 		setName(item.getProduct().getName());
+		System.out.println("CartItemPanel new amount : " + item.getAmount());
+//		repaint();
 		
 	}
 	public void setAmount(double d,String unitSuffix) {
-		amountLable.setText("" + d + unitSuffix);
+		amountLable.setText("" + String.format("%.1f",d) + unitSuffix);
+								// Hax från 
+		// http://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
 	}
 	public void setName(String name) {
 		nameLabel.setText(name);

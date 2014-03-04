@@ -58,7 +58,8 @@ public class Model {
 		return instance;
 	}
 	public void addToCart(ShoppingItem item) {
-		
+		System.out.println("addToCart");
+		boolean notInCart = true;
 		ShoppingCart cart = getShoppingCart();
 		ShoppingItem newItem = item;
 //		double amount;
@@ -66,9 +67,18 @@ public class Model {
 //		List<Product> listOfProducts = new ArrayList<Product>();
 		for(ShoppingItem i : listOfItems) {
 			if(i.getProduct().getName().equals(newItem.getProduct().getName())) {
-				i.setAmount(i.getAmount() + newItem.getAmount());
+				double newAmount = i.getAmount() + newItem.getAmount();
+				System.out.println("new amount:" + newAmount);
+				i.setAmount(newAmount);
+				notInCart = false;
+				cart.fireShoppingCartChanged(null, false);
 			}
 		}
+		if(notInCart) {
+			cart.addItem(item);
+			System.out.println("lagt till " + item.getProduct().getName() + "i varukorgen");
+		}
+		
 	}
 	/**
 	 * Set a product as a favorite.
