@@ -41,8 +41,8 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBackground(new Color(245,245,245));
-		setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
 		
 		setSize(221, 238);
 		setLayout(null);
@@ -61,7 +61,7 @@ public class ErbjudandePanel extends JPanel {
 		productButton = new JButton();
 		productButton.setBounds(10, 11, 201, 135);
 		add(productButton);
-		productButton.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		productButton.setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
 		productButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frameController.weeksOffer(product);

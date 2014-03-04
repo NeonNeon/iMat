@@ -1,32 +1,24 @@
 package view;
-import java.awt.BorderLayout;
-import java.awt.Cursor;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JOptionPane;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 import java.awt.CardLayout;
-import java.awt.Choice;
-import javax.swing.JComboBox;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import se.chalmers.ait.dat215.project.ShoppingItem;
-
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.util.List;
 
 
 public class CheckOutView extends JFrame {

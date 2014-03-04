@@ -54,7 +54,7 @@ public class ProductView extends JPanel {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}};
 		product = p;
-		setBorder(new LineBorder(new Color(255, 233, 219), 1, true));
+		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
 		setBackground(backGround);
 		
 		setPreferredSize(new Dimension(200, 273));

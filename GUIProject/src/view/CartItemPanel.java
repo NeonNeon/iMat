@@ -50,7 +50,7 @@ public class CartItemPanel extends JPanel {
 	private ImageIcon garbageIcon = new ImageIcon("lib/Bildmapp/TrashIcon.png");
 	private ImageIcon minusIcon = new ImageIcon("lib/Bildmapp/minusIcon.png");
 	private ImageIcon plusIcon = new ImageIcon("lib/Bildmapp/plusIcon.png");
-	private Color backGround = new Color(245,245,245);
+	private Color backGround = Constants.BACKGROUNDCOLOR.getColor();
 
 	/**
 	 * Create the panel.
