@@ -18,6 +18,7 @@ public class Tab extends JPanel {
 	public Tab() {
 		setBorder(null);
 		setPreferredSize(new Dimension(117,45));
+		setBackground(new Color(245,245,245));
 	}
 
 }

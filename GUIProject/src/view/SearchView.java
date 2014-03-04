@@ -86,17 +86,19 @@ public class SearchView extends JPanel {
 		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		logoButton.setBounds(0, 0, 250, 100);
 		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(logoButton);
 
 		searchField = new JTextField();
 		searchField.setBounds(20, 130, 210, 40);
 		add(searchField);
 		searchField.setColumns(10);
-		searchField.setText("S\u00F6k..");
+		searchField.setText("Sök..");
 		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
 		searchField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				search();
+				searchField.setText("Sök..");
 			}
 		});
 		searchField.addMouseListener(new MouseAdapter(){

@@ -50,6 +50,7 @@ public class CartItemPanel extends JPanel {
 	private ImageIcon garbageIcon = new ImageIcon("lib/Bildmapp/TrashIcon.png");
 	private ImageIcon minusIcon = new ImageIcon("lib/Bildmapp/minusIcon.png");
 	private ImageIcon plusIcon = new ImageIcon("lib/Bildmapp/plusIcon.png");
+	private Color backGround = new Color(245,245,245);
 
 	/**
 	 * Create the panel.
@@ -61,7 +62,7 @@ public class CartItemPanel extends JPanel {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}};
 		setBorder(null);
-		setBackground(new Color(255, 243, 240));
+		setBackground(backGround);
 		this.item = item;
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		SpringLayout springLayout = new SpringLayout();
@@ -71,7 +72,7 @@ public class CartItemPanel extends JPanel {
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix());
 		setName(item.getProduct().getName());
 		buttonPanel = new JPanel();
-		buttonPanel.setBackground(new Color(255, 243, 240));
+		buttonPanel.setBackground(backGround);
 		
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, this);
 		amountLable.setFont(new Font("Dialog", Font.BOLD, 14));

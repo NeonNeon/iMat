@@ -40,6 +40,8 @@ public class ProductView extends JPanel {
 	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/ListIcon.png");
 	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
 	private JSpinner spinner;
+	private Color backGround = new Color(245,245,245);
+	
 
 
 
@@ -53,7 +55,7 @@ public class ProductView extends JPanel {
 			}};
 		product = p;
 		setBorder(new LineBorder(new Color(255, 233, 219), 1, true));
-		setBackground(new Color(255, 243, 240));
+		setBackground(backGround);
 		
 		setPreferredSize(new Dimension(200, 273));
 		setLayout(null);

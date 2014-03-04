@@ -12,11 +12,11 @@ package view;
  * fisk och skaldjur - dryck - ï¿½rter -snacks och sï¿½tsaker
  */
 public enum NewCategorys {
-	FAVORITER("Favoriter"),GRONSAKER("GrÃ¶nsaker"),FRUKT_OCH_BAR("Frukt och bÃ¤r"),
-	BALJVAXTER("BaljvÃ¤xter"),POTATIS_RIS_OCH_ROTFRUKTER("Potatis, ris och rotfrukter"),
-	PASTA("Pasta"),SKAFFERI("Skafferi"),BROD("BrÃ¶d"),MEJERI("Mejeri"),KOTT("KÃ¶tt"),
-	FISK_OCH_SKALDJUR("Fisk och skaldjur"),DRYCK("Dryck"),ORTER("Ã–rter"),
-	SNACKS_OCH_SOTSAKER("Snacks och sÃ¶tsaker");
+	FAVORITER("Favoriter"),GRONSAKER("Grönsaker"),FRUKT_OCH_BAR("Frukt och bär"),
+	BALJVAXTER("Baljväxter"),POTATIS_RIS_OCH_ROTFRUKTER("Potatis, ris och rotfrukter"),
+	PASTA("Pasta"),SKAFFERI("Skafferi"),BROD("Bröd"),MEJERI("Mejeri"),KOTT("Kött"),
+	FISK_OCH_SKALDJUR("Fisk och skaldjur"),DRYCK("Dryck"),ORTER("Örter"),
+	SNACKS_OCH_SOTSAKER("Snacks och sötsaker");
 	private final String name;
 	private NewCategorys(String name) {
 		this.name = name;
