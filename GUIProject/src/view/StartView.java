@@ -70,7 +70,7 @@ public class StartView extends JPanel {
 		JPanel offerPanel = new JPanel();
 		offerPanel.setBorder(null);
 		offerPanel.setBackground(new Color(255, 243, 240));
-		offerPanel.setBounds(10, 331, 664, 238);
+		offerPanel.setBounds(10, 331, 645, 240);
 		add(offerPanel);
 		offerPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		

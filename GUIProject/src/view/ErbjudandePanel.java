@@ -41,8 +41,8 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBackground(Constants.BACKGROUNDCOLOR.getColor());
-		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
+		setBackground(Constants.CONTRASTCOLOR.getColor());
+		setBorder(new LineBorder(Color.WHITE));
 		
 		setSize(221, 238);
 		setLayout(null);
@@ -53,15 +53,15 @@ public class ErbjudandePanel extends JPanel {
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
-		priceLabel.setForeground(new Color(204, 0, 0));
+		priceLabel.setForeground(Color.WHITE);
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		priceLabel.setBounds(26, 183, 173, 44);
 		add(priceLabel);
 		
 		productButton = new JButton();
-		productButton.setBounds(10, 11, 201, 135);
+		productButton.setBounds(7, 11, 201, 135);
 		add(productButton);
-		productButton.setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
+		productButton.setBorder(new LineBorder(Color.WHITE));
 		productButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frameController.weeksOffer(product);
@@ -69,6 +69,7 @@ public class ErbjudandePanel extends JPanel {
 		});
 		
 		productButton.setIcon(model.getImageIcon(p));
+		//productButton.setBounds(r);
 		nameLabel.setText(p.getName());
 		priceLabel.setText("" + p.getPrice() + " " + "kr/" + p.getUnitSuffix());
 		

@@ -21,12 +21,12 @@ public class CategoryView extends JPanel {
 			.getInstance();
 	private String name;
 	private ImageIcon icon;
-	private Color hoverColor = new Color(255,0,0);
-	private Color originalColor = new Color(0,0,0);
+	private Color hoverColor = Constants.HOVERCOLOR.getColor();
+	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JLabel categoryLabel;
 	
 	public CategoryView(String name, ImageIcon icon) {
-		setBackground(new Color(255, 243, 240));
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {
