@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Choice;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -55,7 +55,9 @@ public class CartView extends JPanel implements ShoppingCartListener {
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 			if (evt.getActionCommand().equals("pay")) {
-				new CheckOutView(items);
+				CheckOutView c =new CheckOutView(items);
+				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
 			} else if (evt.getActionCommand().equals("save")) {
 
 			} else if (evt.getActionCommand().equals("empty")) {
