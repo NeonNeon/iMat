@@ -1,5 +1,6 @@
 package view;
 import java.awt.Choice;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -17,8 +18,10 @@ import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
+import se.chalmers.ait.dat215.project.ShoppingCartListener;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -27,7 +30,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Grupp16
  *
  */
-public class CartView extends JPanel {
+public class CartView extends JPanel implements ShoppingCartListener{
 private static final int COMPONENT_DISTANCE_FROM_PANELS = 10;
 private static final int WIDTH = 250;
 private static final int HEIGHT = 681;
@@ -176,12 +179,13 @@ private ActionListener myActionListener = new ActionListener(){
 		newItemPanel.setBackground(Color.WHITE);
 		itemPanels.add(newItemPanel);
 		itemPanels.add(newItemPanel);
+		System.out.println(itemPanels.size());
 		cartItemPane.add(newItemPanel);
 //		newItemPanel.revalidate();
 		cartItemPane.setPreferredSize(new Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,itemPanels.size()*CartItemPanel.HEIGHT));
 		System.out.println("pane: " + cartItemPane.getSize().height);
 		System.out.println("itemPanel:" + newItemPanel.getSize().height);
-//		cartItemPane.repaint();
+		cartItemPane.revalidate();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
 	}
@@ -193,5 +197,12 @@ private ActionListener myActionListener = new ActionListener(){
 	}
 	public String getProfileName() {
 		return nameLabel.getText();
+	}
+	@Override
+	public void shoppingCartChanged(CartEvent arg0) {
+		System.out.println("cartEVENT");
+		if(arg0.isAddEvent()) {
+			addShoppingItem(arg0.getShoppingItem());
+		}
 	}
 }

@@ -117,8 +117,9 @@ public class ProductView extends JPanel {
 		addToCartButton.setOpaque(true);
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				model.getShoppingCart().addItem(new ShoppingItem(p,(Double) spinner.getValue()));
-				System.out.println("lagt till " + product.getName() + "i varukorgen");
+//				model.getShoppingCart().addItem(new ShoppingItem(p,(double) spinner.getValue()));
+				model.addToCart(new ShoppingItem(p,(double) spinner.getValue()));
+				
 			}
 		});
 		
