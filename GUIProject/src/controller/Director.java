@@ -81,6 +81,7 @@ public class Director implements PropertyChangeListener {
 			cardPanel.add(new SortimentView(), SORTIMENT);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
+			frame.setTab(0);
 		}
 
 	}
@@ -95,7 +96,6 @@ public class Director implements PropertyChangeListener {
 		frameController.addObeserver(this);
 		CartView cartView = new CartView(cartController);
 		StartView startView = new StartView(frameController);
-		JTabbedPane tabPane = new JTabbedPane();
 		AccountView accountView = new AccountView();
 		cardPanel = new JPanel();
 		cardPanel.setLayout(new CardLayout());
