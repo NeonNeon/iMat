@@ -386,8 +386,9 @@ public class AccountView extends JPanel {
 		telephoneTextField.setText(customer.getPhoneNumber());
 		emailTextField.setText(customer.getEmail());
 		cvvCode.setText(String.valueOf(card.getVerificationCode()));
-		monthSpinner.setValue((Object)card.getValidMonth());
-		yearSpinner.setValue((Object)card.getValidYear());
+		monthSpinner.setValue(card.getValidMonth());
+		yearSpinner.setValue(card.getValidYear());
+		paymentComboBox.setSelectedItem(card.getCardType());
 		try{
 			
 		
