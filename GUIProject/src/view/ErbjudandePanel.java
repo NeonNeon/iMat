@@ -55,6 +55,8 @@ public class ErbjudandePanel extends JPanel {
 		nameLabel = new JLabel();
 		nameLabel.setFont(nameFont);
 		nameLabel.setBounds(58, 157, 110, 14);
+		nameLabel.setForeground(Constants.TEXTCOLORLIGHT.getColor());
+		nameLabel.setFont(Constants.CATEGORYCLICKEDFONT.getFont());
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
