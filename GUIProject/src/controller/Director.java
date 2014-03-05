@@ -92,7 +92,7 @@ public class Director implements PropertyChangeListener {
 		searchView = new SearchView(browseController);
 		browseController.addObeserver(this);
 		frameController.addObeserver(this);
-		CartView cartView = new CartView();
+		CartView cartView = new CartView(new CartController());
 		StartView startView = new StartView(frameController);
 		JTabbedPane tabPane = new JTabbedPane();
 		AccountView accountView = new AccountView();
