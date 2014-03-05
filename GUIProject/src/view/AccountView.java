@@ -14,13 +14,19 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import se.chalmers.ait.dat215.project.*;
+
 import java.awt.Component;
+
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.DefaultComboBoxModel;
@@ -62,6 +68,40 @@ public class AccountView extends JPanel {
 	 * Create the panel.
 	 */
 	public AccountView() {
+		final KeyAdapter myKeyListener = new KeyAdapter(){
+				public void keyTyped(KeyEvent e){
+					if(e.getSource()==cardNbr1){
+						if(cardNbr1.getText().length() >= 4)
+							cardNbr1.setText(cardNbr1.getText().substring(0,3));
+						
+					}
+					
+					else if(e.getSource()==cardNbr2){
+						if(cardNbr2.getText().length() >= 4)
+							cardNbr2.setText(cardNbr2.getText().substring(0,3));
+					
+					}
+						
+					else if(e.getSource()==cardNbr3){
+						if(cardNbr3.getText().length() >= 4)
+							cardNbr3.setText(cardNbr3.getText().substring(0,3));
+					}
+					else if(e.getSource()==cardNbr4){
+						if(cardNbr4.getText().length() >= 4)
+							cardNbr4.setText(cardNbr4.getText().substring(0,3));
+					}
+					
+					else if(e.getComponent()==cvvCode){
+						if(cvvCode.getText().length() >=3)
+							cvvCode.setText(cvvCode.getText().substring(0,2));
+					}
+					
+					
+				}
+					
+		};
+		
+		
 		setBorder(new LineBorder(borderColor, 2, true));
 		
 		setSize(665, 681);
@@ -192,30 +232,35 @@ public class AccountView extends JPanel {
 		panel_3.add(lblSistaDatum);
 		
 		cardNbr4 = new JTextField();
+		cardNbr4.addKeyListener(myKeyListener);
 		cardNbr4.setEditable(false);
 		cardNbr4.setBounds(257, 9, 40, 20);
 		panel_3.add(cardNbr4);
 		cardNbr4.setColumns(10);
 		
 		cardNbr3 = new JTextField();
+		cardNbr3.addKeyListener(myKeyListener);
 		cardNbr3.setEditable(false);
 		cardNbr3.setColumns(10);
 		cardNbr3.setBounds(207, 9, 40, 20);
 		panel_3.add(cardNbr3);
 		
 		cardNbr2 = new JTextField();
+		cardNbr2.addKeyListener(myKeyListener);
 		cardNbr2.setEditable(false);
 		cardNbr2.setColumns(10);
 		cardNbr2.setBounds(157, 9, 40, 20);
 		panel_3.add(cardNbr2);
 		
 		cardNbr1 = new JTextField();
+		cardNbr1.addKeyListener(myKeyListener);
 		cardNbr1.setEditable(false);
 		cardNbr1.setColumns(10);
 		cardNbr1.setBounds(107, 9, 40, 20);
 		panel_3.add(cardNbr1);
 		
 		cvvCode = new JTextField();
+		cvvCode.addKeyListener(myKeyListener);
 		cvvCode.setEditable(false);
 		cvvCode.setColumns(10);
 		cvvCode.setBounds(107, 34, 40, 20);
@@ -223,10 +268,12 @@ public class AccountView extends JPanel {
 		
 		monthSpinner = new JSpinner();
 		monthSpinner.setEnabled(false);
+		monthSpinner.setModel(new SpinnerNumberModel(6,1,12,1));
 		monthSpinner.setBounds(142, 59, 40, 20);
 		panel_3.add(monthSpinner);
 		
 		yearSpinner = new JSpinner();
+		yearSpinner.setModel(new SpinnerNumberModel(11,5,34,1));
 		yearSpinner.setEnabled(false);
 		yearSpinner.setBounds(207, 59, 40, 20);
 		panel_3.add(yearSpinner);
@@ -412,4 +459,5 @@ public class AccountView extends JPanel {
 		
 		
 	}
+		
 }
