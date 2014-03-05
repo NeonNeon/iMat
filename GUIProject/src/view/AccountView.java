@@ -23,6 +23,7 @@ import se.chalmers.ait.dat215.project.*;
 import java.awt.Component;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  * The view that holds the customer and delivery information.
@@ -164,6 +165,7 @@ public class AccountView extends JPanel {
 		panel_1.add(lblBetalningsstt);
 		
 		paymentComboBox = new JComboBox();
+		paymentComboBox.setModel(new DefaultComboBoxModel(new String[] {"VISA"}));
 		paymentComboBox.setEnabled(false);
 		paymentComboBox.setBounds(116, 42, 201, 26);
 		panel_1.add(paymentComboBox);
@@ -291,6 +293,7 @@ public class AccountView extends JPanel {
 		panel_2.add(lblLeveransdag);
 		
 		deliveryDay = new JComboBox();
+		deliveryDay.setModel(new DefaultComboBoxModel(new String[] {"M\u00E5ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L\u00F6rdag", "S\u00F6ndag"}));
 		deliveryDay.setEnabled(false);
 		deliveryDay.setBounds(361, 73, 182, 26);
 		panel_2.add(deliveryDay);
@@ -301,6 +304,7 @@ public class AccountView extends JPanel {
 		panel_2.add(lblLeveranstid);
 		
 		deliveryTime = new JComboBox();
+		deliveryTime.setModel(new DefaultComboBoxModel(new String[] {"07.00", "08.00", "09.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00", "19.00", "20.00", "21.00", "22.00"}));
 		deliveryTime.setEnabled(false);
 		deliveryTime.setBounds(361, 138, 182, 26);
 		panel_2.add(deliveryTime);
