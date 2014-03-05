@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.CartController;
+
 import se.chalmers.ait.dat215.project.Product;
 
 
@@ -39,7 +41,7 @@ public class TestCartClass extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		CartView view = new CartView();
+		CartView view = new CartView(new CartController());
 		contentPane.add(view);
 		Model model = Model.getInstance();
 		List<Product> list = model.getProducts(NewCategorys.FRUKT_OCH_BAR);
