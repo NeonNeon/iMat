@@ -147,7 +147,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0,
 				SpringLayout.SOUTH, namePanel);
-		nameLabel = new JLabel("Stefan Svantesson");
+		
+		nameLabel = new JLabel(model.getCustomer().getFirstName()+" " + model.getCustomer().getLastName());
 		nameLabel.setOpaque(true);
 		nameLabel.setInheritsPopupMenu(false);
 		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -388,5 +389,13 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 	public CartController getController() {
 		return cartController;
+	}
+	
+	public JLabel getLabel(){
+		return nameLabel;
+	}
+	
+	public void setName(){
+		nameLabel.setText(model.getCustomer().getFirstName());
 	}
 }

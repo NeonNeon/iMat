@@ -1,8 +1,10 @@
 package view;
 import java.awt.Dimension;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import controller.CartController;
-
 import se.chalmers.ait.dat215.project.Order;
 
 /**
@@ -26,6 +27,7 @@ private Model model = Model.getInstance();
 private Order order;
 private JLabel cartDate;
 private CartController cartController;
+private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
 	/**
 	 * Create the panel.
 	 */
@@ -43,8 +45,11 @@ private CartController cartController;
 		panel.add(cartDate);
 		cartDate.setText(order.getDate().toString());
 		
-		JButton addToCartBtn = new JButton("New button");
-		addToCartBtn.setBounds(261, 0, 57, 70);
+		JButton addToCartBtn = new JButton(cartIcon);
+		addToCartBtn.setBounds(260, 13, 42, 42);
+		addToCartBtn.setBackground(null);
+		addToCartBtn.setBorder(null);
+		addToCartBtn.setOpaque(true);
 		add(addToCartBtn);
 		addToCartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

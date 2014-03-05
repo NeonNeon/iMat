@@ -104,11 +104,15 @@ public class ProductView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if(model.isFavorite(product)){
 					favouriteButton.setIcon(favoriteIcon);
+					favouriteButton.setBackground(null);
+					favouriteButton.setOpaque(true);
 					model.removeFavorite(product);
 					System.out.println("RemovedFavorite " + product.getName());
 				}
 				else{
 					favouriteButton.setIcon(favoriteIconFilled);
+					favouriteButton.setBackground(null);
+					favouriteButton.setOpaque(true);
 					model.addFavorite(product);
 				}
 					

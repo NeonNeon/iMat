@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -19,7 +20,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CartController;
-
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -69,6 +69,7 @@ public class CheckOutView extends JFrame {
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
+					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
 				} else if(evt.getActionCommand().equals("abort")){
 					dispose();
 				}
@@ -123,6 +124,7 @@ public class CheckOutView extends JFrame {
 		abortButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");
+		abortButton1.addActionListener(myActionListener);
 		card2.add(abortButton1);
 		separator.setBounds(350, 5, 10, 555);
 
