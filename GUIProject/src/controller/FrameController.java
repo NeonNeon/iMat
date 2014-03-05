@@ -23,6 +23,9 @@ public FrameController() {
 	public void weeksOffer(Product p) {
 		support.firePropertyChange("weeksOffer",null,p);
 	}
+	public void showSortiment() {
+		support.firePropertyChange("Sortiment",null,"Sortiment");
+	}
 	
 
 }
