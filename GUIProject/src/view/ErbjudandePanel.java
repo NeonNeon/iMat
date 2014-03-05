@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import java.awt.Color;
+import java.awt.Cursor;
 
 import javax.swing.JLabel;
 
@@ -69,6 +70,7 @@ public class ErbjudandePanel extends JPanel {
 		productButton.setBounds(7, 11, 201, 135);
 		add(productButton);
 		productButton.setBorder(new LineBorder(borderColor, 1, true));
+		productButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		productButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frameController.weeksOffer(product);

@@ -40,6 +40,7 @@ public class CategoryView extends JPanel {
 			}
 		};
 		
+		
 		this.name = name;
 		this.icon = icon;
 		setLayout(null);
