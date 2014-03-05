@@ -35,6 +35,7 @@ public class SearchView extends JPanel {
 	private JLabel tmp;
 	private JLabel favoritesLabel;
 	JButton logoButton;
+	
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
 		@Override
@@ -84,7 +85,7 @@ public class SearchView extends JPanel {
 				browseController.startView();
 			}
 		});
-		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
+		logoButton.setFont(new Font("Hiragino Kaku Gothic Pro W3", Font.PLAIN, 60));
 		logoButton.setForeground(new Color(255, 255, 255));
 		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		logoButton.setBounds(0, 0, 250, 100);
