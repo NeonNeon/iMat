@@ -82,7 +82,7 @@ public class ProductView extends JPanel {
 		
 		spinner = (product.getUnitSuffix().equals("kg")) 
 				? new DoubleSpinner() : new JSpinner(new SpinnerNumberModel(1.0,0.0,99.0,1.0));
-		spinner.setBounds(10, 220, 38, 20);
+		spinner.setBounds(20, 220, 50, 20);
 		add(spinner);
 		
 		favouriteButton = new JButton(favoriteIcon);
@@ -137,7 +137,7 @@ public class ProductView extends JPanel {
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				model.getShoppingCart().addItem(new ShoppingItem(p,(double) spinner.getValue()));
-				model.addToCart(new ShoppingItem(p,(double) spinner.getValue()));
+				model.addToCart(new ShoppingItem(p,(Double)spinner.getValue()));
 				
 			}
 		});

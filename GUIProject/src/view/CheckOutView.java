@@ -46,7 +46,7 @@ public class CheckOutView extends JFrame {
 	private CartController cartController;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
+			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -98,21 +98,10 @@ public class CheckOutView extends JFrame {
 		separator.setBounds(350, 5, 10, 555);
 		separator.setOrientation(SwingConstants.VERTICAL);
 		card2.add(separator);
-		
-		
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(372, 19, 300, 455);
 		card2.add(scrollPane);
-
-		/*JButton saveButton = new JButton("Spara");
-		saveButton.addActionListener(myActionListener);
-		saveButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
-		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
-		saveButton.setBounds(150, 490, 160, 55);
-		saveButton.setActionCommand("save");
-		saveButton.addActionListener(myActionListener);
-		card2.add(saveButton);*/
 
 		JButton payButton1 = new JButton("Betala");
 		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
@@ -142,7 +131,7 @@ public class CheckOutView extends JFrame {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
+		JLabel expireDateLabel = new JLabel("Utlšper:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
@@ -224,7 +213,7 @@ public class CheckOutView extends JFrame {
 		if(customer != null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Fï¿½rnamn och efternamn-");
+			nameTextField.setText("-Fšrnamn och efternamn-");
 		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);
