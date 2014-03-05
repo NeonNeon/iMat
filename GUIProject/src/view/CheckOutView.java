@@ -46,7 +46,7 @@ public class CheckOutView extends JFrame {
 	private CartController cartController;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
+			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -131,7 +131,7 @@ public class CheckOutView extends JFrame {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlšper:");
+		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
@@ -158,15 +158,17 @@ public class CheckOutView extends JFrame {
 		cvcTextField.setColumns(10);
 
 		JComboBox cardType = new JComboBox();
+		
+		cardType.setBounds(17, 41, 119, 27);
+		panel_2.add(cardType);
+		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","Visa","Mastercard"}));
+		
 		if(model.getCreditCard().getCardType().toString().equals("Visa")){
 			cardType.setSelectedItem(cardType.getItemAt(1));
 		}else{
 			cardType.setSelectedItem(cardType.getItemAt(2));
 		}
-		cardType.setBounds(17, 41, 119, 27);
-		panel_2.add(cardType);
-		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","Visa","Mastercard"}));
-
+		
 		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
 		paymentLabel.setBounds(16, 14, 90, 15);
 		panel_2.add(paymentLabel);
@@ -222,7 +224,7 @@ public class CheckOutView extends JFrame {
 		if(customer != null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Fšrnamn och efternamn-");
+			nameTextField.setText("-Fï¿½rnamn och efternamn-");
 		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);

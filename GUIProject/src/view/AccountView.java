@@ -369,7 +369,7 @@ public class AccountView extends JPanel {
 		saveButton.setOpaque(true);
 		*/
 		
-		saveButton = new JButton("Ändra");
+		saveButton = new JButton("ï¿½ndra");
 		saveButton.setActionCommand("change");
 		saveButton.setIcon(null);
 		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -388,7 +388,10 @@ public class AccountView extends JPanel {
 		cvvCode.setText(String.valueOf(card.getVerificationCode()));
 		monthSpinner.setValue(card.getValidMonth());
 		yearSpinner.setValue(card.getValidYear());
+<<<<<<< HEAD
 		paymentComboBox.setSelectedItem(card.getCardType());
+=======
+>>>>>>> 0ba4558006e4199df31edca95a1aa6f2a48d3d8c
 		try{
 			
 		
@@ -397,7 +400,7 @@ public class AccountView extends JPanel {
 		cardNbr3.setText(card.getCardNumber().substring(8,12));
 		cardNbr4.setText(card.getCardNumber().substring(12,16));
 		}
-		catch(NullPointerException e){
+		catch(Exception e){
 			System.out.println("FEL");
 		}
 		
@@ -405,7 +408,7 @@ public class AccountView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getActionCommand().equals("save")){
 				save();
-				saveButton.setText("Ändra");
+				saveButton.setText("ï¿½ndra");
 				saveButton.setActionCommand("change");
 				firstName.setEditable(false);
 				lastName.setEditable(false);
