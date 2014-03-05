@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -38,6 +41,7 @@ public class FrameView extends JFrame {
 	 */
 	public FrameView(FrameController controller) {
 		frameController = controller;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(70, 10, WIDTH, HEIGHT);
 		contentPane = new JPanel();

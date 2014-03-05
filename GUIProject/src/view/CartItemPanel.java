@@ -63,8 +63,10 @@ public class CartItemPanel extends JPanel {
 			}};
 		setBorder(null);
 		setBackground(backGround);
+		
 		this.item = item;
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		setMaximumSize(new Dimension(WIDTH, HEIGHT));
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		nameLabel = new JLabel();
