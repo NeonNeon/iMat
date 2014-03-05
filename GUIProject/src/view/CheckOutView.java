@@ -136,27 +136,36 @@ public class CheckOutView extends JFrame {
 		panel_2.add(expireDateLabel);
 
 		JTextField expiresYear = new JTextField();
+		expiresYear.setText(String.valueOf(model.getCreditCard().getValidYear()));
 		expiresYear.setBounds(85, 114, 39, 27);
 		panel_2.add(expiresYear);
 
 		JTextField expiresMonth = new JTextField();
+		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
 		expiresMonth.setBounds(123, 114, 41, 27);
 		panel_2.add(expiresMonth);
 
 		cardNumberTextField = new JTextField();
+		cardNumberTextField.setText(model.getCreditCard().getCardNumber());
 		cardNumberTextField.setBounds(17, 80, 147, 28);
 		panel_2.add(cardNumberTextField);
 		cardNumberTextField.setColumns(10);
 
 		cvcTextField = new JTextField();
+		cvcTextField.setText(String.valueOf(model.getCreditCard().getVerificationCode()));
 		cvcTextField.setBounds(162, 80, 39, 28);
 		panel_2.add(cvcTextField);
 		cvcTextField.setColumns(10);
 
 		JComboBox cardType = new JComboBox();
+		if(model.getCreditCard().getCardType().toString().equals("Visa")){
+			cardType.setSelectedItem(cardType.getItemAt(1));
+		}else{
+			cardType.setSelectedItem(cardType.getItemAt(2));
+		}
 		cardType.setBounds(17, 41, 119, 27);
 		panel_2.add(cardType);
-		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
+		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","Visa","Mastercard"}));
 
 		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
 		paymentLabel.setBounds(16, 14, 90, 15);
@@ -190,7 +199,7 @@ public class CheckOutView extends JFrame {
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
-		if(customer != null){
+		if(customer.getPostAddress()!= null){
 			nameTextField.setText(customer.getPostAddress());
 		} else {
 			nameTextField.setText("-Postort-");
@@ -240,6 +249,7 @@ public class CheckOutView extends JFrame {
 		this.setLocation(300, 100);
 
 		this.setVisible(true);
+		
 
 	}
 }

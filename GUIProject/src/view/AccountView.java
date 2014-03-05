@@ -46,19 +46,20 @@ public class AccountView extends JPanel {
 	private static JTextField telephoneTextField;
 	private static JTextField emailTextField;
 	private static JTextField postNbrTextField;
-	private JTextField cardNbr4;
-	private JTextField cardNbr3;
-	private JTextField cardNbr2;
-	private JTextField cardNbr1;
-	private JTextField cvvCode;
-	private JTextField deliveryAddressTextField;
-	private JTextField deliveryPostnbrTextField;
-	private JTextField deliveryTownTextField;
+	private static JTextField cardNbr4;
+	private static JTextField cardNbr3;
+	private static JTextField cardNbr2;
+	private static JTextField cardNbr1;
+	private static JTextField cvvCode;
+	private static JTextField deliveryAddressTextField;
+	private static JTextField deliveryPostnbrTextField;
+	private static JTextField deliveryTownTextField;
 	private JButton saveButton;
-	private JSpinner monthSpinner, yearSpinner;
-	private JComboBox paymentComboBox, deliveryDay, deliveryTime;
+	private static JSpinner monthSpinner, yearSpinner;
+	private static JComboBox paymentComboBox, deliveryDay, deliveryTime;
 	private static JTextField lastName;
 	private static Customer customer = model.getCustomer();
+	public static CreditCard card = model.getCreditCard();
 	private static CreditCard creditCard = model.getCreditCard();
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
 	private Color borderColor = Constants.HOVERCOLOR.getColor();
@@ -205,7 +206,12 @@ public class AccountView extends JPanel {
 		panel_1.add(lblBetalningsstt);
 		
 		paymentComboBox = new JComboBox();
-		paymentComboBox.setModel(new DefaultComboBoxModel(new String[] {"VISA"}));
+		paymentComboBox.setModel(new DefaultComboBoxModel(new String[] {"Visa", "Mastercard"}));
+		if(card.getCardType().toString().equals("Visa")){
+			paymentComboBox.setSelectedItem(0);
+		}else{
+			paymentComboBox.setSelectedItem(1);
+		}
 		paymentComboBox.setEnabled(false);
 		paymentComboBox.setBounds(116, 42, 201, 26);
 		panel_1.add(paymentComboBox);
@@ -379,7 +385,20 @@ public class AccountView extends JPanel {
 		townTextField.setText(customer.getPostAddress());
 		telephoneTextField.setText(customer.getPhoneNumber());
 		emailTextField.setText(customer.getEmail());
+		cvvCode.setText(String.valueOf(card.getVerificationCode()));
+		monthSpinner.setValue((Object)card.getValidMonth());
+		yearSpinner.setValue((Object)card.getValidYear());
+		try{
+			
 		
+		cardNbr1.setText(card.getCardNumber().substring(0,4));
+		cardNbr2.setText(card.getCardNumber().substring(4,8));
+		cardNbr3.setText(card.getCardNumber().substring(8,12));
+		cardNbr4.setText(card.getCardNumber().substring(12,16));
+		}
+		catch(NullPointerException e){
+			System.out.println("FEL");
+		}
 		
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -440,6 +459,7 @@ public class AccountView extends JPanel {
 		});
 		
 		add(saveButton);
+		
 
 	}
 	
@@ -456,6 +476,19 @@ public class AccountView extends JPanel {
 		customer.setEmail(emailTextField.getText());
 		
 		//saving payment
+		card.setCardNumber(cardNbr1.getText() + cardNbr2.getText() + cardNbr3.getText() + cardNbr4.getText());
+		
+		try{
+			card.setVerificationCode(Integer.parseInt(cvvCode.getText()));
+		}
+		catch(NumberFormatException e){
+			System.out.println("Felaktigt");
+		}
+		
+		card.setCardType(paymentComboBox.getSelectedItem().toString());
+		card.setValidMonth((int)monthSpinner.getValue());
+		card.setValidYear((int)yearSpinner.getValue());
+		card.setHoldersName(firstName.getText() + lastName.getText());
 		
 		
 	}
