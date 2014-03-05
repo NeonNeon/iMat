@@ -65,7 +65,7 @@ public class ProductView extends JPanel {
 		add(pictureLabel);
 		
 		JLabel nameLabel = new JLabel(p.getName());
-		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		nameLabel.setFont(Constants.CATEGORYFONT.getFont());
 		nameLabel.setForeground((Color.BLACK));
 		nameLabel.setBounds(10, 149, 130, 20);
 		add(nameLabel);

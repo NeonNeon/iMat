@@ -47,7 +47,7 @@ public class CategoryView extends JPanel {
 		
 		categoryLabel = new JLabel(name, JLabel.CENTER);
 		categoryLabel.setBounds(12, 13, 176, 40);
-		categoryLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		categoryLabel.setFont(Constants.CATEGORYFONT.getFont());
 		categoryLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		categoryLabel.addMouseListener(myMouseListener);
 		add(categoryLabel);
