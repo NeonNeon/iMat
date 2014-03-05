@@ -43,7 +43,7 @@ public class CheckOutView extends JFrame {
 	private JTextField cvcTextField;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
+			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -135,7 +135,7 @@ public class CheckOutView extends JFrame {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlšper:");
+		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
@@ -180,7 +180,7 @@ public class CheckOutView extends JFrame {
 		JLabel deliveryAddress = new JLabel("Leveransadress");
 		deliveryAddress.setBounds(19, 16, 96, 16);
 		panel.add(deliveryAddress);
-
+		nameTextField = new JTextField();
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 89, 28);
 		if(customer != null){
@@ -212,12 +212,12 @@ public class CheckOutView extends JFrame {
 		panel.add(addressTextField);
 		addressTextField.setColumns(10);
 
-		nameTextField = new JTextField();
+		
 		nameTextField.setBounds(16, 46, 155, 28);
 		if(customer != null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Fšrnamn och efternamn-");
+			nameTextField.setText("-Fï¿½rnamn och efternamn-");
 		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);

@@ -73,6 +73,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			if (evt.getActionCommand().equals("pay")) {
 				CheckOutView c = new CheckOutView(items);
 				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				c.setVisible(true);
 
 			} else if (evt.getActionCommand().equals("save")) {
 
