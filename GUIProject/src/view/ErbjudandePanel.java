@@ -35,8 +35,8 @@ public class ErbjudandePanel extends JPanel {
 	private FrameController frameController;
 	private Product product;
 	private Color background = new Color(255, 243, 240);
-	private Color borderColor = new Color(255, 105, 64);
-	private Color priceColor = new Color(204, 0, 0);
+	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	private Color priceColor = Color.WHITE;
 	private Font nameFont = new Font("Tahoma", Font.PLAIN, 14);
 	private Font priceFont = new Font("Tahoma", Font.BOLD, 25);
 
@@ -58,7 +58,7 @@ public class ErbjudandePanel extends JPanel {
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
-		priceLabel.setForeground(priceColor);//textfärg
+		priceLabel.setForeground(priceColor);
 		priceLabel.setFont(priceFont);
 		priceLabel.setBounds(26, 183, 173, 44);
 		add(priceLabel);
