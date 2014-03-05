@@ -1,10 +1,15 @@
 package view;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.GridLayout;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 
@@ -22,10 +27,11 @@ public class StartView extends JPanel {
 
 	private static final Model model = Model.getInstance();
 	FrameController frameController;
-	private Color background = new Color(255, 243, 240);
+	private Color background = Constants.BACKGROUNDCOLOR.getColor();
 	private Color borderColor = new Color(255, 105, 64);
 	private Font textFont = new Font("Tahoma", Font.PLAIN, 13);
 	private Font headerFont = new Font("Tahoma", Font.BOLD, 18);
+	private ImageIcon headerIcon = new ImageIcon("lib/Bildmapp/iMatHeader.jpg");
 	/**
 	 * Create the panel.
 	 */
@@ -37,8 +43,9 @@ public class StartView extends JPanel {
 		setSize(684, 581);
 		setLayout(null);
 		
-		JLabel logoLabel = new JLabel("En fin logga");
+		JLabel logoLabel = new JLabel();
 		logoLabel.setBounds(10, 11, 664, 115);
+		logoLabel.setIcon(headerIcon);
 		add(logoLabel);
 		
 		JLabel nbrLabel1 = new JLabel("  1");
