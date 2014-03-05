@@ -202,19 +202,19 @@ public class AccountView extends JPanel {
 		panel_3.add(cvvCode);
 		
 		JSpinner monthSpinner = new JSpinner();
-		monthSpinner.setBounds(130, 59, 40, 20);
+		monthSpinner.setBounds(142, 53, 40, 28);
 		panel_3.add(monthSpinner);
 		
 		JSpinner yearSpinner = new JSpinner();
-		yearSpinner.setBounds(180, 59, 40, 20);
+		yearSpinner.setBounds(207, 53, 40, 28);
 		panel_3.add(yearSpinner);
 		
 		JLabel lblMn = new JLabel("m\u00E5n");
-		lblMn.setBounds(107, 62, 46, 14);
+		lblMn.setBounds(111, 61, 36, 14);
 		panel_3.add(lblMn);
 		
 		JLabel lblr = new JLabel("\u00E5r");
-		lblr.setBounds(180, 62, 46, 14);
+		lblr.setBounds(192, 61, 30, 14);
 		panel_3.add(lblr);
 		
 		JPanel panel_2 = new JPanel();
