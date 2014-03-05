@@ -366,7 +366,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			List<ShoppingItem> orderList = oldOrder.getItems();
 			System.out.println("orderlist size" + orderList.size());
 			for (ShoppingItem item : orderList) {
-				model.addToCart(item);
+				model.addToCart(new ShoppingItem(item.getProduct(),item.getAmount()));
 			}
 		
 		}
