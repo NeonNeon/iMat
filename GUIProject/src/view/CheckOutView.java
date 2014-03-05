@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 
@@ -26,6 +27,7 @@ public class CheckOutView extends JFrame {
 	//TODO Functionality: Add the grocerybag in the scrollpane. 
 
 	private static final Model model = Model.getInstance();
+	private static Customer customer = model.getCustomer();
 	private static List<ShoppingItem> items;
 
 	private JPanel contentPane;
@@ -89,26 +91,8 @@ public class CheckOutView extends JFrame {
 		separator.setBounds(350, 5, 10, 555);
 		separator.setOrientation(SwingConstants.VERTICAL);
 		card2.add(separator);
-		if(model.getCustomer() != null){
-			nameTextField.setText(model.getCustomer().getFirstName() + " " + model.getCustomer().getLastName());
-		} else {
-			nameTextField.setText("-Fšrnamn och efternamn-");
-		}
-		if(model.getCustomer() != null){
-			nameTextField.setText(model.getCustomer().getAddress());
-		} else {
-			nameTextField.setText("-Adress-");
-		}
-		if(model.getCustomer() != null){
-			nameTextField.setText(model.getCustomer().getPostCode());
-		} else {
-			nameTextField.setText("-Postkod-");
-		}
-		if(model.getCustomer() != null){
-			nameTextField.setText(model.getCustomer().getPostAddress());
-		} else {
-			nameTextField.setText("-Postort-");
-		}
+		
+		
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(372, 19, 300, 455);
@@ -199,21 +183,42 @@ public class CheckOutView extends JFrame {
 
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 89, 28);
+		if(customer != null){
+			nameTextField.setText(customer.getPostCode());
+		} else {
+			nameTextField.setText("-Postkod-");
+		}
+		
 		panel.add(postCodeTextField);
 		postCodeTextField.setColumns(10);
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
+		if(customer != null){
+			nameTextField.setText(customer.getPostAddress());
+		} else {
+			nameTextField.setText("-Postort-");
+		}
 		panel.add(cityTextField);
 		cityTextField.setColumns(10);
 
 		addressTextField = new JTextField();
 		addressTextField.setBounds(16, 79, 248, 28);
+		if(customer != null){
+			nameTextField.setText(customer.getAddress());
+		} else {
+			nameTextField.setText("-Adress-");
+		}
 		panel.add(addressTextField);
 		addressTextField.setColumns(10);
 
 		nameTextField = new JTextField();
 		nameTextField.setBounds(16, 46, 155, 28);
+		if(customer != null){
+			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
+		} else {
+			nameTextField.setText("-Fšrnamn och efternamn-");
+		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);
 

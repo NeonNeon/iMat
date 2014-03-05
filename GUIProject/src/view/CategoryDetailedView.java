@@ -39,7 +39,6 @@ public class CategoryDetailedView extends JPanel {
 		pl = model.getProducts(nc);
 		
 		
-		//setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
 		setBackground(backGround);
 		setBounds(260,0,684, 581);
 		setLayout(null);
