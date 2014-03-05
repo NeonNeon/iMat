@@ -38,4 +38,7 @@ public class CartController implements ShoppingCartListener, IObservable{
 		System.out.println("addOldCart");
 		support.firePropertyChange("oldcart",null,order);
 	}
+	public void showOrder(Order order) {
+		support.firePropertyChange("showorder", null, order);
+	}
 }

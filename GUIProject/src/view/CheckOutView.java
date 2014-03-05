@@ -1,11 +1,13 @@
 package view;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -44,6 +46,7 @@ public class CheckOutView extends JFrame {
 	private JTextField cardNumberTextField;
 	private JTextField cvcTextField;
 	private CartController cartController;
+	private JPanel recieptItemsPanel;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
 			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
@@ -69,7 +72,7 @@ public class CheckOutView extends JFrame {
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
-					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
+					JOptionPane.showMessageDialog(null,"Tack fï¿½r att du handlar pï¿½ iMat, Vï¿½lkommen ï¿½ter!", "Bekrï¿½ftelse", 1);
 				} else if(evt.getActionCommand().equals("abort")){
 					dispose();
 				}
@@ -99,15 +102,24 @@ public class CheckOutView extends JFrame {
 		separator.setBounds(350, 5, 10, 555);
 		separator.setOrientation(SwingConstants.VERTICAL);
 		card2.add(separator);
+		recieptItemsPanel = new JPanel();
+		recieptItemsPanel.setPreferredSize(new Dimension(230, 800)); //TODO fixa ordentliga siffor
+		recieptItemsPanel.setLayout(new BoxLayout(recieptItemsPanel, BoxLayout.Y_AXIS));
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(372, 19, 300, 455);
-		card2.add(scrollPane);
-
-		JButton payButton1 = new JButton("Betala");
+		JScrollPane recieptScrollPane = new JScrollPane(recieptItemsPanel);
+		recieptScrollPane.setBounds(372, 19, 300, 455);
+		card2.add(recieptScrollPane);
+		double totalSum = 0;
+		for(ShoppingItem item:items) {
+			recieptItemsPanel.add(new OldCartItemPanel(item));
+			totalSum+=item.getTotal();
+		}
+		
+		
+		JButton payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
 		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		payButton1.setHorizontalAlignment(SwingConstants.CENTER);
-		payButton1.setBounds(465, 490, 140, 55);
+		payButton1.setBounds(435, 490, 192, 55);
 		payButton1.setActionCommand("pay");
 		payButton1.addActionListener(myActionListener);
 		card2.add(payButton1);;
@@ -120,7 +132,7 @@ public class CheckOutView extends JFrame {
 		card2.add(headLabel);
 
 		JButton abortButton1 = new JButton("Avbryt");
-		abortButton1.setBounds(107, 490, 140, 55);
+		abortButton1.setBounds(87, 490, 192, 55);
 		abortButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");

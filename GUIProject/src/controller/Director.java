@@ -106,10 +106,9 @@ public class Director implements PropertyChangeListener {
 		frame.addTab("Recept",new RecipeView());
 		frame.addTab("Uppgifter", accountView);
 		frame.addTab("Min Historik", new HistoryView(cartController));
-
+		frame.addTab("Sparade", new HistoryView(cartController));
 		frame.addLeft(searchView);
 		frame.addRight(cartView);
 		frame.setVisible(true);
-		
 	}
 }

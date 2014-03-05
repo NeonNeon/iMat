@@ -27,7 +27,7 @@ FrameController frameController;
 	public Tab(FrameController controller,String name) {
 		frameController = controller;
 		setBorder(null);
-		setPreferredSize(new Dimension(117,45));
+		setPreferredSize(new Dimension(111,45));
 		setBackground(new Color(245,245,245));
 		JLabel nameOfTab = new JLabel(name);
 		nameOfTab.setFont(new Font("Dialog", Font.BOLD, 16));
