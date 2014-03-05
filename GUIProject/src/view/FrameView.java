@@ -41,15 +41,8 @@ public class FrameView extends JFrame {
 	 */
 	public FrameView(FrameController controller) {
 		frameController = controller;
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosed(WindowEvent e) {
-				model.shutDown();
-				setVisible(false);
-				dispose(); //DAFAQ
-			}
-		});
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(70, 10, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
