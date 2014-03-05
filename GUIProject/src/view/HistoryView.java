@@ -11,6 +11,9 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.border.LineBorder;
+
+import controller.CartController;
+
 import java.awt.Color;
 
 /**
@@ -25,22 +28,23 @@ private List<Order> orderList = new ArrayList<Order>();
 private List<OldCartsPanel> panelList = new ArrayList<OldCartsPanel>();
 private Model model = Model.getInstance();
 private Color borderColor = Constants.HOVERCOLOR.getColor();
-
+private CartController cartController;
 	/**
 	 * Create the panel.
 	 */
-	public HistoryView() {
+	public HistoryView(CartController controller) {
+		cartController = controller;
 		setBorder(new LineBorder(borderColor, 2, true));
 		setSize(684, 631);
 		setLayout(null);
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 332, 609);
+		panel.setBounds(10, 11, 332, 608);
 		add(panel);
 		panel.setLayout(null);
 		oldPanel = new JPanel();
 		oldPanel.setPreferredSize(new Dimension(318,523));
 		JScrollPane scrollPane = new JScrollPane(oldPanel);
-		scrollPane.setBounds(10, 51, 318, 547);
+		scrollPane.setBounds(10, 51, 318, 545);
 		panel.add(scrollPane);
 		
 		JLabel lblHistorik = new JLabel("Historik");
@@ -54,7 +58,7 @@ private Color borderColor = Constants.HOVERCOLOR.getColor();
 	}
 	public void addOrder(Order order) {
 		orderList.add(order);
-		OldCartsPanel tmpPanel = new OldCartsPanel(order);
+		OldCartsPanel tmpPanel = new OldCartsPanel(order,cartController);
 		panelList.add(tmpPanel);
 		oldPanel.add(tmpPanel);
 		oldPanel.setPreferredSize(new Dimension(318,70*panelList.size()));
