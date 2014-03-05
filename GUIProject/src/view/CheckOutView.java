@@ -19,11 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import se.chalmers.ait.dat215.project.ShoppingItem;
-import java.awt.Dimension;
-import java.awt.Component;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
-import javax.swing.border.TitledBorder;
 
 
 public class CheckOutView extends JFrame {
@@ -36,8 +31,8 @@ public class CheckOutView extends JFrame {
 	private JPanel contentPane;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 600;
-	private Color textColor = Constants.TEXTCOLOR.getColor();
-	private Color textColorLight = Constants.TEXTCOLORLIGHT.getColor();
+	//private Color textColor = Constants.TEXTCOLOR.getColor();
+	//private Color textColorLight = Constants.TEXTCOLORLIGHT.getColor();
 	private JTextField nameTextField;
 	private JTextField addressTextField;
 	private JTextField postCodeTextField;
@@ -139,26 +134,14 @@ public class CheckOutView extends JFrame {
 		scrollPane.setBounds(372, 19, 300, 455);
 		card2.add(scrollPane);
 
-		JLabel deliveryDay = new JLabel("Leveransdag");
-		deliveryDay.setBounds(25, 205, 120, 15);
-		card2.add(deliveryDay);
-
-		JLabel deliveryAddress = new JLabel("Leveransadress");
-		deliveryAddress.setBounds(25, 58, 96, 16);
-		card2.add(deliveryAddress);
-
-		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
-		paymentLabel.setBounds(25, 280, 90, 15);
-		card2.add(paymentLabel);
-
-		JButton saveButton = new JButton("Spara");
+		/*JButton saveButton = new JButton("Spara");
 		saveButton.addActionListener(myActionListener);
 		saveButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
 		saveButton.setBounds(150, 490, 160, 55);
 		saveButton.setActionCommand("save");
 		saveButton.addActionListener(myActionListener);
-		card2.add(saveButton);
+		card2.add(saveButton);*/
 
 		JButton payButton1 = new JButton("Betala");
 		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
@@ -166,44 +149,7 @@ public class CheckOutView extends JFrame {
 		payButton1.setBounds(465, 490, 140, 55);
 		payButton1.setActionCommand("pay");
 		payButton1.addActionListener(myActionListener);
-		card2.add(payButton1);
-
-		JComboBox chooseDay = new JComboBox();;
-		chooseDay.setBounds(25, 230, 120, 25);
-		chooseDay.setModel(dayModel);
-		card2.add(chooseDay);
-
-		JComboBox chooseTime = new JComboBox();
-		chooseTime.setModel(timeModel);
-		chooseTime.setBounds(150, 230, 90, 25);
-		card2.add(chooseTime);
-
-		JComboBox cardType = new JComboBox();
-		cardType.setBounds(25, 308, 119, 27);
-		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
-		card2.add(cardType);
-
-		JTextField expiresYear = new JTextField();
-		expiresYear.setBounds(82, 387, 39, 27);
-		card2.add(expiresYear);
-
-		JTextField expiresMonth = new JTextField();
-		expiresMonth.setBounds(118, 387, 41, 27);
-		card2.add(expiresMonth);
-
-		cardNumberTextField = new JTextField();
-		cardNumberTextField.setBounds(25, 347, 147, 28);
-		card2.add(cardNumberTextField);
-		cardNumberTextField.setColumns(10);
-
-		JLabel expireDateLabel = new JLabel("Utlšper:");
-		expireDateLabel.setBounds(25, 393, 56, 16);
-		card2.add(expireDateLabel);
-
-		cvcTextField = new JTextField();
-		cvcTextField.setBounds(178, 347, 39, 28);
-		card2.add(cvcTextField);
-		cvcTextField.setColumns(10);
+		card2.add(payButton1);;
 
 		JLabel headLabel = new JLabel("Redo att betala?");
 		headLabel.setForeground(new Color(255, 255, 255));
@@ -213,7 +159,7 @@ public class CheckOutView extends JFrame {
 		card2.add(headLabel);
 
 		JButton abortButton1 = new JButton("Avbryt");
-		abortButton1.setBounds(25, 490, 120, 55);
+		abortButton1.setBounds(107, 490, 140, 55);
 		abortButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");
@@ -223,18 +169,70 @@ public class CheckOutView extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBounds(16, 52, 322, 141);
 		card2.add(panel);
+				panel.setLayout(null);
+		
+				JLabel deliveryAddress = new JLabel("Leveransadress");
+				deliveryAddress.setBounds(113, 5, 96, 16);
+				panel.add(deliveryAddress);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(16, 194, 322, 74);
+		panel_1.setBounds(16, 225, 322, 98);
 		card2.add(panel_1);
+				panel_1.setLayout(null);
+		
+				JComboBox chooseDay = new JComboBox();
+				chooseDay.setBounds(4, 50, 118, 27);
+				panel_1.add(chooseDay);
+				chooseDay.setModel(dayModel);
+				
+						JComboBox chooseTime = new JComboBox();
+						chooseTime.setBounds(126, 51, 97, 25);
+						panel_1.add(chooseTime);
+						chooseTime.setModel(timeModel);
+						
+								JLabel deliveryDay = new JLabel("Leveransdag");
+								deliveryDay.setBounds(4, 23, 120, 15);
+								panel_1.add(deliveryDay);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(16, 269, 322, 159);
+		panel_2.setBounds(16, 325, 322, 149);
 		card2.add(panel_2);
+		panel_2.setLayout(null);
+		
+				JLabel expireDateLabel = new JLabel("Utlšper:");
+				expireDateLabel.setBounds(6, 115, 56, 16);
+				panel_2.add(expireDateLabel);
+				
+						JTextField expiresYear = new JTextField();
+						expiresYear.setBounds(63, 109, 39, 27);
+						panel_2.add(expiresYear);
+						
+								JTextField expiresMonth = new JTextField();
+								expiresMonth.setBounds(100, 109, 41, 27);
+								panel_2.add(expiresMonth);
+								
+										cardNumberTextField = new JTextField();
+										cardNumberTextField.setBounds(6, 72, 147, 28);
+										panel_2.add(cardNumberTextField);
+										cardNumberTextField.setColumns(10);
+										
+												cvcTextField = new JTextField();
+												cvcTextField.setBounds(165, 72, 39, 28);
+												panel_2.add(cvcTextField);
+												cvcTextField.setColumns(10);
+												
+														JComboBox cardType = new JComboBox();
+														cardType.setBounds(6, 33, 119, 27);
+														panel_2.add(cardType);
+														cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
+														
+																JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
+																paymentLabel.setBounds(6, 6, 90, 15);
+																panel_2.add(paymentLabel);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(16, 52, 322, 376);
+		panel_3.setBounds(16, 52, 322, 422);
 		card2.add(panel_3);
 		
 		this.setLocation(300, 100);

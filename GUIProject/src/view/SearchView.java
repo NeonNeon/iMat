@@ -1,40 +1,25 @@
 package view;
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
-
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
-
-import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JToolBar;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Component;
-
 import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
 import controller.BrowseController;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
 
 
 public class SearchView extends JPanel {
@@ -45,8 +30,10 @@ public class SearchView extends JPanel {
 	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JTextField searchField;
 	private Color hoverColor = Constants.HOVERCOLOR.getColor();
-	private Font categoryFont = new Font("Gill Sans", Font.PLAIN, 20);
+	private Font categoryFont = Constants.CATEGORYFONT.getFont();
 	private BrowseController browseController;
+	private JLabel tmp;
+	private JLabel favoritesLabel;
 	JButton logoButton;
 
 	private MouseAdapter myMouseListener = new MouseAdapter(){
@@ -58,6 +45,22 @@ public class SearchView extends JPanel {
 		@Override
 		public void mouseExited(MouseEvent evt) {
 			((JLabel)evt.getSource()).setForeground(originalColor);
+		}
+		
+		public void mouseClicked(MouseEvent evt) {
+			if(tmp != null) {
+				if(tmp == favoritesLabel){
+					tmp.setFont(Constants.FAVORITESFONT.getFont());
+				}else {
+					tmp.setFont(categoryFont);
+				}
+			}
+			if((JLabel)evt.getSource() == favoritesLabel){
+				((JLabel)evt.getSource()).setFont(Constants.FAVORITESCLICKEDFONT.getFont());
+			} else {
+				((JLabel)evt.getSource()).setFont(Constants.CATEGORYCLICKEDFONT.getFont());
+			}
+			tmp = (JLabel)evt.getSource();			
 		}
 	};
 
@@ -93,12 +96,12 @@ public class SearchView extends JPanel {
 		searchField.setBounds(20, 130, 210, 40);
 		add(searchField);
 		searchField.setColumns(10);
-		searchField.setText("Sök..");
+		searchField.setText("Sšk..");
 		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
 		searchField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				search();
-				searchField.setText("Sök..");
+				searchField.setText("Sšk..");
 			}
 		});
 		searchField.addMouseListener(new MouseAdapter(){
@@ -108,34 +111,17 @@ public class SearchView extends JPanel {
 		});
 
 
-		/*
-		 * Kategorier:
-- favoriter
-- grï¿½nsaker
-- frukt och bï¿½r
-- baljvï¿½xter
-- potatis och rotfrukter
-- ris och pasta
-- skafferi
-- brï¿½d
-- mejeriprodukter
-- kï¿½tt
-- fisk och skaldjur
-- dryck
-- ï¿½rter
--snacks och sï¿½tsaker
-
-		 */
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(245, 245, 245));
-		panel.setBounds(27, 197, 196, 382);
+		panel.setBounds(27, 182, 196, 403);
 		add(panel);
-		panel.setLayout(new GridLayout(16, 1, 9, 0));
+		panel.setLayout(new GridLayout(16, 1, 0, 3));
 
 
-		JLabel favoritesLabel = new JLabel("Favoriter");
-		favoritesLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+		favoritesLabel = new JLabel("Favoriter");
+		favoritesLabel.setVerticalAlignment(SwingConstants.TOP);
+		favoritesLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		favoritesLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		favoritesLabel.addMouseListener(myMouseListener);
 		favoritesLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FAVORITER));
@@ -145,10 +131,12 @@ public class SearchView extends JPanel {
 		favoritesLabel.setForeground(originalColor);
 		favoritesLabel.setBackground(new Color(153, 204, 204));
 		panel.add(favoritesLabel);
-		favoritesLabel.setFont(new Font("Gill Sans", Font.PLAIN, 24));
+		favoritesLabel.setFont(Constants.FAVORITESFONT.getFont());
 		favoritesLabel.setSize(681,30);
 
 		JLabel greensLabel = new JLabel("Gr\u00F6nsaker");
+		greensLabel.setVerticalAlignment(SwingConstants.TOP);
+		greensLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		greensLabel.addMouseListener(myMouseListener);
 
 		Component horizontalStrut = Box.createHorizontalStrut(20);
@@ -162,16 +150,21 @@ public class SearchView extends JPanel {
 		panel.add(greensLabel);
 
 
-		JLabel fruitLabel = new JLabel("Frukt och bï¿½r");
+		JLabel fruitLabel = new JLabel("Frukt och bŠr");
+		fruitLabel.setVerticalAlignment(SwingConstants.TOP);
+		fruitLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		fruitLabel.addMouseListener(myMouseListener);
 		fruitLabel.setForeground(originalColor);
 		fruitLabel.setBackground(new Color(153, 204, 204));
-		fruitLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		fruitLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		fruitLabel.setFont(categoryFont);
 		fruitLabel.addMouseListener(new CategoryMouseListener(NewCategorys.FRUKT_OCH_BAR));
+		panel.add(fruitLabel);
 
 
 		JLabel herbLabel = new JLabel("\u00D6rter");
+		herbLabel.setVerticalAlignment(SwingConstants.TOP);
+		herbLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		herbLabel.addMouseListener(myMouseListener);
 		herbLabel.setForeground(originalColor);
 		herbLabel.setBackground(new Color(153, 204, 204));
@@ -181,6 +174,8 @@ public class SearchView extends JPanel {
 		panel.add(herbLabel);
 
 		JLabel leguminousLabel = new JLabel("Baljv\u00E4xter");
+		leguminousLabel.setVerticalAlignment(SwingConstants.TOP);
+		leguminousLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		leguminousLabel.addMouseListener(myMouseListener);
 		leguminousLabel.setForeground(originalColor);
 		leguminousLabel.setBackground(new Color(153, 204, 204));
@@ -191,6 +186,8 @@ public class SearchView extends JPanel {
 
 
 		JLabel rootvegLabel = new JLabel("Potatis & rotfrukter");
+		rootvegLabel.setVerticalAlignment(SwingConstants.TOP);
+		rootvegLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		rootvegLabel.addMouseListener(myMouseListener);
 		rootvegLabel.setForeground(originalColor);
 		rootvegLabel.setBackground(new Color(153, 204, 204));
@@ -201,6 +198,8 @@ public class SearchView extends JPanel {
 		panel.add(rootvegLabel);
 
 		JLabel fishLabel = new JLabel("Fisk & skaldjur");
+		fishLabel.setVerticalAlignment(SwingConstants.TOP);
+		fishLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		fishLabel.addMouseListener(myMouseListener);
 		fishLabel.setForeground(originalColor);
 		fishLabel.setBackground(new Color(153, 204, 204));
@@ -210,6 +209,8 @@ public class SearchView extends JPanel {
 		panel.add(fishLabel);
 
 		JLabel meatLabel = new JLabel("K\u00F6tt");
+		meatLabel.setVerticalAlignment(SwingConstants.TOP);
+		meatLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		meatLabel.addMouseListener(myMouseListener);
 		meatLabel.setForeground(originalColor);
 		meatLabel.setBackground(new Color(153, 204, 204));
@@ -219,6 +220,8 @@ public class SearchView extends JPanel {
 		panel.add(meatLabel);
 
 		JLabel breadLabel = new JLabel("Br\u00F6d");
+		breadLabel.setVerticalAlignment(SwingConstants.TOP);
+		breadLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		breadLabel.addMouseListener(myMouseListener);
 		breadLabel.setForeground(originalColor);
 		breadLabel.setBackground(new Color(153, 204, 204));
@@ -228,6 +231,8 @@ public class SearchView extends JPanel {
 		panel.add(breadLabel);
 
 		JLabel dairyLabel = new JLabel("Mejeri");
+		dairyLabel.setVerticalAlignment(SwingConstants.TOP);
+		dairyLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		dairyLabel.addMouseListener(myMouseListener);
 		dairyLabel.setForeground(originalColor);
 		dairyLabel.setBackground(new Color(153, 204, 204));
@@ -237,6 +242,8 @@ public class SearchView extends JPanel {
 		panel.add(dairyLabel);
 
 		JLabel riceLabel = new JLabel("Ris & Pasta");
+		riceLabel.setVerticalAlignment(SwingConstants.TOP);
+		riceLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		riceLabel.addMouseListener(myMouseListener);
 		riceLabel.setForeground(originalColor);
 		riceLabel.setBackground(new Color(153, 204, 204));
@@ -246,6 +253,8 @@ public class SearchView extends JPanel {
 		panel.add(riceLabel);
 
 		JLabel pantryLabel = new JLabel("Skafferi");
+		pantryLabel.setVerticalAlignment(SwingConstants.TOP);
+		pantryLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		pantryLabel.addMouseListener(myMouseListener);
 		pantryLabel.setForeground(originalColor);
 		pantryLabel.setBackground(new Color(153, 204, 204));
@@ -255,6 +264,8 @@ public class SearchView extends JPanel {
 		panel.add(pantryLabel);
 
 		JLabel drinksLabel = new JLabel("Dryck");
+		drinksLabel.setVerticalAlignment(SwingConstants.TOP);
+		drinksLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		drinksLabel.addMouseListener(myMouseListener);
 		drinksLabel.setForeground(originalColor);
 		drinksLabel.setBackground(new Color(153, 204, 204));
@@ -266,6 +277,8 @@ public class SearchView extends JPanel {
 
 
 		JLabel snackLabel = new JLabel("Snacks & s\u00F6tsaker");
+		snackLabel.setVerticalAlignment(SwingConstants.TOP);
+		snackLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		snackLabel.addMouseListener(myMouseListener);
 		snackLabel.setForeground(originalColor);
 		snackLabel.setBackground(new Color(153, 204, 204));
@@ -288,19 +301,17 @@ public class SearchView extends JPanel {
 		}
 
 		@Override
-		public void mouseClicked(MouseEvent arg0) {
+		public void mouseClicked(MouseEvent evt) {
 			browseController.showCategory(category);
 		}
 
 		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
+		public void mouseEntered(MouseEvent evt) {
+			
 		}
 
 		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+		public void mouseExited(MouseEvent evt) {
 
 		}
 
