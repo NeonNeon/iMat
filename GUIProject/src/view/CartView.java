@@ -8,9 +8,12 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -22,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
+import controller.CartController;
 import controller.BrowseController;
 import controller.FrameController;
 
@@ -39,7 +43,8 @@ import javax.swing.border.SoftBevelBorder;
  * @author Grupp16
  * 
  */
-public class CartView extends JPanel implements ShoppingCartListener {
+public class CartView extends JPanel implements ShoppingCartListener,
+		PropertyChangeListener {
 	
 	private static final Model model = Model.getInstance();
 	
@@ -49,30 +54,31 @@ public class CartView extends JPanel implements ShoppingCartListener {
 	private static final int NAME_PANEL_HEIGHT = 100;
 	private JLabel nameLabel;
 	private JLabel totalSumLabel;
-	private Choice oldCartChoice;
 	private JButton buyButton;
 	private JButton saveCartButton;
 	private JButton emptyCartButton;
+	private JPanel cartPanelWithItems;
 	private JButton namePanel;
 	private JPanel cartItemPane;
 	private JPanel cartPanel;
 	private JScrollPane scrollCartPane;
 	private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 	private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
+	private CartController cartController;
 
 	private ActionListener myActionListener = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 			if (evt.getActionCommand().equals("pay")) {
-				CheckOutView c =new CheckOutView(items);
+				CheckOutView c = new CheckOutView(items);
 				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				
+
 			} else if (evt.getActionCommand().equals("save")) {
 
 			} else if (evt.getActionCommand().equals("empty")) {
 				int reply = JOptionPane.showConfirmDialog(null, "Varning",
-						"Vill du tšmma din varukorg?",
+						"Vill du tï¿½mma din varukorg?",
 						JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					emptyCart();
@@ -87,7 +93,9 @@ public class CartView extends JPanel implements ShoppingCartListener {
 	/**
 	 * Create the panel.
 	 */
-	public CartView() {
+	public CartView(CartController controller) {
+		cartController = controller;
+		cartController.addObeserver(this);
 		
 		model.getShoppingCart().addShoppingCartListener(this);
 		setBackground(Constants.BACKGROUNDCOLOR.getColor());
@@ -167,7 +175,8 @@ public class CartView extends JPanel implements ShoppingCartListener {
 				SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.EAST, cartPanel, 0,
 				SpringLayout.EAST, this);
-		//cartPanel.setBorder(new LineBorder(Constants.TEXTCOLORLIGHT.getColor()));
+		// cartPanel.setBorder(new
+		// LineBorder(Constants.TEXTCOLORLIGHT.getColor()));
 		add(cartPanel);
 
 		JLabel varukorgLabel = new JLabel("Varukorg");
@@ -236,13 +245,16 @@ public class CartView extends JPanel implements ShoppingCartListener {
 		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		cartPanel.add(totalSumLabel);
 
-		cartItemPane = new JPanel(new GridLayout(0, 1));
+		cartPanelWithItems = new JPanel();
+		cartPanelWithItems.setLayout(new BoxLayout(cartPanelWithItems,BoxLayout.Y_AXIS));
+		
 		// cartItemPane.setPreferredSize(new
 		// Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS,700));
-		cartItemPane.setAlignmentY(TOP_ALIGNMENT);
-		cartItemPane.setBackground(Color.WHITE);
+		cartPanelWithItems.setAlignmentY(TOP_ALIGNMENT);
+		cartPanelWithItems.setBackground(Color.WHITE);
 
-		scrollCartPane = new JScrollPane(cartItemPane);
+		scrollCartPane = new JScrollPane(cartPanelWithItems);
+		scrollCartPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollCartPane.setBackground(Color.WHITE);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1,
 				true));
@@ -265,7 +277,7 @@ public class CartView extends JPanel implements ShoppingCartListener {
 		cartPanel.add(scrollCartPane);
 		List<ShoppingItem> currentItems = model.getShoppingCart().getItems();
 		System.out.println("antal items i korgen " + currentItems.size());
-		for(ShoppingItem currentItem : currentItems) {
+		for (ShoppingItem currentItem : currentItems) {
 			addShoppingItem(currentItem);
 		}
 		update();
@@ -277,7 +289,7 @@ public class CartView extends JPanel implements ShoppingCartListener {
 		model.getShoppingCart().clear();
 		items.clear();
 		itemPanels.clear();
-		cartItemPane.removeAll();
+		cartPanelWithItems.removeAll();
 		update();
 	}
 
@@ -287,18 +299,18 @@ public class CartView extends JPanel implements ShoppingCartListener {
 
 	public void addShoppingItem(ShoppingItem item) {
 		items.add(item);
-		CartItemPanel newItemPanel = new CartItemPanel(item);
+		CartItemPanel newItemPanel = new CartItemPanel(item, cartController);
 		newItemPanel.setBackground(Color.WHITE);
 		itemPanels.add(newItemPanel);
 		System.out.println(itemPanels.size());
-		cartItemPane.add(newItemPanel);
+		cartPanelWithItems.add(newItemPanel);
 		// newItemPanel.revalidate();
-		cartItemPane.setPreferredSize(new Dimension(WIDTH - 2
+		cartPanelWithItems.setPreferredSize(new Dimension(WIDTH - 2
 				* COMPONENT_DISTANCE_FROM_PANELS, itemPanels.size()
 				* CartItemPanel.HEIGHT));
-		System.out.println("pane: " + cartItemPane.getSize().height);
+		System.out.println("pane: " + cartPanelWithItems.getSize().height);
 		System.out.println("itemPanel:" + newItemPanel.getSize().height);
-		cartItemPane.revalidate();
+		cartPanelWithItems.revalidate();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
 	}
@@ -329,7 +341,26 @@ public class CartView extends JPanel implements ShoppingCartListener {
 			itemPanel.update();
 			System.out.println("CartView.update() : ");
 		}
-		cartItemPane.repaint();
+		cartPanelWithItems.repaint();
 		revalidate();
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent arg0) {
+		if (arg0.getPropertyName().equals("remove")) {
+			CartItemPanel removeThisPanel = (CartItemPanel) arg0.getNewValue();
+			Model.getInstance().getShoppingCart()
+					.removeItem(removeThisPanel.getShoppingItem());
+			items.remove(removeThisPanel.getShoppingItem());
+			itemPanels.remove(removeThisPanel);
+			cartPanelWithItems.removeAll();
+			addAll();
+		}
+	}
+	public void addAll() {
+		cartPanelWithItems.setPreferredSize(new Dimension(WIDTH,CartItemPanel.HEIGHT*itemPanels.size()));
+		for (CartItemPanel itemPanel : itemPanels) {
+			cartPanelWithItems.add(itemPanel);
+		}
 	}
 }
