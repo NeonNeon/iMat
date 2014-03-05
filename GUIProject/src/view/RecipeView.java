@@ -20,7 +20,7 @@ public class RecipeView extends JPanel {
 	private ImageIcon inspirationIcon = new ImageIcon("lib/Bildmapp/receptHeader.png");
 	private ImageIcon salladIcon = new ImageIcon("lib/Bildmapp/sallad.png");
 	private ImageIcon laxIcon = new ImageIcon("lib/Bildmapp/lax.png");
-	private ImageIcon pastaIcon = new ImageIcon("lib/Bildmapp/köttfärs.png");
+	private ImageIcon pastaIcon = new ImageIcon("lib/Bildmapp/kottfars.png");
 	private ImageIcon kycklingIcon = new ImageIcon("lib/Bildmapp/kyckling.png");
 	private ImageIcon hamburgareIcon = new ImageIcon("lib/Bildmapp/hamburgare.png");
 	private ImageIcon grytaIcon = new ImageIcon("lib/Bildmapp/gryta.png");
