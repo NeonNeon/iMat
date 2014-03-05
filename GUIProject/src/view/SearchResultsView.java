@@ -28,18 +28,18 @@ public class SearchResultsView extends JPanel {
 	
 	JScrollPane resultScrollPane;
 	JLabel resultLabel = new JLabel();
-	JPanel resultPanel;
+	JPanel resultPanel = new JPanel();
 	private double height;
+	private Color backGround = new Color(245,245,245);
 	
-	private Color background = new Color(255, 243, 240);
 	private Color borderColor = new Color(255, 105, 64);
 	
 	/**
 	 * Create the panel.
 	 */
 	public SearchResultsView() {
-		setBackground(background);
 		setBorder(new LineBorder(borderColor, 4, true));
+		setBackground(backGround);
 		
 		setSize(684, 631);
 		setLayout(null);
@@ -59,8 +59,14 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(Product p){
 		this();
-		resultLabel.setText("Veckans erbjudnade f�r " + p.getName());
+		resultLabel.setText("Veckans erbjudnade är " + p.getName());
 		resultPanel.add(new ProductView(p));
+		resultScrollPane = new JScrollPane(resultPanel);
+		resultScrollPane.setBounds(10, 77, 654,541 );
+		resultPanel.setBackground(backGround);
+		resultPanel.setLayout(new GridLayout(1,3));
+		add(resultScrollPane,1,1);
+		
 		
 	}
 	
@@ -71,11 +77,11 @@ public class SearchResultsView extends JPanel {
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
 		resultPanel = new JPanel();
-		resultPanel.setBackground(background);
+		resultPanel.setBackground(backGround);
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
 		resultScrollPane = new JScrollPane(resultPanel);
-		resultScrollPane.setBounds(10, 77, 654,591 );
+		resultScrollPane.setBounds(10, 77, 654,541 );
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen

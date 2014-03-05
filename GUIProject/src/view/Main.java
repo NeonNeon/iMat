@@ -1,6 +1,4 @@
 package view;
-import javax.swing.JTabbedPane;
-
 import controller.Director;
 
 

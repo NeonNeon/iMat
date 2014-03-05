@@ -1,13 +1,15 @@
 package view;
-import javax.swing.*;
-import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import java.awt.*;
-
-import se.chalmers.ait.dat215.project.*;
-import se.chalmers.ait.dat215.project.util.*;
-
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * This is the small view of a category when browsing the sortiment.
@@ -19,12 +21,12 @@ public class CategoryView extends JPanel {
 			.getInstance();
 	private String name;
 	private ImageIcon icon;
-	private Color hoverColor = new Color(255,0,0);
-	private Color originalColor = new Color(0,0,0);
+	private Color hoverColor = Constants.HOVERCOLOR.getColor();
+	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JLabel categoryLabel;
 	
 	public CategoryView(String name, ImageIcon icon) {
-		setBackground(new Color(255, 243, 240));
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {

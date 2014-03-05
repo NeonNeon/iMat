@@ -28,6 +28,7 @@ public class CategoryDetailedView extends JPanel {
 	private double height;
 	private NewCategorys nc;
 	private JPanel productPanel;
+	private Color backGround = new Color(245,245,245);
 	
 	/**
 	 * Create the panel.
@@ -39,7 +40,7 @@ public class CategoryDetailedView extends JPanel {
 		
 		
 		//setBorder(new LineBorder(new Color(204, 255, 153), 4, true));
-		setBackground(new Color(255, 243, 240));
+		setBackground(backGround);
 		setBounds(260,0,684, 581);
 		setLayout(null);
 		
@@ -49,20 +50,24 @@ public class CategoryDetailedView extends JPanel {
 		nameLabel.setForeground(Color.BLACK);
 		add(nameLabel);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 65, 684, 616);
+
+
+		if(pl.size()%3==0)
+			height = (pl.size()/3)*273;
+		else
+			height = (pl.size()/2.3)*273;
+		
+		
+		productPanel = new JPanel();
+		productPanel.setBackground(backGround);
+		productPanel.setLayout(new GridLayout(0,3));
+		productPanel.setPreferredSize(new Dimension(684,(int)height));
+		
+		JScrollPane scrollPane = new JScrollPane(productPanel);
+		scrollPane.setBounds(0, 65, 684, 501);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
-		
-		height = (pl.size()/3)*400;
-		
-		productPanel = new JPanel();
-		productPanel.setBackground(new Color(255, 243, 240));
-		productPanel.setLayout(new GridLayout(0,3));
-		productPanel.setPreferredSize(new Dimension(684,(int)height));
-		scrollPane.setViewportView(productPanel);
-		
 		addProducts();
 		
 	}

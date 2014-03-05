@@ -32,7 +32,7 @@ public class StartView extends JPanel {
 	public StartView(FrameController controller) {
 		frameController=controller;
 		setBackground(background);
-		setBorder(new LineBorder(borderColor, 2, true));
+		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
 		
 		setSize(684, 581);
 		setLayout(null);
@@ -74,7 +74,7 @@ public class StartView extends JPanel {
 		JPanel offerPanel = new JPanel();
 		offerPanel.setBorder(null);
 		offerPanel.setBackground(background);
-		offerPanel.setBounds(10, 331, 664, 238);
+		offerPanel.setBounds(10, 331, 645, 240);
 		add(offerPanel);
 		offerPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		

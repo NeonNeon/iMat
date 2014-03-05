@@ -40,6 +40,8 @@ public class ProductView extends JPanel {
 	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/ListIcon.png");
 	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
 	private JSpinner spinner;
+	private Color backGround = new Color(245,245,245);
+	
 
 
 
@@ -52,8 +54,8 @@ public class ProductView extends JPanel {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}};
 		product = p;
-		setBorder(new LineBorder(new Color(255, 233, 219), 1, true));
-		setBackground(new Color(255, 243, 240));
+		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
+		setBackground(backGround);
 		
 		setPreferredSize(new Dimension(200, 273));
 		setLayout(null);
@@ -75,7 +77,7 @@ public class ProductView extends JPanel {
 		add(priceLabel);
 		
 		spinner = (product.getUnitSuffix().equals("kg")) 
-				? new DoubleSpinner() : new JSpinner(new SpinnerNumberModel(1, 0, 99, 1));
+				? new DoubleSpinner() : new JSpinner(new SpinnerNumberModel(1.0,0.0,99.0,1.0));
 		spinner.setBounds(10, 220, 38, 20);
 		add(spinner);
 		
@@ -115,8 +117,9 @@ public class ProductView extends JPanel {
 		addToCartButton.setOpaque(true);
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				model.getShoppingCart().addItem(new ShoppingItem(p,(Double) spinner.getValue()));
-				System.out.println("lagt till " + product.getName() + "i varukorgen");
+//				model.getShoppingCart().addItem(new ShoppingItem(p,(double) spinner.getValue()));
+				model.addToCart(new ShoppingItem(p,(double) spinner.getValue()));
+				
 			}
 		});
 		

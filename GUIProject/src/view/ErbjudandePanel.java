@@ -46,8 +46,8 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBackground(background);
 		setBorder(new LineBorder(borderColor, 1, true));
+		setBackground(Constants.CONTRASTCOLOR.getColor());
 		
 		setSize(221, 238);
 		setLayout(null);
@@ -64,7 +64,7 @@ public class ErbjudandePanel extends JPanel {
 		add(priceLabel);
 		
 		productButton = new JButton();
-		productButton.setBounds(10, 11, 201, 135);
+		productButton.setBounds(7, 11, 201, 135);
 		add(productButton);
 		productButton.setBorder(new LineBorder(borderColor, 1, true));
 		productButton.addActionListener(new ActionListener() {
@@ -74,6 +74,7 @@ public class ErbjudandePanel extends JPanel {
 		});
 		
 		productButton.setIcon(model.getImageIcon(p));
+		//productButton.setBounds(r);
 		nameLabel.setText(p.getName());
 		priceLabel.setText("" + p.getPrice() + " " + "kr/" + p.getUnitSuffix());
 		

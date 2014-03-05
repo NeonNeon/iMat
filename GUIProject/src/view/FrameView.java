@@ -1,18 +1,12 @@
 package view;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
-import se.chalmers.ait.dat215.project.Product;
 
 /**
  * The FrameView class is the base class of the iMat application.
@@ -30,6 +24,7 @@ public class FrameView extends JFrame {
 	private JPanel rightPanel;
 	private JPanel centerPanel;
 	private JTabbedPane tabPane;
+	private Color backGround = new Color(245,245,245);
 
 
 	/**
@@ -42,7 +37,7 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(255, 243, 240));
+		contentPane.setBackground(backGround);
 		
 		leftPanel = new JPanel();
 		leftPanel.setBounds(0, 0, 250, 679);
@@ -61,22 +56,23 @@ public class FrameView extends JFrame {
 		
 		tabPane = new JTabbedPane();
 		addCenter(tabPane);
+		setResizable(false);
 		
 	}
 	public void addCenter(Container con) {
 		centerPanel.removeAll();
 		centerPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addLeft(Container con) {
 		leftPanel.removeAll();
 		leftPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addRight(Container con) {
 		rightPanel.removeAll();
 		rightPanel.add(con);
-		revalidate();
+		//revalidate();
 	}
 	public void addTab(String name,Container con) {
 		tabPane.addTab(name,con);
