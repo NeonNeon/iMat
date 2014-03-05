@@ -43,7 +43,7 @@ public class SortimentView extends JPanel {
 	private ImageIcon dryck = new ImageIcon("lib/Bildmapp/product_33.jpg");
 	private ImageIcon orter = new ImageIcon("lib/Bildmapp/product_142.jpg");
 	private ImageIcon snacks = new ImageIcon("lib/Bildmapp/product_97.jpg");
-	private double height = (13/3)*400;
+	private double height = (13/3)*375;
 	
 	
 	public SortimentView() {
