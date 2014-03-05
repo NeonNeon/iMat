@@ -232,6 +232,11 @@ public class CheckOutView extends JFrame {
 		panel_2.setBounds(16, 269, 322, 159);
 		card2.add(panel_2);
 		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.WHITE);
+		panel_3.setBounds(16, 52, 322, 376);
+		card2.add(panel_3);
+		
 		this.setLocation(300, 100);
 
 		this.setVisible(true);
