@@ -42,6 +42,7 @@ public class ProductView extends JPanel {
 	private JSpinner spinner;
 	private Color backGround = new Color(245,245,245);
 	
+	
 
 
 
@@ -53,6 +54,8 @@ public class ProductView extends JPanel {
 			public void mouseEntered(MouseEvent e) {
 				((JButton)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}};
+			
+			
 		product = p;
 		setBorder(new LineBorder(Constants.CONTRASTCOLOR.getColor()));
 		setBackground(backGround);
@@ -65,7 +68,7 @@ public class ProductView extends JPanel {
 		add(pictureLabel);
 		
 		JLabel nameLabel = new JLabel(p.getName());
-		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		nameLabel.setFont(Constants.CATEGORYFONT.getFont());
 		nameLabel.setForeground((Color.BLACK));
 		nameLabel.setBounds(10, 149, 130, 20);
 		add(nameLabel);
@@ -87,15 +90,26 @@ public class ProductView extends JPanel {
 		
 		favouriteButton.setToolTipText("L\u00E4gg till som favorit");
 		favouriteButton.setBounds(152, 138, 36, 34);
-		favouriteButton.setBackground(null);
+		
+		if(model.isFavorite(p))
+			favouriteButton.setBackground(Color.YELLOW);
+		else
+			favouriteButton.setBackground(new Color(255,243,240));
+		
 		favouriteButton.setBorder(null);
 		favouriteButton.setOpaque(true);
 		favouriteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(favouriteButton.getBackground() == Color.YELLOW)
+				if(model.isFavorite(product)){
 					favouriteButton.setBackground(new Color(255, 243, 240));
-				else
+					model.removeFavorite(product);
+					System.out.println("RemovedFavorite " + product.getName());
+				}
+				else{
 					favouriteButton.setBackground(Color.YELLOW);
+					model.addFavorite(product);
+				}
+					
 			}
 		});
 		add(favouriteButton);

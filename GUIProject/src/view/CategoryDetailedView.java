@@ -46,7 +46,7 @@ public class CategoryDetailedView extends JPanel {
 		
 		JLabel nameLabel = new JLabel(name, JLabel.CENTER);
 		nameLabel.setBounds(208, 13, 224, 39);
-		nameLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		nameLabel.setFont(Constants.CATEGORYFONT.getFont());
 		nameLabel.setForeground(Color.BLACK);
 		add(nameLabel);
 		

@@ -14,11 +14,15 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import se.chalmers.ait.dat215.project.*;
+import java.awt.Component;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 /**
  * The view that holds the customer and delivery information.
@@ -46,8 +50,8 @@ public class AccountView extends JPanel {
 	private static JTextField lastName;
 	private static Customer customer = model.getCustomer();
 	private static CreditCard creditCard = model.getCreditCard();
-	private Color background = new Color(255, 243, 240);
-	private Color borderColor = new Color(255, 105, 64);
+	private Color background = Constants.BACKGROUNDCOLOR.getColor();
+	private Color borderColor = Constants.TEXTCOLORLIGHT.getColor();
 
 	/**
 	 * Create the panel.
@@ -55,13 +59,13 @@ public class AccountView extends JPanel {
 	public AccountView() {
 		setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		
-		setSize(684, 681);
+		setSize(665, 681);
 		setLayout(null);
 		setBackground(background);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(10, 11, 327, 187);
+		panel.setBounds(10, 11, 318, 187);
 		add(panel);
 		panel.setLayout(null);
 		panel.setBackground(background);
@@ -97,43 +101,43 @@ public class AccountView extends JPanel {
 		panel.add(lblKunduppgifter);
 		
 		firstName = new JTextField();
-		firstName.setBounds(105, 46, 104, 20);
+		firstName.setBounds(94, 45, 104, 20);
 		panel.add(firstName);
 		firstName.setColumns(10);
 		
 		addressTextField = new JTextField();
-		addressTextField.setBounds(105, 71, 212, 20);
+		addressTextField.setBounds(94, 70, 212, 20);
 		panel.add(addressTextField);
 		addressTextField.setColumns(10);
 		
 		townTextField = new JTextField();
-		townTextField.setBounds(190, 96, 127, 20);
+		townTextField.setBounds(190, 96, 116, 20);
 		panel.add(townTextField);
 		townTextField.setColumns(10);
 		
 		telephoneTextField = new JTextField();
-		telephoneTextField.setBounds(105, 121, 212, 20);
+		telephoneTextField.setBounds(94, 120, 212, 20);
 		panel.add(telephoneTextField);
 		telephoneTextField.setColumns(10);
 		
 		emailTextField = new JTextField();
-		emailTextField.setBounds(105, 146, 212, 20);
+		emailTextField.setBounds(94, 145, 212, 20);
 		panel.add(emailTextField);
 		emailTextField.setColumns(10);
 		
 		postNbrTextField = new JTextField();
-		postNbrTextField.setBounds(105, 96, 81, 20);
+		postNbrTextField.setBounds(94, 95, 88, 20);
 		panel.add(postNbrTextField);
 		postNbrTextField.setColumns(10);
 		
 		lastName = new JTextField();
-		lastName.setBounds(214, 46, 103, 20);
+		lastName.setBounds(203, 45, 103, 20);
 		panel.add(lastName);
 		lastName.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel_1.setBounds(347, 11, 327, 187);
+		panel_1.setBounds(335, 11, 318, 187);
 		add(panel_1);
 		panel_1.setBackground(background);
 		panel_1.setLayout(null);
@@ -149,12 +153,11 @@ public class AccountView extends JPanel {
 		panel_1.add(lblBetalningsstt);
 		
 		JComboBox paymentComboBox = new JComboBox();
-		paymentComboBox.setBounds(116, 48, 201, 20);
+		paymentComboBox.setBounds(116, 42, 201, 26);
 		panel_1.add(paymentComboBox);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(255, 233, 219));
-		panel_3.setBounds(10, 77, 307, 89);
+		panel_3.setBounds(6, 77, 302, 89);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -216,7 +219,7 @@ public class AccountView extends JPanel {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel_2.setBounds(10, 209, 664, 206);
+		panel_2.setBounds(10, 209, 643, 206);
 		panel_2.setBackground(background);
 		add(panel_2);
 		panel_2.setLayout(null);
@@ -257,7 +260,7 @@ public class AccountView extends JPanel {
 		panel_2.add(lblLeveransdag);
 		
 		JComboBox deliveryDay = new JComboBox();
-		deliveryDay.setBounds(361, 79, 182, 20);
+		deliveryDay.setBounds(361, 73, 182, 26);
 		panel_2.add(deliveryDay);
 		
 		JLabel lblLeveranstid = new JLabel("Leveranstid:");
@@ -266,10 +269,25 @@ public class AccountView extends JPanel {
 		panel_2.add(lblLeveranstid);
 		
 		JComboBox deliveryTime = new JComboBox();
-		deliveryTime.setBounds(361, 138, 182, 20);
+		deliveryTime.setBounds(361, 138, 182, 26);
 		panel_2.add(deliveryTime);
 		
+		/*JButton saveButton = new JButton("Spara");
+		saveButton.setBounds(567, 427, 140, 55);
+		saveButton.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
+		saveButton.setOpaque(true);
+		*/
+		
 		JButton saveButton = new JButton("Spara");
+		saveButton.setIcon(null);
+		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		saveButton.setBounds(513, 427, 140, 55);
+		saveButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
+		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
+		saveButton.setActionCommand("save");
+		saveButton.setForeground(Color.BLACK);
+		saveButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -277,8 +295,6 @@ public class AccountView extends JPanel {
 			}
 		});
 		
-		saveButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		saveButton.setBounds(567, 426, 107, 65);
 		add(saveButton);
 
 	}

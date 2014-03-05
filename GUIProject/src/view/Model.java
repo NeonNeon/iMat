@@ -78,6 +78,7 @@ public class Model {
 			cart.addItem(item);
 			System.out.println("lagt till " + item.getProduct().getName() + "i varukorgen");
 		}
+		System.out.println("antal items nu i korgen: " + cart.getItems().size());
 		
 	}
 	/**

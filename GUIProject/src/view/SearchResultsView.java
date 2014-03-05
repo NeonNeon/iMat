@@ -38,7 +38,7 @@ public class SearchResultsView extends JPanel {
 	 * Create the panel.
 	 */
 	public SearchResultsView() {
-		setBorder(new LineBorder(borderColor, 4, true));
+		//setBorder(new LineBorder(borderColor, 4, true));
 		setBackground(backGround);
 		
 		setSize(684, 631);
@@ -81,7 +81,7 @@ public class SearchResultsView extends JPanel {
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
 		resultScrollPane = new JScrollPane(resultPanel);
-		resultScrollPane.setBounds(10, 77, 654,541 );
+		resultScrollPane.setBounds(10, 77, 670,541 );
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen
