@@ -129,7 +129,7 @@ public class CartView extends JPanel implements ShoppingCartListener {
 				SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.EAST, cartPanel, 0,
 				SpringLayout.EAST, this);
-		cartPanel.setBorder(new LineBorder(new Color(255, 105, 64), 1, true));
+		//cartPanel.setBorder(new LineBorder(Constants.TEXTCOLORLIGHT.getColor()));
 		add(cartPanel);
 
 		JLabel varukorgLabel = new JLabel("Varukorg");
