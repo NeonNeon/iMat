@@ -71,7 +71,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 			if (evt.getActionCommand().equals("pay")) {
-				CheckOutView c = new CheckOutView(items);
+				CheckOutView c = new CheckOutView(items,cartController);
 				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				c.setVisible(true);
 
@@ -356,6 +356,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			itemPanels.remove(removeThisPanel);
 			cartPanelWithItems.removeAll();
 			addAll();
+		} else if(arg0.getPropertyName().equals("empty")) {
+			emptyCart();
 		}
 	}
 	public void addAll() {
@@ -363,5 +365,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		for (CartItemPanel itemPanel : itemPanels) {
 			cartPanelWithItems.add(itemPanel);
 		}
+	}
+	public CartController getController() {
+		return cartController;
 	}
 }
