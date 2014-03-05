@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Choice;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -21,14 +22,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
 import controller.CartController;
+import controller.BrowseController;
+import controller.FrameController;
 
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
+import javax.swing.border.SoftBevelBorder;
 
 /**
  * CartView is the class that shows the current ShoppingCart in the application.
@@ -40,6 +45,9 @@ import se.chalmers.ait.dat215.project.ShoppingCartListener;
  */
 public class CartView extends JPanel implements ShoppingCartListener,
 		PropertyChangeListener {
+	
+	private static final Model model = Model.getInstance();
+	
 	private static final int COMPONENT_DISTANCE_FROM_PANELS = 10;
 	private static final int WIDTH = 250;
 	private static final int HEIGHT = 681;
@@ -50,6 +58,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 	private JButton saveCartButton;
 	private JButton emptyCartButton;
 	private JPanel cartPanelWithItems;
+	private JButton namePanel;
+	private JPanel cartItemPane;
 	private JPanel cartPanel;
 	private JScrollPane scrollCartPane;
 	private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
@@ -68,11 +78,13 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 			} else if (evt.getActionCommand().equals("empty")) {
 				int reply = JOptionPane.showConfirmDialog(null, "Varning",
-						"Vill du tömma din varukorg?",
+						"Vill du t�mma din varukorg?",
 						JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					emptyCart();
 				}
+			} else if (evt.getActionCommand().equals("profile")) {
+
 			}
 		}
 
@@ -84,13 +96,14 @@ public class CartView extends JPanel implements ShoppingCartListener,
 	public CartView(CartController controller) {
 		cartController = controller;
 		cartController.addObeserver(this);
-		Model model = Model.getInstance();
+		
 		model.getShoppingCart().addShoppingCartListener(this);
 		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		setSize(WIDTH, HEIGHT);
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
-		JPanel namePanel = new JPanel();
+		
+		namePanel = new JButton();
 		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.NORTH, namePanel, 0,
 				SpringLayout.NORTH, this);
@@ -103,8 +116,27 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		namePanel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		SpringLayout sl_namePanel = new SpringLayout();
 		namePanel.setLayout(sl_namePanel);
+		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
+		namePanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		namePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		namePanel.addActionListener(myActionListener);
+		namePanel.setActionCommand("profile");
 		add(namePanel);
 
+		/*logoButton = new JButton("iMat");
+		logoButton.setOpaque(true);
+		logoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				browseController.startView();
+			}
+		});
+		logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
+		logoButton.setForeground(new Color(255, 255, 255));
+		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		logoButton.setBounds(0, 0, 250, 100);
+		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));*/
+		
 		cartPanel = new JPanel();
 		cartPanel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581,
@@ -115,7 +147,12 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0,
 				SpringLayout.SOUTH, namePanel);
 		nameLabel = new JLabel("Stefan Svantesson");
+		nameLabel.setOpaque(true);
+		nameLabel.setInheritsPopupMenu(false);
+		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		nameLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		nameLabel.setForeground(Color.WHITE);
+		nameLabel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0,
 				SpringLayout.NORTH, namePanel);
 		sl_namePanel.putConstraint(SpringLayout.WEST, nameLabel, 0,
@@ -126,6 +163,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 				SpringLayout.EAST, namePanel);
 		nameLabel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		namePanel.add(nameLabel);
+		
 
 		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 0,
 				SpringLayout.WEST, this);

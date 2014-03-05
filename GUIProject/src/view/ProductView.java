@@ -39,6 +39,7 @@ public class ProductView extends JPanel {
 	private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
 	private ImageIcon listIcon = new ImageIcon("lib/Bildmapp/ListIcon.png");
 	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
+	private ImageIcon favoriteIconFilled = new ImageIcon("lib/Bildmapp/FavoriteIconFilled.png");
 	private JSpinner spinner;
 	private Color backGround = new Color(245,245,245);
 	
@@ -92,26 +93,30 @@ public class ProductView extends JPanel {
 		favouriteButton.setBounds(152, 138, 36, 34);
 		
 		if(model.isFavorite(p))
-			favouriteButton.setBackground(Color.YELLOW);
+			favouriteButton.setIcon(favoriteIconFilled);
 		else
-			favouriteButton.setBackground(new Color(255,243,240));
-		
+			favouriteButton.setIcon(favoriteIcon);
 		favouriteButton.setBorder(null);
+		favouriteButton.setBackground(null);
+		
 		favouriteButton.setOpaque(true);
 		favouriteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(model.isFavorite(product)){
-					favouriteButton.setBackground(new Color(255, 243, 240));
+					favouriteButton.setIcon(favoriteIcon);
 					model.removeFavorite(product);
 					System.out.println("RemovedFavorite " + product.getName());
 				}
 				else{
-					favouriteButton.setBackground(Color.YELLOW);
+					favouriteButton.setIcon(favoriteIconFilled);
 					model.addFavorite(product);
 				}
 					
 			}
 		});
+		favouriteButton.setBorder(null);
+		favouriteButton.setBackground(null);
+		favouriteButton.setOpaque(true);
 		add(favouriteButton);
 		
 		addToListButton = new JButton(listIcon);
