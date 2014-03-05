@@ -139,6 +139,9 @@ public class CartItemPanel extends JPanel {
 		minusButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				double newAmount = getShoppingItem().getProduct().getUnitSuffix().equals("kg") ? (getShoppingItem().getAmount() - 0.1) : (getShoppingItem().getAmount() - 1.0);
+				if(Math.abs(newAmount) <= 0.05) {
+					newAmount = getShoppingItem().getProduct().getUnitSuffix().equals("kg") ? 0.1 : 1.0;
+				}
 				System.out.println("new amount" + newAmount);
 				getShoppingItem().setAmount(newAmount);
 				setAmount(newAmount, getShoppingItem().getProduct().getUnitSuffix());
