@@ -56,7 +56,7 @@ public class SortimentView extends JPanel {
 		
 		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
 		rubrikLabel.setBounds(268, 13, 133, 29);
-		rubrikLabel.setFont(new Font("Tahoma", Font.PLAIN,24));
+		rubrikLabel.setFont(Constants.CATEGORYFONT.getFont());
 		add(rubrikLabel);
 		
 		
@@ -74,19 +74,19 @@ public class SortimentView extends JPanel {
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane);
 		
-		categoryPanel.add(new CategoryView("Grï¿½nsaker",gronsaker));
-		categoryPanel.add(new CategoryView("Frukt och Bï¿½r", frukt));
-		categoryPanel.add(new CategoryView("BaljVï¿½xter", baljvaxter));
+		categoryPanel.add(new CategoryView("Gršnsaker",gronsaker));
+		categoryPanel.add(new CategoryView("Frukt och BŠr", frukt));
+		categoryPanel.add(new CategoryView("BaljVŠxter", baljvaxter));
 		categoryPanel.add(new CategoryView("Potatis och Rotfrukter", potatis));
 		categoryPanel.add(new CategoryView("Ris och Pasta", pasta));
 		categoryPanel.add(new CategoryView("Skafferi", skafferi));
-		categoryPanel.add(new CategoryView("Brï¿½d", brod));
+		categoryPanel.add(new CategoryView("Bršd", brod));
 		categoryPanel.add(new CategoryView("MejeriProdukter", mejeri));
-		categoryPanel.add(new CategoryView("Kï¿½tt", kott));
+		categoryPanel.add(new CategoryView("Kštt", kott));
 		categoryPanel.add(new CategoryView("Fisk och Skaldjur", fisk));
 		categoryPanel.add(new CategoryView("Dryck", dryck));
-		categoryPanel.add(new CategoryView("ï¿½rter", orter));
-		categoryPanel.add(new CategoryView("Snacks och Sï¿½tsaker", snacks));
+		categoryPanel.add(new CategoryView("…rter", orter));
+		categoryPanel.add(new CategoryView("Snacks och Sštsaker", snacks));
 		
 
 
