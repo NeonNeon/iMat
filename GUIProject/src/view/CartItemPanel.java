@@ -19,6 +19,8 @@ import javax.swing.JButton;
 
 import java.awt.Insets;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -113,6 +115,15 @@ public class CartItemPanel extends JPanel {
 		plusButton.setBackground(null);
 		plusButton.setBorder(null);
 		plusButton.addMouseListener(myMouseListener);
+		plusButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				double newAmount = getShoppingItem().getProduct().getUnitSuffix().equals("kg") ? (getShoppingItem().getAmount() + 0.1) : (getShoppingItem().getAmount() + 1.0);
+				System.out.println("new amount" + newAmount);
+				getShoppingItem().setAmount(newAmount);
+				setAmount(newAmount, getShoppingItem().getProduct().getUnitSuffix());
+				repaint();
+			}
+		});
 		
 		GridBagConstraints gbc_plusButton = new GridBagConstraints();
 		gbc_plusButton.fill = GridBagConstraints.BOTH;
@@ -125,6 +136,15 @@ public class CartItemPanel extends JPanel {
 		minusButton.setBackground(null);
 		minusButton.setBorder(null);
 		minusButton.addMouseListener(myMouseListener);
+		minusButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				double newAmount = getShoppingItem().getProduct().getUnitSuffix().equals("kg") ? (getShoppingItem().getAmount() - 0.1) : (getShoppingItem().getAmount() - 1.0);
+				System.out.println("new amount" + newAmount);
+				getShoppingItem().setAmount(newAmount);
+				setAmount(newAmount, getShoppingItem().getProduct().getUnitSuffix());
+				repaint();
+			}
+		});
 		
 		
 		GridBagConstraints gbc_minusButton = new GridBagConstraints();
@@ -165,5 +185,8 @@ public class CartItemPanel extends JPanel {
 	public void setName(String name) {
 		nameLabel.setText(name);
 		
+	}
+	public ShoppingItem getShoppingItem() {
+		return this.item;
 	}
 }
