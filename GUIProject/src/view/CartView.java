@@ -79,8 +79,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			} else if (evt.getActionCommand().equals("save")) {
 
 			} else if (evt.getActionCommand().equals("empty")) {
-				int reply = JOptionPane.showConfirmDialog(null, "Varning",
-						"Vill du tï¿½mma din varukorg?",
+				int reply = JOptionPane.showConfirmDialog(null, "Vill du verkligen tšmma din varukorg?",
+						"Varning",
 						JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					emptyCart();
