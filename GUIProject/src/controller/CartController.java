@@ -30,4 +30,7 @@ public class CartController implements ShoppingCartListener, IObservable{
 	public void removeObserver(PropertyChangeListener observer) {
 		support.removePropertyChangeListener(observer);
 	}
+	public void emptyCart() {
+		support.firePropertyChange("empty",null,null);
+	}
 }

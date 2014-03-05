@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.CartController;
+
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -41,6 +43,7 @@ public class CheckOutView extends JFrame {
 	private JTextField cityTextField;
 	private JTextField cardNumberTextField;
 	private JTextField cvcTextField;
+	private CartController cartController;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
 			new String[] {"M�ndag","Tisdag","Onsdag","Torsdag","Fredag","L�rdag","S�ndag"});
@@ -48,26 +51,30 @@ public class CheckOutView extends JFrame {
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
 
-	private ActionListener myActionListener = new ActionListener(){
 
-		@Override
-		public void actionPerformed(ActionEvent evt) {
-			if(evt.getActionCommand().equals("change")){
-				cardLayout.next(contentPane);
-			} else if(evt.getActionCommand().equals("save")){
-				cardLayout.first(contentPane);
-			} else if(evt.getActionCommand().equals("pay")){
-				//TODO complete a purchase 
-			} else if(evt.getActionCommand().equals("abort")){
-				//TODO abort purchase
-			}
-		}
-	};
 
 	/**
 	 * Create the frame.
 	 */
-	public CheckOutView(List<ShoppingItem> items) {
+	public CheckOutView(List<ShoppingItem> items,CartController controller) {
+		ActionListener myActionListener = new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				if(evt.getActionCommand().equals("change")){
+					cardLayout.next(contentPane);
+				} else if(evt.getActionCommand().equals("save")){
+					cardLayout.first(contentPane);
+				} else if(evt.getActionCommand().equals("pay")){
+					model.placeOrder(true);
+					cartController.emptyCart();
+					dispose();
+				} else if(evt.getActionCommand().equals("abort")){
+					//TODO abort purchase
+				}
+			}
+		};
+		cartController = controller;
 		CheckOutView.items = items;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, WIDTH, HEIGHT);
