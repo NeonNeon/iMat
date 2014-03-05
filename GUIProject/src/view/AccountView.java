@@ -1,6 +1,7 @@
 package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import controller.CartController;
 
 import java.awt.Color;
 
@@ -64,6 +65,8 @@ public class AccountView extends JPanel {
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
 	private Color borderColor = Constants.HOVERCOLOR.getColor();
 	private JCheckBox checkBox;
+	
+
 
 	/**
 	 * Create the panel.
@@ -388,10 +391,9 @@ public class AccountView extends JPanel {
 		cvvCode.setText(String.valueOf(card.getVerificationCode()));
 		monthSpinner.setValue(card.getValidMonth());
 		yearSpinner.setValue(card.getValidYear());
-<<<<<<< HEAD
+
 		paymentComboBox.setSelectedItem(card.getCardType());
-=======
->>>>>>> 0ba4558006e4199df31edca95a1aa6f2a48d3d8c
+
 		try{
 			
 		
@@ -493,6 +495,8 @@ public class AccountView extends JPanel {
 		card.setValidMonth((int)monthSpinner.getValue());
 		card.setValidYear((int)yearSpinner.getValue());
 		card.setHoldersName(firstName.getText() + lastName.getText());
+		
+		
 		
 		
 	}
