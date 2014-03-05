@@ -56,7 +56,7 @@ public class FrameView extends JFrame {
 		leftPanel.setLayout(new GridLayout(1, 1));
 
 		rightPanel = new JPanel();
-		rightPanel.setBounds(936, 0, 250, 679);
+		rightPanel.setBounds(935, 0, 262, 679);
 		contentPane.add(rightPanel);
 		rightPanel.setLayout(new GridLayout(1, 1));
 
@@ -92,6 +92,7 @@ public class FrameView extends JFrame {
 	public void addTab(String name, Container con) {
 		tabPane.addTab(name, con);
 		tabPane.setTabComponentAt(counter, new Tab(frameController, name));
+		tabPane.setBackgroundAt(counter, backGround);
 		counter++;
 	}
 
