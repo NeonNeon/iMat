@@ -253,6 +253,13 @@ public class AccountView extends JPanel {
 		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
 		checkBox.setBounds(35, 137, 209, 23);
 		checkBox.setBackground(background);
+		checkBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				deliveryAddressTextField.setText(addressTextField.getText());
+				deliveryPostnbrTextField.setText(postNbrTextField.getText());
+				deliveryTownTextField.setText(townTextField.getText());
+			}
+		});
 		panel_2.add(checkBox);
 		
 		JLabel lblLeveransdag = new JLabel("Leveransdag:");
@@ -289,6 +296,13 @@ public class AccountView extends JPanel {
 		saveButton.setActionCommand("save");
 		saveButton.setForeground(Color.BLACK);
 		saveButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		firstName.setText(customer.getFirstName());
+		lastName.setText(customer.getLastName());
+		addressTextField.setText(customer.getAddress());
+		postNbrTextField.setText(customer.getPostCode());
+		townTextField.setText(customer.getPostAddress());
+		telephoneTextField.setText(customer.getPhoneNumber());
+		emailTextField.setText(customer.getEmail());
 		
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
