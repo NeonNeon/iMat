@@ -51,13 +51,13 @@ public class AccountView extends JPanel {
 	private static Customer customer = model.getCustomer();
 	private static CreditCard creditCard = model.getCreditCard();
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.TEXTCOLORLIGHT.getColor();
+	private Color borderColor = Constants.HOVERCOLOR.getColor();
 
 	/**
 	 * Create the panel.
 	 */
 	public AccountView() {
-		setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		setBorder(new LineBorder(borderColor, 2, true));
 		
 		setSize(665, 681);
 		setLayout(null);
@@ -158,6 +158,7 @@ public class AccountView extends JPanel {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(6, 77, 302, 89);
+		panel_3.setBackground(background);
 		panel_1.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -202,11 +203,11 @@ public class AccountView extends JPanel {
 		panel_3.add(cvvCode);
 		
 		JSpinner monthSpinner = new JSpinner();
-		monthSpinner.setBounds(142, 53, 40, 28);
+		monthSpinner.setBounds(142, 59, 40, 20);
 		panel_3.add(monthSpinner);
 		
 		JSpinner yearSpinner = new JSpinner();
-		yearSpinner.setBounds(207, 53, 40, 28);
+		yearSpinner.setBounds(207, 59, 40, 20);
 		panel_3.add(yearSpinner);
 		
 		JLabel lblMn = new JLabel("m\u00E5n");
@@ -251,7 +252,7 @@ public class AccountView extends JPanel {
 		
 		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
 		checkBox.setBounds(35, 137, 209, 23);
-		checkBox.setBackground(new Color(255, 233, 219));
+		checkBox.setBackground(background);
 		panel_2.add(checkBox);
 		
 		JLabel lblLeveransdag = new JLabel("Leveransdag:");

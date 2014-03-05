@@ -65,36 +65,43 @@ public class RecipeView extends JPanel {
 		add(lblVeckansRecept);
 		
 		JLabel lblNewLabel_4 = new JLabel(pastaIcon);
+		lblNewLabel_4.setToolTipText("\u00D6ppna recept");
 		lblNewLabel_4.setBounds(10, 395, 83, 67);
 		lblNewLabel_4.setBorder(new LineBorder(Color.black, 1, true));
 		add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(laxIcon);
+		label.setToolTipText("\u00D6ppna recept");
 		label.setBounds(103, 395, 89, 67);
 		label.setBorder(new LineBorder(Color.black, 1, true));
 		add(label);
 		
 		JLabel label_1 = new JLabel(kycklingIcon);
+		label_1.setToolTipText("\u00D6ppna recept");
 		label_1.setBounds(202, 395, 83, 67);
 		label_1.setBorder(new LineBorder(Color.black, 1, true));
 		add(label_1);
 		
 		JLabel label_2 = new JLabel(hamburgareIcon);
+		label_2.setToolTipText("\u00D6ppna recept");
 		label_2.setBounds(295, 395, 89, 67);
 		label_2.setBorder(new LineBorder(Color.black, 1, true));
 		add(label_2);
 		
 		JLabel label_3 = new JLabel(tacosIcon);
+		label_3.setToolTipText("\u00D6ppna recept");
 		label_3.setBounds(394, 395, 83, 67);
 		label_3.setBorder(new LineBorder(Color.black, 1, true));
 		add(label_3);
 		
 		JLabel label_4 = new JLabel(grytaIcon);
+		label_4.setToolTipText("\u00D6ppna recept");
 		label_4.setBounds(487, 395, 89, 67);
 		label_4.setBorder(new LineBorder(Color.black, 1, true));
 		add(label_4);
 		
 		JLabel label_5 = new JLabel(wokIcon);
+		label_5.setToolTipText("\u00D6ppna recept");
 		label_5.setBounds(585, 395, 89, 67);
 		label_5.setBorder(new LineBorder(Color.black, 1, true));
 		add(label_5);
