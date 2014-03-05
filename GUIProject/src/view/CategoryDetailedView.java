@@ -28,7 +28,8 @@ public class CategoryDetailedView extends JPanel {
 	private double height;
 	private NewCategorys nc;
 	private JPanel productPanel;
-	private Color backGround = new Color(245,245,245);
+	private Color background = Constants.BACKGROUNDCOLOR.getColor();
+	private Color borderColor = Constants.HOVERCOLOR.getColor();
 	
 	/**
 	 * Create the panel.
@@ -39,7 +40,7 @@ public class CategoryDetailedView extends JPanel {
 		pl = model.getProducts(nc);
 		
 		
-		setBackground(backGround);
+		setBackground(background);
 		setBounds(260,0,684, 581);
 		setLayout(null);
 		
@@ -58,7 +59,7 @@ public class CategoryDetailedView extends JPanel {
 		
 		
 		productPanel = new JPanel();
-		productPanel.setBackground(backGround);
+		productPanel.setBackground(background);
 		productPanel.setLayout(new GridLayout(0,3));
 		productPanel.setPreferredSize(new Dimension(684,(int)height));
 		

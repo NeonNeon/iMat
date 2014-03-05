@@ -45,6 +45,9 @@ public class SortimentView extends JPanel {
 	private ImageIcon snacks = new ImageIcon("lib/Bildmapp/product_139.jpg");
 	private double height = (13/3)*375;
 	
+	private Color background = Constants.BACKGROUNDCOLOR.getColor();
+	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	
 	
 	public SortimentView() {
 
@@ -52,7 +55,7 @@ public class SortimentView extends JPanel {
 		
 		setSize(684,681);
 		setLayout(null);
-		setBackground(new Color(255, 243, 240));
+		setBackground(background);
 		
 		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
 		rubrikLabel.setBounds(268, 13, 133, 29);
