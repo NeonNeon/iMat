@@ -104,7 +104,8 @@ public class Director implements PropertyChangeListener {
 		frame.addTab("Uppgifter", accountView);
 
 		frame.addLeft(searchView);
-		frame.addRight(new CartView());
+		frame.addRight(cartView);
 		frame.setVisible(true);
+		
 	}
 }

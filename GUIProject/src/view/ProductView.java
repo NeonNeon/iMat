@@ -98,6 +98,11 @@ public class ProductView extends JPanel {
 					favouriteButton.setBackground(Color.YELLOW);
 			}
 		});
+		favouriteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				model.addFavorite(product);
+			}
+		});
 		add(favouriteButton);
 		
 		addToListButton = new JButton(listIcon);
