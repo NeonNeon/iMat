@@ -20,7 +20,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CartController;
-
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -47,7 +46,7 @@ public class CheckOutView extends JFrame {
 	private CartController cartController;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
+			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -73,6 +72,7 @@ public class CheckOutView extends JFrame {
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
+					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
 				} else if(evt.getActionCommand().equals("abort")){
 					dispose();
 				}
@@ -127,6 +127,7 @@ public class CheckOutView extends JFrame {
 		abortButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");
+		abortButton1.addActionListener(myActionListener);
 		card2.add(abortButton1);
 		separator.setBounds(350, 5, 10, 555);
 
@@ -135,33 +136,44 @@ public class CheckOutView extends JFrame {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlšper:");
+		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
 		JTextField expiresYear = new JTextField();
+		expiresYear.setText(String.valueOf(model.getCreditCard().getValidYear()));
 		expiresYear.setBounds(85, 114, 39, 27);
 		panel_2.add(expiresYear);
 
 		JTextField expiresMonth = new JTextField();
+		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
 		expiresMonth.setBounds(123, 114, 41, 27);
 		panel_2.add(expiresMonth);
 
 		cardNumberTextField = new JTextField();
+		cardNumberTextField.setText(model.getCreditCard().getCardNumber());
 		cardNumberTextField.setBounds(17, 80, 147, 28);
 		panel_2.add(cardNumberTextField);
 		cardNumberTextField.setColumns(10);
 
 		cvcTextField = new JTextField();
+		cvcTextField.setText(String.valueOf(model.getCreditCard().getVerificationCode()));
 		cvcTextField.setBounds(162, 80, 39, 28);
 		panel_2.add(cvcTextField);
 		cvcTextField.setColumns(10);
 
 		JComboBox cardType = new JComboBox();
+		
 		cardType.setBounds(17, 41, 119, 27);
 		panel_2.add(cardType);
-		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
-
+		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","Visa","Mastercard"}));
+		
+		if(model.getCreditCard().getCardType().toString().equals("Visa")){
+			cardType.setSelectedItem(cardType.getItemAt(1));
+		}else{
+			cardType.setSelectedItem(cardType.getItemAt(2));
+		}
+		
 		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
 		paymentLabel.setBounds(16, 14, 90, 15);
 		panel_2.add(paymentLabel);
@@ -194,7 +206,7 @@ public class CheckOutView extends JFrame {
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
-		if(customer != null){
+		if(customer.getPostAddress()!= null){
 			nameTextField.setText(customer.getPostAddress());
 		} else {
 			nameTextField.setText("-Postort-");
@@ -217,7 +229,7 @@ public class CheckOutView extends JFrame {
 		if(customer != null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Fšrnamn och efternamn-");
+			nameTextField.setText("-Fï¿½rnamn och efternamn-");
 		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);
@@ -244,6 +256,7 @@ public class CheckOutView extends JFrame {
 		this.setLocation(300, 100);
 
 		this.setVisible(true);
+		
 
 	}
 }
