@@ -5,6 +5,7 @@ import view.AccountView;
 import view.CartView;
 import view.CategoryDetailedView;
 import view.FrameView;
+import view.HistoryView;
 import view.Model;
 import view.NewCategorys;
 import view.RecipeView;
@@ -104,6 +105,7 @@ public class Director implements PropertyChangeListener {
 		frame.addTab("Sortiment", cardPanel);
 		frame.addTab("Recept",new RecipeView());
 		frame.addTab("Uppgifter", accountView);
+		frame.addTab("Min Historik", new HistoryView());
 
 		frame.addLeft(searchView);
 		frame.addRight(cartView);
