@@ -70,7 +70,7 @@ public class CheckOutView extends JFrame {
 					cartController.emptyCart();
 					dispose();
 				} else if(evt.getActionCommand().equals("abort")){
-					//TODO abort purchase
+					dispose();
 				}
 			}
 		};

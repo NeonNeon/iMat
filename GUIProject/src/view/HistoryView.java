@@ -33,14 +33,13 @@ private Color borderColor = Constants.HOVERCOLOR.getColor();
 		setBorder(new LineBorder(borderColor, 2, true));
 		setSize(684, 631);
 		setLayout(null);
-		orderList.addAll(model.getOrders());
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 11, 332, 609);
 		add(panel);
 		panel.setLayout(null);
 		oldPanel = new JPanel();
 		oldPanel.setPreferredSize(new Dimension(318,523));
-		JScrollPane scrollPane = new JScrollPane();
+		JScrollPane scrollPane = new JScrollPane(oldPanel);
 		scrollPane.setBounds(10, 51, 318, 547);
 		panel.add(scrollPane);
 		
@@ -48,6 +47,10 @@ private Color borderColor = Constants.HOVERCOLOR.getColor();
 		lblHistorik.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblHistorik.setBounds(108, 11, 116, 29);
 		panel.add(lblHistorik);
+		for(Order newOrder: model.getOrders()) {
+			addOrder(newOrder);
+		}
+		System.out.println("antal ordrar " + orderList.size());
 	}
 	public void addOrder(Order order) {
 		orderList.add(order);
