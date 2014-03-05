@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -66,6 +67,9 @@ public class CheckOutView extends JFrame {
 				} else if(evt.getActionCommand().equals("save")){
 					cardLayout.first(contentPane);
 				} else if(evt.getActionCommand().equals("pay")){
+					int reply = JOptionPane.showConfirmDialog(null, "Genomför detta köp?",
+							"Köp pågår..",
+							JOptionPane.OK_OPTION);
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
