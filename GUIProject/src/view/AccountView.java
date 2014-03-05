@@ -47,11 +47,15 @@ public class AccountView extends JPanel {
 	private JTextField deliveryAddressTextField;
 	private JTextField deliveryPostnbrTextField;
 	private JTextField deliveryTownTextField;
+	private JButton saveButton;
+	private JSpinner monthSpinner, yearSpinner;
+	private JComboBox paymentComboBox, deliveryDay, deliveryTime;
 	private static JTextField lastName;
 	private static Customer customer = model.getCustomer();
 	private static CreditCard creditCard = model.getCreditCard();
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
 	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	private JCheckBox checkBox;
 
 	/**
 	 * Create the panel.
@@ -101,37 +105,44 @@ public class AccountView extends JPanel {
 		panel.add(lblKunduppgifter);
 		
 		firstName = new JTextField();
+		firstName.setEditable(false);
 		firstName.setBounds(94, 45, 104, 20);
 		panel.add(firstName);
 		firstName.setColumns(10);
 		
 		addressTextField = new JTextField();
 		addressTextField.setBounds(94, 70, 212, 20);
+		addressTextField.setEditable(false);
 		panel.add(addressTextField);
 		addressTextField.setColumns(10);
 		
 		townTextField = new JTextField();
 		townTextField.setBounds(190, 96, 116, 20);
+		townTextField.setEditable(false);
 		panel.add(townTextField);
 		townTextField.setColumns(10);
 		
 		telephoneTextField = new JTextField();
 		telephoneTextField.setBounds(94, 120, 212, 20);
+		telephoneTextField.setEditable(false);
 		panel.add(telephoneTextField);
 		telephoneTextField.setColumns(10);
 		
 		emailTextField = new JTextField();
 		emailTextField.setBounds(94, 145, 212, 20);
+		emailTextField.setEditable(false);
 		panel.add(emailTextField);
 		emailTextField.setColumns(10);
 		
 		postNbrTextField = new JTextField();
 		postNbrTextField.setBounds(94, 95, 88, 20);
+		postNbrTextField.setEditable(false);
 		panel.add(postNbrTextField);
 		postNbrTextField.setColumns(10);
 		
 		lastName = new JTextField();
 		lastName.setBounds(203, 45, 103, 20);
+		lastName.setEditable(false);
 		panel.add(lastName);
 		lastName.setColumns(10);
 		
@@ -152,7 +163,8 @@ public class AccountView extends JPanel {
 		lblBetalningsstt.setBounds(10, 48, 88, 18);
 		panel_1.add(lblBetalningsstt);
 		
-		JComboBox paymentComboBox = new JComboBox();
+		paymentComboBox = new JComboBox();
+		paymentComboBox.setEnabled(false);
 		paymentComboBox.setBounds(116, 42, 201, 26);
 		panel_1.add(paymentComboBox);
 		
@@ -178,35 +190,42 @@ public class AccountView extends JPanel {
 		panel_3.add(lblSistaDatum);
 		
 		cardNbr4 = new JTextField();
+		cardNbr4.setEditable(false);
 		cardNbr4.setBounds(257, 9, 40, 20);
 		panel_3.add(cardNbr4);
 		cardNbr4.setColumns(10);
 		
 		cardNbr3 = new JTextField();
+		cardNbr3.setEditable(false);
 		cardNbr3.setColumns(10);
 		cardNbr3.setBounds(207, 9, 40, 20);
 		panel_3.add(cardNbr3);
 		
 		cardNbr2 = new JTextField();
+		cardNbr2.setEditable(false);
 		cardNbr2.setColumns(10);
 		cardNbr2.setBounds(157, 9, 40, 20);
 		panel_3.add(cardNbr2);
 		
 		cardNbr1 = new JTextField();
+		cardNbr1.setEditable(false);
 		cardNbr1.setColumns(10);
 		cardNbr1.setBounds(107, 9, 40, 20);
 		panel_3.add(cardNbr1);
 		
 		cvvCode = new JTextField();
+		cvvCode.setEditable(false);
 		cvvCode.setColumns(10);
 		cvvCode.setBounds(107, 34, 40, 20);
 		panel_3.add(cvvCode);
 		
-		JSpinner monthSpinner = new JSpinner();
+		monthSpinner = new JSpinner();
+		monthSpinner.setEnabled(false);
 		monthSpinner.setBounds(142, 59, 40, 20);
 		panel_3.add(monthSpinner);
 		
-		JSpinner yearSpinner = new JSpinner();
+		yearSpinner = new JSpinner();
+		yearSpinner.setEnabled(false);
 		yearSpinner.setBounds(207, 59, 40, 20);
 		panel_3.add(yearSpinner);
 		
@@ -236,21 +255,25 @@ public class AccountView extends JPanel {
 		panel_2.add(lblLeveransadress);
 		
 		deliveryAddressTextField = new JTextField();
+		deliveryAddressTextField.setEditable(false);
 		deliveryAddressTextField.setBounds(25, 79, 279, 20);
 		panel_2.add(deliveryAddressTextField);
 		deliveryAddressTextField.setColumns(10);
 		
 		deliveryPostnbrTextField = new JTextField();
+		deliveryPostnbrTextField.setEditable(false);
 		deliveryPostnbrTextField.setBounds(25, 110, 86, 20);
 		panel_2.add(deliveryPostnbrTextField);
 		deliveryPostnbrTextField.setColumns(10);
 		
 		deliveryTownTextField = new JTextField();
+		deliveryTownTextField.setEditable(false);
 		deliveryTownTextField.setBounds(115, 110, 189, 20);
 		panel_2.add(deliveryTownTextField);
 		deliveryTownTextField.setColumns(10);
 		
-		JCheckBox checkBox = new JCheckBox("Samma som anv\u00E4ndare");
+		checkBox = new JCheckBox("Samma som anv\u00E4ndare");
+		checkBox.setEnabled(false);
 		checkBox.setBounds(35, 137, 209, 23);
 		checkBox.setBackground(background);
 		checkBox.addActionListener(new ActionListener() {
@@ -267,7 +290,8 @@ public class AccountView extends JPanel {
 		lblLeveransdag.setBounds(351, 48, 127, 18);
 		panel_2.add(lblLeveransdag);
 		
-		JComboBox deliveryDay = new JComboBox();
+		deliveryDay = new JComboBox();
+		deliveryDay.setEnabled(false);
 		deliveryDay.setBounds(361, 73, 182, 26);
 		panel_2.add(deliveryDay);
 		
@@ -276,7 +300,8 @@ public class AccountView extends JPanel {
 		lblLeveranstid.setBounds(351, 113, 127, 18);
 		panel_2.add(lblLeveranstid);
 		
-		JComboBox deliveryTime = new JComboBox();
+		deliveryTime = new JComboBox();
+		deliveryTime.setEnabled(false);
 		deliveryTime.setBounds(361, 138, 182, 26);
 		panel_2.add(deliveryTime);
 		
@@ -287,14 +312,14 @@ public class AccountView extends JPanel {
 		saveButton.setOpaque(true);
 		*/
 		
-		JButton saveButton = new JButton("Spara");
+		saveButton = new JButton("Ändra");
+		saveButton.setActionCommand("change");
 		saveButton.setIcon(null);
 		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		saveButton.setBounds(513, 427, 140, 55);
-		saveButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
+		saveButton.setFont(Constants.TEXTFONT.getFont());
 		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
-		saveButton.setActionCommand("save");
-		saveButton.setForeground(Color.BLACK);
+		saveButton.setForeground(Color.WHITE);
 		saveButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		firstName.setText(customer.getFirstName());
 		lastName.setText(customer.getLastName());
@@ -304,9 +329,62 @@ public class AccountView extends JPanel {
 		telephoneTextField.setText(customer.getPhoneNumber());
 		emailTextField.setText(customer.getEmail());
 		
+		
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(arg0.getActionCommand().equals("save")){
 				save();
+				saveButton.setText("Ändra");
+				saveButton.setActionCommand("change");
+				firstName.setEditable(false);
+				lastName.setEditable(false);
+				addressTextField.setEditable(false);
+				townTextField.setEditable(false);
+				telephoneTextField.setEditable(false);
+				emailTextField.setEditable(false);
+				postNbrTextField.setEditable(false);
+				cardNbr4.setEditable(false);
+				cardNbr3.setEditable(false);
+				cardNbr2.setEditable(false);
+				cardNbr1.setEditable(false);
+				cvvCode.setEditable(false);
+				deliveryAddressTextField.setEditable(false);
+				deliveryPostnbrTextField.setEditable(false);
+				deliveryTownTextField.setEditable(false);
+				paymentComboBox.setEnabled(false);
+				deliveryDay.setEnabled(false);
+				deliveryTime.setEnabled(false);
+				monthSpinner.setEnabled(false);
+				yearSpinner.setEnabled(false);
+				checkBox.setEnabled(false);
+			
+				
+				}
+				else if(arg0.getActionCommand().equals("change")){
+					saveButton.setText("Spara");
+					saveButton.setActionCommand("save");
+					firstName.setEditable(true);
+					lastName.setEditable(true);
+					addressTextField.setEditable(true);
+					townTextField.setEditable(true);
+					telephoneTextField.setEditable(true);
+					emailTextField.setEditable(true);
+					postNbrTextField.setEditable(true);
+					cardNbr4.setEditable(true);
+					cardNbr3.setEditable(true);
+					cardNbr2.setEditable(true);
+					cardNbr1.setEditable(true);
+					cvvCode.setEditable(true);
+					deliveryAddressTextField.setEditable(true);
+					deliveryPostnbrTextField.setEditable(true);
+					deliveryTownTextField.setEditable(true);
+					paymentComboBox.setEnabled(true);
+					deliveryDay.setEnabled(true);
+					deliveryTime.setEnabled(true);
+					yearSpinner.setEnabled(true);
+					monthSpinner.setEnabled(true);
+					checkBox.setEnabled(true);
+				}
 			}
 		});
 		
