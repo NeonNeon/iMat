@@ -27,7 +27,7 @@ public class CheckOutView extends JFrame {
 
 	private static final Model model = Model.getInstance();
 	private static List<ShoppingItem> items;
-	
+
 	private JPanel contentPane;
 	private static final int WIDTH = 700;
 	private static final int HEIGHT = 600;
@@ -80,7 +80,7 @@ public class CheckOutView extends JFrame {
 		card2.setBackground(Constants.CONTRASTCOLOR.getColor());
 		contentPane.add(card2, "Card2");
 		card2.setLayout(null);
-		
+
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(16, 173, 1, 12);
 		card2.add(separator_1);
@@ -89,46 +89,26 @@ public class CheckOutView extends JFrame {
 		separator.setBounds(350, 5, 10, 555);
 		separator.setOrientation(SwingConstants.VERTICAL);
 		card2.add(separator);
-
-		nameTextField = new JTextField();
-		nameTextField.setBounds(25, 85, 155, 28);
-		nameTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getFirstName() + " " + model.getCustomer().getLastName());
 		} else {
 			nameTextField.setText("-Fšrnamn och efternamn-");
 		}
-		card2.add(nameTextField);
-
-		addressTextField = new JTextField();
-		addressTextField.setBounds(25, 120, 248, 28);
-		addressTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getAddress());
 		} else {
 			nameTextField.setText("-Adress-");
 		}
-		card2.add(addressTextField);
-
-		postCodeTextField = new JTextField();
-		postCodeTextField.setBounds(25, 155, 89, 28);
-		postCodeTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getPostCode());
 		} else {
 			nameTextField.setText("-Postkod-");
 		}
-		card2.add(postCodeTextField);
-
-		cityTextField = new JTextField();
-		cityTextField.setBounds(118, 155, 155, 28);
-		cityTextField.setColumns(10);
 		if(model.getCustomer() != null){
 			nameTextField.setText(model.getCustomer().getPostAddress());
 		} else {
 			nameTextField.setText("-Postort-");
 		}
-		card2.add(cityTextField);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(372, 19, 300, 455);
@@ -165,76 +145,97 @@ public class CheckOutView extends JFrame {
 		abortButton1.setActionCommand("abort");
 		card2.add(abortButton1);
 		separator.setBounds(350, 5, 10, 555);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(16, 52, 322, 141);
-		card2.add(panel);
-				panel.setLayout(null);
-		
-				JLabel deliveryAddress = new JLabel("Leveransadress");
-				deliveryAddress.setBounds(113, 5, 96, 16);
-				panel.add(deliveryAddress);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(16, 225, 322, 98);
-		card2.add(panel_1);
-				panel_1.setLayout(null);
-		
-				JComboBox chooseDay = new JComboBox();
-				chooseDay.setBounds(4, 50, 118, 27);
-				panel_1.add(chooseDay);
-				chooseDay.setModel(dayModel);
-				
-						JComboBox chooseTime = new JComboBox();
-						chooseTime.setBounds(126, 51, 97, 25);
-						panel_1.add(chooseTime);
-						chooseTime.setModel(timeModel);
-						
-								JLabel deliveryDay = new JLabel("Leveransdag");
-								deliveryDay.setBounds(4, 23, 120, 15);
-								panel_1.add(deliveryDay);
-		
+
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(16, 325, 322, 149);
+		panel_2.setBounds(16, 307, 322, 167);
 		card2.add(panel_2);
 		panel_2.setLayout(null);
-		
-				JLabel expireDateLabel = new JLabel("Utlšper:");
-				expireDateLabel.setBounds(6, 115, 56, 16);
-				panel_2.add(expireDateLabel);
-				
-						JTextField expiresYear = new JTextField();
-						expiresYear.setBounds(63, 109, 39, 27);
-						panel_2.add(expiresYear);
-						
-								JTextField expiresMonth = new JTextField();
-								expiresMonth.setBounds(100, 109, 41, 27);
-								panel_2.add(expiresMonth);
-								
-										cardNumberTextField = new JTextField();
-										cardNumberTextField.setBounds(6, 72, 147, 28);
-										panel_2.add(cardNumberTextField);
-										cardNumberTextField.setColumns(10);
-										
-												cvcTextField = new JTextField();
-												cvcTextField.setBounds(165, 72, 39, 28);
-												panel_2.add(cvcTextField);
-												cvcTextField.setColumns(10);
-												
-														JComboBox cardType = new JComboBox();
-														cardType.setBounds(6, 33, 119, 27);
-														panel_2.add(cardType);
-														cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
-														
-																JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
-																paymentLabel.setBounds(6, 6, 90, 15);
-																panel_2.add(paymentLabel);
-		
+
+		JLabel expireDateLabel = new JLabel("Utlšper:");
+		expireDateLabel.setBounds(17, 120, 56, 16);
+		panel_2.add(expireDateLabel);
+
+		JTextField expiresYear = new JTextField();
+		expiresYear.setBounds(85, 114, 39, 27);
+		panel_2.add(expiresYear);
+
+		JTextField expiresMonth = new JTextField();
+		expiresMonth.setBounds(123, 114, 41, 27);
+		panel_2.add(expiresMonth);
+
+		cardNumberTextField = new JTextField();
+		cardNumberTextField.setBounds(17, 80, 147, 28);
+		panel_2.add(cardNumberTextField);
+		cardNumberTextField.setColumns(10);
+
+		cvcTextField = new JTextField();
+		cvcTextField.setBounds(162, 80, 39, 28);
+		panel_2.add(cvcTextField);
+		cvcTextField.setColumns(10);
+
+		JComboBox cardType = new JComboBox();
+		cardType.setBounds(17, 41, 119, 27);
+		panel_2.add(cardType);
+		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","VISA","MASTERCARD"}));
+
+		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
+		paymentLabel.setBounds(16, 14, 90, 15);
+		panel_2.add(paymentLabel);
+
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(16, 52, 322, 422);
+		panel_3.setBounds(16, 60, 322, 414);
 		card2.add(panel_3);
-		
+		panel_3.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 322, 160);
+		panel_3.add(panel);
+		panel.setLayout(null);
+
+		JLabel deliveryAddress = new JLabel("Leveransadress");
+		deliveryAddress.setBounds(19, 16, 96, 16);
+		panel.add(deliveryAddress);
+
+		postCodeTextField = new JTextField();
+		postCodeTextField.setBounds(16, 109, 89, 28);
+		panel.add(postCodeTextField);
+		postCodeTextField.setColumns(10);
+
+		cityTextField = new JTextField();
+		cityTextField.setBounds(107, 109, 155, 28);
+		panel.add(cityTextField);
+		cityTextField.setColumns(10);
+
+		addressTextField = new JTextField();
+		addressTextField.setBounds(16, 79, 248, 28);
+		panel.add(addressTextField);
+		addressTextField.setColumns(10);
+
+		nameTextField = new JTextField();
+		nameTextField.setBounds(16, 46, 155, 28);
+		panel.add(nameTextField);
+		nameTextField.setColumns(10);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 161, 322, 85);
+		panel_3.add(panel_1);
+		panel_1.setLayout(null);
+
+		JComboBox chooseDay = new JComboBox();
+		chooseDay.setBounds(16, 43, 118, 27);
+		panel_1.add(chooseDay);
+		chooseDay.setModel(dayModel);
+
+		JComboBox chooseTime = new JComboBox();
+		chooseTime.setBounds(130, 44, 97, 25);
+		panel_1.add(chooseTime);
+		chooseTime.setModel(timeModel);
+
+		JLabel deliveryDay = new JLabel("Leveransdag");
+		deliveryDay.setBounds(16, 16, 120, 15);
+		panel_1.add(deliveryDay);
+
 		this.setLocation(300, 100);
 
 		this.setVisible(true);
