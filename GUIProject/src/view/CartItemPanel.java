@@ -153,6 +153,7 @@ public class CartItemPanel extends JPanel {
 				setAmount(newAmount, getShoppingItem().getProduct()
 						.getUnitSuffix());
 				repaint();
+				cartController.updateCost();
 			}
 		});
 

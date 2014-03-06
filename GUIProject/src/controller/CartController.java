@@ -41,4 +41,7 @@ public class CartController implements ShoppingCartListener, IObservable{
 	public void showOrder(Order order) {
 		support.firePropertyChange("showorder", null, order);
 	}
+	public void updateCost() {
+		support.firePropertyChange("cost", null, "FML");
+	}
 }
