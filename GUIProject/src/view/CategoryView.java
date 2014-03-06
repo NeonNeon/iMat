@@ -33,7 +33,7 @@ public class CategoryView extends JPanel {
 	private NewCategorys myCategory;
 	public CategoryView(String name, ImageIcon icon, FrameController controller,NewCategorys category) {
 		myCategory = category;
-		setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		setBackground(Color.WHITE);
 		frameController = controller;
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {

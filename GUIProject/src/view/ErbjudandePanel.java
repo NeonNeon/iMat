@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import controller.FrameController;
 
 import java.util.*;
+import javax.swing.SwingConstants;
 
 /**
  * The little panel at the bottom of the start view that holds this weeks special offers
@@ -38,8 +39,8 @@ public class ErbjudandePanel extends JPanel {
 	private Color background = new Color(255, 243, 240);
 	private Color borderColor = Constants.HOVERCOLOR.getColor();
 	private Color priceColor = Color.WHITE;
-	private Font nameFont = new Font("Tahoma", Font.PLAIN, 14);
-	private Font priceFont = new Font("Tahoma", Font.BOLD, 25);
+	private Font nameFont = Constants.TEXTFONT.getFont();
+	private Font priceFont = Constants.HEADERFONT.getFont();
 
 	/**
 	 * Create the panel.
@@ -54,16 +55,18 @@ public class ErbjudandePanel extends JPanel {
 		setLayout(null);
 		
 		nameLabel = new JLabel();
+		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setFont(nameFont);
-		nameLabel.setBounds(58, 157, 110, 14);
+		nameLabel.setBounds(7, 156, 201, 33);
 		nameLabel.setForeground(Constants.TEXTCOLORLIGHT.getColor());
 		nameLabel.setFont(Constants.CATEGORYCLICKEDFONT.getFont());
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
+		priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		priceLabel.setForeground(priceColor);
 		priceLabel.setFont(priceFont);
-		priceLabel.setBounds(26, 183, 173, 44);
+		priceLabel.setBounds(7, 188, 201, 44);
 		add(priceLabel);
 		
 		productButton = new JButton();
