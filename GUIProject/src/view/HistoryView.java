@@ -49,20 +49,22 @@ private JScrollPane scrollOldItems;
 		//setBorder(new LineBorder(borderColor, 2, true));
 		setSize(684, 631);
 		setLayout(null);
+		
+		JLabel lblHistorik = new JLabel("Historik");
+		lblHistorik.setBounds(256, 28, 177, 43);
+		add(lblHistorik);
+		lblHistorik.setForeground(Constants.TEXTCOLOR.getColor());
+		lblHistorik.setFont(new Font("Avenir Next", Font.PLAIN, 50));
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 332, 608);
+		panel.setBounds(10, 6, 332, 613);
 		add(panel);
 		panel.setLayout(null);
 		oldPanel = new JPanel();
-		oldPanel.setPreferredSize(new Dimension(318,523));
+		oldPanel.setBackground(Color.WHITE);
+		oldPanel.setPreferredSize(new Dimension(320,490));
 		JScrollPane scrollPane = new JScrollPane(oldPanel);
-		scrollPane.setBounds(10, 51, 318, 545);
+		scrollPane.setBounds(0, 77, 326, 498);
 		panel.add(scrollPane);
-		
-		JLabel lblHistorik = new JLabel("Historik");
-		lblHistorik.setFont(new Font("Dialog", Font.BOLD, 24));
-		lblHistorik.setBounds(108, 11, 116, 29);
-		panel.add(lblHistorik);
 		
 	
 		for(Order newOrder: model.getOrders()) {
@@ -70,10 +72,11 @@ private JScrollPane scrollOldItems;
 		}
 		System.out.println("antal ordrar " + orderList.size());
 		oldItemsPanel = new JPanel();
+		oldItemsPanel.setBackground(Color.WHITE);
 		oldItemsPanel.setPreferredSize(new Dimension(230, 800)); //TODO fixa ordentliga siffor
 		oldItemsPanel.setLayout(new BoxLayout(oldItemsPanel, BoxLayout.Y_AXIS));
 		scrollOldItems = new JScrollPane(oldItemsPanel);
-		scrollOldItems.setBounds(402, 61, 232, 529);
+		scrollOldItems.setBounds(342, 83, 312, 496);
 		add(scrollOldItems);
 	}
 	public void addOrder(Order order) {
