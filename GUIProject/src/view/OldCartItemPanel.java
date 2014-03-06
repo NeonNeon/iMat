@@ -22,6 +22,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 /**
  * The small panel that lies within the HistoryView. Each CartItemPanel has a
@@ -57,13 +58,14 @@ public class OldCartItemPanel extends JPanel {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		nameLabel = new JLabel();
+		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		springLayout.putConstraint(SpringLayout.EAST, nameLabel, -10, SpringLayout.EAST, this);
 		amountLable = new JLabel();
 		springLayout.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, amountLable);
 		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 6, SpringLayout.EAST, amountLable);
 		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, amountLable);
-		setAmount(item.getAmount(), item.getProduct().getUnitSuffix());
-		setName(item.getProduct().getName());
+		setAmount(item.getAmount(), item.getProduct().getUnitSuffix(),item.getProduct().getName());
+		setCost();
 		
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, this);
 		amountLable.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -81,11 +83,10 @@ public class OldCartItemPanel extends JPanel {
 	public OldCartItemPanel(Product p) {
 		this(new ShoppingItem(p));
 	}
-	public void setAmount(double d,String unitSuffix) {
-		amountLable.setText("" +  String.format("%.1f", d) + unitSuffix);
+	public void setAmount(double d,String unitSuffix,String name) {
+		amountLable.setText("" +  String.format("%.1f", d) + unitSuffix + " " + name + " ");
 	}
-	public void setName(String name) {
-		nameLabel.setText(name + " " + String.format("%.1f", item.getTotal()) + "kr");
-		
+	public void setCost() {
+		nameLabel.setText(String.format("%.1f", item.getTotal()) + "kr");
 	}
 }

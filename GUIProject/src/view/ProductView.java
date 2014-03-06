@@ -62,6 +62,7 @@ public class ProductView extends JPanel {
 		setBackground(Color.WHITE);
 		
 		setPreferredSize(new Dimension(200, 273));
+		setMinimumSize(new Dimension(200, 273));
 		setLayout(null);
 		
 		JLabel pictureLabel = new JLabel(model.getImageIcon(p,165,123));

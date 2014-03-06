@@ -72,7 +72,8 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(List<Product> productList, String searchWord){
 		this();
-		height = (productList.size()/3)*400;
+		height = (productList.size()%3==0) ? (productList.size()/3)*273 : ((productList.size()/3) + 1.0)*273;
+
 		
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
@@ -80,14 +81,16 @@ public class SearchResultsView extends JPanel {
 		resultPanel.setBackground(backGround);
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
+//		resultPanel.setMinimumSize(new Dimension(664,1500));
 		resultScrollPane = new JScrollPane(resultPanel);
-		resultScrollPane.setBounds(10, 77, 670,541 );
+		resultScrollPane.setBounds(10, 77, 664,541 );
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen
 		for(int i = 0; i < productList.size(); i++){
 			resultPanel.add(new ProductView(productList.get(i)));
 		}
+		resultPanel.validate();
 		
 	}
 }

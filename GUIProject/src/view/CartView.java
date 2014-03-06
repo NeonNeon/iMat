@@ -381,6 +381,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 						.getAmount()));
 			}
 
+		} else if(arg0.getPropertyName().equals("cost")) {
+			setTotalSum();
 		}
 		setTotalSum();
 	}
