@@ -64,11 +64,10 @@ public class CheckOutView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent evt) {
-				if(evt.getActionCommand().equals("change")){
-					cardLayout.next(contentPane);
-				} else if(evt.getActionCommand().equals("save")){
-					cardLayout.first(contentPane);
-				} else if(evt.getActionCommand().equals("pay")){
+				if(evt.getActionCommand().equals("pay")){
+					int reply = JOptionPane.showConfirmDialog(null, "Genomf�r detta k�p?",
+							"K�p p�g�r..",
+							JOptionPane.OK_OPTION);
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
@@ -173,17 +172,17 @@ public class CheckOutView extends JFrame {
 		cvcTextField.setColumns(10);
 
 		JComboBox cardType = new JComboBox();
-		
+
 		cardType.setBounds(17, 41, 119, 27);
 		panel_2.add(cardType);
 		cardType.setModel(new DefaultComboBoxModel(new String[] {"-Korttyp-","Visa","Mastercard"}));
-		
+
 		if(model.getCreditCard().getCardType().toString().equals("Visa")){
 			cardType.setSelectedItem(cardType.getItemAt(1));
 		}else{
 			cardType.setSelectedItem(cardType.getItemAt(2));
 		}
-		
+
 		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
 		paymentLabel.setBounds(16, 14, 90, 15);
 		panel_2.add(paymentLabel);
@@ -216,8 +215,7 @@ public class CheckOutView extends JFrame {
 		} else {
 			nameTextField.setText("-Namn-");
 		}
-		
-		
+
 //
 //		if(customer != null){
 //			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
@@ -226,6 +224,11 @@ public class CheckOutView extends JFrame {
 //		}
 			
 	
+
+
+		panel.add(postCodeTextField);
+		postCodeTextField.setColumns(10);
+
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
@@ -251,7 +254,15 @@ public class CheckOutView extends JFrame {
 		
 		
 
-		
+
+		nameTextField.setBounds(16, 46, 155, 28);
+		if(customer != null){
+			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
+		} else {
+			nameTextField.setText("-F�rnamn och efternamn-");
+		}
+		panel.add(nameTextField);
+		nameTextField.setColumns(10);
 
 
 		JPanel panel_1 = new JPanel();
@@ -276,7 +287,7 @@ public class CheckOutView extends JFrame {
 		this.setLocation(300, 100);
 
 		this.setVisible(true);
-		
+
 
 	}
 }
