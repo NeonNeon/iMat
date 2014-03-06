@@ -65,6 +65,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 	private JScrollPane scrollCartPane;
 	private List<ShoppingItem> items = new ArrayList<ShoppingItem>();
 	private List<CartItemPanel> itemPanels = new ArrayList<CartItemPanel>();
+	private List<ShoppingItem> currentItems;
 	private CartController cartController;
 
 	private ActionListener myActionListener = new ActionListener() {
@@ -72,7 +73,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 			if (evt.getActionCommand().equals("pay")) {
-				CheckOutView c = new CheckOutView(items, cartController);
+				CheckOutView c = new CheckOutView(currentItems, cartController);
 				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				c.setVisible(true);
 
@@ -279,7 +280,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		// scrollCartPane.getViewport().setViewSize(new
 		// Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS, 500));
 		cartPanel.add(scrollCartPane);
-		List<ShoppingItem> currentItems = model.getShoppingCart().getItems();
+		currentItems = model.getShoppingCart().getItems();
 		System.out.println("antal items i korgen " + currentItems.size());
 		for (ShoppingItem currentItem : currentItems) {
 			addShoppingItem(currentItem);
