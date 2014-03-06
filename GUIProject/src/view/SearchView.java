@@ -84,6 +84,7 @@ public class SearchView extends JPanel {
 		setLayout(null);
 
 		logoButton = new JButton("iMat");
+		logoButton.setToolTipText("Till startsida");
 		logoButton.setOpaque(true);
 		logoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -102,7 +103,7 @@ public class SearchView extends JPanel {
 		searchField.setBounds(20, 130, 210, 40);
 		add(searchField);
 		searchField.setColumns(10);
-		searchField.setText("Sšk..");
+		searchField.setText("Sök..");
 		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
 		searchField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -149,7 +150,7 @@ public class SearchView extends JPanel {
 		favoritesLabel.setFont(Constants.FAVORITESFONT.getFont());
 		favoritesLabel.setSize(681,30);
 
-		JLabel greensLabel = new JLabel("Gr\u00F6nsaker");
+		JLabel greensLabel = new JLabel("Grönsaker");
 		greensLabel.setVerticalAlignment(SwingConstants.TOP);
 		greensLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		greensLabel.addMouseListener(myMouseListener);
@@ -165,7 +166,7 @@ public class SearchView extends JPanel {
 		panel.add(greensLabel);
 
 
-		JLabel fruitLabel = new JLabel("Frukt och bŠr");
+		JLabel fruitLabel = new JLabel("Frukt och bär");
 		fruitLabel.setVerticalAlignment(SwingConstants.TOP);
 		fruitLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		fruitLabel.addMouseListener(myMouseListener);

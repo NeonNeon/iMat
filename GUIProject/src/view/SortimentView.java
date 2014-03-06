@@ -83,19 +83,19 @@ public class SortimentView extends JPanel {
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane);
 		
-		categoryPanel.add(new CategoryView("Grï¿½nsaler",gronsaker,frameController,NewCategorys.GRONSAKER));
-		categoryPanel.add(new CategoryView("Frukt och bï¿½r", frukt,frameController,NewCategorys.FRUKT_OCH_BAR));
-		categoryPanel.add(new CategoryView("Baljvï¿½xter", baljvaxter,frameController,NewCategorys.BALJVAXTER));
+		categoryPanel.add(new CategoryView("Grönsaker",gronsaker,frameController,NewCategorys.GRONSAKER));
+		categoryPanel.add(new CategoryView("Frukt och bär", frukt,frameController,NewCategorys.FRUKT_OCH_BAR));
+		categoryPanel.add(new CategoryView("Baljväxter", baljvaxter,frameController,NewCategorys.BALJVAXTER));
 		categoryPanel.add(new CategoryView("Potatis och rotfrukter", potatis,frameController,NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
 		categoryPanel.add(new CategoryView("Ris och Pasta", pasta,frameController,NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
 		categoryPanel.add(new CategoryView("Skafferi", skafferi,frameController,NewCategorys.SKAFFERI));
-		categoryPanel.add(new CategoryView("Brï¿½d", brod,frameController,NewCategorys.BROD));
+		categoryPanel.add(new CategoryView("Bröd", brod,frameController,NewCategorys.BROD));
 		categoryPanel.add(new CategoryView("Mejeri", mejeri,frameController,NewCategorys.MEJERI));
-		categoryPanel.add(new CategoryView("Kï¿½tt", kott,frameController,NewCategorys.KOTT));
+		categoryPanel.add(new CategoryView("Kött", kott,frameController,NewCategorys.KOTT));
 		categoryPanel.add(new CategoryView("Fisk och skaldjur", fisk,frameController,NewCategorys.FISK_OCH_SKALDJUR));
 		categoryPanel.add(new CategoryView("Dryck", dryck,frameController,NewCategorys.DRYCK));
-		categoryPanel.add(new CategoryView("ï¿½rter", orter,frameController,NewCategorys.ORTER));
-		categoryPanel.add(new CategoryView("Snacks och sï¿½tsaker", snacks,frameController,NewCategorys.SNACKS_OCH_SOTSAKER));
+		categoryPanel.add(new CategoryView("Örter", orter,frameController,NewCategorys.ORTER));
+		categoryPanel.add(new CategoryView("Snacks och sötsaker", snacks,frameController,NewCategorys.SNACKS_OCH_SOTSAKER));
 		
 
 

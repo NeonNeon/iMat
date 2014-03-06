@@ -373,6 +373,7 @@ public class AccountView extends JPanel {
 		*/
 		
 		saveButton = new JButton("Ändra");
+		saveButton.setToolTipText("Ändra uppgifter");
 		saveButton.setActionCommand("change");
 		saveButton.setIcon(null);
 		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -411,55 +412,17 @@ public class AccountView extends JPanel {
 				if(arg0.getActionCommand().equals("save")){
 				save();
 				saveButton.setText("Ändra");
+				saveButton.setToolTipText("Ändra uppgifter");
 				saveButton.setActionCommand("change");
-				firstName.setEditable(false);
-				lastName.setEditable(false);
-				addressTextField.setEditable(false);
-				townTextField.setEditable(false);
-				telephoneTextField.setEditable(false);
-				emailTextField.setEditable(false);
-				postNbrTextField.setEditable(false);
-				cardNbr4.setEditable(false);
-				cardNbr3.setEditable(false);
-				cardNbr2.setEditable(false);
-				cardNbr1.setEditable(false);
-				cvvCode.setEditable(false);
-				deliveryAddressTextField.setEditable(false);
-				deliveryPostnbrTextField.setEditable(false);
-				deliveryTownTextField.setEditable(false);
-				paymentComboBox.setEnabled(false);
-				deliveryDay.setEnabled(false);
-				deliveryTime.setEnabled(false);
-				monthSpinner.setEnabled(false);
-				yearSpinner.setEnabled(false);
-				checkBox.setEnabled(false);
+				setEditability(false);
 			
 				
 				}
 				else if(arg0.getActionCommand().equals("change")){
 					saveButton.setText("Spara");
 					saveButton.setActionCommand("save");
-					firstName.setEditable(true);
-					lastName.setEditable(true);
-					addressTextField.setEditable(true);
-					townTextField.setEditable(true);
-					telephoneTextField.setEditable(true);
-					emailTextField.setEditable(true);
-					postNbrTextField.setEditable(true);
-					cardNbr4.setEditable(true);
-					cardNbr3.setEditable(true);
-					cardNbr2.setEditable(true);
-					cardNbr1.setEditable(true);
-					cvvCode.setEditable(true);
-					deliveryAddressTextField.setEditable(true);
-					deliveryPostnbrTextField.setEditable(true);
-					deliveryTownTextField.setEditable(true);
-					paymentComboBox.setEnabled(true);
-					deliveryDay.setEnabled(true);
-					deliveryTime.setEnabled(true);
-					yearSpinner.setEnabled(true);
-					monthSpinner.setEnabled(true);
-					checkBox.setEnabled(true);
+					saveButton.setToolTipText("Spara uppgifter");
+					setEditability(true);
 				}
 			}
 		});
@@ -499,6 +462,30 @@ public class AccountView extends JPanel {
 		
 		
 		
+	}
+	
+	public void setEditability(boolean b){
+		firstName.setEditable(b);
+		lastName.setEditable(b);
+		addressTextField.setEditable(b);
+		townTextField.setEditable(b);
+		telephoneTextField.setEditable(b);
+		emailTextField.setEditable(b);
+		postNbrTextField.setEditable(b);
+		cardNbr4.setEditable(b);
+		cardNbr3.setEditable(b);
+		cardNbr2.setEditable(b);
+		cardNbr1.setEditable(b);
+		cvvCode.setEditable(true);
+		deliveryAddressTextField.setEditable(b);
+		deliveryPostnbrTextField.setEditable(b);
+		deliveryTownTextField.setEditable(b);
+		paymentComboBox.setEnabled(b);
+		deliveryDay.setEnabled(b);
+		deliveryTime.setEnabled(b);
+		yearSpinner.setEnabled(b);
+		monthSpinner.setEnabled(b);
+		checkBox.setEnabled(b);
 	}
 	
 	

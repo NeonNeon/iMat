@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.BrowseController;
 import controller.CartController;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -48,6 +49,7 @@ public class CheckOutView extends JFrame {
 	private JTextField expiresMonth;
 	private JTextField expiresYear;
 	private CartController cartController;
+	private BrowseController browseController;
 	private JPanel recieptItemsPanel;
 	private JButton changeButton, payButton1;
 	private JComboBox chooseDay, chooseTime,cardType;
@@ -73,6 +75,7 @@ public class CheckOutView extends JFrame {
 					cartController.emptyCart();
 					dispose();
 					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
+					
 				} 
 					else if(evt.getActionCommand().equals("abort")){
 						dispose();
@@ -94,7 +97,6 @@ public class CheckOutView extends JFrame {
 					}
 			}
 		};
-		
 		customer = model.getCustomer();
 		cartController = controller;
 		CheckOutView.items = items;
