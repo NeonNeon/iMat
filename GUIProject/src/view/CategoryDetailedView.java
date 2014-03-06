@@ -40,14 +40,15 @@ public class CategoryDetailedView extends JPanel {
 		pl = model.getProducts(nc);
 		
 		
-		setBackground(background);
+		setBackground(Color.WHITE);
 		setBounds(260,0,684, 581);
 		setLayout(null);
 		
 		JLabel nameLabel = new JLabel(name, JLabel.CENTER);
+		nameLabel.setForeground(Constants.TEXTCOLOR.getColor());
 		nameLabel.setBounds(10, 13, 664, 39);
-		nameLabel.setFont(new Font("Hiragino Kaku Gothic Pro W6", Font.BOLD,30));
-		nameLabel.setForeground(Color.BLACK);
+		nameLabel.setFont(Constants.SUCHFONT.getFont());
+		nameLabel.setForeground(Constants.TEXTCOLOR.getColor());
 		add(nameLabel);
 		
 
@@ -57,7 +58,7 @@ public class CategoryDetailedView extends JPanel {
 
 		
 		productPanel = new JPanel();
-		productPanel.setBackground(background);
+		productPanel.setBackground(Color.WHITE);
 		productPanel.setLayout(new GridLayout(0,3));
 		productPanel.setPreferredSize(new Dimension(684,(int)height));
 		

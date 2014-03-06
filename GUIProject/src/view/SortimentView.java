@@ -62,8 +62,9 @@ public class SortimentView extends JPanel {
 		setBackground(background);
 		
 		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
-		rubrikLabel.setBounds(10, 13, 664, 29);
-		rubrikLabel.setFont(new Font("Hiragino Kaku Gothic Pro W6", Font.BOLD,30));
+		rubrikLabel.setBounds(10, 13, 664, 58);
+		rubrikLabel.setFont(Constants.SUCHFONT.getFont());
+		rubrikLabel.setForeground(Constants.TEXTCOLOR.getColor());
 		add(rubrikLabel);
 		
 		
@@ -73,6 +74,7 @@ public class SortimentView extends JPanel {
 		
 		
 		JPanel categoryPanel = new JPanel();
+		categoryPanel.setBackground(Color.WHITE);
 		categoryPanel.setPreferredSize(new Dimension(684,(int)height));
 		categoryPanel.setLayout(new GridLayout(0,3));
 	

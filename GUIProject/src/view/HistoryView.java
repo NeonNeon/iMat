@@ -22,6 +22,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javax.swing.SwingConstants;
 
 /**
  * The historyView consists of a list with the old 
@@ -51,10 +52,11 @@ private JScrollPane scrollOldItems;
 		setLayout(null);
 		
 		JLabel lblHistorik = new JLabel("Historik");
-		lblHistorik.setBounds(256, 28, 177, 43);
+		lblHistorik.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHistorik.setBounds(12, 6, 660, 65);
 		add(lblHistorik);
 		lblHistorik.setForeground(Constants.TEXTCOLOR.getColor());
-		lblHistorik.setFont(new Font("Avenir Next", Font.PLAIN, 50));
+		lblHistorik.setFont(Constants.SUCHFONT.getFont());
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 6, 332, 613);
 		add(panel);

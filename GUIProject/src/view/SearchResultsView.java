@@ -17,6 +17,7 @@ import java.awt.Font;
 import se.chalmers.ait.dat215.project.util.*;
 
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 /**
  * Shows the result from a search
@@ -39,13 +40,15 @@ public class SearchResultsView extends JPanel {
 	 */
 	public SearchResultsView() {
 		//setBorder(new LineBorder(borderColor, 4, true));
-		setBackground(backGround);
+		setBackground(Color.WHITE);
 		
 		setSize(684, 631);
 		setLayout(null);
+		resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		resultLabel.setBounds(10, 11, 664, 55);
-		resultLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		resultLabel.setBounds(12, 12, 664, 55);
+		resultLabel.setFont(Constants.SUCHFONT.getFont());
+		resultLabel.setForeground(Constants.TEXTCOLOR.getColor());
 		add(resultLabel);
 		
 //		resultPanel = new JPanel();
@@ -63,7 +66,7 @@ public class SearchResultsView extends JPanel {
 		resultPanel.add(new ProductView(p));
 		resultScrollPane = new JScrollPane(resultPanel);
 		resultScrollPane.setBounds(10, 77, 654,541 );
-		resultPanel.setBackground(backGround);
+		resultPanel.setBackground(Color.WHITE);
 		resultPanel.setLayout(new GridLayout(1,3));
 		add(resultScrollPane,1,1);
 		
@@ -78,12 +81,12 @@ public class SearchResultsView extends JPanel {
 		System.out.println(productList.size() + "produkter");
 		resultLabel.setText("S�kresultat f�r " + searchWord);
 		resultPanel = new JPanel();
-		resultPanel.setBackground(backGround);
+		resultPanel.setBackground(Color.WHITE);
 		resultPanel.setLayout(new GridLayout(0,3));
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
 //		resultPanel.setMinimumSize(new Dimension(664,1500));
 		resultScrollPane = new JScrollPane(resultPanel);
-		resultScrollPane.setBounds(10, 77, 664,541 );
+		resultScrollPane.setBounds(10, 77, 664,501 );
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen

@@ -44,12 +44,12 @@ public class RecipeView extends JPanel {
 		JLabel lblNewLabel_1 = new JLabel("Laga n\u00E5got nytt ikv\u00E4ll?");
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Gabriola", Font.BOLD, 28));
-		lblNewLabel_1.setBounds(337, 11, 337, 35);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblNewLabel_1.setBounds(316, 10, 356, 35);
 		add(lblNewLabel_1);
 		
 		JLabel grillLabel = new JLabel(paniniIcon);
-		grillLabel.setBounds(347, 57, 148, 99);
+		grillLabel.setBounds(339, 57, 148, 99);
 		grillLabel.setBorder(new LineBorder(Color.black, 1, true));
 		add(grillLabel);
 		
@@ -151,7 +151,7 @@ public class RecipeView extends JPanel {
 		JLabel lblNewLabel = new JLabel("Grillat och gott!");
 		lblNewLabel.setForeground(new Color(0, 153, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(506, 88, 127, 35);
+		lblNewLabel.setBounds(487, 87, 185, 35);
 		lblNewLabel.setFont(new Font("Gabriola", Font.PLAIN, 22));
 		add(lblNewLabel);
 		
@@ -159,7 +159,7 @@ public class RecipeView extends JPanel {
 		lblEnFrchSallad.setForeground(new Color(0, 153, 0));
 		lblEnFrchSallad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEnFrchSallad.setFont(new Font("Gabriola", Font.PLAIN, 22));
-		lblEnFrchSallad.setBounds(362, 197, 122, 35);
+		lblEnFrchSallad.setBounds(343, 208, 175, 35);
 		add(lblEnFrchSallad);
 		
 		JLabel lblNewLabel_2 = new JLabel("K\u00F6ttf\u00E4rss\u00E5s");

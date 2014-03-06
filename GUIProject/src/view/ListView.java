@@ -26,17 +26,18 @@ public class ListView extends JPanel {
 		setBorder(new LineBorder(borderColor, 2, true));
 		
 		JLabel lblMinaListor = new JLabel("Mina listor");
-		lblMinaListor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblMinaListor.setFont(Constants.SUCHFONT.getFont());
+		lblMinaListor.setForeground(Constants.TEXTCOLOR.getColor());
 		lblMinaListor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMinaListor.setBounds(10, 11, 664, 33);
+		lblMinaListor.setBounds(10, 11, 664, 69);
 		add(lblMinaListor);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 55, 324, 515);
+		scrollPane.setBounds(10, 92, 324, 478);
 		add(scrollPane);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(350, 55, 324, 515);
+		scrollPane_1.setBounds(350, 92, 324, 478);
 		add(scrollPane_1);
 	}
 }

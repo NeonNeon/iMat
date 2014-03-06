@@ -127,8 +127,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		SpringLayout sl_namePanel = new SpringLayout();
 		namePanel.setLayout(sl_namePanel);
 		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
-		namePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		namePanel.addActionListener(myActionListener);
+//		namePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//		namePanel.addActionListener(myActionListener);
 		namePanel.setActionCommand("profile");
 		add(namePanel);
 
@@ -158,7 +158,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 				+ model.getCustomer().getLastName());
 		nameLabel.setOpaque(true);
 		// nameLabel.setInheritsPopupMenu(false);
-		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+//		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		nameLabel.setForeground(Color.WHITE);
 		nameLabel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0,
