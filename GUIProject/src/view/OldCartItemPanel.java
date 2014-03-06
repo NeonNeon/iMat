@@ -21,6 +21,7 @@ import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.border.LineBorder;
 
 /**
  * The small panel that lies within the HistoryView. Each CartItemPanel has a
@@ -47,11 +48,12 @@ public class OldCartItemPanel extends JPanel {
 	 * @wbp.parser.constructor
 	 */
 	public OldCartItemPanel(ShoppingItem item) {
-		setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		setBorder(new LineBorder(Constants.BACKGROUNDCOLOR.getColor()));
+		setBackground(Color.WHITE);
 		this.item = item;
-		setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		setMinimumSize(new Dimension(WIDTH, HEIGHT));
-		setMaximumSize(new Dimension(WIDTH, HEIGHT));
+		setPreferredSize(new Dimension(300, 50));
+		setMinimumSize(new Dimension(300, 50));
+		setMaximumSize(new Dimension(300, 50));
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		nameLabel = new JLabel();
