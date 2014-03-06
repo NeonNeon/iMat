@@ -107,13 +107,22 @@ public class SearchView extends JPanel {
 		searchField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				search();
-				searchField.setText("Sšk..");
+				searchField.setText("Sök..");
 			}
 		});
 		searchField.addMouseListener(new MouseAdapter(){
-			public void mouseClicked(MouseEvent e){
-				searchField.setText("");
+			public void mouseExited(MouseEvent e){
+				searchField.setText("Sök...");
+				
+				favoritesLabel.requestFocus();;
 			}
+			public void mouseEntered(MouseEvent e){
+				searchField.setText("");
+				searchField.requestFocus();
+			}
+			
+
+			
 		});
 
 
