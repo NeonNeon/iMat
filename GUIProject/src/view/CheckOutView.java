@@ -49,7 +49,7 @@ public class CheckOutView extends JFrame {
 	private JTextField expiresYear;
 	private CartController cartController;
 	private JPanel recieptItemsPanel;
-	private JButton changeButton;
+	private JButton changeButton, payButton1;
 	private JComboBox chooseDay, chooseTime,cardType;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
@@ -81,6 +81,8 @@ public class CheckOutView extends JFrame {
 						changeButton.setText("Spara");
 						changeButton.setActionCommand("save");
 						setEditability(true);
+						payButton1.setEnabled(false);
+						
 						
 					}
 					
@@ -88,6 +90,7 @@ public class CheckOutView extends JFrame {
 						changeButton.setText("Ändra");
 						changeButton.setActionCommand("change");
 						setEditability(false);
+						payButton1.setEnabled(true);
 					}
 			}
 		};
@@ -131,7 +134,7 @@ public class CheckOutView extends JFrame {
 		}
 		
 		
-		JButton payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
+		payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
 		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		payButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		payButton1.setBounds(435, 475, 192, 55);
