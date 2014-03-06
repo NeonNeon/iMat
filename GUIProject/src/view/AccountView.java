@@ -372,7 +372,7 @@ public class AccountView extends JPanel {
 		saveButton.setOpaque(true);
 		*/
 		
-		saveButton = new JButton("ï¿½ndra");
+		saveButton = new JButton("Ändra");
 		saveButton.setActionCommand("change");
 		saveButton.setIcon(null);
 		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -410,7 +410,7 @@ public class AccountView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getActionCommand().equals("save")){
 				save();
-				saveButton.setText("ï¿½ndra");
+				saveButton.setText("Ändra");
 				saveButton.setActionCommand("change");
 				firstName.setEditable(false);
 				lastName.setEditable(false);

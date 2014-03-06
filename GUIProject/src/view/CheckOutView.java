@@ -49,7 +49,7 @@ public class CheckOutView extends JFrame {
 	private JPanel recieptItemsPanel;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"Mï¿½ndag","Tisdag","Onsdag","Torsdag","Fredag","Lï¿½rdag","Sï¿½ndag"});
+			new String[] {"Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag","Söndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -65,13 +65,13 @@ public class CheckOutView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				if(evt.getActionCommand().equals("pay")){
-					int reply = JOptionPane.showConfirmDialog(null, "Genomfï¿½r detta kï¿½p?",
-							"Kï¿½p pï¿½gï¿½r..",
+					int reply = JOptionPane.showConfirmDialog(null, "Genomför detta köp?",
+							"Köp pågår..",
 							JOptionPane.OK_OPTION);
 					model.placeOrder(true);
 					cartController.emptyCart();
 					dispose();
-					JOptionPane.showMessageDialog(null,"Tack fï¿½r att du handlar pï¿½ iMat, Vï¿½lkommen ï¿½ter!", "Bekrï¿½ftelse", 1);
+					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
 				} else if(evt.getActionCommand().equals("abort")){
 					dispose();
 				}
@@ -145,7 +145,7 @@ public class CheckOutView extends JFrame {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlï¿½per:");
+		JLabel expireDateLabel = new JLabel("Utlöper:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
@@ -183,7 +183,7 @@ public class CheckOutView extends JFrame {
 			cardType.setSelectedItem(cardType.getItemAt(2));
 		}
 
-		JLabel paymentLabel = new JLabel("Betalningss\u00E4tt");
+		JLabel paymentLabel = new JLabel("Betalningssätt");
 		paymentLabel.setBounds(16, 14, 90, 15);
 		panel_2.add(paymentLabel);
 
@@ -259,7 +259,7 @@ public class CheckOutView extends JFrame {
 		if(customer != null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Fï¿½rnamn och efternamn-");
+			nameTextField.setText("-Förnamn och efternamn-");
 		}
 		panel.add(nameTextField);
 		nameTextField.setColumns(10);
