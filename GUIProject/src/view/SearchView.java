@@ -45,15 +45,20 @@ public class SearchView extends JPanel {
 		}
 		@Override
 		public void mouseExited(MouseEvent evt) {
-			((JLabel)evt.getSource()).setForeground(originalColor);
+			if(!((JLabel)evt.getSource() == tmp)){
+				((JLabel)evt.getSource()).setForeground(originalColor);
+			}
 		}
-		
+		@Override
 		public void mouseClicked(MouseEvent evt) {
+			((JLabel)evt.getSource()).setForeground(hoverColor);
 			if(tmp != null) {
 				if(tmp == favoritesLabel){
 					tmp.setFont(Constants.FAVORITESFONT.getFont());
+					tmp.setForeground(originalColor);
 				}else {
 					tmp.setFont(categoryFont);
+					tmp.setForeground(originalColor);
 				}
 			}
 			if((JLabel)evt.getSource() == favoritesLabel){
@@ -89,7 +94,7 @@ public class SearchView extends JPanel {
 		logoButton.setForeground(new Color(255, 255, 255));
 		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		logoButton.setBounds(0, 0, 250, 100);
-		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoButton.setBorder(null);
 		logoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(logoButton);
 

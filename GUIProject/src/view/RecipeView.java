@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 public class RecipeView extends JPanel {
 
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	//private Color borderColor = Constants.HOVERCOLOR.getColor();
 	private Font font = Constants.TEXTFONT.getFont();
 	private ImageIcon inspirationIcon = new ImageIcon("lib/Bildmapp/receptHeader.png");
 	private ImageIcon salladIcon = new ImageIcon("lib/Bildmapp/sallad.png");
@@ -32,7 +32,7 @@ public class RecipeView extends JPanel {
 	 * Create the panel.
 	 */
 	public RecipeView() {
-		setBorder(new LineBorder(borderColor, 2, true));
+		//setBorder(new LineBorder(borderColor, 2, true));
 		setBackground(background);
 		setSize(684, 581);
 		setLayout(null);

@@ -49,7 +49,7 @@ public class SortimentView extends JPanel {
 	private FrameController frameController;
 	
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	//private Color borderColor = Constants.HOVERCOLOR.getColor();
 	
 	
 	public SortimentView(FrameController controller) {

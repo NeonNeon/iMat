@@ -1,4 +1,5 @@
 package view;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -18,6 +20,10 @@ import javax.swing.JLabel;
 import controller.CartController;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+import java.awt.Color;
 
 /**
  * This is the small panel that represents a already bought shoppingcart.
@@ -31,20 +37,63 @@ private Order order;
 private JLabel cartDate;
 private CartController cartController;
 private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
+
+private MouseListener mouseListener = new MouseListener(){
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+};
 	/**
 	 * Create the panel.
 	 */
 	public OldCartsPanel(Order newOrder,CartController controller) {
+		setBackground(Color.WHITE);
+		addMouseListener(mouseListener);
 		cartController = controller;
 		this.order = newOrder;
 		setPreferredSize(new Dimension(318,70));
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(Constants.BACKGROUNDCOLOR.getColor(),2));
+		panel.setBackground(Color.WHITE);
+		panel.setToolTipText("Fšrhandsvisa kundvagn");
 		panel.setBounds(0, 0, 260, 70);
 		add(panel);
+		panel.setLayout(null);
 		
 		cartDate = new JLabel("New label");
+		cartDate.setBounds(-36, 23, 332, 20);
+		cartDate.setHorizontalTextPosition(SwingConstants.CENTER);
+		cartDate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		cartDate.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(cartDate);
 		cartDate.setFont(Constants.CATEGORYFONT.getFont());
 		String date = order.getDate().toString();
@@ -61,6 +110,7 @@ private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
 		});
 		
 		JButton addToCartBtn = new JButton(cartIcon);
+		addToCartBtn.setToolTipText("LŠgg till i varukorg");
 		addToCartBtn.setBounds(260, 13, 42, 42);
 		addToCartBtn.setBackground(null);
 		addToCartBtn.setBorder(null);

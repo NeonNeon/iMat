@@ -63,7 +63,7 @@ public class AccountView extends JPanel {
 	public static CreditCard card = model.getCreditCard();
 	private static CreditCard creditCard = model.getCreditCard();
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	//private Color borderColor = Constants.HOVERCOLOR.getColor();
 	private JCheckBox checkBox;
 	
 
@@ -106,7 +106,7 @@ public class AccountView extends JPanel {
 		};
 		
 		
-		setBorder(new LineBorder(borderColor, 2, true));
+		//setBorder(new LineBorder(borderColor, 2, true));
 		
 		setSize(665, 681);
 		setLayout(null);
