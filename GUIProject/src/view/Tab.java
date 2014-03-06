@@ -1,4 +1,5 @@
 package view;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -20,26 +21,37 @@ import java.awt.event.MouseEvent;
  *
  */
 public class Tab extends JPanel {
-FrameController frameController;
+	FrameController frameController;
+	private String name;
+	private JLabel nameOfTab;
+
+	MouseAdapter mouseAdapter = new MouseAdapter() {
+		public void mouseClicked(MouseEvent evt) {
+			if(nameOfTab.equals("Sortiment") || name.equals("Sortiment")) {
+				System.out.println("klicka på label sortiment");
+				frameController.showSortiment();
+			}
+		}
+		public void mouseEntered(MouseEvent evt) {
+			setCursor(new Cursor(Cursor.HAND_CURSOR));
+		}
+	};
 	/**
 	 * Create the panel.
 	 */
 	public Tab(FrameController controller,String name) {
+		this.name = name;
 		frameController = controller;
 		setBorder(null);
 		setPreferredSize(new Dimension(111,45));
 		setBackground(new Color(245,245,245));
-		JLabel nameOfTab = new JLabel(name);
+		nameOfTab = new JLabel(name);
 		nameOfTab.setFont(new Font("Dialog", Font.BOLD, 16));
+		nameOfTab.addMouseListener(mouseAdapter);
 		add(nameOfTab);
-		if(name.equals("Sortiment")) {
-			nameOfTab.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent arg0) {
-					System.out.println("klicka på label sortiment");
-					frameController.showSortiment();
-				}
-			});
-		}
 	}
 
+	public String getName(){
+		return name;
+	}
 }
