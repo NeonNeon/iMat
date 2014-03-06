@@ -56,7 +56,7 @@ public class CartItemPanel extends JPanel {
 	private ImageIcon garbageIcon = new ImageIcon("lib/Bildmapp/TrashIcon.png");
 	private ImageIcon minusIcon = new ImageIcon("lib/Bildmapp/minusIcon.png");
 	private ImageIcon plusIcon = new ImageIcon("lib/Bildmapp/plusIcon.png");
-	private Color backGround = Constants.BACKGROUNDCOLOR.getColor();
+	private Color backGround = Color.white;
 	private CartController cartController;
 
 	/**
@@ -125,10 +125,11 @@ public class CartItemPanel extends JPanel {
 		gbl_buttonPanel.columnWidths = new int[] { 2 };
 		buttonPanel.setLayout(gbl_buttonPanel);
 		garbageButton = new JButton(garbageIcon);
-		garbageButton.setBackground(null);
+		garbageButton.setBackground(backGround);
 		garbageButton.setBorder(null);
 		garbageButton.setToolTipText("Ta bort vara");
 		garbageButton.addMouseListener(myMouseListener);
+		garbageButton.setOpaque(true);
 		garbageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cartController.removeMe(getThis());
@@ -137,9 +138,10 @@ public class CartItemPanel extends JPanel {
 
 		GridBagConstraints c = new GridBagConstraints();
 		plusButton = new JButton(plusIcon);
-		plusButton.setBackground(null);
+		plusButton.setBackground(backGround);
 		plusButton.setBorder(null);
 		plusButton.addMouseListener(myMouseListener);
+		plusButton.setOpaque(true);
 		plusButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				double newAmount = getShoppingItem().getProduct()
@@ -162,7 +164,8 @@ public class CartItemPanel extends JPanel {
 		buttonPanel.add(plusButton, gbc_plusButton);
 
 		minusButton = new JButton(minusIcon);
-		minusButton.setBackground(null);
+		minusButton.setBackground(backGround);
+		minusButton.setOpaque(true);
 		minusButton.setBorder(null);
 		minusButton.addMouseListener(myMouseListener);
 		minusButton.addActionListener(new ActionListener() {

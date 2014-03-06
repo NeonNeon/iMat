@@ -73,15 +73,18 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 			if (evt.getActionCommand().equals("pay")) {
-				CheckOutView c = new CheckOutView(currentItems, cartController);
-				c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				c.setVisible(true);
+				if (!model.getShoppingCart().getItems().isEmpty()) {
+					CheckOutView c = new CheckOutView(currentItems,
+							cartController);
+					c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					c.setVisible(true);
+				}
 
 			} else if (evt.getActionCommand().equals("save")) {
 
 			} else if (evt.getActionCommand().equals("empty")) {
-				int reply = JOptionPane.showConfirmDialog(null, "Vill du verkligen t�mma din varukorg?",
-						"Varning",
+				int reply = JOptionPane.showConfirmDialog(null,
+						"Vill du verkligen t�mma din varukorg?", "Varning",
 						JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					emptyCart();
@@ -148,10 +151,11 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 		springLayout.putConstraint(SpringLayout.NORTH, cartPanel, 0,
 				SpringLayout.SOUTH, namePanel);
-		
-		nameLabel = new JLabel(model.getCustomer().getFirstName()+" " + model.getCustomer().getLastName());
+
+		nameLabel = new JLabel(model.getCustomer().getFirstName() + " "
+				+ model.getCustomer().getLastName());
 		nameLabel.setOpaque(true);
-		//nameLabel.setInheritsPopupMenu(false);
+		// nameLabel.setInheritsPopupMenu(false);
 		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		nameLabel.setForeground(Color.WHITE);
 		nameLabel.setBackground(Constants.CONTRASTCOLOR.getColor());
@@ -324,8 +328,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 	public void setTotalSum() {
 		double sum = 0;
-		for(ShoppingItem i : items) {
-			sum+=i.getTotal();
+		for (ShoppingItem i : items) {
+			sum += i.getTotal();
 		}
 		totalSumLabel.setText("Summa: " + String.format("%.1f", sum) + "kr");
 	}
@@ -371,9 +375,10 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			List<ShoppingItem> orderList = oldOrder.getItems();
 			System.out.println("orderlist size" + orderList.size());
 			for (ShoppingItem item : orderList) {
-				model.addToCart(new ShoppingItem(item.getProduct(),item.getAmount()));
+				model.addToCart(new ShoppingItem(item.getProduct(), item
+						.getAmount()));
 			}
-		
+
 		}
 		setTotalSum();
 	}
@@ -389,12 +394,12 @@ public class CartView extends JPanel implements ShoppingCartListener,
 	public CartController getController() {
 		return cartController;
 	}
-	
-	public JLabel getLabel(){
+
+	public JLabel getLabel() {
 		return nameLabel;
 	}
-	
-	public void setName(){
+
+	public void setName() {
 		nameLabel.setText(model.getCustomer().getFirstName());
 	}
 }

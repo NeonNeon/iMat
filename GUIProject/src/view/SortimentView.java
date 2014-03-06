@@ -62,8 +62,8 @@ public class SortimentView extends JPanel {
 		setBackground(background);
 		
 		JLabel rubrikLabel = new JLabel("Sortiment",JLabel.CENTER);
-		rubrikLabel.setBounds(268, 13, 133, 29);
-		rubrikLabel.setFont(Constants.CATEGORYFONT.getFont());
+		rubrikLabel.setBounds(10, 13, 664, 29);
+		rubrikLabel.setFont(new Font("Hiragino Kaku Gothic Pro W6", Font.BOLD,30));
 		add(rubrikLabel);
 		
 		
