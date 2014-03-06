@@ -72,17 +72,19 @@ public class ProductView extends JPanel {
 		JLabel nameLabel = new JLabel(p.getName());
 		nameLabel.setFont(Constants.CATEGORYFONT.getFont());
 		nameLabel.setForeground((Color.BLACK));
-		nameLabel.setBounds(10, 149, 130, 20);
+		nameLabel.setBounds(10, 147, 130, 20);
 		add(nameLabel);
 		
 		JLabel priceLabel = new JLabel(p.getPrice()+" kr/"+p.getUnitSuffix());
 		priceLabel.setForeground(Color.BLACK);
-		priceLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		priceLabel.setFont(Constants.CATEGORYFONT.getFont());
 		priceLabel.setBounds(10, 182, 130, 25);
 		add(priceLabel);
 		
+		JSpinner spinner_1 = new JSpinner(new SpinnerNumberModel(1.0,0.0,99.0,1.0));
+		spinner_1.setBounds(10, 235, 44, 25);
 		spinner = (product.getUnitSuffix().equals("kg")) 
-				? new DoubleSpinner() : new JSpinner(new SpinnerNumberModel(1.0,0.0,99.0,1.0));
+				? new DoubleSpinner() : spinner_1;
 		spinner.setBounds(20, 220, 50, 20);
 		add(spinner);
 		

@@ -12,7 +12,7 @@ public enum Constants {
 	CONTRASTCOLOR (new Color(190,51,40)),
 	CATEGORYFONT (new Font("Adobe Heiti Std", Font.PLAIN, 16)),
 	CATEGORYCLICKEDFONT (new Font("Adobe Heiti Std", Font.PLAIN,16)),
-	FAVORITESFONT (new Font("Adobe Heiti Std", Font.PLAIN, 22)),
+	FAVORITESFONT (new Font("Adobe Heiti Std", Font.PLAIN, 20)),
 	FAVORITESCLICKEDFONT (new Font("Adobe Heiti Std", Font.PLAIN,22)),
 	TEXTFONT (new Font("Adobe Heiti Std", Font.PLAIN, 14)),
 	HEADERFONT (new Font("Adobe Gothic Std", Font.PLAIN, 20));

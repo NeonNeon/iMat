@@ -144,15 +144,15 @@ public class SearchView extends JPanel {
 		greensLabel.setVerticalAlignment(SwingConstants.TOP);
 		greensLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		greensLabel.addMouseListener(myMouseListener);
-
-		Component horizontalStrut = Box.createHorizontalStrut(20);
-		panel.add(horizontalStrut);
 		greensLabel.setForeground(originalColor);
 		greensLabel.setBackground(new Color(153, 204, 204));
 		greensLabel.setBackground(hoverColor);
 		greensLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		greensLabel.setFont(categoryFont);
 		greensLabel.addMouseListener(new CategoryMouseListener(NewCategorys.GRONSAKER));
+		
+				Component horizontalStrut = Box.createHorizontalStrut(20);
+				panel.add(horizontalStrut);
 		panel.add(greensLabel);
 
 
