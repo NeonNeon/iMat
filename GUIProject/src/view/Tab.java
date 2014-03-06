@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 /**
  * This is a panel that is used to set the size of the tabs in the tabbedPane.
@@ -39,7 +40,7 @@ public class Tab extends JPanel {
 			} else if(nameOfTab.equals("Historik") || name.equals("Historik")) {
 				System.out.println("klicka på label sortiment");
 				frameController.showHistorik();
-			} else if(nameOfTab.equals("Listor") || name.equals("Historik")) {
+			} else if(nameOfTab.equals("Listor") || name.equals("Listor")) {
 				System.out.println("klicka på label sortiment");
 				frameController.showListor();
 			}  
@@ -52,12 +53,15 @@ public class Tab extends JPanel {
 	 * Create the panel.
 	 */
 	public Tab(FrameController controller,String name) {
+		setLayout(null);
 		this.name = name;
 		frameController = controller;
 		setBorder(null);
 		setPreferredSize(new Dimension(113,45));
 		setBackground(new Color(245,245,245));
 		nameOfTab = new JLabel(name);
+		nameOfTab.setHorizontalAlignment(SwingConstants.CENTER);
+		nameOfTab.setBounds(0, 0, 113, 45);
 		nameOfTab.setFont(new Font("Dialog", Font.BOLD, 16));
 		nameOfTab.addMouseListener(mouseAdapter);
 		add(nameOfTab);

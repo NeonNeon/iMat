@@ -7,6 +7,7 @@ import view.CategoryDetailedView;
 import view.CategoryView;
 import view.FrameView;
 import view.HistoryView;
+import view.ListView;
 import view.Model;
 import view.NewCategorys;
 import view.RecipeView;
@@ -123,7 +124,7 @@ public class Director implements PropertyChangeListener {
 		((CardLayout) (cardPanel.getLayout())).show(cardPanel, START);
 		frame.addTab("Sortiment", cardPanel);
 		frame.addTab("Recept",new RecipeView());
-		frame.addTab("Listor", new HistoryView(cartController));
+		frame.addTab("Listor", new ListView());
 		frame.addTab("Historik", new HistoryView(cartController));
 		frame.addTab("Profil", accountView);
 		frame.addLeft(searchView);
