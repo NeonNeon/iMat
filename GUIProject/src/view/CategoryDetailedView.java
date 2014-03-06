@@ -52,11 +52,9 @@ public class CategoryDetailedView extends JPanel {
 		
 
 
-		if(pl.size()%3==0)
-			height = (pl.size()/3)*273;
-		else
-			height = (pl.size()/2.3)*273;
-		
+	
+			height = (pl.size()%3==0) ? (pl.size()/3)*273 : ((pl.size()/3) + 1.0)*273;
+
 		
 		productPanel = new JPanel();
 		productPanel.setBackground(background);
