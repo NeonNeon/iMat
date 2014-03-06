@@ -30,6 +30,17 @@ public FrameController() {
 	public void showCategory(NewCategorys myCategory) {
 		support.firePropertyChange("category", null, myCategory);
 	}
-	
+	public void showRecept() {
+		support.firePropertyChange("Recept", null, "newValue");
+	}
+	public void showHistorik() {
+		support.firePropertyChange("Historik", null, "newValue");
+	}
+	public void showListor() {
+		support.firePropertyChange("Listor", null, "newValue");
+	}
+	public void showProfil() {
+		support.firePropertyChange("Profil", null, "newValue");
+	}
 
 }

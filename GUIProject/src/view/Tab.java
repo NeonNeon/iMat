@@ -30,7 +30,19 @@ public class Tab extends JPanel {
 			if(nameOfTab.equals("Sortiment") || name.equals("Sortiment")) {
 				System.out.println("klicka på label sortiment");
 				frameController.showSortiment();
-			}
+			} else if(nameOfTab.equals("Recept") || name.equals("Recept")) {
+				System.out.println("klicka på label sortiment");
+				frameController.showRecept();
+			} else if(nameOfTab.equals("Profil") || name.equals("Profil")) {
+				System.out.println("klicka på label sortiment");
+				frameController.showProfil();
+			} else if(nameOfTab.equals("Historik") || name.equals("Historik")) {
+				System.out.println("klicka på label sortiment");
+				frameController.showHistorik();
+			} else if(nameOfTab.equals("Listor") || name.equals("Historik")) {
+				System.out.println("klicka på label sortiment");
+				frameController.showListor();
+			}  
 		}
 		public void mouseEntered(MouseEvent evt) {
 			setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -43,7 +55,7 @@ public class Tab extends JPanel {
 		this.name = name;
 		frameController = controller;
 		setBorder(null);
-		setPreferredSize(new Dimension(111,45));
+		setPreferredSize(new Dimension(113,45));
 		setBackground(new Color(245,245,245));
 		nameOfTab = new JLabel(name);
 		nameOfTab.setFont(new Font("Dialog", Font.BOLD, 16));

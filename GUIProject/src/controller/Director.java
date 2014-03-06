@@ -93,6 +93,14 @@ public class Director implements PropertyChangeListener {
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
 			frame.setTab(0);
+		} else if(evt.getPropertyName().equals("Profil")) {
+			frame.setTab(4);
+		} else if(evt.getPropertyName().equals("Historik")) {
+			frame.setTab(3);
+		} else if(evt.getPropertyName().equals("Listor")) {
+			frame.setTab(2);
+		} else if(evt.getPropertyName().equals("Recept")) {
+			frame.setTab(1);
 		}
 
 	}
@@ -115,9 +123,9 @@ public class Director implements PropertyChangeListener {
 		((CardLayout) (cardPanel.getLayout())).show(cardPanel, START);
 		frame.addTab("Sortiment", cardPanel);
 		frame.addTab("Recept",new RecipeView());
-		frame.addTab("Uppgifter", accountView);
-		frame.addTab("Min Historik", new HistoryView(cartController));
-		frame.addTab("Sparade", new HistoryView(cartController));
+		frame.addTab("Listor", new HistoryView(cartController));
+		frame.addTab("Historik", new HistoryView(cartController));
+		frame.addTab("Profil", accountView);
 		frame.addLeft(searchView);
 		frame.addRight(cartView);
 		frame.setVisible(true);
