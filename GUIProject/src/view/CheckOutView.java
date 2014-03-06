@@ -149,15 +149,15 @@ public class CheckOutView extends JFrame {
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
-		JTextField expiresYear = new JTextField();
-		expiresYear.setText(String.valueOf(model.getCreditCard().getValidYear()));
-		expiresYear.setBounds(85, 114, 39, 27);
-		panel_2.add(expiresYear);
-
 		JTextField expiresMonth = new JTextField();
-		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
-		expiresMonth.setBounds(123, 114, 41, 27);
+		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidYear()));
+		expiresMonth.setBounds(85, 114, 39, 27);
 		panel_2.add(expiresMonth);
+
+		JTextField expiresYear = new JTextField();
+		expiresYear.setText(String.valueOf(model.getCreditCard().getValidMonth()));
+		expiresYear.setBounds(123, 114, 41, 27);
+		panel_2.add(expiresYear);
 
 		cardNumberTextField = new JTextField();
 		cardNumberTextField.setText(model.getCreditCard().getCardNumber());
@@ -202,19 +202,26 @@ public class CheckOutView extends JFrame {
 		deliveryAddress.setBounds(19, 16, 96, 16);
 		panel.add(deliveryAddress);
 		nameTextField = new JTextField();
+		nameTextField.setBounds(16, 46, 155, 28);
+		if(customer.getFirstName() != null && customer.getFirstName()!= null){
+			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
+		} else {
+			nameTextField.setText("-Fï¿½rnamn och efternamn-");
+		}
+		panel.add(nameTextField);
+		nameTextField.setBounds(16, 46, 155, 28);
+		nameTextField.setColumns(10);
+		
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 89, 28);
 		postCodeTextField.setColumns(10);
+//		if(customer.getPostCode()!=null){
+			postCodeTextField.setText(customer.getPostCode());
+//		}else{
+//			postCodeTextField.setText("'postkod'");
+//		}
 		panel.add(postCodeTextField);
-		
-		nameTextField.setBounds(16, 46, 155, 28);
-		nameTextField.setColumns(10);
-		panel.add(nameTextField);
-		if(customer.getFirstName() != null){
-			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
-		} else {
-			nameTextField.setText("-Namn-");
-		}
+	
 
 //
 //		if(customer != null){
@@ -223,40 +230,29 @@ public class CheckOutView extends JFrame {
 //			nameTextField.setText("-Fï¿½rnamn och efternamn-");
 //		}
 			
-	
-
-
-		panel.add(postCodeTextField);
-		postCodeTextField.setColumns(10);
 
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
 		cityTextField.setColumns(10);
+		cityTextField.setText(customer.getPostAddress());
 		panel.add(cityTextField);
-//		if(customer.getPostAddress()!= null){
-//			nameTextField.setText(customer.getPostAddress());
-//		} else {
-//			nameTextField.setText("-Postort-");
-//		}
+
 	
 		
 
 		addressTextField = new JTextField();
 		addressTextField.setBounds(16, 79, 248, 28);
 		addressTextField.setColumns(10);
+		addressTextField.setText(customer.getAddress());
 		panel.add(addressTextField);
-//		if(customer != null){
-//			nameTextField.setText(customer.getAddress());
-//		} else {
-//			nameTextField.setText("-Adress-");
-//		}
+
 		
 		
 
 
 		nameTextField.setBounds(16, 46, 155, 28);
-		if(customer != null){
+		if(customer.getFirstName() != null && customer.getFirstName()!= null){
 			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
 			nameTextField.setText("-Förnamn och efternamn-");
@@ -276,6 +272,7 @@ public class CheckOutView extends JFrame {
 		chooseDay.setModel(dayModel);
 
 		JComboBox chooseTime = new JComboBox();
+	
 		chooseTime.setBounds(130, 44, 97, 25);
 		panel_1.add(chooseTime);
 		chooseTime.setModel(timeModel);
