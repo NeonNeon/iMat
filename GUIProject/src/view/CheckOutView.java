@@ -31,7 +31,7 @@ public class CheckOutView extends JFrame {
 	//TODO Functionality: Add the grocerybag in the scrollpane. 
 
 	private static final Model model = Model.getInstance();
-	private static Customer customer = model.getCustomer();
+	private Customer customer;
 	private static List<ShoppingItem> items;
 
 	private JPanel contentPane;
@@ -78,6 +78,7 @@ public class CheckOutView extends JFrame {
 				}
 			}
 		};
+		customer = model.getCustomer();
 		cartController = controller;
 		CheckOutView.items = items;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -204,44 +205,54 @@ public class CheckOutView extends JFrame {
 		nameTextField = new JTextField();
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 89, 28);
-		if(customer != null){
-			nameTextField.setText(customer.getPostCode());
+		postCodeTextField.setColumns(10);
+		panel.add(postCodeTextField);
+		
+		nameTextField.setBounds(16, 46, 155, 28);
+		nameTextField.setColumns(10);
+		panel.add(nameTextField);
+		if(customer.getFirstName() != null){
+			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
 		} else {
-			nameTextField.setText("-Postkod-");
+			nameTextField.setText("-Namn-");
 		}
 		
-		panel.add(postCodeTextField);
-		postCodeTextField.setColumns(10);
+		
+//
+//		if(customer != null){
+//			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
+//		} else {
+//			nameTextField.setText("-F�rnamn och efternamn-");
+//		}
+			
+	
 
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
-		if(customer.getPostAddress()!= null){
-			nameTextField.setText(customer.getPostAddress());
-		} else {
-			nameTextField.setText("-Postort-");
-		}
-		panel.add(cityTextField);
 		cityTextField.setColumns(10);
+		panel.add(cityTextField);
+//		if(customer.getPostAddress()!= null){
+//			nameTextField.setText(customer.getPostAddress());
+//		} else {
+//			nameTextField.setText("-Postort-");
+//		}
+	
+		
 
 		addressTextField = new JTextField();
 		addressTextField.setBounds(16, 79, 248, 28);
-		if(customer != null){
-			nameTextField.setText(customer.getAddress());
-		} else {
-			nameTextField.setText("-Adress-");
-		}
-		panel.add(addressTextField);
 		addressTextField.setColumns(10);
+		panel.add(addressTextField);
+//		if(customer != null){
+//			nameTextField.setText(customer.getAddress());
+//		} else {
+//			nameTextField.setText("-Adress-");
+//		}
+		
+		
 
 		
-		nameTextField.setBounds(16, 46, 155, 28);
-		if(customer != null){
-			nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
-		} else {
-			nameTextField.setText("-F�rnamn och efternamn-");
-		}
-		panel.add(nameTextField);
-		nameTextField.setColumns(10);
+
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 161, 322, 85);

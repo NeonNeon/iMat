@@ -5,6 +5,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import se.chalmers.ait.dat215.project.Product;
+import view.NewCategorys;
 
 public class FrameController implements IObservable{
 private PropertyChangeSupport support = new PropertyChangeSupport(this);
@@ -25,6 +26,9 @@ public FrameController() {
 	}
 	public void showSortiment() {
 		support.firePropertyChange("Sortiment",null,"Sortiment");
+	}
+	public void showCategory(NewCategorys myCategory) {
+		support.firePropertyChange("category", null, myCategory);
 	}
 	
 

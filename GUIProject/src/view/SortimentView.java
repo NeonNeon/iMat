@@ -16,6 +16,8 @@ import java.io.File;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
+import controller.FrameController;
+
 /*
  * A class to represent the SortimentTab
  * A category is represented by a CategoryView
@@ -44,12 +46,14 @@ public class SortimentView extends JPanel {
 	private ImageIcon orter = new ImageIcon("lib/Bildmapp/product_142.jpg");
 	private ImageIcon snacks = new ImageIcon("lib/Bildmapp/product_139.jpg");
 	private double height = (13/3)*375;
+	private FrameController frameController;
 	
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
 	private Color borderColor = Constants.HOVERCOLOR.getColor();
 	
 	
-	public SortimentView() {
+	public SortimentView(FrameController controller) {
+		frameController = controller;
 
 		
 		
@@ -77,19 +81,19 @@ public class SortimentView extends JPanel {
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane);
 		
-		categoryPanel.add(new CategoryView("Grönsaler",gronsaker));
-		categoryPanel.add(new CategoryView("Frukt och bär", frukt));
-		categoryPanel.add(new CategoryView("Baljväxter", baljvaxter));
-		categoryPanel.add(new CategoryView("Potatis och rotfrukter", potatis));
-		categoryPanel.add(new CategoryView("Ris och Pasta", pasta));
-		categoryPanel.add(new CategoryView("Skafferi", skafferi));
-		categoryPanel.add(new CategoryView("Bröd", brod));
-		categoryPanel.add(new CategoryView("Mejeri", mejeri));
-		categoryPanel.add(new CategoryView("Kött", kott));
-		categoryPanel.add(new CategoryView("Fisk och skaldjur", fisk));
-		categoryPanel.add(new CategoryView("Dryck", dryck));
-		categoryPanel.add(new CategoryView("Örter", orter));
-		categoryPanel.add(new CategoryView("Snacks och sötsaker", snacks));
+		categoryPanel.add(new CategoryView("Grï¿½nsaler",gronsaker,frameController,NewCategorys.GRONSAKER));
+		categoryPanel.add(new CategoryView("Frukt och bï¿½r", frukt,frameController,NewCategorys.FRUKT_OCH_BAR));
+		categoryPanel.add(new CategoryView("Baljvï¿½xter", baljvaxter,frameController,NewCategorys.BALJVAXTER));
+		categoryPanel.add(new CategoryView("Potatis och rotfrukter", potatis,frameController,NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
+		categoryPanel.add(new CategoryView("Ris och Pasta", pasta,frameController,NewCategorys.POTATIS_RIS_OCH_ROTFRUKTER));
+		categoryPanel.add(new CategoryView("Skafferi", skafferi,frameController,NewCategorys.SKAFFERI));
+		categoryPanel.add(new CategoryView("Brï¿½d", brod,frameController,NewCategorys.BROD));
+		categoryPanel.add(new CategoryView("Mejeri", mejeri,frameController,NewCategorys.MEJERI));
+		categoryPanel.add(new CategoryView("Kï¿½tt", kott,frameController,NewCategorys.KOTT));
+		categoryPanel.add(new CategoryView("Fisk och skaldjur", fisk,frameController,NewCategorys.FISK_OCH_SKALDJUR));
+		categoryPanel.add(new CategoryView("Dryck", dryck,frameController,NewCategorys.DRYCK));
+		categoryPanel.add(new CategoryView("ï¿½rter", orter,frameController,NewCategorys.ORTER));
+		categoryPanel.add(new CategoryView("Snacks och sï¿½tsaker", snacks,frameController,NewCategorys.SNACKS_OCH_SOTSAKER));
 		
 
 

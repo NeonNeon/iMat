@@ -4,6 +4,7 @@ import se.chalmers.ait.dat215.project.Product;
 import view.AccountView;
 import view.CartView;
 import view.CategoryDetailedView;
+import view.CategoryView;
 import view.FrameView;
 import view.HistoryView;
 import view.Model;
@@ -52,6 +53,7 @@ public class Director implements PropertyChangeListener {
 					searchWord), SORTIMENT);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
+			frame.setTab(0);
 		} else if (evt.getPropertyName().equals("category")) {
 			NewCategorys category = (NewCategorys) evt.getNewValue();
 			cardPanel.add(
@@ -59,6 +61,7 @@ public class Director implements PropertyChangeListener {
 					SORTIMENT);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
+			frame.setTab(0);
 
 			// frame.addSortView(new CategoryDetailedView(category.getName(),
 			// category));
@@ -68,17 +71,25 @@ public class Director implements PropertyChangeListener {
 			cardPanel.add(new SearchResultsView(product), SORTIMENT);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
+			frame.setTab(0);
 			// frame.addSortView(new SearchResultsView(product));
 		} else if (evt.getPropertyName().equals("start")) {
 			cardPanel.add(new StartView(frameController), START);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, START);
+			frame.setTab(0);
 			// frame.addSortView(new StartView(frameController));
 
 			// I dislike the fact that I create a new StartView each time
 			// but it doesnt seem to work with a singleview, it doesnt update
 			// properly
 		} else if (evt.getPropertyName().equals("Sortiment")) {
-			cardPanel.add(new SortimentView(), SORTIMENT);
+			cardPanel.add(sortView, SORTIMENT);
+			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
+			cardPanel.validate();
+			frame.setTab(0);
+		} else if (evt.getPropertyName().equals("category")) {
+			NewCategorys currentCat = (NewCategorys)evt.getNewValue();
+			cardPanel.add(new CategoryDetailedView(currentCat.getName(), currentCat), SORTIMENT);
 			((CardLayout) (cardPanel.getLayout())).show(cardPanel, SORTIMENT);
 			cardPanel.validate();
 			frame.setTab(0);
@@ -89,7 +100,7 @@ public class Director implements PropertyChangeListener {
 	public Director() {
 		frame = new FrameView(frameController);
 		cartController = new CartController();
-		sortView = new SortimentView();
+		sortView = new SortimentView(frameController);
 		// TODO Auto-generated method stub
 		searchView = new SearchView(browseController);
 		browseController.addObeserver(this);

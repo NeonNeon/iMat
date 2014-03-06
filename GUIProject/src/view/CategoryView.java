@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.FrameController;
+
 /**
  * This is the small view of a category when browsing the sortiment.
  * @author Grupp16
@@ -26,10 +28,12 @@ public class CategoryView extends JPanel {
 	private Color hoverColor = Constants.HOVERCOLOR.getColor();
 	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JLabel categoryLabel;
-	
-	public CategoryView(String name, ImageIcon icon) {
+	private FrameController frameController;
+	private NewCategorys myCategory;
+	public CategoryView(String name, ImageIcon icon, FrameController controller,NewCategorys category) {
+		myCategory = category;
 		setBackground(Constants.BACKGROUNDCOLOR.getColor());
-		
+		frameController = controller;
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {
 				categoryLabel.setForeground(hoverColor);
@@ -61,7 +65,7 @@ public class CategoryView extends JPanel {
 		add(imageButton);
 		imageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				frameController.showCategory(myCategory);
 			}
 		});
 		
