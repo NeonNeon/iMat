@@ -70,7 +70,9 @@ public class FrameView extends JFrame {
 		setResizable(false);
 
 	}
-
+	public void setTab(int index) {
+		tabPane.setSelectedIndex(index);
+	}
 	public void addCenter(Container con) {
 		centerPanel.removeAll();
 		centerPanel.add(con);

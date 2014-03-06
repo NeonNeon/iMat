@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -57,6 +59,11 @@ public class CategoryView extends JPanel {
 		imageButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		imageButton.setBounds(12, 49, 176, 192);
 		add(imageButton);
+		imageButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		
 
 	

@@ -8,6 +8,8 @@ import javax.swing.JSplitPane;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.JLabel;
 
 import controller.CartController;
 import se.chalmers.ait.dat215.project.Order;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  * This is the small panel that represents a already bought shoppingcart.
@@ -43,7 +46,19 @@ private ImageIcon cartIcon = new ImageIcon("lib/Bildmapp/CartIcon.png");
 		
 		cartDate = new JLabel("New label");
 		panel.add(cartDate);
-		cartDate.setText(order.getDate().toString());
+		cartDate.setFont(Constants.CATEGORYFONT.getFont());
+		String date = order.getDate().toString();
+		double totalCost = 0;
+		for(ShoppingItem i : this.order.getItems()) {
+			totalCost+=i.getTotal();
+		}
+		date = date.substring(0,11) + date.substring(24,28) + ", pris:" + String.format("%.1f", totalCost) + ":-";
+		cartDate.setText(date);
+		cartDate.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
+				cartController.showOrder(order);
+			}
+		});
 		
 		JButton addToCartBtn = new JButton(cartIcon);
 		addToCartBtn.setBounds(260, 13, 42, 42);

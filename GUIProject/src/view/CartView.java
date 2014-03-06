@@ -324,8 +324,12 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		nameLabel.setText(name);
 	}
 
-	public void setTotalSum(int sum) {
-		totalSumLabel.setText("Summa: " + sum + "kr");
+	public void setTotalSum() {
+		double sum = 0;
+		for(ShoppingItem i : items) {
+			sum+=i.getTotal();
+		}
+		totalSumLabel.setText("Summa: " + String.format("%.1f", sum) + "kr");
 	}
 
 	public String getProfileName() {
@@ -347,6 +351,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			System.out.println("CartView.update() : ");
 		}
 		cartPanelWithItems.repaint();
+		setTotalSum();
 		revalidate();
 	}
 
@@ -372,6 +377,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			}
 		
 		}
+		setTotalSum();
 	}
 
 	public void addAll() {
