@@ -58,7 +58,7 @@ public class ProductView extends JPanel {
 			
 			
 		product = p;
-		setBorder(new LineBorder(Color.WHITE,2));
+		setBorder(new LineBorder(Constants.BACKGROUNDCOLOR.getColor(),2));
 		setBackground(Color.WHITE);
 		
 		setPreferredSize(new Dimension(200, 273));

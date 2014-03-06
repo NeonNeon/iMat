@@ -94,7 +94,7 @@ public class SearchView extends JPanel {
 		logoButton.setForeground(new Color(255, 255, 255));
 		logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		logoButton.setBounds(0, 0, 250, 100);
-		logoButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoButton.setBorder(null);
 		logoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(logoButton);
 

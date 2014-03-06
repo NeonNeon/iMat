@@ -28,7 +28,7 @@ public class StartView extends JPanel {
 	private static final Model model = Model.getInstance();
 	FrameController frameController;
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	//private Color borderColor = Constants.HOVERCOLOR.getColor();
 	private Font textFont = new Font("Tahoma", Font.PLAIN, 13);
 	private Font headerFont = new Font("Tahoma", Font.BOLD, 18);
 	private ImageIcon headerIcon = new ImageIcon("lib/Bildmapp/iMatHeader.jpg");
@@ -38,7 +38,7 @@ public class StartView extends JPanel {
 	public StartView(FrameController controller) {
 		frameController=controller;
 		setBackground(background);
-		setBorder(new LineBorder(borderColor, 2, true));
+		//setBorder(new LineBorder(borderColor, 2, true));
 		
 		setSize(684, 581);
 		setLayout(null);

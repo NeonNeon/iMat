@@ -6,6 +6,7 @@ import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import javax.swing.JLabel;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -18,6 +19,8 @@ import controller.CartController;
 
 import java.awt.Insets;
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * The small panel that lies within the HistoryView. Each CartItemPanel has a
@@ -36,6 +39,8 @@ public class OldCartItemPanel extends JPanel {
 	private ShoppingItem item;
 	private JLabel amountLable;
 	private JLabel nameLabel;
+	
+
 
 	/**
 	 * Create the panel.

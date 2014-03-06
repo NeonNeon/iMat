@@ -107,6 +107,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		setLayout(springLayout);
 
 		namePanel = new JButton();
+		namePanel.setBorder(null);
+		namePanel.setOpaque(true);
 		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.NORTH, namePanel, 0,
 				SpringLayout.NORTH, this);
@@ -120,8 +122,6 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		SpringLayout sl_namePanel = new SpringLayout();
 		namePanel.setLayout(sl_namePanel);
 		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
-		namePanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
-				null, null));
 		namePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		namePanel.addActionListener(myActionListener);
 		namePanel.setActionCommand("profile");
@@ -151,10 +151,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		
 		nameLabel = new JLabel(model.getCustomer().getFirstName()+" " + model.getCustomer().getLastName());
 		nameLabel.setOpaque(true);
-		nameLabel.setInheritsPopupMenu(false);
+		//nameLabel.setInheritsPopupMenu(false);
 		nameLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		nameLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null,
-				null, null));
 		nameLabel.setForeground(Color.WHITE);
 		nameLabel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		sl_namePanel.putConstraint(SpringLayout.NORTH, nameLabel, 0,

@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ import javax.swing.border.LineBorder;
 import controller.CartController;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -31,17 +34,19 @@ private JPanel oldPanel;
 private List<Order> orderList = new ArrayList<Order>();
 private List<OldCartsPanel> panelList = new ArrayList<OldCartsPanel>();
 private Model model = Model.getInstance();
-private Color borderColor = Constants.HOVERCOLOR.getColor();
+//private Color borderColor = Constants.HOVERCOLOR.getColor();
 private CartController cartController;
 private JPanel oldItemsPanel;
 private JScrollPane scrollOldItems;
+
+
 	/**
 	 * Create the panel.
 	 */
 	public HistoryView(CartController controller) {
 		cartController = controller;
 		cartController.addObeserver(this);
-		setBorder(new LineBorder(borderColor, 2, true));
+		//setBorder(new LineBorder(borderColor, 2, true));
 		setSize(684, 631);
 		setLayout(null);
 		JPanel panel = new JPanel();
@@ -91,4 +96,5 @@ private JScrollPane scrollOldItems;
 			oldItemsPanel.revalidate();
 		}
 	}
+	
 }
