@@ -39,6 +39,7 @@ private Model model = Model.getInstance();
 private CartController cartController;
 private JPanel oldItemsPanel;
 private JScrollPane scrollOldItems;
+private double height;
 
 
 	/**
@@ -63,7 +64,8 @@ private JScrollPane scrollOldItems;
 		panel.setLayout(null);
 		oldPanel = new JPanel();
 		oldPanel.setBackground(Color.WHITE);
-		oldPanel.setPreferredSize(new Dimension(320,490));
+		height = panelList.size()*50.0;
+		oldPanel.setPreferredSize(new Dimension(320,(int)height));
 		JScrollPane scrollPane = new JScrollPane(oldPanel);
 		scrollPane.setBounds(0, 77, 326, 498);
 		panel.add(scrollPane);

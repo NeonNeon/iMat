@@ -138,6 +138,7 @@ public class CartItemPanel extends JPanel {
 
 		GridBagConstraints c = new GridBagConstraints();
 		plusButton = new JButton(plusIcon);
+		plusButton.setToolTipText("Öka antal");
 		plusButton.setBackground(backGround);
 		plusButton.setBorder(null);
 		plusButton.addMouseListener(myMouseListener);
@@ -165,6 +166,7 @@ public class CartItemPanel extends JPanel {
 		buttonPanel.add(plusButton, gbc_plusButton);
 
 		minusButton = new JButton(minusIcon);
+		minusButton.setToolTipText("Minska antal");
 		minusButton.setBackground(backGround);
 		minusButton.setOpaque(true);
 		minusButton.setBorder(null);
