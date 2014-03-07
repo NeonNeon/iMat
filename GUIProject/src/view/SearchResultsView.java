@@ -86,6 +86,7 @@ public class SearchResultsView extends JPanel {
 		resultPanel.setPreferredSize(new Dimension(664,(int)height));
 //		resultPanel.setMinimumSize(new Dimension(664,1500));
 		resultScrollPane = new JScrollPane(resultPanel);
+		resultScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		resultScrollPane.setBounds(10, 77, 664,501 );
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
