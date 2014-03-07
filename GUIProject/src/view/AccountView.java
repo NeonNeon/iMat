@@ -1,9 +1,11 @@
 package view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
 import controller.CartController;
 
 import java.awt.Color;
+import java.awt.Cursor;
 
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
@@ -382,6 +384,8 @@ public class AccountView extends JPanel {
 		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
 		saveButton.setForeground(Color.WHITE);
 		saveButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		saveButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
 		firstName.setText(customer.getFirstName());
 		lastName.setText(customer.getLastName());
 		addressTextField.setText(customer.getAddress());

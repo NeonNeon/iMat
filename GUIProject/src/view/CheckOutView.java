@@ -1,6 +1,7 @@
 package view;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -88,6 +89,7 @@ public class CheckOutView extends JDialog {
 					else if(evt.getActionCommand().equals("change")){
 						changeButton.setText("Spara");
 						changeButton.setActionCommand("save");
+						changeButton.setToolTipText("Spara uppgifter");
 						setEditability(true);
 						payButton1.setEnabled(false);
 						
@@ -97,6 +99,7 @@ public class CheckOutView extends JDialog {
 					else if(evt.getActionCommand().equals("save")){
 						changeButton.setText("Ändra");
 						changeButton.setActionCommand("change");
+						changeButton.setToolTipText("Ändra uppgifter");
 						setEditability(false);
 						payButton1.setEnabled(true);
 					}
@@ -144,11 +147,13 @@ public class CheckOutView extends JDialog {
 		}
 		
 		payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
+		payButton1.setToolTipText("Genomför köp");
 		payButton1.setForeground(Color.WHITE);
 		payButton1.setOpaque(true);
 		payButton1.setBorder(null);
 		payButton1.setFont(Constants.HEADERFONT.getFont());
 		payButton1.setBackground(Constants.BUTTONCOLOR.getColor());
+		payButton1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		payButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		payButton1.setBounds(435, 488, 192, 55);
 		payButton1.setActionCommand("pay");
@@ -163,6 +168,8 @@ public class CheckOutView extends JDialog {
 		card2.add(headLabel);
 
 		JButton abortButton1 = new JButton("Avbryt");
+		abortButton1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		abortButton1.setToolTipText("Avbryt köp");
 		abortButton1.setForeground(Color.WHITE);
 		abortButton1.setOpaque(true);
 		abortButton1.setBorder(null);
@@ -296,6 +303,8 @@ public class CheckOutView extends JDialog {
 		panel_1.add(deliveryDay);
 		
 		changeButton = new JButton("Ändra");
+		changeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		changeButton.setToolTipText("Ändra uppgifter");
 		changeButton.setFont(Constants.HEADERFONT.getFont());
 		changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		changeButton.setForeground(Color.WHITE);
