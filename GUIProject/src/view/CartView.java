@@ -190,7 +190,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -9, SpringLayout.SOUTH, cartPanel);
 		buyButton.setBorder(null);
 		buyButton.setOpaque(true);
-		buyButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		buyButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		buyButton.setForeground(Color.WHITE);
 		buyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buyButton.setToolTipText("Ta mig till kassan");
@@ -208,7 +208,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
 		saveCartButton.setBorder(null);
 		saveCartButton.setOpaque(true);
-		saveCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		saveCartButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		saveCartButton.setForeground(Color.WHITE);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton, -55, SpringLayout.SOUTH, cartPanel);
 		saveCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -229,7 +229,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton, -10, SpringLayout.EAST, cartPanel);
 		emptyCartButton.setBorder(null);
 		emptyCartButton.setOpaque(true);
-		emptyCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		emptyCartButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		emptyCartButton.setForeground(Color.WHITE);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -6, SpringLayout.NORTH, buyButton);
 		emptyCartButton.setToolTipText("Tšm varukorgen");

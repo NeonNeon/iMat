@@ -144,9 +144,13 @@ public class CheckOutView extends JDialog {
 		}
 		
 		payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
-		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
+		payButton1.setForeground(Color.WHITE);
+		payButton1.setOpaque(true);
+		payButton1.setBorder(null);
+		payButton1.setFont(Constants.HEADERFONT.getFont());
+		payButton1.setBackground(Constants.BUTTONCOLOR.getColor());
 		payButton1.setHorizontalAlignment(SwingConstants.CENTER);
-		payButton1.setBounds(435, 475, 192, 55);
+		payButton1.setBounds(435, 488, 192, 55);
 		payButton1.setActionCommand("pay");
 		payButton1.addActionListener(myActionListener);
 		card2.add(payButton1);;
@@ -159,8 +163,12 @@ public class CheckOutView extends JDialog {
 		card2.add(headLabel);
 
 		JButton abortButton1 = new JButton("Avbryt");
-		abortButton1.setBounds(16, 475, 146, 55);
-		abortButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
+		abortButton1.setForeground(Color.WHITE);
+		abortButton1.setOpaque(true);
+		abortButton1.setBorder(null);
+		abortButton1.setBounds(16, 488, 146, 55);
+		abortButton1.setBackground(Constants.BUTTONCOLOR.getColor());
+		abortButton1.setFont(Constants.HEADERFONT.getFont());
 		abortButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		abortButton1.setActionCommand("abort");
 		abortButton1.addActionListener(myActionListener);
@@ -288,7 +296,12 @@ public class CheckOutView extends JDialog {
 		panel_1.add(deliveryDay);
 		
 		changeButton = new JButton("Ändra");
-		changeButton.setBounds(192, 475, 146, 55);
+		changeButton.setFont(Constants.HEADERFONT.getFont());
+		changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
+		changeButton.setForeground(Color.WHITE);
+		changeButton.setBorder(null);
+		changeButton.setOpaque(true);
+		changeButton.setBounds(192, 488, 146, 55);
 		changeButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		changeButton.setHorizontalAlignment(SwingConstants.CENTER);
 		changeButton.setActionCommand("change");
