@@ -81,7 +81,7 @@ public class StartView extends JPanel {
 		offerPanel.setBackground(background);
 		offerPanel.setBounds(10, 330, 664, 240);
 		add(offerPanel);
-		offerPanel.setLayout(new GridLayout(1, 0, 0, 0));
+		offerPanel.setLayout(new GridLayout(1, 0, 6, 0));
 		
 		JLabel lblVeckansErbjudanden = new JLabel("Veckans erbjudanden!");
 		lblVeckansErbjudanden.setFont(headerFont);

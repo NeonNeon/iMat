@@ -57,7 +57,7 @@ public class Tab extends JPanel {
 		this.name = name;
 		frameController = controller;
 		setBorder(null);
-		setPreferredSize(new Dimension(113,45));
+		setPreferredSize(new Dimension(114,45));
 		setBackground(new Color(245,245,245));
 		nameOfTab = new JLabel(name);
 		nameOfTab.setHorizontalAlignment(SwingConstants.CENTER);

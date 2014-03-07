@@ -48,7 +48,7 @@ public class FrameView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(backGround);
+		contentPane.setBackground(Constants.CONTRASTCOLOR.getColor());
 
 		leftPanel = new JPanel();
 		leftPanel.setBounds(0, 0, 250, 679);
@@ -62,6 +62,7 @@ public class FrameView extends JFrame {
 
 		centerPanel = new JPanel();
 		centerPanel.setBounds(250, 50, 684, 631);
+		centerPanel.setBackground(Constants.CONTRASTCOLOR.getColor());
 		contentPane.add(centerPanel);
 		centerPanel.setLayout(new GridLayout(1, 1));
 
