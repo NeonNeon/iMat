@@ -232,7 +232,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		emptyCartButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		emptyCartButton.setForeground(Color.WHITE);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -6, SpringLayout.NORTH, buyButton);
-		emptyCartButton.setToolTipText("Tšm varukorgen");
+		emptyCartButton.setToolTipText("Töm kundvagn");
 
 		emptyCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton,
