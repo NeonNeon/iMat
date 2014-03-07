@@ -22,8 +22,6 @@ import controller.FrameController;
  *
  */
 public class CategoryView extends JPanel {
-	private final static Model model = Model
-			.getInstance();
 	private String name;
 	private ImageIcon icon;
 	private Color hoverColor = Constants.HOVERCOLOR.getColor();

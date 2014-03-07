@@ -31,8 +31,8 @@ import java.awt.event.MouseEvent;
  * A class to represent an iMat  product
  */
 public class ProductView extends JPanel {
-	private static final int WIDTH = 170;
-	private static final int HEIGHT = 216;
+	//private static final int WIDTH = 170;
+	//private static final int HEIGHT = 216;
 	private static final Model model = Model.getInstance();
 	private final Product product;
 	private JButton favouriteButton, addToListButton, addToCartButton;
@@ -41,7 +41,7 @@ public class ProductView extends JPanel {
 	private ImageIcon favoriteIcon = new ImageIcon("lib/Bildmapp/FavoriteIcon.png");
 	private ImageIcon favoriteIconFilled = new ImageIcon("lib/Bildmapp/FavoriteIconFilled.png");
 	private JSpinner spinner;
-	private Color backGround = new Color(245,245,245);
+	//private Color backGround = new Color(245,245,245);
 	
 	
 
