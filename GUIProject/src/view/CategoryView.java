@@ -45,6 +45,10 @@ public class CategoryView extends JPanel {
 			public void mouseExited(MouseEvent ev){
 				categoryLabel.setForeground(originalColor);
 			}
+			
+			public void mouseClicked(MouseEvent evt){
+				frameController.showCategory(myCategory);
+			}
 		};
 		
 		
@@ -55,9 +59,10 @@ public class CategoryView extends JPanel {
 		
 		categoryLabel = new JLabel(name, JLabel.CENTER);
 		categoryLabel.setBounds(12, 13, 176, 40);
-		categoryLabel.setFont(Constants.CATEGORYFONT.getFont());
+		categoryLabel.setFont(new Font("Adobe Heiti Std", Font.PLAIN, 20));
 		categoryLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		categoryLabel.addMouseListener(myMouseListener);
+		
 		add(categoryLabel);
 		
 		JButton imageButton = new JButton(icon);

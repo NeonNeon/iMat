@@ -15,6 +15,7 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
@@ -28,12 +29,12 @@ import javax.swing.border.LineBorder;
 import controller.CartController;
 import controller.BrowseController;
 import controller.FrameController;
-
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
+
 import javax.swing.border.SoftBevelBorder;
 
 /**
@@ -76,8 +77,8 @@ public class CartView extends JPanel implements ShoppingCartListener,
 				if (!model.getShoppingCart().getItems().isEmpty()) {
 					CheckOutView c = new CheckOutView(currentItems,
 							cartController);
-					c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					c.setVisible(true);
+					c.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+					
 				}
 
 			} else if (evt.getActionCommand().equals("save")) {
@@ -85,7 +86,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			} else if (evt.getActionCommand().equals("empty")) {
 				if (!model.getShoppingCart().getItems().isEmpty()) {
 					int reply = JOptionPane.showConfirmDialog(null,
-							"Vill du verkligen tï¿½mma din varukorg?", "Varning",
+							"Vill du verkligen tömma din varukorg?", "Varning",
 							JOptionPane.YES_NO_OPTION);
 					if (reply == JOptionPane.YES_OPTION) {
 						emptyCart();
@@ -199,6 +200,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		cartPanel.add(varukorgLabel);
 
 		buyButton = new JButton("Betala");
+		buyButton.setToolTipText("Betala varukorgen");
 		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, -50,
 				SpringLayout.SOUTH, cartPanel);
@@ -214,6 +216,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		cartPanel.add(buyButton);
 
 		saveCartButton = new JButton("Spara");
+		saveCartButton.setToolTipText("Spara som lista");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, saveCartButton,
 				COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton,
@@ -226,6 +229,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		cartPanel.add(saveCartButton);
 
 		emptyCartButton = new JButton("Tom");
+		emptyCartButton.setToolTipText("Töm varukorgen");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton,
 				COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.EAST,
 				saveCartButton);

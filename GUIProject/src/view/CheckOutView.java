@@ -11,6 +11,7 @@ import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -21,12 +22,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.BrowseController;
 import controller.CartController;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 
-public class CheckOutView extends JFrame {
+public class CheckOutView extends JDialog {
 
 	//TODO Functionality: Add the grocerybag in the scrollpane. 
 
@@ -48,6 +50,7 @@ public class CheckOutView extends JFrame {
 	private JTextField expiresMonth;
 	private JTextField expiresYear;
 	private CartController cartController;
+	private BrowseController browseController;
 	private JPanel recieptItemsPanel;
 	private JButton changeButton, payButton1;
 	private JComboBox chooseDay, chooseTime,cardType;
@@ -59,11 +62,12 @@ public class CheckOutView extends JFrame {
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
 
 
-
+	
 	/**
 	 * Create the frame.
 	 */
 	public CheckOutView(List<ShoppingItem> items,CartController controller) {
+	
 		ActionListener myActionListener = new ActionListener(){
 
 			@Override
@@ -71,11 +75,15 @@ public class CheckOutView extends JFrame {
 				if(evt.getActionCommand().equals("pay")){
 					model.placeOrder(true);
 					cartController.emptyCart();
+					setModal(false);
 					dispose();
-					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Välkommen åter!", "Bekräftelse", 1);
+					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Ditt köp är nu registrerat. Välkommen åter!", "Bekräftelse av köp", 1);
+					//hide();
+					setFocusable(false);
 				} 
 					else if(evt.getActionCommand().equals("abort")){
 						dispose();
+						
 				} 
 					else if(evt.getActionCommand().equals("change")){
 						changeButton.setText("Spara");
@@ -94,11 +102,13 @@ public class CheckOutView extends JFrame {
 					}
 			}
 		};
+		setModalityType(ModalityType.TOOLKIT_MODAL);
+		//setModal(true);
+		
 		
 		customer = model.getCustomer();
 		cartController = controller;
 		CheckOutView.items = items;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBackground(Constants.BACKGROUNDCOLOR.getColor());
@@ -132,7 +142,6 @@ public class CheckOutView extends JFrame {
 			recieptItemsPanel.add(new OldCartItemPanel(item));
 			totalSum+=item.getTotal();
 		}
-		
 		
 		payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
 		payButton1.setFont(new Font("Gill Sans", Font.PLAIN, 20));
