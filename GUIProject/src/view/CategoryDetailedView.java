@@ -40,7 +40,7 @@ public class CategoryDetailedView extends JPanel {
 		pl = model.getProducts(nc);
 		
 		
-		setBackground(Color.WHITE);
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		setBounds(260,0,684, 581);
 		setLayout(null);
 		

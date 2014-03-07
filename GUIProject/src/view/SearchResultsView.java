@@ -31,7 +31,7 @@ public class SearchResultsView extends JPanel {
 	JLabel resultLabel = new JLabel();
 	JPanel resultPanel = new JPanel();
 	private double height;
-	private Color backGround = new Color(245,245,245);
+	private Color background = new Color(245,245,245);
 	
 	private Color borderColor = new Color(255, 105, 64);
 	
@@ -40,7 +40,7 @@ public class SearchResultsView extends JPanel {
 	 */
 	public SearchResultsView() {
 		//setBorder(new LineBorder(borderColor, 4, true));
-		setBackground(Color.WHITE);
+		setBackground(background);
 		
 		setSize(684, 631);
 		setLayout(null);

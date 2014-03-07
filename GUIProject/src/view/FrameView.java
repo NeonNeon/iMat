@@ -52,20 +52,24 @@ public class FrameView extends JFrame {
 
 		leftPanel = new JPanel();
 		leftPanel.setBounds(0, 0, 250, 679);
+		leftPanel.setBackground(backGround);
 		contentPane.add(leftPanel);
 		leftPanel.setLayout(new GridLayout(1, 1));
 
 		rightPanel = new JPanel();
 		rightPanel.setBounds(935, 0, 262, 679);
 		contentPane.add(rightPanel);
+		rightPanel.setBackground(backGround);
 		rightPanel.setLayout(new GridLayout(1, 1));
 
 		centerPanel = new JPanel();
 		centerPanel.setBounds(250, 50, 684, 631);
 		contentPane.add(centerPanel);
+		centerPanel.setBackground(backGround);
 		centerPanel.setLayout(new GridLayout(1, 1));
 
 		tabPane = new JTabbedPane();
+		tabPane.setBackground(backGround);
 		addCenter(tabPane);
 		setResizable(false);
 

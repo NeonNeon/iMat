@@ -54,8 +54,6 @@ public class SortimentView extends JPanel {
 	
 	public SortimentView(FrameController controller) {
 		frameController = controller;
-
-		
 		
 		setSize(684,681);
 		setLayout(null);
@@ -68,17 +66,15 @@ public class SortimentView extends JPanel {
 		add(rubrikLabel);
 		
 		
-		
-		
-		
-		
-		
 		JPanel categoryPanel = new JPanel();
-		categoryPanel.setBackground(Color.WHITE);
+		categoryPanel.setBorder(null);
+		categoryPanel.setBackground(background);
 		categoryPanel.setPreferredSize(new Dimension(684,(int)height));
 		categoryPanel.setLayout(new GridLayout(0,3));
 	
 		JScrollPane scrollPane = new JScrollPane(categoryPanel);
+		scrollPane.setForeground(Constants.TEXTCOLOR.getColor());
+		scrollPane.setBackground(background);
 		scrollPane.setBounds(0, 83, 684, 533);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		add(scrollPane);

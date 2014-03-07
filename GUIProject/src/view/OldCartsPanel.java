@@ -42,8 +42,7 @@ private MouseListener mouseListener = new MouseListener(){
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		cartController.showOrder(order);		
 	}
 
 	@Override
@@ -74,8 +73,9 @@ private MouseListener mouseListener = new MouseListener(){
 	 * Create the panel.
 	 */
 	public OldCartsPanel(Order newOrder,CartController controller) {
-		setBackground(Color.WHITE);
-		setBorder(new LineBorder(Constants.BACKGROUNDCOLOR.getColor(),3));
+		addMouseListener(mouseListener);
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		setBorder(new LineBorder(Color.WHITE,3));
 		addMouseListener(mouseListener);
 		cartController = controller;
 		this.order = newOrder;
@@ -83,7 +83,8 @@ private MouseListener mouseListener = new MouseListener(){
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.addMouseListener(mouseListener);
+		panel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		panel.setToolTipText("Fšrhandsvisa kundvagn");
 		panel.setBounds(6, 6, 254, 58);
 		add(panel);
@@ -103,11 +104,7 @@ private MouseListener mouseListener = new MouseListener(){
 		}
 		date = date.substring(0,11) + date.substring(24,28) + ", pris:" + String.format("%.1f", totalCost) + ":-";
 		cartDate.setText(date);
-		cartDate.addMouseListener(new MouseAdapter(){
-			public void mouseClicked(MouseEvent e){
-				cartController.showOrder(order);
-			}
-		});
+		cartDate.addMouseListener(mouseListener);
 		
 		JButton addToCartBtn = new JButton(cartIcon);
 		addToCartBtn.setToolTipText("LŠgg till i varukorg");

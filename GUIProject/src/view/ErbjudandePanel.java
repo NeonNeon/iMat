@@ -12,6 +12,8 @@ import se.chalmers.ait.dat215.project.Product;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import se.chalmers.ait.dat215.project.*;
 import se.chalmers.ait.dat215.project.util.*;
@@ -36,11 +38,41 @@ public class ErbjudandePanel extends JPanel {
 	private JButton productButton;
 	private FrameController frameController;
 	private Product product;
-	private Color background = new Color(255, 243, 240);
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
+	private Color borderColor = Constants.BACKGROUNDCOLOR.getColor();
 	private Color priceColor = Color.WHITE;
 	private Font nameFont = Constants.TEXTFONT.getFont();
 	private Font priceFont = Constants.HEADERFONT.getFont();
+	
+	private MouseListener mouseListener= new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			frameController.weeksOffer(product);
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			setCursor(new Cursor(Cursor.HAND_CURSOR));
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 
 	/**
 	 * Create the panel.
@@ -48,7 +80,7 @@ public class ErbjudandePanel extends JPanel {
 	public ErbjudandePanel(Product p, FrameController controller) {
 		product = p;
 		frameController = controller;
-		setBorder(new LineBorder(borderColor, 1, true));
+		setBorder(null);
 		setBackground(Constants.CONTRASTCOLOR.getColor());
 		
 		setSize(221, 238);
@@ -60,6 +92,7 @@ public class ErbjudandePanel extends JPanel {
 		nameLabel.setBounds(7, 156, 201, 33);
 		nameLabel.setForeground(Constants.TEXTCOLORLIGHT.getColor());
 		nameLabel.setFont(Constants.CATEGORYCLICKEDFONT.getFont());
+		nameLabel.addMouseListener(mouseListener);
 		add(nameLabel);
 		
 		priceLabel = new JLabel();
@@ -67,18 +100,16 @@ public class ErbjudandePanel extends JPanel {
 		priceLabel.setForeground(priceColor);
 		priceLabel.setFont(priceFont);
 		priceLabel.setBounds(7, 188, 201, 44);
+		priceLabel.addMouseListener(mouseListener);
 		add(priceLabel);
 		
 		productButton = new JButton();
 		productButton.setBounds(7, 11, 201, 135);
 		add(productButton);
-		productButton.setBorder(new LineBorder(borderColor, 1, true));
+		productButton.setBorder(null);
 		productButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		productButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frameController.weeksOffer(product);
-			}
-		});
+		productButton.addMouseListener(mouseListener);
+		//productButton.addActionListener(actionListener);
 		
 		productButton.setIcon(model.getImageIcon(p));
 		//productButton.setBounds(r);

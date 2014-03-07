@@ -133,18 +133,6 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		namePanel.setActionCommand("profile");
 		add(namePanel);
 
-		/*
-		 * logoButton = new JButton("iMat"); logoButton.setOpaque(true);
-		 * logoButton.addActionListener(new ActionListener() { public void
-		 * actionPerformed(ActionEvent arg0) { browseController.startView(); }
-		 * }); logoButton.setFont(new Font("Gill Sans", Font.PLAIN, 50));
-		 * logoButton.setForeground(new Color(255, 255, 255));
-		 * logoButton.setBackground(Constants.CONTRASTCOLOR.getColor());
-		 * logoButton.setBounds(0, 0, 250, 100); logoButton.setBorder(new
-		 * BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		 * logoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		 */
-
 		cartPanel = new JPanel();
 		cartPanel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		springLayout.putConstraint(SpringLayout.SOUTH, cartPanel, 581,
@@ -200,58 +188,64 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		cartPanel.add(varukorgLabel);
 
 		buyButton = new JButton("Betala");
+		buyButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -9, SpringLayout.SOUTH, cartPanel);
+		buyButton.setBorder(null);
+		buyButton.setOpaque(true);
+		buyButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		buyButton.setForeground(Color.WHITE);
+		buyButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buyButton.setToolTipText("Betala varukorgen");
 		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, -50,
-				SpringLayout.SOUTH, cartPanel);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, buyButton,
 				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST,
 				varukorgLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, buyButton,
 				COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton,
-				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, cartPanel);
 		buyButton.setActionCommand("pay");
 		buyButton.addActionListener(myActionListener);
 		cartPanel.add(buyButton);
 
 		saveCartButton = new JButton("Spara");
+		saveCartButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
+		saveCartButton.setBorder(null);
+		saveCartButton.setOpaque(true);
+		saveCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		saveCartButton.setForeground(Color.WHITE);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton, -55, SpringLayout.SOUTH, cartPanel);
+		saveCartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		saveCartButton.setToolTipText("Spara som lista");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, saveCartButton,
 				COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton,
-				-COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.NORTH,
-				buyButton);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, saveCartButton, -127,
 				SpringLayout.EAST, cartPanel);
 		saveCartButton.setActionCommand("save");
 		saveCartButton.addActionListener(myActionListener);
 		cartPanel.add(saveCartButton);
 
-		emptyCartButton = new JButton("Tom");
+		emptyCartButton = new JButton("Tšm");
+		emptyCartButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, emptyCartButton, 0, SpringLayout.NORTH, saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton, 5, SpringLayout.EAST, saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton, -10, SpringLayout.EAST, cartPanel);
+		emptyCartButton.setBorder(null);
+		emptyCartButton.setOpaque(true);
+		emptyCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
+		emptyCartButton.setForeground(Color.WHITE);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -6, SpringLayout.NORTH, buyButton);
+		emptyCartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		emptyCartButton.setToolTipText("Töm varukorgen");
-		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton,
-				COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.EAST,
-				saveCartButton);
-		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton,
-				-COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.NORTH,
-				buyButton);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton,
-				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
 		emptyCartButton.setActionCommand("empty");
 		emptyCartButton.addActionListener(myActionListener);
 		cartPanel.add(emptyCartButton);
 
 		totalSumLabel = new JLabel("Summa: XXX kr");
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, saveCartButton, 6, SpringLayout.SOUTH, totalSumLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, totalSumLabel,
-				4 * COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST,
+				44, SpringLayout.WEST,
 				varukorgLabel);
-		sl_cartPanel.putConstraint(SpringLayout.SOUTH, totalSumLabel,
-				-COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.NORTH,
-				saveCartButton);
-		sl_cartPanel.putConstraint(SpringLayout.EAST, totalSumLabel, -4
-				* COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST,
-				varukorgLabel);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, totalSumLabel, -36, SpringLayout.EAST, cartPanel);
 		totalSumLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		totalSumLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		cartPanel.add(totalSumLabel);
@@ -266,20 +260,16 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		cartPanelWithItems.setBackground(Color.WHITE);
 
 		scrollCartPane = new JScrollPane(cartPanelWithItems);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane, 3, SpringLayout.SOUTH, varukorgLabel);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane, -120, SpringLayout.SOUTH, cartPanel);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, totalSumLabel, 6, SpringLayout.SOUTH, scrollCartPane);
 		scrollCartPane
 				.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollCartPane.setBackground(Color.WHITE);
 		scrollCartPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1,
 				true));
-
-		sl_cartPanel.putConstraint(SpringLayout.SOUTH, scrollCartPane,
-				-COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.NORTH,
-				totalSumLabel);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, scrollCartPane,
 				COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, scrollCartPane,
-				COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.SOUTH,
-				nameLabel);
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane,
 				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST,
 				varukorgLabel);

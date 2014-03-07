@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 public class ListView extends JPanel {
 	
 	private Color background = Constants.BACKGROUNDCOLOR.getColor();
-	private Color borderColor = Constants.HOVERCOLOR.getColor();
 	
 
 	/**
@@ -23,7 +22,6 @@ public class ListView extends JPanel {
 		setLayout(null);
 		
 		setBackground(background);
-		setBorder(new LineBorder(borderColor, 2, true));
 		
 		JLabel lblMinaListor = new JLabel("Mina listor");
 		lblMinaListor.setFont(Constants.SUCHFONT.getFont());

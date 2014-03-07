@@ -72,17 +72,17 @@ public class ProductView extends JPanel {
 		JLabel nameLabel = new JLabel(p.getName());
 		nameLabel.setFont(Constants.CATEGORYFONT.getFont());
 		nameLabel.setForeground((Color.BLACK));
-		nameLabel.setBounds(10, 147, 130, 20);
+		nameLabel.setBounds(23, 148, 130, 43);
 		add(nameLabel);
 		
 		JLabel priceLabel = new JLabel(p.getPrice()+" kr/"+p.getUnitSuffix());
 		priceLabel.setForeground(Color.BLACK);
-		priceLabel.setFont(Constants.CATEGORYFONT.getFont());
-		priceLabel.setBounds(10, 182, 130, 25);
+		priceLabel.setFont(Constants.CATEGORYCLICKEDFONT.getFont());
+		priceLabel.setBounds(23, 181, 130, 34);
 		add(priceLabel);
 		
 		JSpinner spinner_1 = new JSpinner(new SpinnerNumberModel(1.0,0.0,99.0,1.0));
-		spinner_1.setBounds(10, 235, 44, 25);
+		spinner_1.setBounds(23, 227, 44, 34);
 		spinner = (product.getUnitSuffix().equals("kg")) 
 				? new DoubleSpinner() : spinner_1;
 		spinner.setBounds(20, 220, 50, 20);
@@ -93,7 +93,7 @@ public class ProductView extends JPanel {
 			
 		
 		favouriteButton.setToolTipText("L\u00E4gg till som favorit");
-		favouriteButton.setBounds(152, 138, 36, 34);
+		favouriteButton.setBounds(152, 142, 36, 34);
 		
 		if(model.isFavorite(p))
 			favouriteButton.setIcon(favoriteIconFilled);
@@ -128,7 +128,7 @@ public class ProductView extends JPanel {
 		
 		addToListButton = new JButton(listIcon);
 		addToListButton.setToolTipText("L\u00E4gg till i lista");
-		addToListButton.setBounds(152, 178, 36, 34);
+		addToListButton.setBounds(152, 181, 36, 34);
 		addToListButton.addMouseListener(myMouseListener);
 		addToListButton.setBackground(null);
 		addToListButton.setBorder(null);
@@ -137,7 +137,7 @@ public class ProductView extends JPanel {
 		
 		addToCartButton = new JButton(cartIcon);
 		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
-		addToCartButton.setBounds(152, 220, 36, 40);
+		addToCartButton.setBounds(144, 218, 44, 43);
 		addToCartButton.setBackground(null);
 		addToCartButton.setBorder(null);
 		addToCartButton.setOpaque(true);

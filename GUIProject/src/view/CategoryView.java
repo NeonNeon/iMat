@@ -31,26 +31,24 @@ public class CategoryView extends JPanel {
 	private JLabel categoryLabel;
 	private FrameController frameController;
 	private NewCategorys myCategory;
+	
+	
 	public CategoryView(String name, ImageIcon icon, FrameController controller,NewCategorys category) {
+		
 		myCategory = category;
-		setBackground(Color.WHITE);
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		frameController = controller;
 		MouseAdapter myMouseListener = new MouseAdapter(){
 			public void mouseEntered(MouseEvent e) {
-				categoryLabel.setForeground(hoverColor);
-					
-				
+				categoryLabel.setForeground(hoverColor);	
 			}
-			
 			public void mouseExited(MouseEvent ev){
 				categoryLabel.setForeground(originalColor);
 			}
-			
 			public void mouseClicked(MouseEvent evt){
 				frameController.showCategory(myCategory);
 			}
 		};
-		
 		
 		this.name = name;
 		this.icon = icon;
@@ -61,6 +59,7 @@ public class CategoryView extends JPanel {
 		categoryLabel.setBounds(12, 13, 176, 40);
 		categoryLabel.setFont(new Font("Adobe Heiti Std", Font.PLAIN, 20));
 		categoryLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		categoryLabel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		categoryLabel.addMouseListener(myMouseListener);
 		
 		add(categoryLabel);

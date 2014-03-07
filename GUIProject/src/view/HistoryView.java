@@ -51,15 +51,17 @@ private double height;
 		//setBorder(new LineBorder(borderColor, 2, true));
 		setSize(684, 631);
 		setLayout(null);
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		
 		JLabel lblHistorik = new JLabel("Historik");
 		lblHistorik.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHistorik.setBounds(12, 6, 660, 65);
+		lblHistorik.setBounds(12, 6, 642, 65);
 		add(lblHistorik);
 		lblHistorik.setForeground(Constants.TEXTCOLOR.getColor());
 		lblHistorik.setFont(Constants.SUCHFONT.getFont());
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 6, 332, 613);
+		panel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		add(panel);
 		panel.setLayout(null);
 		oldPanel = new JPanel();
