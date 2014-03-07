@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -105,12 +107,12 @@ public class SearchView extends JPanel {
 		searchField.setColumns(10);
 		searchField.setText("Sök..");
 		searchField.setFont(new Font("Gill Sans", Font.PLAIN, 30));
-		searchField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				search();
-				searchField.setText("Sök..");
-			}
-		});
+//		searchField.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				search();
+//				searchField.setText("Sök..");
+//			}
+//		});
 		searchField.addMouseListener(new MouseAdapter(){
 			public void mouseExited(MouseEvent e){
 				searchField.setText("Sök...");
@@ -124,6 +126,17 @@ public class SearchView extends JPanel {
 			
 
 			
+		});
+		
+		searchField.addKeyListener(new KeyAdapter(){
+			public void keyReleased(KeyEvent e){
+				
+				
+				search();
+			}
+		
+		
+		
 		});
 
 
