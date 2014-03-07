@@ -59,7 +59,9 @@ public class CategoryView extends JPanel {
 		categoryLabel.setBounds(12, 13, 176, 40);
 		categoryLabel.setFont(new Font("Adobe Heiti Std", Font.PLAIN, 20));
 		categoryLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		categoryLabel.setForeground(originalColor);
 		categoryLabel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
+	
 		categoryLabel.addMouseListener(myMouseListener);
 		
 		add(categoryLabel);
