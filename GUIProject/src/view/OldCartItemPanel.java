@@ -49,8 +49,8 @@ public class OldCartItemPanel extends JPanel {
 	 * @wbp.parser.constructor
 	 */
 	public OldCartItemPanel(ShoppingItem item) {
-		setBorder(new LineBorder(Constants.BACKGROUNDCOLOR.getColor()));
-		setBackground(Color.WHITE);
+		setBorder(new LineBorder(Color.WHITE, 3));
+		setBackground(Constants.BACKGROUNDCOLOR.getColor());
 		this.item = item;
 		setPreferredSize(new Dimension(300, 50));
 		setMinimumSize(new Dimension(300, 50));
@@ -66,8 +66,8 @@ public class OldCartItemPanel extends JPanel {
 		amountLable = new JLabel();
 		springLayout.putConstraint(SpringLayout.NORTH, amountLable, -48, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, amountLable, 0, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -33, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, amountLable, -94, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, 0, SpringLayout.SOUTH, nameLabel);
+		springLayout.putConstraint(SpringLayout.EAST, amountLable, -6, SpringLayout.WEST, nameLabel);
 		amountLable.setHorizontalAlignment(SwingConstants.CENTER);
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix(),item.getProduct().getName());
 		setCost();
