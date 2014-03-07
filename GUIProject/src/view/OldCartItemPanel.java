@@ -58,21 +58,21 @@ public class OldCartItemPanel extends JPanel {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		nameLabel = new JLabel();
-		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		springLayout.putConstraint(SpringLayout.NORTH, nameLabel, 19, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 48, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, nameLabel, -10, SpringLayout.EAST, this);
+		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		amountLable = new JLabel();
-		springLayout.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, amountLable);
-		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 6, SpringLayout.EAST, amountLable);
-		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, 0, SpringLayout.SOUTH, amountLable);
+		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 1, SpringLayout.EAST, amountLable);
+		springLayout.putConstraint(SpringLayout.WEST, amountLable, 0, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.EAST, amountLable, -94, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, 0, SpringLayout.SOUTH, this);
+		amountLable.setHorizontalAlignment(SwingConstants.CENTER);
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix(),item.getProduct().getName());
 		setCost();
-		
-		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, -COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.SOUTH, this);
-		amountLable.setFont(new Font("Dialog", Font.BOLD, 14));
-		springLayout.putConstraint(SpringLayout.NORTH, amountLable, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, amountLable, COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, this);
+		amountLable.setFont(Constants.TEXTFONT.getFont());
 		add(amountLable);
-		nameLabel.setFont(new Font("Dialog", Font.BOLD, 14));
+		nameLabel.setFont(Constants.TEXTFONT.getFont());
 		add(nameLabel);
 		
 		
