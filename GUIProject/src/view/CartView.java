@@ -185,14 +185,13 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
 
-
+		buyButton = new JButton("Till kassan");
 		buyButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -9, SpringLayout.SOUTH, cartPanel);
 		buyButton.setBorder(null);
 		buyButton.setOpaque(true);
 		buyButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		buyButton.setForeground(Color.WHITE);
-		buyButton = new JButton("Till kassan");
 		buyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		buyButton.setToolTipText("Ta mig till kassan");
 		sl_cartPanel.putConstraint(SpringLayout.EAST, buyButton,
@@ -206,7 +205,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 		saveCartButton = new JButton("Spara");
 		saveCartButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
-		//sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
 		saveCartButton.setBorder(null);
 		saveCartButton.setOpaque(true);
 		saveCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
