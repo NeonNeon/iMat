@@ -32,8 +32,9 @@ public class SearchResultsView extends JPanel {
 	JPanel resultPanel = new JPanel();
 	private double height;
 	private Color background = new Color(245,245,245);
+	private static final Model model = Model.getInstance();
 	
-	private Color borderColor = new Color(255, 105, 64);
+//	private Color borderColor = new Color(255, 105, 64);
 	
 	/**
 	 * Create the panel.
@@ -91,8 +92,12 @@ public class SearchResultsView extends JPanel {
 		add(resultScrollPane);
 		// Jag ändrade lite här, komponenterna måste ligga i en panel
 		// och den panelen ges i konstrukorn till JScrollPanen
+//		for(int i = 0; i < productList.size(); i++){
+//			if(model.isFavorite(productList.get(i)))
+//				resultPanel.add(new ProductView(productList.get(i)));
+//		}
 		for(int i = 0; i < productList.size(); i++){
-			resultPanel.add(new ProductView(productList.get(i)));
+				resultPanel.add(new ProductView(productList.get(i)));
 		}
 		resultPanel.validate();
 		

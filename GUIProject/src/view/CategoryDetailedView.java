@@ -67,14 +67,25 @@ public class CategoryDetailedView extends JPanel {
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
+		addFavorites();
 		addProducts();
 		
 	}
 	
 	public void addProducts(){
 		for(int i = 0; i<pl.size(); i++){
-			productPanel.add(new ProductView(pl.get(i)));
+			if(!(model.isFavorite(pl.get(i))))
+				productPanel.add(new ProductView(pl.get(i)));
 			
+		}
+		
+		
+		}
+	public void addFavorites(){
+		for(int i = 0; i<pl.size();i++){
+			if(model.isFavorite(pl.get(i))){
+				productPanel.add(new ProductView(pl.get(i)));
+			}
 		}
 	}
 }

@@ -26,12 +26,7 @@ import controller.FrameController;
  */
 
 public class SortimentView extends JPanel {
-	private final static Model model = Model
-			.getInstance();
-	private final static List<Product> pl = model.getProducts();
-	private File bildmapp = new File("lib/Bildmapp");
-	private File []bildfiler = bildmapp.listFiles();
-	private static ImageIcon[]bilder;
+	
 	private ImageIcon gronsaker = new ImageIcon("lib/Bildmapp/product_66.jpg");
 	private ImageIcon frukt = new ImageIcon("lib/Bildmapp/product_89.jpg");
 	private ImageIcon baljvaxter = new ImageIcon("lib/Bildmapp/product_1.jpg");
