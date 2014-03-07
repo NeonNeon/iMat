@@ -136,8 +136,8 @@ public class ProductView extends JPanel {
 		add(addToListButton);
 		
 		addToCartButton = new JButton(cartIcon);
-		addToCartButton.setToolTipText("L\u00E4gg till i varukorg");
-		addToCartButton.setBounds(144, 218, 44, 43);
+		addToCartButton.setToolTipText("Lägg till i kundvagn");
+		addToCartButton.setBounds(152, 220, 36, 40);
 		addToCartButton.setBackground(null);
 		addToCartButton.setBorder(null);
 		addToCartButton.setOpaque(true);

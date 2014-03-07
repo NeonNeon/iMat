@@ -86,7 +86,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 			} else if (evt.getActionCommand().equals("empty")) {
 				if (!model.getShoppingCart().getItems().isEmpty()) {
 					int reply = JOptionPane.showConfirmDialog(null,
-							"Vill du verkligen tömma din varukorg?", "Varning",
+							"Vill du verkligen tömma din kundvagnen?", "Varning",
 							JOptionPane.YES_NO_OPTION);
 					if (reply == JOptionPane.YES_OPTION) {
 						emptyCart();
@@ -128,8 +128,6 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		SpringLayout sl_namePanel = new SpringLayout();
 		namePanel.setLayout(sl_namePanel);
 		namePanel.setBackground(Constants.CONTRASTCOLOR.getColor());
-//		namePanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-//		namePanel.addActionListener(myActionListener);
 		namePanel.setActionCommand("profile");
 		add(namePanel);
 
@@ -175,7 +173,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		// LineBorder(Constants.TEXTCOLORLIGHT.getColor()));
 		add(cartPanel);
 
-		JLabel varukorgLabel = new JLabel("Varukorg");
+		JLabel varukorgLabel = new JLabel("Kundvagn");
 		varukorgLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		varukorgLabel.setSize(WIDTH, NAME_PANEL_HEIGHT);
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, varukorgLabel, 0,
@@ -187,16 +185,16 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		varukorgLabel.setFont(new Font("Dialog", Font.BOLD, 22));
 		cartPanel.add(varukorgLabel);
 
-		buyButton = new JButton("Betala");
+
 		buyButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, buyButton, -9, SpringLayout.SOUTH, cartPanel);
 		buyButton.setBorder(null);
 		buyButton.setOpaque(true);
 		buyButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		buyButton.setForeground(Color.WHITE);
-		buyButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		buyButton.setToolTipText("Betala varukorgen");
-		buyButton.setFont(new Font("Dialog", Font.BOLD, 18));
+		buyButton = new JButton("Till kassan");
+		buyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		buyButton.setToolTipText("Ta mig till kassan");
 		sl_cartPanel.putConstraint(SpringLayout.EAST, buyButton,
 				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST,
 				varukorgLabel);
@@ -208,13 +206,14 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 		saveCartButton = new JButton("Spara");
 		saveCartButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
-		sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
+		//sl_cartPanel.putConstraint(SpringLayout.NORTH, buyButton, 6, SpringLayout.SOUTH, saveCartButton);
 		saveCartButton.setBorder(null);
 		saveCartButton.setOpaque(true);
 		saveCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		saveCartButton.setForeground(Color.WHITE);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, saveCartButton, -55, SpringLayout.SOUTH, cartPanel);
-		saveCartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		saveCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
 		saveCartButton.setToolTipText("Spara som lista");
 		sl_cartPanel.putConstraint(SpringLayout.WEST, saveCartButton,
 				COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.WEST, cartPanel);
@@ -234,8 +233,17 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		emptyCartButton.setBackground(Constants.CONTRASTCOLOR.getColor());
 		emptyCartButton.setForeground(Color.WHITE);
 		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton, -6, SpringLayout.NORTH, buyButton);
-		emptyCartButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		emptyCartButton.setToolTipText("Töm varukorgen");
+		emptyCartButton.setToolTipText("Tšm varukorgen");
+
+		emptyCartButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton,
+				COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.EAST,
+				saveCartButton);
+		sl_cartPanel.putConstraint(SpringLayout.SOUTH, emptyCartButton,
+				-COMPONENT_DISTANCE_FROM_PANELS / 2, SpringLayout.NORTH,
+				buyButton);
+		sl_cartPanel.putConstraint(SpringLayout.EAST, emptyCartButton,
+				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST, cartPanel);
 		emptyCartButton.setActionCommand("empty");
 		emptyCartButton.addActionListener(myActionListener);
 		cartPanel.add(emptyCartButton);
