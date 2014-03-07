@@ -62,7 +62,7 @@ public class SearchResultsView extends JPanel {
 	
 	public SearchResultsView(Product p){
 		this();
-		resultLabel.setText("Veckans erbjudnade Ã¤r " + p.getName());
+		resultLabel.setText("Veckans erbjudnade Är " + p.getName());
 		resultPanel.add(new ProductView(p));
 		resultScrollPane = new JScrollPane(resultPanel);
 		resultScrollPane.setBounds(10, 77, 654,541 );
@@ -79,7 +79,7 @@ public class SearchResultsView extends JPanel {
 
 		
 		System.out.println(productList.size() + "produkter");
-		resultLabel.setText("Sï¿½kresultat fï¿½r " + searchWord);
+		resultLabel.setText("Sökresultat för " + searchWord);
 		resultPanel = new JPanel();
 		resultPanel.setBackground(Color.WHITE);
 		resultPanel.setLayout(new GridLayout(0,3));
