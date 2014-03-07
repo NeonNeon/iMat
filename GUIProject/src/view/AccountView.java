@@ -367,16 +367,10 @@ public class AccountView extends JPanel {
 		deliveryTime.setBounds(361, 138, 182, 26);
 		panel_2.add(deliveryTime);
 		
-		/*JButton saveButton = new JButton("Spara");
-		saveButton.setBounds(567, 427, 140, 55);
-		saveButton.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		saveButton.setHorizontalAlignment(SwingConstants.CENTER);
-		saveButton.setOpaque(true);
-		*/
 		
-		saveButton = new JButton("Ändra");
-		saveButton.setToolTipText("Ändra uppgifter");
-		saveButton.setActionCommand("change");
+		saveButton = new JButton("Spara");
+		saveButton.setToolTipText("Spara uppgifter");
+		saveButton.setActionCommand("save");
 		saveButton.setIcon(null);
 		saveButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		saveButton.setBounds(513, 427, 140, 55);
@@ -415,24 +409,24 @@ public class AccountView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getActionCommand().equals("save")){
 				save();
-				saveButton.setText("Ändra");
-				saveButton.setToolTipText("Ändra uppgifter");
-				saveButton.setActionCommand("change");
-				setEditability(false);
+//				saveButton.setText("Ändra");
+//				saveButton.setToolTipText("Ändra uppgifter");
+//				saveButton.setActionCommand("change");
+				//setEditability(false);
 			
 				
 				}
-				else if(arg0.getActionCommand().equals("change")){
-					saveButton.setText("Spara");
-					saveButton.setActionCommand("save");
-					saveButton.setToolTipText("Spara uppgifter");
-					setEditability(true);
-				}
+//				else if(arg0.getActionCommand().equals("change")){
+//					saveButton.setText("Spara");
+//					saveButton.setActionCommand("save");
+//					saveButton.setToolTipText("Spara uppgifter");
+//					//setEditability(true);
+//				}
 			}
 		});
 		
 		add(saveButton);
-		
+		setEditability(true);
 
 	}
 	
