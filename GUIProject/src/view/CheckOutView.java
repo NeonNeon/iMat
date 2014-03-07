@@ -56,7 +56,7 @@ public class CheckOutView extends JDialog {
 	private JComboBox chooseDay, chooseTime,cardType;
 	private CardLayout cardLayout = new CardLayout(0, 0);
 	private DefaultComboBoxModel dayModel = new DefaultComboBoxModel(
-			new String[] {"Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag","Söndag"});
+			new String[] {"MŒndag","Tisdag","Onsdag","Torsdag","Fredag","Lšrdag","Sšndag"});
 	private DefaultComboBoxModel timeModel = new DefaultComboBoxModel(
 			new String[] {"07:00", "08:00", "09:00", "10:00", "11:00", "14:00", "15:00", 
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
@@ -77,7 +77,7 @@ public class CheckOutView extends JDialog {
 					cartController.emptyCart();
 					setModal(false);
 					dispose();
-					JOptionPane.showMessageDialog(null,"Tack för att du handlar på iMat, Ditt köp är nu registrerat. Välkommen åter!", "Bekräftelse av köp", 1);
+					JOptionPane.showMessageDialog(null,"Tack fšr att du handlar pŒ iMat, Ditt kšp Šr nu registrerat. VŠlkommen Œter!", "BekrŠftelse av kšp", 1);
 					//hide();
 					setFocusable(false);
 				} 
@@ -95,7 +95,7 @@ public class CheckOutView extends JDialog {
 					}
 					
 					else if(evt.getActionCommand().equals("save")){
-						changeButton.setText("Ändra");
+						changeButton.setText("€ndra");
 						changeButton.setActionCommand("change");
 						setEditability(false);
 						payButton1.setEnabled(true);
@@ -180,24 +180,36 @@ public class CheckOutView extends JDialog {
 		card2.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel expireDateLabel = new JLabel("Utlöper:");
+		JLabel expireDateLabel = new JLabel("Utlšper:");
 		expireDateLabel.setBounds(17, 120, 56, 16);
 		panel_2.add(expireDateLabel);
 
 		expiresMonth = new JTextField();
-		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidYear()));
+		if(customer == null){
+			expiresMonth.setText("mŒn");
+		}else{
+			expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
+		}
 		expiresMonth.setBounds(85, 114, 39, 27);
 		panel_2.add(expiresMonth);
 		expiresMonth.setEditable(false);
 
 		expiresYear = new JTextField();
-		expiresYear.setText(String.valueOf(model.getCreditCard().getValidMonth()));
+		if(customer == null){
+			expiresMonth.setText("Œr");
+		}else{
+			expiresMonth.setText(String.valueOf(model.getCreditCard().getValidYear()));
+		}
 		expiresYear.setBounds(123, 114, 41, 27);
 		panel_2.add(expiresYear);
 		expiresYear.setEditable(false);
 
 		cardNumberTextField = new JTextField();
-		cardNumberTextField.setText(model.getCreditCard().getCardNumber());
+		if(customer == null){
+			cardNumberTextField.setText("-kortnummer-");
+		}else{
+			cardNumberTextField.setText(model.getCreditCard().getCardNumber());
+		}
 		cardNumberTextField.setBounds(17, 80, 147, 28);
 		panel_2.add(cardNumberTextField);
 		cardNumberTextField.setColumns(10);
@@ -223,7 +235,9 @@ public class CheckOutView extends JDialog {
 		}
 		cardType.setEditable(false);
 
-		JLabel paymentLabel = new JLabel("Betalningssätt");
+		JLabel paymentLabel = new JLabel("BetalningssŠtt");
+		paymentLabel.setFont(Constants.TEXTFONT.getFont());
+		paymentLabel.setForeground(Constants.TEXTCOLOR.getColor());
 		paymentLabel.setBounds(16, 14, 90, 15);
 		panel_2.add(paymentLabel);
 
@@ -239,6 +253,8 @@ public class CheckOutView extends JDialog {
 		panel.setLayout(null);
 
 		JLabel deliveryAddress = new JLabel("Leveransadress");
+		deliveryAddress.setFont(Constants.TEXTFONT.getFont());
+		deliveryAddress.setForeground(Constants.TEXTCOLOR.getColor());
 		deliveryAddress.setBounds(19, 16, 96, 16);
 		panel.add(deliveryAddress);
 		
@@ -254,7 +270,11 @@ public class CheckOutView extends JDialog {
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 89, 28);
 		postCodeTextField.setColumns(10);
-		postCodeTextField.setText(customer.getPostCode());
+		if(customer.getPostCode().equals(null)){
+			postCodeTextField.setText("-Postnummer-");
+		}else{
+			postCodeTextField.setText(customer.getPostCode());
+		}
 		panel.add(postCodeTextField);
 		postCodeTextField.setEditable(false);
 
@@ -262,14 +282,22 @@ public class CheckOutView extends JDialog {
 		cityTextField = new JTextField();
 		cityTextField.setBounds(107, 109, 155, 28);
 		cityTextField.setColumns(10);
-		cityTextField.setText(customer.getPostAddress());
+		if(customer.getPostAddress().equals(null)){
+			cityTextField.setText("-Postort-");
+		}else{
+			cityTextField.setText(customer.getPostAddress());
+		}
 		panel.add(cityTextField);
 		cityTextField.setEditable(false);
 
 		addressTextField = new JTextField();
 		addressTextField.setBounds(16, 79, 248, 28);
 		addressTextField.setColumns(10);
-		addressTextField.setText(customer.getAddress());
+		if(customer.getAddress().equals(null)){
+			addressTextField.setText("-Adress-");
+		}else{
+			addressTextField.setText(customer.getAddress());
+		}
 		panel.add(addressTextField);
 		addressTextField.setEditable(false);
 
@@ -292,10 +320,12 @@ public class CheckOutView extends JDialog {
 		chooseTime.setEnabled(false);
 
 		JLabel deliveryDay = new JLabel("Leveransdag");
+		deliveryDay.setFont(Constants.TEXTFONT.getFont());
+		deliveryDay.setForeground(Constants.TEXTCOLOR.getColor());
 		deliveryDay.setBounds(16, 16, 120, 15);
 		panel_1.add(deliveryDay);
 		
-		changeButton = new JButton("Ändra");
+		changeButton = new JButton("€ndra");
 		changeButton.setFont(Constants.HEADERFONT.getFont());
 		changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		changeButton.setForeground(Color.WHITE);
