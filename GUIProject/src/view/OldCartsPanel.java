@@ -48,11 +48,12 @@ private MouseListener mouseListener = new MouseListener(){
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
+		cartDate.setForeground(Constants.HOVERCOLOR.getColor());
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		cartDate.setForeground(Constants.TEXTCOLOR.getColor());
 		
 	}
 
