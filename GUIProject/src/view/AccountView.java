@@ -75,35 +75,70 @@ public class AccountView extends JPanel {
 	 */
 	public AccountView() {
 		final KeyAdapter myKeyListener = new KeyAdapter(){
-				public void keyTyped(KeyEvent e){
+				public void keyReleased(KeyEvent e){
 					if(e.getSource()==cardNbr1){
-						if(cardNbr1.getText().length() >= 4)
-							cardNbr1.setText(cardNbr1.getText().substring(0,3));
+						if(cardNbr1.getText().length() >= 4){
+							try{
+								cardNbr1.setText(cardNbr1.getText().substring(0,4));
+							}catch(IndexOutOfBoundsException ex){
+								
+							}
+							cardNbr2.requestFocus();
 						
+						}
 					}
 					
 					else if(e.getSource()==cardNbr2){
-						if(cardNbr2.getText().length() >= 4)
-							cardNbr2.setText(cardNbr2.getText().substring(0,3));
-					
+						if(cardNbr2.getText().length() >= 4){
+							try{
+								cardNbr2.setText(cardNbr2.getText().substring(0,4));
+							}catch(IndexOutOfBoundsException ex){
+								
+							}
+							
+							cardNbr3.requestFocus();
+						}
 					}
 						
 					else if(e.getSource()==cardNbr3){
-						if(cardNbr3.getText().length() >= 4)
-							cardNbr3.setText(cardNbr3.getText().substring(0,3));
-					}
+						if(cardNbr3.getText().length() >= 4){
+							try{
+								cardNbr3.setText(cardNbr3.getText().substring(0,4));
+							}catch(IndexOutOfBoundsException ex){
+								
+							}
+							cardNbr4.requestFocus();
+						}
+					}	
 					else if(e.getSource()==cardNbr4){
-						if(cardNbr4.getText().length() >= 4)
-							cardNbr4.setText(cardNbr4.getText().substring(0,3));
+						if(cardNbr4.getText().length() >= 4){
+							try{
+								cardNbr4.setText(cardNbr4.getText().substring(0,4));
+							}catch(IndexOutOfBoundsException ex){
+								
+							}
+							cvvCode.requestFocus();
+							
+						}
 					}
 					
 					else if(e.getComponent()==cvvCode){
-						if(cvvCode.getText().length() >=3)
-							cvvCode.setText(cvvCode.getText().substring(0,2));
+						if(cvvCode.getText().length() >=3){
+							try{
+								cvvCode.setText(cvvCode.getText().substring(0,3));
+							}catch(IndexOutOfBoundsException ex){
+								
+							}
+							monthSpinner.requestFocus();
+						}
 					}
 					
 					
+					
 				}
+				
+				
+				
 					
 		};
 		
