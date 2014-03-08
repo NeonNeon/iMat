@@ -68,7 +68,6 @@ public class OldCartItemPanel extends JPanel {
 		springLayout.putConstraint(SpringLayout.WEST, amountLable, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, 0, SpringLayout.SOUTH, nameLabel);
 		springLayout.putConstraint(SpringLayout.EAST, amountLable, -6, SpringLayout.WEST, nameLabel);
-		amountLable.setHorizontalAlignment(SwingConstants.CENTER);
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix(),item.getProduct().getName());
 		setCost();
 		amountLable.setFont(Constants.TEXTFONT.getFont());
