@@ -24,7 +24,7 @@ import controller.FrameController;
 public class CategoryView extends JPanel {
 	private String name;
 	private ImageIcon icon;
-	private Color hoverColor = Constants.HOVERCOLOR.getColor();
+	private Color hoverColor = Constants.CONTRASTCOLOR.getColor();
 	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JLabel categoryLabel;
 	private FrameController frameController;
