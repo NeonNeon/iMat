@@ -88,6 +88,11 @@ public class CheckOutView extends JDialog {
 					else if(evt.getActionCommand().equals("change")){
 						changeButton.setText("Spara");
 						changeButton.setActionCommand("save");
+						changeButton.setFont(Constants.HEADERFONT.getFont());
+						changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
+						changeButton.setForeground(Color.WHITE);
+						changeButton.setBorder(null);
+						changeButton.setOpaque(true);
 						setEditability(true);
 						payButton1.setEnabled(false);
 						
@@ -97,6 +102,11 @@ public class CheckOutView extends JDialog {
 					else if(evt.getActionCommand().equals("save")){
 						changeButton.setText("Ändra");
 						changeButton.setActionCommand("change");
+						changeButton.setFont(Constants.HEADERFONT.getFont());
+						changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
+						changeButton.setForeground(Color.WHITE);
+						changeButton.setBorder(null);
+						changeButton.setOpaque(true);
 						setEditability(false);
 						payButton1.setEnabled(true);
 					}
@@ -162,7 +172,7 @@ public class CheckOutView extends JDialog {
 		headLabel.setBounds(60, 5, 250, 35);
 		card2.add(headLabel);
 
-		JButton abortButton1 = new JButton("Avbryt");
+		/*JButton abortButton1 = new JButton("Avbryt");
 		abortButton1.setForeground(Color.WHITE);
 		abortButton1.setOpaque(true);
 		abortButton1.setBorder(null);
@@ -173,7 +183,7 @@ public class CheckOutView extends JDialog {
 		abortButton1.setActionCommand("abort");
 		abortButton1.addActionListener(myActionListener);
 		card2.add(abortButton1);
-		separator.setBounds(350, 5, 10, 555);
+		separator.setBounds(350, 5, 10, 555);*/
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(16, 307, 322, 167);
@@ -185,27 +195,19 @@ public class CheckOutView extends JDialog {
 		panel_2.add(expireDateLabel);
 
 		expiresMonth = new JTextField();
-		if(customer == null){
-			expiresMonth.setText("mån");
-		}else{
-			expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
-		}
+		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidMonth()));
 		expiresMonth.setBounds(85, 114, 39, 27);
 		panel_2.add(expiresMonth);
 		expiresMonth.setEditable(false);
 
 		expiresYear = new JTextField();
-		if(customer == null){
-			expiresMonth.setText("år");
-		}else{
-			expiresMonth.setText(String.valueOf(model.getCreditCard().getValidYear()));
-		}
+		expiresMonth.setText(String.valueOf(model.getCreditCard().getValidYear()));
 		expiresYear.setBounds(123, 114, 41, 27);
 		panel_2.add(expiresYear);
 		expiresYear.setEditable(false);
 
 		cardNumberTextField = new JTextField();
-		if(customer == null){
+		if(model.getCreditCard().getCardNumber().isEmpty()){
 			cardNumberTextField.setText("-kortnummer-");
 		}else{
 			cardNumberTextField.setText(model.getCreditCard().getCardNumber());
@@ -216,7 +218,11 @@ public class CheckOutView extends JDialog {
 		cardNumberTextField.setEditable(false);
 
 		cvcTextField = new JTextField();
-		cvcTextField.setText(String.valueOf(model.getCreditCard().getVerificationCode()));
+		if ((String.valueOf(model.getCreditCard().getVerificationCode())) == null){
+			cvcTextField.setText("cvc");
+		} else {
+			cvcTextField.setText(String.valueOf(model.getCreditCard().getVerificationCode()));
+		}
 		cvcTextField.setBounds(162, 80, 39, 28);
 		panel_2.add(cvcTextField);
 		cvcTextField.setColumns(10);
@@ -268,9 +274,9 @@ public class CheckOutView extends JDialog {
 		nameTextField.setEditable(false);
 		
 		postCodeTextField = new JTextField();
-		postCodeTextField.setBounds(16, 109, 89, 28);
+		postCodeTextField.setBounds(16, 109, 118, 28);
 		postCodeTextField.setColumns(10);
-		if(customer.getPostCode().equals(null)){
+		if(customer.getPostCode().isEmpty()){
 			postCodeTextField.setText("-Postnummer-");
 		}else{
 			postCodeTextField.setText(customer.getPostCode());
@@ -280,9 +286,9 @@ public class CheckOutView extends JDialog {
 
 
 		cityTextField = new JTextField();
-		cityTextField.setBounds(107, 109, 155, 28);
+		cityTextField.setBounds(134, 109, 130, 28);
 		cityTextField.setColumns(10);
-		if(customer.getPostAddress().equals(null)){
+		if(customer.getPostAddress().isEmpty()){
 			cityTextField.setText("-Postort-");
 		}else{
 			cityTextField.setText(customer.getPostAddress());
@@ -293,7 +299,7 @@ public class CheckOutView extends JDialog {
 		addressTextField = new JTextField();
 		addressTextField.setBounds(16, 79, 248, 28);
 		addressTextField.setColumns(10);
-		if(customer.getAddress().equals(null)){
+		if(customer.getAddress().isEmpty()){
 			addressTextField.setText("-Adress-");
 		}else{
 			addressTextField.setText(customer.getAddress());
@@ -332,7 +338,6 @@ public class CheckOutView extends JDialog {
 		changeButton.setBorder(null);
 		changeButton.setOpaque(true);
 		changeButton.setBounds(192, 488, 146, 55);
-		changeButton.setFont(new Font("Gill Sans", Font.PLAIN, 20));
 		changeButton.setHorizontalAlignment(SwingConstants.CENTER);
 		changeButton.setActionCommand("change");
 		changeButton.addActionListener(myActionListener);

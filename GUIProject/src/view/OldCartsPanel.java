@@ -74,7 +74,7 @@ private MouseListener mouseListener = new MouseListener(){
 	 */
 	public OldCartsPanel(Order newOrder,CartController controller) {
 		addMouseListener(mouseListener);
-		setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		setBackground(Constants.TEXTCOLORLIGHT.getColor());
 		setBorder(new LineBorder(Color.WHITE,3));
 		addMouseListener(mouseListener);
 		cartController = controller;
@@ -84,7 +84,7 @@ private MouseListener mouseListener = new MouseListener(){
 		
 		JPanel panel = new JPanel();
 		panel.addMouseListener(mouseListener);
-		panel.setBackground(Constants.BACKGROUNDCOLOR.getColor());
+		panel.setBackground(Constants.TEXTCOLORLIGHT.getColor());
 		panel.setToolTipText("Fšrhandsvisa kundvagn");
 		panel.setBounds(6, 6, 254, 58);
 		add(panel);
