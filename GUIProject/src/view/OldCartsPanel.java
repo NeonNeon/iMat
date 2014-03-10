@@ -48,7 +48,7 @@ private MouseListener mouseListener = new MouseListener(){
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		cartDate.setForeground(Constants.HOVERCOLOR.getColor());
+		cartDate.setForeground(Constants.CONTRASTCOLOR.getColor());
 	}
 
 	@Override

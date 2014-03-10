@@ -92,7 +92,7 @@ public class ErbjudandePanel extends JPanel {
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setFont(nameFont);
 		nameLabel.setBounds(7, 156, 201, 33);
-		nameLabel.setForeground(Constants.TEXTCOLORLIGHT.getColor());
+		nameLabel.setForeground(Color.WHITE);
 		nameLabel.setFont(Constants.CATEGORYCLICKEDFONT.getFont());
 		nameLabel.addMouseListener(mouseListener);
 		add(nameLabel);
