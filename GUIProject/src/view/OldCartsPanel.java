@@ -48,12 +48,12 @@ private MouseListener mouseListener = new MouseListener(){
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		cartDate.setForeground(Constants.CONTRASTCOLOR.getColor());
+		cartDate.setForeground(Constants.TEXTCOLOR.getColor());
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		cartDate.setForeground(Constants.TEXTCOLOR.getColor());
+		cartDate.setForeground(Color.WHITE);
 		
 	}
 
@@ -92,6 +92,7 @@ private MouseListener mouseListener = new MouseListener(){
 		panel.setLayout(null);
 		
 		cartDate = new JLabel("New label");
+		cartDate.setForeground(Color.WHITE);
 		cartDate.setBounds(-36, 23, 332, 20);
 		cartDate.setHorizontalTextPosition(SwingConstants.CENTER);
 		cartDate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

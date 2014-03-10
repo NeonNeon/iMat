@@ -170,12 +170,12 @@ public class CheckOutView extends JDialog {
 		headLabel.setBounds(60, 5, 250, 35);
 		card2.add(headLabel);
 
-		/*JButton abortButton1 = new JButton("Avbryt");
-=======
 		JButton abortButton1 = new JButton("Avbryt");
+
+	
 		abortButton1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		abortButton1.setToolTipText("Avbryt köp");
->>>>>>> ee1558ed59f812290b5cc12290f576f62fee8368
+
 		abortButton1.setForeground(Color.WHITE);
 		abortButton1.setOpaque(true);
 		abortButton1.setBorder(null);
@@ -186,7 +186,7 @@ public class CheckOutView extends JDialog {
 		abortButton1.setActionCommand("abort");
 		abortButton1.addActionListener(myActionListener);
 		card2.add(abortButton1);
-		separator.setBounds(350, 5, 10, 555);*/
+		separator.setBounds(350, 5, 10, 555);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(16, 307, 322, 167);

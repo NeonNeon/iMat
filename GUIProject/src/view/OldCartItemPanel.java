@@ -57,13 +57,17 @@ public class OldCartItemPanel extends JPanel {
 		setMaximumSize(new Dimension(300, 50));
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
+		
 		nameLabel = new JLabel();
+		nameLabel.setForeground(Color.WHITE);
 		springLayout.putConstraint(SpringLayout.NORTH, nameLabel, 0, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, nameLabel, 204, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, nameLabel, -1, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, nameLabel, -10, SpringLayout.EAST, this);
 		nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		amountLable = new JLabel();
+		amountLable.setForeground(Color.WHITE);
+		
 		springLayout.putConstraint(SpringLayout.NORTH, amountLable, -48, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, amountLable, 0, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, amountLable, 0, SpringLayout.SOUTH, nameLabel);
