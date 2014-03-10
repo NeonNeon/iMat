@@ -1,6 +1,7 @@
 package view;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -62,12 +63,12 @@ public class CheckOutView extends JDialog {
 					"16:00", "17:00", "18:00", "19:00", "20:00"});
 
 
-	
+
 	/**
 	 * Create the frame.
 	 */
 	public CheckOutView(List<ShoppingItem> items,CartController controller) {
-	
+
 		ActionListener myActionListener = new ActionListener(){
 
 			@Override
@@ -80,42 +81,37 @@ public class CheckOutView extends JDialog {
 					JOptionPane.showMessageDialog(null,"Tack fšr att du handlar pŒ iMat, Ditt kšp Šr nu registrerat. VŠlkommen Œter!", "BekrŠftelse av kšp", 1);
 					//hide();
 					setFocusable(false);
-				} 
-					else if(evt.getActionCommand().equals("abort")){
-						dispose();
-						
-				} 
-					else if(evt.getActionCommand().equals("change")){
-						changeButton.setText("Spara");
-						changeButton.setActionCommand("save");
-						changeButton.setFont(Constants.HEADERFONT.getFont());
-						changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
-						changeButton.setForeground(Color.WHITE);
-						changeButton.setBorder(null);
-						changeButton.setOpaque(true);
-						setEditability(true);
-						payButton1.setEnabled(false);
-						
-						
-					}
-					
-					else if(evt.getActionCommand().equals("save")){
-						changeButton.setText("€ndra");
-						changeButton.setActionCommand("change");
-						changeButton.setFont(Constants.HEADERFONT.getFont());
-						changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
-						changeButton.setForeground(Color.WHITE);
-						changeButton.setBorder(null);
-						changeButton.setOpaque(true);
-						setEditability(false);
-						payButton1.setEnabled(true);
-					}
+				} else if(evt.getActionCommand().equals("abort")){
+					dispose();	
+				} else if(evt.getActionCommand().equals("change")){
+					changeButton.setText("Spara");
+					changeButton.setActionCommand("save");
+					changeButton.setFont(Constants.HEADERFONT.getFont());
+					changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
+					changeButton.setForeground(Color.WHITE);
+					changeButton.setBorder(null);
+					changeButton.setOpaque(true);
+					changeButton.setToolTipText("Spara uppgifter");
+					setEditability(true);
+					payButton1.setEnabled(false);
+				} else if(evt.getActionCommand().equals("save")){
+					changeButton.setText("€ndra");
+					changeButton.setActionCommand("change");
+					changeButton.setFont(Constants.HEADERFONT.getFont());
+					changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
+					changeButton.setForeground(Color.WHITE);
+					changeButton.setBorder(null);
+					changeButton.setOpaque(true);
+					changeButton.setToolTipText("Ändra uppgifter");
+					setEditability(false);
+					payButton1.setEnabled(true);
+				}
 			}
 		};
 		setModalityType(ModalityType.TOOLKIT_MODAL);
 		//setModal(true);
-		
-		
+
+
 		customer = model.getCustomer();
 		cartController = controller;
 		CheckOutView.items = items;
@@ -152,13 +148,15 @@ public class CheckOutView extends JDialog {
 			recieptItemsPanel.add(new OldCartItemPanel(item));
 			totalSum+=item.getTotal();
 		}
-		
+
 		payButton1 = new JButton("Betala " + String.format("%.1f", totalSum) + "kr");
+		payButton1.setToolTipText("Genomför köp");
 		payButton1.setForeground(Color.WHITE);
 		payButton1.setOpaque(true);
 		payButton1.setBorder(null);
 		payButton1.setFont(Constants.HEADERFONT.getFont());
 		payButton1.setBackground(Constants.BUTTONCOLOR.getColor());
+		payButton1.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		payButton1.setHorizontalAlignment(SwingConstants.CENTER);
 		payButton1.setBounds(435, 488, 192, 55);
 		payButton1.setActionCommand("pay");
@@ -173,6 +171,11 @@ public class CheckOutView extends JDialog {
 		card2.add(headLabel);
 
 		/*JButton abortButton1 = new JButton("Avbryt");
+=======
+		JButton abortButton1 = new JButton("Avbryt");
+		abortButton1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		abortButton1.setToolTipText("Avbryt köp");
+>>>>>>> ee1558ed59f812290b5cc12290f576f62fee8368
 		abortButton1.setForeground(Color.WHITE);
 		abortButton1.setOpaque(true);
 		abortButton1.setBorder(null);
@@ -263,7 +266,7 @@ public class CheckOutView extends JDialog {
 		deliveryAddress.setForeground(Constants.TEXTCOLOR.getColor());
 		deliveryAddress.setBounds(19, 16, 96, 16);
 		panel.add(deliveryAddress);
-		
+
 		nameTextField = new JTextField();
 		nameTextField.setBounds(16, 46, 155, 28);
 		nameTextField.setText(customer.getFirstName() + " " + customer.getLastName());
@@ -272,7 +275,7 @@ public class CheckOutView extends JDialog {
 		nameTextField.setColumns(10);
 		panel.add(nameTextField);
 		nameTextField.setEditable(false);
-		
+
 		postCodeTextField = new JTextField();
 		postCodeTextField.setBounds(16, 109, 118, 28);
 		postCodeTextField.setColumns(10);
@@ -330,8 +333,10 @@ public class CheckOutView extends JDialog {
 		deliveryDay.setForeground(Constants.TEXTCOLOR.getColor());
 		deliveryDay.setBounds(16, 16, 120, 15);
 		panel_1.add(deliveryDay);
-		
+
 		changeButton = new JButton("€ndra");
+		changeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		changeButton.setToolTipText("Ändra uppgifter");
 		changeButton.setFont(Constants.HEADERFONT.getFont());
 		changeButton.setBackground(Constants.BUTTONCOLOR.getColor());
 		changeButton.setForeground(Color.WHITE);
@@ -349,7 +354,7 @@ public class CheckOutView extends JDialog {
 
 
 	}
-	
+
 	public void setEditability(boolean b){
 		nameTextField.setEditable(b);
 		addressTextField.setEditable(b);

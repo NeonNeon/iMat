@@ -31,7 +31,7 @@ public class SearchView extends JPanel {
 	private JTextField textField;
 	private Color originalColor = Constants.TEXTCOLOR.getColor();
 	private JTextField searchField;
-	private Color hoverColor = Constants.HOVERCOLOR.getColor();
+	private Color hoverColor = Constants.CONTRASTCOLOR.getColor();
 	private Font categoryFont = Constants.CATEGORYFONT.getFont();
 	private BrowseController browseController;
 	private JLabel tmp;
