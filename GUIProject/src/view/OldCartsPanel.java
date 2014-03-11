@@ -86,7 +86,7 @@ private MouseListener mouseListener = new MouseListener(){
 		JPanel panel = new JPanel();
 		panel.addMouseListener(mouseListener);
 		panel.setBackground(Constants.TEXTCOLORLIGHT.getColor());
-		panel.setToolTipText("Fšrhandsvisa kundvagn");
+		panel.setToolTipText("Förhandsvisa kundvagn");
 		panel.setBounds(6, 6, 254, 58);
 		add(panel);
 		panel.setLayout(null);
@@ -109,7 +109,7 @@ private MouseListener mouseListener = new MouseListener(){
 		cartDate.addMouseListener(mouseListener);
 		
 		JButton addToCartBtn = new JButton(cartIcon);
-		addToCartBtn.setToolTipText("LŠgg till i varukorg");
+		addToCartBtn.setToolTipText("Lägg till i kundvagn");
 		addToCartBtn.setBounds(260, 13, 42, 42);
 		addToCartBtn.setBackground(null);
 		addToCartBtn.setBorder(null);
