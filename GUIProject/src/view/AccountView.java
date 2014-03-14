@@ -437,7 +437,7 @@ public class AccountView extends JPanel {
 		cardNbr4.setText(card.getCardNumber().substring(12,16));
 		}
 		catch(Exception e){
-			System.out.println("FEL");
+			
 		}
 		
 		saveButton.addActionListener(new ActionListener() {
@@ -484,7 +484,7 @@ public class AccountView extends JPanel {
 			card.setVerificationCode(Integer.parseInt(cvvCode.getText()));
 		}
 		catch(NumberFormatException e){
-			System.out.println("Felaktigt");
+			
 		}
 		
 		card.setCardType(paymentComboBox.getSelectedItem().toString());

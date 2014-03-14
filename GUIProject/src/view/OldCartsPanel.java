@@ -117,7 +117,6 @@ private MouseListener mouseListener = new MouseListener(){
 		add(addToCartBtn);
 		addToCartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("add me" + getOrder().getItems().size() + "items");
 				cartController.addOldCart(getOrder());
 				
 			}

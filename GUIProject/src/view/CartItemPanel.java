@@ -149,7 +149,7 @@ public class CartItemPanel extends JPanel {
 						.getUnitSuffix().equals("kg") ? (getShoppingItem()
 						.getAmount() + 0.1)
 						: (getShoppingItem().getAmount() + 1.0);
-				System.out.println("new amount" + newAmount);
+				
 				getShoppingItem().setAmount(newAmount);
 				setAmount(newAmount, getShoppingItem().getProduct()
 						.getUnitSuffix());
@@ -181,7 +181,7 @@ public class CartItemPanel extends JPanel {
 					newAmount = getShoppingItem().getProduct().getUnitSuffix()
 							.equals("kg") ? 0.1 : 1.0;
 				}
-				System.out.println("new amount" + newAmount);
+				
 				getShoppingItem().setAmount(newAmount);
 				setAmount(newAmount, getShoppingItem().getProduct()
 						.getUnitSuffix());
@@ -212,17 +212,16 @@ public class CartItemPanel extends JPanel {
 	}
 
 	public void update() {
-		System.out.println("CartItemPanel.update() :");
+		
 		setAmount(item.getAmount(), item.getProduct().getUnitSuffix());
 		setName(item.getProduct().getName());
-		System.out.println("CartItemPanel new amount : " + item.getAmount());
+		
 		// repaint();
 
 	}
 
 	public void setAmount(double d, String unitSuffix) {
 		amountLable.setText("" + String.format("%.1f", d) + unitSuffix);
-		// Hax från
 		// http://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
 	}
 

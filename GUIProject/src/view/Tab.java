@@ -29,19 +29,19 @@ public class Tab extends JPanel {
 	MouseAdapter mouseAdapter = new MouseAdapter() {
 		public void mouseClicked(MouseEvent evt) {
 			if(nameOfTab.equals("Sortiment") || name.equals("Sortiment")) {
-				System.out.println("klicka på label sortiment");
+			
 				frameController.showSortiment();
 			} else if(nameOfTab.equals("Recept") || name.equals("Recept")) {
-				System.out.println("klicka på label sortiment");
+				
 				frameController.showRecept();
 			} else if(nameOfTab.equals("Profil") || name.equals("Profil")) {
-				System.out.println("klicka på label sortiment");
+			
 				frameController.showProfil();
 			} else if(nameOfTab.equals("Historik") || name.equals("Historik")) {
-				System.out.println("klicka på label sortiment");
+			
 				frameController.showHistorik();
 			} else if(nameOfTab.equals("Listor") || name.equals("Listor")) {
-				System.out.println("klicka på label sortiment");
+				
 				frameController.showListor();
 			}  
 		}

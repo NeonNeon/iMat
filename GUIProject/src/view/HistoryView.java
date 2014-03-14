@@ -76,7 +76,7 @@ private double height;
 		for(Order newOrder: model.getOrders()) {
 			addOrder(newOrder);
 		}
-		System.out.println("antal ordrar " + orderList.size());
+		
 		oldItemsPanel = new JPanel();
 		oldItemsPanel.setBackground(Color.WHITE);
 		oldItemsPanel.setPreferredSize(new Dimension(230, 800)); //TODO fixa ordentliga siffor

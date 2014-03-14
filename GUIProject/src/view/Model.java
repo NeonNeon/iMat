@@ -58,7 +58,7 @@ public class Model {
 		return instance;
 	}
 	public void addToCart(ShoppingItem item) {
-		System.out.println("addToCart");
+		
 		boolean notInCart = true;
 		ShoppingCart cart = getShoppingCart();
 		ShoppingItem newItem = item;
@@ -68,7 +68,7 @@ public class Model {
 		for(ShoppingItem i : listOfItems) {
 			if(i.getProduct().getName().equals(newItem.getProduct().getName())) {
 				double newAmount = i.getAmount() + newItem.getAmount();
-				System.out.println("new amount:" + newAmount);
+				
 				i.setAmount(newAmount);
 				notInCart = false;
 				cart.fireShoppingCartChanged(null, false);
@@ -76,9 +76,9 @@ public class Model {
 		}
 		if(notInCart) {
 			cart.addItem(item);
-			System.out.println("lagt till " + item.getProduct().getName() + "i varukorgen");
+			
 		}
-		System.out.println("antal items nu i korgen: " + cart.getItems().size());
+		
 		
 	}
 	/**

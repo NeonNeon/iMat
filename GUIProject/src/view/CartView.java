@@ -280,13 +280,12 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		sl_cartPanel.putConstraint(SpringLayout.EAST, scrollCartPane,
 				-COMPONENT_DISTANCE_FROM_PANELS, SpringLayout.EAST,
 				varukorgLabel);
-		System.out.println("height" + scrollCartPane.getSize().height
-				+ "width " + scrollCartPane.getSize().width);
+		
 		// scrollCartPane.getViewport().setViewSize(new
 		// Dimension(WIDTH-2*COMPONENT_DISTANCE_FROM_PANELS, 500));
 		cartPanel.add(scrollCartPane);
 		currentItems = model.getShoppingCart().getItems();
-		System.out.println("antal items i korgen " + currentItems.size());
+		
 		for (ShoppingItem currentItem : currentItems) {
 			addShoppingItem(currentItem);
 		}
@@ -312,14 +311,13 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		CartItemPanel newItemPanel = new CartItemPanel(item, cartController);
 		newItemPanel.setBackground(Color.WHITE);
 		itemPanels.add(newItemPanel);
-		System.out.println(itemPanels.size());
+		
 		cartPanelWithItems.add(newItemPanel);
 		// newItemPanel.revalidate();
 		cartPanelWithItems.setPreferredSize(new Dimension(WIDTH - 2
 				* COMPONENT_DISTANCE_FROM_PANELS, itemPanels.size()
 				* CartItemPanel.HEIGHT));
-		System.out.println("pane: " + cartPanelWithItems.getSize().height);
-		System.out.println("itemPanel:" + newItemPanel.getSize().height);
+	
 		cartPanelWithItems.revalidate();
 		// adds the shoppingItem to the list of shoppingitems
 		// creates a shoppingitemview instance
@@ -343,7 +341,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 	@Override
 	public void shoppingCartChanged(CartEvent arg0) {
-		System.out.println("cartEVENT");
+		
 		if (arg0.isAddEvent()) {
 			addShoppingItem(arg0.getShoppingItem());
 		}
@@ -353,7 +351,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 	public void update() {
 		for (CartItemPanel itemPanel : itemPanels) {
 			itemPanel.update();
-			System.out.println("CartView.update() : ");
+			
 		}
 		cartPanelWithItems.repaint();
 		setTotalSum();
@@ -362,7 +360,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 
 	@Override
 	public void propertyChange(PropertyChangeEvent arg0) {
-		System.out.println("I hear ya");
+		
 		if (arg0.getPropertyName().equals("remove")) {
 			CartItemPanel removeThisPanel = (CartItemPanel) arg0.getNewValue();
 			Model.getInstance().getShoppingCart()
@@ -376,7 +374,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		} else if (arg0.getPropertyName().equals("oldcart")) {
 			Order oldOrder = (Order) arg0.getNewValue();
 			List<ShoppingItem> orderList = oldOrder.getItems();
-			System.out.println("orderlist size" + orderList.size());
+			
 			for (ShoppingItem item : orderList) {
 				model.addToCart(new ShoppingItem(item.getProduct(), item
 						.getAmount()));
