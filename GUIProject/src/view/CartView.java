@@ -222,7 +222,7 @@ public class CartView extends JPanel implements ShoppingCartListener,
 		saveCartButton.addActionListener(myActionListener);
 		cartPanel.add(saveCartButton);
 
-		emptyCartButton = new JButton("Tšm");
+		emptyCartButton = new JButton("Töm");
 		emptyCartButton.setFont(new Font("Avenir Next", Font.BOLD, 14));
 		sl_cartPanel.putConstraint(SpringLayout.NORTH, emptyCartButton, 0, SpringLayout.NORTH, saveCartButton);
 		sl_cartPanel.putConstraint(SpringLayout.WEST, emptyCartButton, 5, SpringLayout.EAST, saveCartButton);
